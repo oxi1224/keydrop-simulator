@@ -1,0 +1,143 @@
+@import url('https://p.typekit.net/p.css?s=1&k=dfk0zny&ht=tk&f=37746.37748.37754.37756&a=28743530&app=typekit&e=css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'urbane';
+  src: url('https://use.typekit.net/af/d69d3b/00000000000000007735c098/30/l?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n7&v=3')
+      format('woff2'),
+    url('https://use.typekit.net/af/d69d3b/00000000000000007735c098/30/d?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n7&v=3')
+      format('woff'),
+    url('https://use.typekit.net/af/d69d3b/00000000000000007735c098/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n7&v=3')
+      format('opentype');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'urbane';
+  src: url('https://use.typekit.net/af/6b9548/00000000000000007735c09d/30/l?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n6&v=3')
+      format('woff2'),
+    url('https://use.typekit.net/af/6b9548/00000000000000007735c09d/30/d?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n6&v=3')
+      format('woff'),
+    url('https://use.typekit.net/af/6b9548/00000000000000007735c09d/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n6&v=3')
+      format('opentype');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'urbane';
+  src: url('https://use.typekit.net/af/254f88/00000000000000007735c0a7/30/l?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n3&v=3')
+      format('woff2'),
+    url('https://use.typekit.net/af/254f88/00000000000000007735c0a7/30/d?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n3&v=3')
+      format('woff'),
+    url('https://use.typekit.net/af/254f88/00000000000000007735c0a7/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n3&v=3')
+      format('opentype');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'urbane';
+  src: url('https://use.typekit.net/af/decad5/00000000000000007735c0a9/30/l?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n5&v=3')
+      format('woff2'),
+    url('https://use.typekit.net/af/decad5/00000000000000007735c0a9/30/d?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n5&v=3')
+      format('woff'),
+    url('https://use.typekit.net/af/decad5/00000000000000007735c0a9/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n5&v=3')
+      format('opentype');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+* {
+  font-family: Urbane, sans-serif;
+}
+
+body {
+  background-color: rgb(31, 30, 39);
+}
+
+::selection {
+  background-color: rgba(220, 174, 100, 0.99);
+  -webkit-text-fill-color: #111114;
+  color: #111114;
+}
+
+.navbar-left::after {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  right: -120px;
+  z-index: -1;
+  background-color: #23232d;
+  -webkit-clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 100%, 0 100%);
+}
+
+.nav-hamburger {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  margin-top: -1px;
+}
+
+.nav-hamburger::after,
+.nav-hamburger::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  color: inherit;
+  background-color: currentColor;
+  transition: box-shadow 0.3s 0.3s, transform 0.3s;
+}
+
+.nav-hamburger::before {
+  box-shadow: 0 -7px 0 currentColor, 0 7px 0 currentColor;
+}
+
+.is-open .nav-hamburger::after {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.is-open .nav-hamburger::after,
+.is-open .nav-hamburger::before {
+  transition: box-shadow 0.3s, transform 0.3s 0.3s;
+}
+
+.is-open .nav-hamburger::before {
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.mobile-nav.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mobile-nav {
+  background-color: rgba(8, 10, 13, 0.9);
+  visibility: hidden;
+  opacity: 0;
+  transition-property: visibility, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.28, 0.67, 0.04, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
