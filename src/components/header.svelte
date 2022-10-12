@@ -23,7 +23,7 @@
           style="enable-background:new 0 0 270.9 67.5;"
           xml:space="preserve"
         >
-          <style type="text/css">
+          <style>
             .st0 {
               fill: #ffffff;
             }
@@ -106,7 +106,7 @@
         <button
           class="flex items-center justify-center font-light transition-colors duration-200 text-2xs text-navy-100 hover:text-white"
         >
-          <img src="/pl.svg" class="flex-shrink-0 w-4 h-4 mr-3 sm:mr-2 md:w-5 md:h-5" alt="pl" />
+          <img src="/icons/pl.svg" class="flex-shrink-0 w-4 h-4 mr-3 sm:mr-2 md:w-5 md:h-5" alt="pl" />
           <span class="font-light whitespace-nowrap md:text-3xs"
             >Polish (Polski) <span class="font-bold">| PLN</span></span
           >
@@ -145,7 +145,7 @@
           <div class="flex items-center">
             <div>
               <span class="flex flex-row text-navy-200 text-2xs items-center font-bold">
-                <img src="/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
+                <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
                 PORTFEL:
               </span>
               <span class="text-gold font-semibold text-sm md:text-xs">69,69 PLN</span>
@@ -172,7 +172,7 @@
           <div class="flex flex-col justify-evenly">
             <span class="font-semibold text-sm text-navy-200 h-min">USER</span>
             <div class="flex flex-row items-center">
-              <img src="/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
+              <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
               <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">6969</span>
             </div>
           </div>
@@ -192,7 +192,7 @@
               on:click={toggleDropdown}
             >
               <svg class="mt-px text-white" style="width: 10px; height: 10px">
-                <use xlink:href="/icons.svg#arrow-down" />
+                <use xlink:href="/icons/icons.svg#arrow-down" />
               </svg>
             </div>
           </button>
@@ -245,7 +245,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#person" />
+                    <use xlink:href="/icons/nav-icons.svg#person" />
                   </svg>
                   Moje konto
                 </a>
@@ -259,7 +259,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#card" />
+                    <use xlink:href="/icons/nav-icons.svg#card" />
                   </svg>
                   DOŁADUJ KONTO
                 </a>
@@ -271,7 +271,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#barcode" />
+                    <use xlink:href="/icons/nav-icons.svg#barcode" />
                   </svg>
                   Kod promocyjny
                 </a>
@@ -284,7 +284,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#lightning" />
+                    <use xlink:href="/icons/nav-icons.svg#lightning" />
                   </svg>
                   Skin Changer
                 </a>
@@ -297,7 +297,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#contracts" />
+                    <use xlink:href="/icons/nav-icons.svg#contracts" />
                   </svg>
                   Kontrakty
                 </a>
@@ -310,7 +310,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#wallet" />
+                    <use xlink:href="/icons/nav-icons.svg#wallet" />
                   </svg>
                   Program partnerski
                 </a>
@@ -323,7 +323,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#buoy" />
+                    <use xlink:href="/icons/nav-icons.svg#buoy" />
                   </svg>
                   Pomoc
                   <div
@@ -343,7 +343,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#shield" />
+                    <use xlink:href="/icons/nav-icons.svg#shield" />
                   </svg>
                   Provably Fair
                 </a>
@@ -356,7 +356,7 @@
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/nav-icons.svg#logout" />
+                    <use xlink:href="/icons/nav-icons.svg#logout" />
                   </svg>
                   Wyloguj się
                 </a>
@@ -380,7 +380,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#person" />
+              <use xlink:href="/icons/nav-icons.svg#person" />
             </svg>
             Moje konto
           </a>
@@ -394,7 +394,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#card" />
+              <use xlink:href="/icons/nav-icons.svg#card" />
             </svg>
             DOŁADUJ KONTO
           </a>
@@ -405,7 +405,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white open-promo-code-modal"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#barcode" />
+              <use xlink:href="/icons/nav-icons.svg#barcode" />
             </svg>
             Kod promocyjny
           </button>
@@ -418,7 +418,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#lightning" />
+              <use xlink:href="/icons/nav-icons.svg#lightning" />
             </svg>
             Skin Changer
           </a>
@@ -461,7 +461,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#wallet" />
+              <use xlink:href="/icons/nav-icons.svg#wallet" />
             </svg>
             Program partnerski
           </a>
@@ -474,7 +474,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#buoy" />
+              <use xlink:href="/icons/nav-icons.svg#buoy" />
             </svg>
             Pomoc
             <div
@@ -494,7 +494,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#shield" />
+              <use xlink:href="/icons/nav-icons.svg#shield" />
             </svg>
             Provably Fair
           </a>
@@ -507,7 +507,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#box" />
+              <use xlink:href="/icons/nav-icons.svg#box" />
             </svg>
             Codzienna skrzynia
           </a>
@@ -520,7 +520,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#donut-chart" />
+              <use xlink:href="/icons/nav-icons.svg#donut-chart" />
             </svg>
             UPGRADER
           </a>
@@ -533,7 +533,7 @@
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/nav-icons.svg#logout" />
+              <use xlink:href="/icons/nav-icons.svg#logout" />
             </svg>
             Wyloguj się
           </a>
@@ -561,7 +561,7 @@
         </div>
       </div>
       <div class="flex flex-row items-center ml-auto">
-        <img src="/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
+        <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
         <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">6969</span>
       </div>
     </div>
@@ -571,7 +571,7 @@
           class="border-gold bg-gold-900 border p-2 text-white rounded-md hover:bg-gold-850 transition-colors duration-200 flex flex-row items-center w-full justify-center text-2xs"
         >
           <svg class="flex-shrink-0 w-6 h-6 mr-3">
-            <use xlink:href="/nav-icons.svg#card" />
+            <use xlink:href="/icons/nav-icons.svg#card" />
           </svg>
           DOŁADUJ KONTO
         </button>
@@ -589,7 +589,7 @@
             class="flex items-center h-full px-2.5 font-semibold leading-none text-white uppercase transition-opacity duration-100 text-10px py-7 lg:px-3  whitespace-nowrap opacity-90 hover:opacity-100"
           >
             <svg class="w-5 h-5 mr-2">
-              <use xlink:href="/nav-icons.svg#shield" />
+              <use xlink:href="/icons/nav-icons.svg#shield" />
             </svg>
             <span class="inline-block mt-0.5">Provably Fair</span>
           </a>
@@ -600,7 +600,7 @@
             class="flex items-center h-full px-2.5 font-semibold leading-none text-white uppercase transition-opacity duration-100 text-10px py-7 lg:px-3  whitespace-nowrap opacity-90 hover:opacity-100 open-promo-code-modal"
           >
             <svg class="w-5 h-5 mr-2">
-              <use xlink:href="/nav-icons.svg#barcode" />
+              <use xlink:href="/icons/nav-icons.svg#barcode" />
             </svg>
             <span class="inline-block mt-0.5">Kod promocyjny</span>
           </button>
@@ -613,7 +613,7 @@
             class="flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-200 text-10px text-gold py-7 lg:px-3  whitespace-nowrap hover:text-white"
           >
             <svg class="w-5 h-5 mr-2">
-              <use xlink:href="/nav-icons.svg#coin-stack" />
+              <use xlink:href="/icons/nav-icons.svg#coin-stack" />
             </svg>
             <span class="inline-block mt-0.5">Darmowe złoto</span>
           </a>
@@ -626,7 +626,7 @@
             class="flex items-center h-full px-2.5 font-semibold leading-none text-white uppercase transition-opacity duration-100 text-10px py-7 lg:px-3  opacity-90 hover:opacity-100 whitespace-nowrap"
           >
             <svg class="w-5 h-5 mr-2">
-              <use xlink:href="/nav-icons.svg#box" />
+              <use xlink:href="/icons/nav-icons.svg#box" />
             </svg>
             <span class="inline-block mt-0.5">Codzienna skrzynia</span>
           </a>
@@ -658,7 +658,7 @@
             class="relative flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-100 text-gold group text-10px py-7 lg:px-3  whitespace-nowrap hover:text-white"
           >
             <svg class="w-5 h-5 mr-2 fill-current">
-              <use xlink:href="/nav-icons.svg#gift" />
+              <use xlink:href="/icons/nav-icons.svg#gift" />
             </svg>
             <span class="inline-flex items-center mt-0.5 relative">
               <span class="font-bold">GIVEAWAYS</span>
@@ -673,7 +673,7 @@
             class="flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white text-teal-400 whitespace-nowrap"
           >
             <svg class="w-5 h-5 mr-2">
-              <use xlink:href="/nav-icons.svg#contracts" />
+              <use xlink:href="/icons/nav-icons.svg#contracts" />
             </svg>
             <span class="inline-block mt-0.5">CONTRACTS</span>
           </a>
@@ -686,7 +686,7 @@
             class="flex items-center h-full px-2.5 font-semibold leading-none text-blue-400 uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white whitespace-nowrap"
           >
             <svg class="w-5 h-5 mr-2">
-              <use xlink:href="/nav-icons.svg#donut-chart" />
+              <use xlink:href="/icons/nav-icons.svg#donut-chart" />
             </svg>
             <span class="inline-block mt-0.5">UPGRADER</span>
           </a>
@@ -699,7 +699,7 @@
             class="flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white text-violet-500 whitespace-nowrap"
           >
             <svg class="w-5 h-5 mr-1.5">
-              <use xlink:href="/nav-icons.svg#lightning" />
+              <use xlink:href="/icons/nav-icons.svg#lightning" />
             </svg>
             <span class="inline-block mt-0.5">Skin Changer</span>
           </a>

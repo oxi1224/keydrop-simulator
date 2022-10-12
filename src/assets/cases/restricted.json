@@ -1,0 +1,1036 @@
+{
+  "restricted": {
+    "price": 7.52,
+    "drops": [
+      {
+        "skinName": "Fade",
+        "skinWeapon": "Glock-18",
+        "skinPriceRange": "5506,11PLN",
+        "skinDisplayChance": "0,003%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7cadae997973c04583bf16456e8ebfff.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "5506,11PLN",
+            "range": [
+              99998,
+              100000
+            ],
+            "odds": "0,003%"
+          }
+        ]
+      },
+      {
+        "skinName": "Blaze",
+        "skinWeapon": "Desert Eagle",
+        "skinPriceRange": "2152,67PLN",
+        "skinDisplayChance": "0,003%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f1/f184251768aa962a360dde45e308b787.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "2152,67PLN",
+            "range": [
+              99995,
+              99997
+            ],
+            "odds": "0,003%"
+          }
+        ]
+      },
+      {
+        "skinName": "Icarus Fell",
+        "skinWeapon": "M4A1-S",
+        "skinPriceRange": "2024,01PLN",
+        "skinDisplayChance": "0,014%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b3/b316133716229462be37d50de6a6efb0.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "2024,01PLN",
+            "range": [
+              99981,
+              99994
+            ],
+            "odds": "0,014%"
+          }
+        ]
+      },
+      {
+        "skinName": "Hand Cannon",
+        "skinWeapon": "Desert Eagle",
+        "skinPriceRange": "1210,86PLN",
+        "skinDisplayChance": "0,026%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c8/c8a03fbec26b25a91c3c41ba08303dec.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "1210,86PLN",
+            "range": [
+              99955,
+              99980
+            ],
+            "odds": "0,026%"
+          }
+        ]
+      },
+      {
+        "skinName": "Stained Glass",
+        "skinWeapon": "MP9",
+        "skinPriceRange": "320,18PLN",
+        "skinDisplayChance": "0,188%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/33/338071a0f057dc2396a854b9e5c637bd.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "320,18PLN",
+            "range": [
+              99767,
+              99954
+            ],
+            "odds": "0,188%"
+          }
+        ]
+      },
+      {
+        "skinName": "Dark Water",
+        "skinWeapon": "M4A1-S",
+        "skinPriceRange": "277,43PLN",
+        "skinDisplayChance": "0,026%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/10/10cfd569679aab778c9ac22fad249e32.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "277,43PLN",
+            "range": [
+              99741,
+              99766
+            ],
+            "odds": "0,026%"
+          }
+        ]
+      },
+      {
+        "skinName": "Bright Water",
+        "skinWeapon": "M4A1-S",
+        "skinPriceRange": "150,57PLN",
+        "skinDisplayChance": "0,045%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c8/c819d91123ed64fecc31fce21953a6ad.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "150,57PLN",
+            "range": [
+              99696,
+              99740
+            ],
+            "odds": "0,045%"
+          }
+        ]
+      },
+      {
+        "skinName": "Pink DDPAT",
+        "skinWeapon": "AWP",
+        "skinPriceRange": "109,71PLN",
+        "skinDisplayChance": "0,127%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/39/39ab24f8b128c66436ae40ae95df610b.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "109,71PLN",
+            "range": [
+              99569,
+              99695
+            ],
+            "odds": "0,127%"
+          }
+        ]
+      },
+      {
+        "skinName": "Nuclear Threat",
+        "skinWeapon": "Tec-9",
+        "skinPriceRange": "89,28PLN",
+        "skinDisplayChance": "0,103%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/53/5342cd620d09095641b26bee4042f558.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "89,28PLN",
+            "range": [
+              99466,
+              99568
+            ],
+            "odds": "0,103%"
+          }
+        ]
+      },
+      {
+        "skinName": "Directive",
+        "skinWeapon": "Desert Eagle",
+        "skinPriceRange": "1,85PLN - 33,26PLN",
+        "skinDisplayChance": "8,131%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/06/06b7493966a680a2a964193b9a72b691.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "33,26PLN",
+            "range": [
+              99270,
+              99330
+            ],
+            "odds": "0,061%"
+          },
+          {
+            "quality": "MW",
+            "price": "4,86PLN",
+            "range": [
+              52316,
+              53508
+            ],
+            "odds": "1,193%"
+          },
+          {
+            "quality": "FT",
+            "price": "2,03PLN",
+            "range": [
+              10212,
+              12660
+            ],
+            "odds": "2,449%"
+          },
+          {
+            "quality": "BS",
+            "price": "1,85PLN",
+            "range": [
+              2653,
+              5064
+            ],
+            "odds": "2,412%"
+          },
+          {
+            "quality": "WW",
+            "price": "1,85PLN",
+            "range": [
+              5065,
+              7080
+            ],
+            "odds": "2,016%"
+          }
+        ]
+      },
+      {
+        "skinName": "Cerberus",
+        "skinWeapon": "Galil AR",
+        "skinPriceRange": "33,26PLN",
+        "skinDisplayChance": "0,135%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c6/c6c5709e599b18b9c893ec2b6f53cdc0.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "BS",
+            "price": "33,26PLN",
+            "range": [
+              99331,
+              99465
+            ],
+            "odds": "0,135%"
+          }
+        ]
+      },
+      {
+        "skinName": "Atheris",
+        "skinWeapon": "AWP",
+        "skinPriceRange": "10,44PLN - 25,56PLN",
+        "skinDisplayChance": "2,513%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/69/696a881f394ce542a27b0467e125d2b6.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "25,56PLN",
+            "range": [
+              99242,
+              99269
+            ],
+            "odds": "0,028%"
+          },
+          {
+            "quality": "FT",
+            "price": "14,36PLN",
+            "range": [
+              96101,
+              96848
+            ],
+            "odds": "0,748%"
+          },
+          {
+            "quality": "WW",
+            "price": "11,52PLN",
+            "range": [
+              94978,
+              95478
+            ],
+            "odds": "0,501%"
+          },
+          {
+            "quality": "BS",
+            "price": "10,44PLN",
+            "range": [
+              90348,
+              91583
+            ],
+            "odds": "1,236%"
+          }
+        ]
+      },
+      {
+        "skinName": "Pulse",
+        "skinWeapon": "FAMAS",
+        "skinPriceRange": "24,89PLN",
+        "skinDisplayChance": "0,023%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/57/575665cc937788cfe6a0d33604816e57.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "24,89PLN",
+            "range": [
+              99219,
+              99241
+            ],
+            "odds": "0,023%"
+          }
+        ]
+      },
+      {
+        "skinName": "Flashback",
+        "skinWeapon": "M4A1-S",
+        "skinPriceRange": "5,99PLN - 22,23PLN",
+        "skinDisplayChance": "5,912%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1a/1a9f0403b79bdeeda20dc91a212f4c2a.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "22,23PLN",
+            "range": [
+              99116,
+              99218
+            ],
+            "odds": "0,103%"
+          },
+          {
+            "quality": "MW",
+            "price": "9,99PLN",
+            "range": [
+              88827,
+              90096
+            ],
+            "odds": "1,270%"
+          },
+          {
+            "quality": "WW",
+            "price": "6,08PLN",
+            "range": [
+              67085,
+              68967
+            ],
+            "odds": "1,883%"
+          },
+          {
+            "quality": "BS",
+            "price": "6,03PLN",
+            "range": [
+              65754,
+              67084
+            ],
+            "odds": "1,331%"
+          },
+          {
+            "quality": "FT",
+            "price": "5,99PLN",
+            "range": [
+              68968,
+              70292
+            ],
+            "odds": "1,325%"
+          }
+        ]
+      },
+      {
+        "skinName": "Torque",
+        "skinWeapon": "AUG",
+        "skinPriceRange": "21,47PLN",
+        "skinDisplayChance": "0,201%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c3/c3b61dba759a9fedee2ab40bd07ff1b4.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "BS",
+            "price": "21,47PLN",
+            "range": [
+              98915,
+              99115
+            ],
+            "odds": "0,201%"
+          }
+        ]
+      },
+      {
+        "skinName": "Loudmouth",
+        "skinWeapon": "Negev",
+        "skinPriceRange": "2,79PLN - 19,89PLN",
+        "skinDisplayChance": "6,450%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/60/60ef5bdedb3604c8eadaba86bd157488.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "19,89PLN",
+            "range": [
+              98879,
+              98914
+            ],
+            "odds": "0,036%"
+          },
+          {
+            "quality": "BS",
+            "price": "2,79PLN",
+            "range": [
+              29891,
+              32245
+            ],
+            "odds": "2,355%"
+          },
+          {
+            "quality": "FT",
+            "price": "2,79PLN",
+            "range": [
+              32246,
+              34444
+            ],
+            "odds": "2,199%"
+          },
+          {
+            "quality": "WW",
+            "price": "2,79PLN",
+            "range": [
+              34445,
+              36304
+            ],
+            "odds": "1,860%"
+          }
+        ]
+      },
+      {
+        "skinName": "Nuclear Garden",
+        "skinWeapon": "Glock-18",
+        "skinPriceRange": "17,19PLN - 18,77PLN",
+        "skinDisplayChance": "0,756%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ef/ef1d119f837d098e56415164df35042a.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "18,77PLN",
+            "range": [
+              97678,
+              98229
+            ],
+            "odds": "0,552%"
+          },
+          {
+            "quality": "BS",
+            "price": "17,19PLN",
+            "range": [
+              97402,
+              97605
+            ],
+            "odds": "0,204%"
+          }
+        ]
+      },
+      {
+        "skinName": "Styx",
+        "skinWeapon": "FAMAS",
+        "skinPriceRange": "18,68PLN",
+        "skinDisplayChance": "0,649%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/11/111441a5327ccaa3b2d6cdd1f6833a8b.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "18,68PLN",
+            "range": [
+              98230,
+              98878
+            ],
+            "odds": "0,649%"
+          }
+        ]
+      },
+      {
+        "skinName": "Avalanche",
+        "skinWeapon": "Tec-9",
+        "skinPriceRange": "3,60PLN - 18,50PLN",
+        "skinDisplayChance": "6,370%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/63/63777edd22d14c1998fb5a07aa3d3c58.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "18,50PLN",
+            "range": [
+              97677,
+              97677
+            ],
+            "odds": "0,001%"
+          },
+          {
+            "quality": "MW",
+            "price": "10,31PLN",
+            "range": [
+              91584,
+              91834
+            ],
+            "odds": "0,251%"
+          },
+          {
+            "quality": "FT",
+            "price": "5,81PLN",
+            "range": [
+              62305,
+              62858
+            ],
+            "odds": "0,554%"
+          },
+          {
+            "quality": "WW",
+            "price": "4,50PLN",
+            "range": [
+              49454,
+              52315
+            ],
+            "odds": "2,862%"
+          },
+          {
+            "quality": "BS",
+            "price": "3,60PLN",
+            "range": [
+              40951,
+              43652
+            ],
+            "odds": "2,702%"
+          }
+        ]
+      },
+      {
+        "skinName": "Nebula Crusader",
+        "skinWeapon": "M249",
+        "skinPriceRange": "5,00PLN - 17,73PLN",
+        "skinDisplayChance": "3,669%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e7/e7ded1724f185737b793935c4043dfd7.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "17,73PLN",
+            "range": [
+              97606,
+              97676
+            ],
+            "odds": "0,071%"
+          },
+          {
+            "quality": "MW",
+            "price": "10,94PLN",
+            "range": [
+              94845,
+              94977
+            ],
+            "odds": "0,133%"
+          },
+          {
+            "quality": "FT",
+            "price": "7,07PLN",
+            "range": [
+              79841,
+              80633
+            ],
+            "odds": "0,793%"
+          },
+          {
+            "quality": "WW",
+            "price": "6,75PLN",
+            "range": [
+              77343,
+              78439
+            ],
+            "odds": "1,097%"
+          },
+          {
+            "quality": "BS",
+            "price": "5,00PLN",
+            "range": [
+              53509,
+              55083
+            ],
+            "odds": "1,575%"
+          }
+        ]
+      },
+      {
+        "skinName": "Cyrex",
+        "skinWeapon": "USP-S",
+        "skinPriceRange": "6,08PLN - 16,79PLN",
+        "skinDisplayChance": "5,174%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c1/c1ff36aa727478b1c3e70da7c0cfab4d.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "16,79PLN",
+            "range": [
+              97301,
+              97401
+            ],
+            "odds": "0,101%"
+          },
+          {
+            "quality": "MW",
+            "price": "10,58PLN",
+            "range": [
+              91835,
+              94844
+            ],
+            "odds": "3,010%"
+          },
+          {
+            "quality": "WW",
+            "price": "10,17PLN",
+            "range": [
+              90097,
+              90347
+            ],
+            "odds": "0,251%"
+          },
+          {
+            "quality": "FT",
+            "price": "6,26PLN",
+            "range": [
+              70293,
+              70896
+            ],
+            "odds": "0,604%"
+          },
+          {
+            "quality": "BS",
+            "price": "6,08PLN",
+            "range": [
+              71772,
+              72979
+            ],
+            "odds": "1,208%"
+          }
+        ]
+      },
+      {
+        "skinName": "Malachite",
+        "skinWeapon": "MAC-10",
+        "skinPriceRange": "6,84PLN - 15,93PLN",
+        "skinDisplayChance": "8,600%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/97/97d4d8801760b5ff8b5d21d1783aa21c.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "15,93PLN",
+            "range": [
+              97100,
+              97300
+            ],
+            "odds": "0,201%"
+          },
+          {
+            "quality": "MW",
+            "price": "8,91PLN",
+            "range": [
+              86238,
+              87520
+            ],
+            "odds": "1,283%"
+          },
+          {
+            "quality": "FT",
+            "price": "6,89PLN",
+            "range": [
+              72980,
+              76625
+            ],
+            "odds": "3,646%"
+          },
+          {
+            "quality": "BS",
+            "price": "6,84PLN",
+            "range": [
+              81283,
+              84752
+            ],
+            "odds": "3,470%"
+          }
+        ]
+      },
+      {
+        "skinName": "Stone Cold",
+        "skinWeapon": "Galil AR",
+        "skinPriceRange": "5,85PLN - 14,49PLN",
+        "skinDisplayChance": "3,989%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/82/82cc12d18e16c1030e1813282e588d8a.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "14,49PLN",
+            "range": [
+              95580,
+              96100
+            ],
+            "odds": "0,521%"
+          },
+          {
+            "quality": "FT",
+            "price": "7,52PLN",
+            "range": [
+              80634,
+              81282
+            ],
+            "odds": "0,649%"
+          },
+          {
+            "quality": "WW",
+            "price": "6,30PLN",
+            "range": [
+              70897,
+              71771
+            ],
+            "odds": "0,875%"
+          },
+          {
+            "quality": "BS",
+            "price": "5,85PLN",
+            "range": [
+              59292,
+              61235
+            ],
+            "odds": "1,944%"
+          }
+        ]
+      },
+      {
+        "skinName": "Agent",
+        "skinWeapon": "MP5-SD",
+        "skinPriceRange": "3,38PLN - 14,36PLN",
+        "skinDisplayChance": "4,897%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e6/e63294efb3149641ddc84f8779dd2b83.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "14,36PLN",
+            "range": [
+              96849,
+              97099
+            ],
+            "odds": "0,251%"
+          },
+          {
+            "quality": "FT",
+            "price": "3,38PLN",
+            "range": [
+              36305,
+              40950
+            ],
+            "odds": "4,646%"
+          }
+        ]
+      },
+      {
+        "skinName": "Blue Streak",
+        "skinWeapon": "PP-Bizon",
+        "skinPriceRange": "5,54PLN - 12,15PLN",
+        "skinDisplayChance": "3,925%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4b76f37447bee8a55691afad8e658dc8.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "12,15PLN",
+            "range": [
+              95479,
+              95579
+            ],
+            "odds": "0,101%"
+          },
+          {
+            "quality": "FT",
+            "price": "6,89PLN",
+            "range": [
+              78440,
+              79840
+            ],
+            "odds": "1,401%"
+          },
+          {
+            "quality": "BS",
+            "price": "5,54PLN",
+            "range": [
+              56869,
+              59291
+            ],
+            "odds": "2,423%"
+          }
+        ]
+      },
+      {
+        "skinName": "Phobos",
+        "skinWeapon": "AWP",
+        "skinPriceRange": "5,49PLN - 9,09PLN",
+        "skinDisplayChance": "4,329%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48471cbd7fd519b07fc0ddfaa68d1ea2.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "9,09PLN",
+            "range": [
+              87521,
+              88021
+            ],
+            "odds": "0,501%"
+          },
+          {
+            "quality": "MW",
+            "price": "5,94PLN",
+            "range": [
+              62859,
+              64901
+            ],
+            "odds": "2,043%"
+          },
+          {
+            "quality": "FT",
+            "price": "5,49PLN",
+            "range": [
+              55084,
+              56868
+            ],
+            "odds": "1,785%"
+          }
+        ]
+      },
+      {
+        "skinName": "Evil Daimyo",
+        "skinWeapon": "M4A4",
+        "skinPriceRange": "5,58PLN - 9,09PLN",
+        "skinDisplayChance": "1,657%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0b/0bbbc4146117e98538f6a557d3b6034b.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "9,09PLN",
+            "range": [
+              88022,
+              88826
+            ],
+            "odds": "0,805%"
+          },
+          {
+            "quality": "FT",
+            "price": "5,58PLN",
+            "range": [
+              64902,
+              65753
+            ],
+            "odds": "0,852%"
+          }
+        ]
+      },
+      {
+        "skinName": "Bamboozle",
+        "skinWeapon": "Tec-9",
+        "skinPriceRange": "1,80PLN - 8,10PLN",
+        "skinDisplayChance": "11,069%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d6/d6a220268de41c37b30f511c647309af.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "8,10PLN",
+            "range": [
+              84753,
+              86237
+            ],
+            "odds": "1,485%"
+          },
+          {
+            "quality": "MW",
+            "price": "3,83PLN",
+            "range": [
+              47443,
+              49453
+            ],
+            "odds": "2,011%"
+          },
+          {
+            "quality": "WW",
+            "price": "2,66PLN",
+            "range": [
+              28101,
+              29890
+            ],
+            "odds": "1,790%"
+          },
+          {
+            "quality": "FT",
+            "price": "2,03PLN",
+            "range": [
+              7081,
+              10211
+            ],
+            "odds": "3,131%"
+          },
+          {
+            "quality": "BS",
+            "price": "1,80PLN",
+            "range": [
+              1,
+              2652
+            ],
+            "odds": "2,652%"
+          }
+        ]
+      },
+      {
+        "skinName": "Osiris",
+        "skinWeapon": "PP-Bizon",
+        "skinPriceRange": "2,43PLN - 6,30PLN",
+        "skinDisplayChance": "10,294%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3e61b5342d71d5679d4325d5b77675b7.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "6,30PLN",
+            "range": [
+              76626,
+              77342
+            ],
+            "odds": "0,717%"
+          },
+          {
+            "quality": "MW",
+            "price": "3,87PLN",
+            "range": [
+              45943,
+              47442
+            ],
+            "odds": "1,500%"
+          },
+          {
+            "quality": "BS",
+            "price": "2,52PLN",
+            "range": [
+              20866,
+              23646
+            ],
+            "odds": "2,781%"
+          },
+          {
+            "quality": "WW",
+            "price": "2,52PLN",
+            "range": [
+              23647,
+              25920
+            ],
+            "odds": "2,274%"
+          },
+          {
+            "quality": "FT",
+            "price": "2,43PLN",
+            "range": [
+              17844,
+              20865
+            ],
+            "odds": "3,022%"
+          }
+        ]
+      },
+      {
+        "skinName": "Goo",
+        "skinWeapon": "MP9",
+        "skinPriceRange": "2,30PLN - 5,90PLN",
+        "skinDisplayChance": "10,722%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d3/d356a5ec5101c7bbc781f5b30b84a019.png",
+        "skinRarity": "violet",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "5,90PLN",
+            "range": [
+              61236,
+              62304
+            ],
+            "odds": "1,069%"
+          },
+          {
+            "quality": "MW",
+            "price": "3,51PLN",
+            "range": [
+              43653,
+              45942
+            ],
+            "odds": "2,290%"
+          },
+          {
+            "quality": "WW",
+            "price": "2,61PLN",
+            "range": [
+              25921,
+              28100
+            ],
+            "odds": "2,180%"
+          },
+          {
+            "quality": "BS",
+            "price": "2,30PLN",
+            "range": [
+              12661,
+              14683
+            ],
+            "odds": "2,023%"
+          },
+          {
+            "quality": "FT",
+            "price": "2,30PLN",
+            "range": [
+              14684,
+              17843
+            ],
+            "odds": "3,160%"
+          }
+        ]
+      }
+    ]
+  }
+}

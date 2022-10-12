@@ -20,7 +20,8 @@
     "skipLibCheck": true,
     "paths": {
       "@components": ["./src/components/*/"],
-      "@static": ["./static/*/"]
+      "@static": ["./static/*/"],
+      "@assets": ["./src/assets/*/"],
     }
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias

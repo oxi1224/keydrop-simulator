@@ -1,0 +1,83 @@
+{
+  "tech": {
+    "price": 2.39,
+    "drops": [
+      {
+        "skinName": "Lore",
+        "skinWeapon": "Gut Knife",
+        "skinPriceRange": "679,73PLN",
+        "skinDisplayChance": "0,220%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2b/2bc4c98b29f92efa7a9c9f6c8b7ce492.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "679,73PLN",
+            "range": [
+              99781,
+              100000
+            ],
+            "odds": "0,220%"
+          }
+        ]
+      },
+      {
+        "skinName": "Neon Rider",
+        "skinWeapon": "AK-47",
+        "skinPriceRange": "153,45PLN",
+        "skinDisplayChance": "0,300%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/de/dea3ad4e14c6b446359f537614759443.png",
+        "skinRarity": "red",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "153,45PLN",
+            "range": [
+              99481,
+              99780
+            ],
+            "odds": "0,300%"
+          }
+        ]
+      },
+      {
+        "skinName": "Desolate Space",
+        "skinWeapon": "M4A4",
+        "skinPriceRange": "18,36PLN",
+        "skinDisplayChance": "0,480%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bfee5381c335a970a77254d952c1f3f.png",
+        "skinRarity": "pink",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "18,36PLN",
+            "range": [
+              99001,
+              99480
+            ],
+            "odds": "0,480%"
+          }
+        ]
+      },
+      {
+        "skinName": "Facility Draft",
+        "skinWeapon": "P250",
+        "skinPriceRange": "0,18PLN",
+        "skinDisplayChance": "99,000%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7cb149f4e291588bb1e0c94d5bb89358.png",
+        "skinRarity": "gray",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "0,18PLN",
+            "range": [
+              1,
+              99000
+            ],
+            "odds": "99,000%"
+          }
+        ]
+      }
+    ]
+  }
+}

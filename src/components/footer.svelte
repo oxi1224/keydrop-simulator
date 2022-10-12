@@ -123,7 +123,7 @@
         class="grid flex-wrap items-center justify-between w-full grid-cols-3 gap-x-3 gap-y-6 md:gap-y-0 justify-items-center md:flex"
       >
         <img
-          src="https://key-drop.com/web/KD/static/images/payment-methods/zen.svg"
+          src="/icons/zen.svg"
           alt="Zen"
           class="w-24"
         />
@@ -236,7 +236,7 @@
                     class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
                   >
                     <svg class="block w-6 h-6">
-                      <use xlink:href="/icons.svg#instagram" />
+                      <use xlink:href="/icons/icons.svg#instagram" />
                     </svg>
                   </a>
                 </li>
@@ -249,7 +249,7 @@
                     class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
                   >
                     <svg class="block w-6 h-6">
-                      <use xlink:href="/icons.svg#facebook" />
+                      <use xlink:href="/icons/icons.svg#facebook" />
                     </svg>
                   </a>
                 </li>
@@ -262,7 +262,7 @@
                     class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
                   >
                     <svg class="block w-6 h-6">
-                      <use xlink:href="/icons.svg#twitter" />
+                      <use xlink:href="/icons/icons.svg#twitter" />
                     </svg>
                   </a>
                 </li>
@@ -275,7 +275,7 @@
                     class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
                   >
                     <svg class="block w-6 h-6">
-                      <use xlink:href="/icons.svg#steam-circle" />
+                      <use xlink:href="/icons/icons.svg#steam-circle" />
                     </svg>
                   </a>
                 </li>
@@ -288,7 +288,7 @@
                     class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
                   >
                     <svg class="block w-6 h-6">
-                      <use xlink:href="/icons.svg#discord" />
+                      <use xlink:href="/icons/icons.svg#discord" />
                     </svg>
                   </a>
                 </li>
@@ -301,7 +301,7 @@
                     class="block p-2 transition-colors duration-200 hover:text-white"
                   >
                     <svg class="block w-6 h-6 ">
-                      <use xlink:href="/icons.svg#telegram" />
+                      <use xlink:href="/icons/icons.svg#telegram" />
                     </svg>
                   </a>
                 </li>

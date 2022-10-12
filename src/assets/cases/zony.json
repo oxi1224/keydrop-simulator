@@ -1,0 +1,280 @@
+{
+  "zony": {
+    "price": 47.34,
+    "drops": [
+      {
+        "skinName": "Lore",
+        "skinWeapon": "Karambit",
+        "skinPriceRange": "4091,58PLN",
+        "skinDisplayChance": "0,100%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/fc/fc14e06e4f2df1407f7080b3a18b9091.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "4091,58PLN",
+            "range": [
+              99901,
+              100000
+            ],
+            "odds": "0,100%"
+          }
+        ]
+      },
+      {
+        "skinName": "Gamma Doppler",
+        "skinWeapon": "Bayonet",
+        "skinPriceRange": "3018,65PLN",
+        "skinDisplayChance": "0,100%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "3018,65PLN",
+            "range": [
+              99801,
+              99900
+            ],
+            "odds": "0,100%"
+          }
+        ]
+      },
+      {
+        "skinName": "Autotronic",
+        "skinWeapon": "Bayonet",
+        "skinPriceRange": "2157,30PLN",
+        "skinDisplayChance": "0,110%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/82/820b8c56fdede3545ceaac68d63f158b.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "2157,30PLN",
+            "range": [
+              99691,
+              99800
+            ],
+            "odds": "0,110%"
+          }
+        ]
+      },
+      {
+        "skinName": "Bright Water",
+        "skinWeapon": "Flip Knife",
+        "skinPriceRange": "721,85PLN",
+        "skinDisplayChance": "0,150%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8a/8ae255f0388c01467659a8e4ba531157.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "721,85PLN",
+            "range": [
+              99541,
+              99690
+            ],
+            "odds": "0,150%"
+          }
+        ]
+      },
+      {
+        "skinName": "Tiger Tooth",
+        "skinWeapon": "Shadow Daggers",
+        "skinPriceRange": "537,21PLN",
+        "skinDisplayChance": "0,200%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3e0844548da4f60a027c3451e87d92bc.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "537,21PLN",
+            "range": [
+              99341,
+              99540
+            ],
+            "odds": "0,200%"
+          }
+        ]
+      },
+      {
+        "skinName": "Tiger Tooth",
+        "skinWeapon": "Navaja Knife",
+        "skinPriceRange": "455,40PLN",
+        "skinDisplayChance": "0,200%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9eaed2539b2569699d26ffbd27e9efc5.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FN",
+            "price": "455,40PLN",
+            "range": [
+              99141,
+              99340
+            ],
+            "odds": "0,200%"
+          }
+        ]
+      },
+      {
+        "skinName": "Damascus Steel",
+        "skinWeapon": "Navaja Knife",
+        "skinPriceRange": "389,43PLN",
+        "skinDisplayChance": "3,660%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2d/2dac2a8115713cb8970267076e9203df.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "389,43PLN",
+            "range": [
+              94801,
+              98460
+            ],
+            "odds": "3,660%"
+          }
+        ]
+      },
+      {
+        "skinName": "Autotronic",
+        "skinWeapon": "Shadow Daggers",
+        "skinPriceRange": "387,05PLN",
+        "skinDisplayChance": "0,300%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/98/98bd70d3eb6501131fc93463975f8e87.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "387,05PLN",
+            "range": [
+              98841,
+              99140
+            ],
+            "odds": "0,300%"
+          }
+        ]
+      },
+      {
+        "skinName": "Freehand",
+        "skinWeapon": "Gut Knife",
+        "skinPriceRange": "382,01PLN",
+        "skinDisplayChance": "0,380%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bc5ae3592f38a59ab80aff7250c7b68.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "382,01PLN",
+            "range": [
+              98461,
+              98840
+            ],
+            "odds": "0,380%"
+          }
+        ]
+      },
+      {
+        "skinName": "Boreal Forest",
+        "skinWeapon": "Shadow Daggers",
+        "skinPriceRange": "325,04PLN",
+        "skinDisplayChance": "4,800%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cc364702cc25423952ade69c76f6e5c.png",
+        "skinRarity": "gold",
+        "dropDetails": [
+          {
+            "quality": "FT",
+            "price": "325,04PLN",
+            "range": [
+              90001,
+              94800
+            ],
+            "odds": "4,800%"
+          }
+        ]
+      },
+      {
+        "skinName": "Mainframe 001",
+        "skinWeapon": "SSG 08",
+        "skinPriceRange": "0,41PLN - 0,63PLN",
+        "skinDisplayChance": "40,000%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f3/f382690e70e36ba8dcd1ce963dc903ce.png",
+        "skinRarity": "blue",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "0,63PLN",
+            "range": [
+              60001,
+              65000
+            ],
+            "odds": "5,000%"
+          },
+          {
+            "quality": "BS",
+            "price": "0,45PLN",
+            "range": [
+              25001,
+              35000
+            ],
+            "odds": "10,000%"
+          },
+          {
+            "quality": "WW",
+            "price": "0,41PLN",
+            "range": [
+              1,
+              10000
+            ],
+            "odds": "10,000%"
+          },
+          {
+            "quality": "FT",
+            "price": "0,41PLN",
+            "range": [
+              10001,
+              25000
+            ],
+            "odds": "15,000%"
+          }
+        ]
+      },
+      {
+        "skinName": "Oceanic",
+        "skinWeapon": "MAC-10",
+        "skinPriceRange": "0,50PLN - 0,63PLN",
+        "skinDisplayChance": "50,000%",
+        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e6/e60133ff3cbac1674c341bbf14f77b1c.png",
+        "skinRarity": "blue",
+        "dropDetails": [
+          {
+            "quality": "MW",
+            "price": "0,63PLN",
+            "range": [
+              80001,
+              90000
+            ],
+            "odds": "10,000%"
+          },
+          {
+            "quality": "BS",
+            "price": "0,59PLN",
+            "range": [
+              65001,
+              80000
+            ],
+            "odds": "15,000%"
+          },
+          {
+            "quality": "FT",
+            "price": "0,50PLN",
+            "range": [
+              35001,
+              60000
+            ],
+            "odds": "25,000%"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -13,8 +13,10 @@
   },
   "imports": {
     "@components": {
-      "default": "./src/components/*/",
-      "@static": "./static/*/"
+      "default": "./src/components/*/"
+    },
+    "@static": {
+      "default": "./static/*/"
     }
   },
   "devDependencies": {

@@ -7,7 +7,8 @@ const config: UserConfig = {
   resolve: {
     alias: {
       '@components': path.resolve('./src/components/'),
-      '@static': path.resolve('./static/')
+      '@static': path.resolve('./static/'),
+      '@assets': path.resolve('./src/assets/')
     }
   },
   server: {
