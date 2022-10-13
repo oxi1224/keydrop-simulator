@@ -1,45 +1,39 @@
 {
-  "1-knife": {
-    "price": 3.96,
-    "drops": [
-      {
-        "skinName": "Bright Water",
-        "skinWeapon": "Shadow Daggers",
-        "skinPriceRange": "352,04PLN",
-        "skinDisplayChance": "1,000%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cbaac2f54e905aa336cbfe6cd9c195d.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "BS",
-            "price": "352,04PLN",
-            "range": [
-              99001,
-              100000
-            ],
-            "odds": "1,000%"
-          }
-        ]
-      },
-      {
-        "skinName": "Rust Coat",
-        "skinWeapon": "MAG-7",
-        "skinPriceRange": "0,23PLN",
-        "skinDisplayChance": "99,000%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a8/a87a1b088087f606ed3d9ea6b63d4522.png",
-        "skinRarity": "gray",
-        "dropDetails": [
-          {
-            "quality": "MW",
-            "price": "0,23PLN",
-            "range": [
-              1,
-              99000
-            ],
-            "odds": "99,000%"
-          }
-        ]
+  "price": 3.96,
+  "drops": [
+    {
+      "skinName": "Bright Water",
+      "skinWeapon": "Shadow Daggers",
+      "skinPriceRange": "352,04PLN",
+      "skinDisplayChance": "1,000%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cbaac2f54e905aa336cbfe6cd9c195d.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "BS",
+        "price": "352,04PLN",
+        "range": [
+          99001,
+          100000
+        ],
+        "odds": "1,000%"
       }
-    ]
-  }
+    },
+    {
+      "skinName": "Rust Coat",
+      "skinWeapon": "MAG-7",
+      "skinPriceRange": "0,23PLN",
+      "skinDisplayChance": "99,000%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a8/a87a1b088087f606ed3d9ea6b63d4522.png",
+      "skinRarity": "gray",
+      "dropDetails": {
+        "quality": "MW",
+        "price": "0,23PLN",
+        "range": [
+          1,
+          99000
+        ],
+        "odds": "99,000%"
+      }
+    }
+  ]
 }

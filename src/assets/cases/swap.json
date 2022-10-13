@@ -1,45 +1,39 @@
 {
-  "swap": {
-    "price": 15.8,
-    "drops": [
-      {
-        "skinName": "Lore",
-        "skinWeapon": "Shadow Daggers",
-        "skinPriceRange": "516,47PLN",
-        "skinDisplayChance": "2,800%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "BS",
-            "price": "516,47PLN",
-            "range": [
-              97201,
-              100000
-            ],
-            "odds": "2,800%"
-          }
-        ]
-      },
-      {
-        "skinName": "Coolant",
-        "skinWeapon": "Five-SeveN",
-        "skinPriceRange": "0,27PLN",
-        "skinDisplayChance": "97,200%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6e/6ecc89010d440265e3e2a71aeb9c0a25.png",
-        "skinRarity": "gray",
-        "dropDetails": [
-          {
-            "quality": "FN",
-            "price": "0,27PLN",
-            "range": [
-              1,
-              97200
-            ],
-            "odds": "97,200%"
-          }
-        ]
+  "price": 15.8,
+  "drops": [
+    {
+      "skinName": "Lore",
+      "skinWeapon": "Shadow Daggers",
+      "skinPriceRange": "514,80PLN",
+      "skinDisplayChance": "2,800%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "BS",
+        "price": "514,80PLN",
+        "range": [
+          97201,
+          100000
+        ],
+        "odds": "2,800%"
       }
-    ]
-  }
+    },
+    {
+      "skinName": "Coolant",
+      "skinWeapon": "Five-SeveN",
+      "skinPriceRange": "0,27PLN",
+      "skinDisplayChance": "97,200%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6e/6ecc89010d440265e3e2a71aeb9c0a25.png",
+      "skinRarity": "gray",
+      "dropDetails": {
+        "quality": "FN",
+        "price": "0,27PLN",
+        "range": [
+          1,
+          97200
+        ],
+        "odds": "97,200%"
+      }
+    }
+  ]
 }

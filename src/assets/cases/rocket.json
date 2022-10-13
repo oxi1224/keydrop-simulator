@@ -1,121 +1,107 @@
 {
-  "rocket": {
-    "price": 20.25,
-    "drops": [
-      {
-        "skinName": "Gamma Doppler",
-        "skinWeapon": "Bayonet",
-        "skinPriceRange": "3018,65PLN",
-        "skinDisplayChance": "0,025%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "FN",
-            "price": "3018,65PLN",
-            "range": [
-              99976,
-              100000
-            ],
-            "odds": "0,025%"
-          }
-        ]
-      },
-      {
-        "skinName": "Fade",
-        "skinWeapon": "Huntsman Knife",
-        "skinPriceRange": "1297,40PLN",
-        "skinDisplayChance": "0,035%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a2/a262e08be98f032f48c8e8a2753d9b46.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "FN",
-            "price": "1297,40PLN",
-            "range": [
-              99941,
-              99975
-            ],
-            "odds": "0,035%"
-          }
-        ]
-      },
-      {
-        "skinName": "Gamma Doppler",
-        "skinWeapon": "Shadow Daggers",
-        "skinPriceRange": "718,83PLN",
-        "skinDisplayChance": "0,165%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/72/729043653075a49da36b959686e35099.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "FN",
-            "price": "718,83PLN",
-            "range": [
-              99776,
-              99940
-            ],
-            "odds": "0,165%"
-          }
-        ]
-      },
-      {
-        "skinName": "Bright Water",
-        "skinWeapon": "Falchion Knife",
-        "skinPriceRange": "507,29PLN",
-        "skinDisplayChance": "0,325%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/aa/aa9459f86535ed2ceb7ebbf709de6171.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "FT",
-            "price": "507,29PLN",
-            "range": [
-              99451,
-              99775
-            ],
-            "odds": "0,325%"
-          }
-        ]
-      },
-      {
-        "skinName": "Damascus Steel",
-        "skinWeapon": "Navaja Knife",
-        "skinPriceRange": "389,43PLN",
-        "skinDisplayChance": "3,750%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2d/2dac2a8115713cb8970267076e9203df.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "FT",
-            "price": "389,43PLN",
-            "range": [
-              95701,
-              99450
-            ],
-            "odds": "3,750%"
-          }
-        ]
-      },
-      {
-        "skinName": "Predator",
-        "skinWeapon": "Nova",
-        "skinPriceRange": "0,14PLN",
-        "skinDisplayChance": "95,700%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/45/45593b1f296b5f3cbbd8987766032276.png",
-        "skinRarity": "gray",
-        "dropDetails": [
-          {
-            "quality": "WW",
-            "price": "0,14PLN",
-            "range": [
-              1,
-              95700
-            ],
-            "odds": "95,700%"
-          }
-        ]
+  "price": 20.25,
+  "drops": [
+    {
+      "skinName": "Gamma Doppler",
+      "skinWeapon": "Bayonet",
+      "skinPriceRange": "3047,27PLN",
+      "skinDisplayChance": "0,025%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FN",
+        "price": "3047,27PLN",
+        "range": [
+          99976,
+          100000
+        ],
+        "odds": "0,025%"
       }
-    ]
-  }
+    },
+    {
+      "skinName": "Fade",
+      "skinWeapon": "Huntsman Knife",
+      "skinPriceRange": "1297,58PLN",
+      "skinDisplayChance": "0,035%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a2/a262e08be98f032f48c8e8a2753d9b46.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FN",
+        "price": "1297,58PLN",
+        "range": [
+          99941,
+          99975
+        ],
+        "odds": "0,035%"
+      }
+    },
+    {
+      "skinName": "Gamma Doppler",
+      "skinWeapon": "Shadow Daggers",
+      "skinPriceRange": "712,40PLN",
+      "skinDisplayChance": "0,165%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/72/729043653075a49da36b959686e35099.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FN",
+        "price": "712,40PLN",
+        "range": [
+          99776,
+          99940
+        ],
+        "odds": "0,165%"
+      }
+    },
+    {
+      "skinName": "Bright Water",
+      "skinWeapon": "Falchion Knife",
+      "skinPriceRange": "501,12PLN",
+      "skinDisplayChance": "0,325%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/aa/aa9459f86535ed2ceb7ebbf709de6171.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FT",
+        "price": "501,12PLN",
+        "range": [
+          99451,
+          99775
+        ],
+        "odds": "0,325%"
+      }
+    },
+    {
+      "skinName": "Damascus Steel",
+      "skinWeapon": "Navaja Knife",
+      "skinPriceRange": "359,82PLN",
+      "skinDisplayChance": "3,750%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2d/2dac2a8115713cb8970267076e9203df.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FT",
+        "price": "359,82PLN",
+        "range": [
+          95701,
+          99450
+        ],
+        "odds": "3,750%"
+      }
+    },
+    {
+      "skinName": "Predator",
+      "skinWeapon": "Nova",
+      "skinPriceRange": "0,14PLN",
+      "skinDisplayChance": "95,700%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/45/45593b1f296b5f3cbbd8987766032276.png",
+      "skinRarity": "gray",
+      "dropDetails": {
+        "quality": "WW",
+        "price": "0,14PLN",
+        "range": [
+          1,
+          95700
+        ],
+        "odds": "95,700%"
+      }
+    }
+  ]
 }

@@ -1,83 +1,73 @@
 {
-  "daggers": {
-    "price": 2.39,
-    "drops": [
-      {
-        "skinName": "Lore",
-        "skinWeapon": "Shadow Daggers",
-        "skinPriceRange": "578,75PLN",
-        "skinDisplayChance": "0,200%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
-        "skinRarity": "gold",
-        "dropDetails": [
-          {
-            "quality": "FT",
-            "price": "578,75PLN",
-            "range": [
-              99801,
-              100000
-            ],
-            "odds": "0,200%"
-          }
-        ]
-      },
-      {
-        "skinName": "Nightwish",
-        "skinWeapon": "AK-47",
-        "skinPriceRange": "70,25PLN",
-        "skinDisplayChance": "0,260%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
-        "skinRarity": "red",
-        "dropDetails": [
-          {
-            "quality": "BS",
-            "price": "70,25PLN",
-            "range": [
-              99541,
-              99800
-            ],
-            "odds": "0,260%"
-          }
-        ]
-      },
-      {
-        "skinName": "Cyber Security",
-        "skinWeapon": "M4A4",
-        "skinPriceRange": "47,48PLN",
-        "skinDisplayChance": "0,540%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a5/a5a642c7fe34d91ae72968e4ce0dd5c9.png",
-        "skinRarity": "pink",
-        "dropDetails": [
-          {
-            "quality": "BS",
-            "price": "47,48PLN",
-            "range": [
-              99001,
-              99540
-            ],
-            "odds": "0,540%"
-          }
-        ]
-      },
-      {
-        "skinName": "Runic",
-        "skinWeapon": "PP-Bizon",
-        "skinPriceRange": "0,63PLN",
-        "skinDisplayChance": "99,000%",
-        "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7c7d33b309c4674fcffa02d81fe17f22.png",
-        "skinRarity": "blue",
-        "dropDetails": [
-          {
-            "quality": "MW",
-            "price": "0,63PLN",
-            "range": [
-              1,
-              99000
-            ],
-            "odds": "99,000%"
-          }
-        ]
+  "price": 2.39,
+  "drops": [
+    {
+      "skinName": "Lore",
+      "skinWeapon": "Shadow Daggers",
+      "skinPriceRange": "585,72PLN",
+      "skinDisplayChance": "0,200%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FT",
+        "price": "585,72PLN",
+        "range": [
+          99801,
+          100000
+        ],
+        "odds": "0,200%"
       }
-    ]
-  }
+    },
+    {
+      "skinName": "Nightwish",
+      "skinWeapon": "AK-47",
+      "skinPriceRange": "68,94PLN",
+      "skinDisplayChance": "0,260%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
+      "skinRarity": "red",
+      "dropDetails": {
+        "quality": "BS",
+        "price": "68,94PLN",
+        "range": [
+          99541,
+          99800
+        ],
+        "odds": "0,260%"
+      }
+    },
+    {
+      "skinName": "Cyber Security",
+      "skinWeapon": "M4A4",
+      "skinPriceRange": "46,76PLN",
+      "skinDisplayChance": "0,540%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a5/a5a642c7fe34d91ae72968e4ce0dd5c9.png",
+      "skinRarity": "pink",
+      "dropDetails": {
+        "quality": "BS",
+        "price": "46,76PLN",
+        "range": [
+          99001,
+          99540
+        ],
+        "odds": "0,540%"
+      }
+    },
+    {
+      "skinName": "Runic",
+      "skinWeapon": "PP-Bizon",
+      "skinPriceRange": "0,63PLN",
+      "skinDisplayChance": "99,000%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7c7d33b309c4674fcffa02d81fe17f22.png",
+      "skinRarity": "blue",
+      "dropDetails": {
+        "quality": "MW",
+        "price": "0,63PLN",
+        "range": [
+          1,
+          99000
+        ],
+        "odds": "99,000%"
+      }
+    }
+  ]
 }
