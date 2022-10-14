@@ -22,6 +22,7 @@
       "@components": ["./src/components/*/"],
       "@static": ["./static/*/"],
       "@assets": ["./src/assets/*/"],
+      "@lib": ["./src/lib/index.js"],
     }
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias

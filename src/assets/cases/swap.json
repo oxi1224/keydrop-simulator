@@ -11,10 +11,7 @@
       "dropDetails": {
         "quality": "BS",
         "price": "514,80PLN",
-        "range": [
-          97201,
-          100000
-        ],
+        "range": [97201, 100000],
         "odds": "2,800%"
       }
     },
@@ -28,10 +25,7 @@
       "dropDetails": {
         "quality": "FN",
         "price": "0,27PLN",
-        "range": [
-          1,
-          97200
-        ],
+        "range": [1, 97200],
         "odds": "97,200%"
       }
     }

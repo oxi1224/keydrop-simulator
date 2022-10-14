@@ -1,36 +1,131 @@
 <script lang="ts">
-  export let name: string;
-  export let data: {
-    imgName: string
-    price: number
-    href: string
-  };
-  export let sectionId: string;
+  import CaseRoulette from './Case Subcomponents/caseRoulette.svelte';
+  import CaseContents from './Case Subcomponents/caseContents.svelte';
+  import type { CaseData, CaseDrop, CaseItemData, DropDetails } from '@lib';
+  export let data: CaseData;
+  export let caseItems: CaseDrop[] = [];
+  export let itemData: CaseItemData[] = [];
+
+  for (let i = 0; i < 60; i++) {
+    const roll = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
+    const item = data.drops.find(
+      (obj) => obj.dropDetails.range[0] <= roll && obj.dropDetails.range[1] >= roll
+    );
+    if (!item) continue;
+    caseItems.push(item);
+  }
+
+  const skinNames = (() => {
+    const arr = [];
+    for (const drop of data.drops) {
+      arr.push(drop.skinName);
+    }
+    return [...new Set(arr)];
+  })();
+
+  for (const skinName of skinNames) {
+    const allItems = data.drops.filter((obj) => obj.skinName === skinName);
+    const details: DropDetails[] = [];
+    allItems.forEach((obj) => details.push(obj.dropDetails));
+    itemData.push({
+      skinName: allItems[0].skinName,
+      skinWeapon: allItems[0].skinWeapon,
+      skinPriceRange: allItems[0].skinPriceRange,
+      skinDisplayChance: allItems[0].skinDisplayChance,
+      skinImgSource: allItems[0].skinImgSource,
+      skinRarity: allItems[0].skinRarity,
+      details: []
+    });
+  }
+
+
+  // export function rollItem() {
+  //   const items = [...document.querySelectorAll('li.case-item')];
+  //   const winningItem = items[Math.floor(Math.random() * (items.length - 3 - 7 + 1)) + 7];
+  //   const bounds = winningItem.getBoundingClientRect();
+  //   const x = Math.floor(Math.random() * (bounds.right - bounds.left + 1)) + bounds.right;
+  //   document
+  //     .querySelector('ul.CaseRolls-row')
+  //     .animate(
+  //       [
+  //         { transform: 'translateX(0)' },
+  //         { transform: `translateX(-${x / 2}px)` },
+  //         { transform: `translateX(-${x}px)` }
+  //       ],
+  //       {
+  //         iterations: 1,
+  //         duration: 1500,
+  //         easing: 'ease-in-out',
+  //         endDelay: 500
+  //       }
+  //     );
+  //   document.querySelector('ul.CaseRolls-row').style.transform = `translateX(-${x}px)`;
+  // }
 </script>
 
-<div
-  class="relative grid grid-cols-1 grid-rows-1 transition-all duration-200 ratio { sectionId === 'cs-go-kings' || sectionId === 'gold-area' ? 'ratio-1.5' : '' } { sectionId === 'youtubers-cases' ? 'ratio-1.12' : '' } transform border-gold hover:border hover:-translate-y-0.5 will-change-transform rounded-lg shadow-zinc-900 shadow-xl { name === 'DEADPOOL' || name === 'THE EXPENDABLES' ? 'col-span-2 row-span-2' : '' }"
+<main
+  class="bg-no-repeat"
+  style="background-image: url(/images/bg.png); background-position: center top; background-size: 2570px;"
 >
-  <a
-  href={data.href}
-    class="z-20 w-full h-full col-start-1 row-start-1 row-end-3"
-    ><img
-      src="/cases/{data.imgName}"
-      alt=""
-      class="absolute top-0 right-0 object-cover w-full h-full rounded-lg"
-      loading="lazy"
-    />
-    <div class="z-10 flex flex-col w-full h-full">
-      <div
-        class="absolute py-1.5 px-3 font-semibold rounded bg-navy-900 text-gold-500 top-3 right-3 text-xs"
-      >
-        {data.price} PLN
-      </div>
-      <div
-        class="z-10 max-w-full p-2 mx-auto mt-auto mb-4 text-sm font-normal leading-none text-center text-white uppercase rounded-lg bg-navy-700 min-w-[8rem]"
-      >
-        {name}
-      </div>
-    </div></a
+  <div
+    id="case-root"
+    style="background: url(/images/loser-bg.jpg) center top / 100% auto no-repeat"
   >
-</div>
+    <header class="container flex items-center grid-cols-3 py-8 sm:grid mx-auto">
+      <a
+        href="/"
+        class="flex items-center transition-colors duration-200 text-navy-200 hover:text-white text-sm font-bold"
+      >
+        <svg class="w-3 h-3 mr-2 md:w-4 md:h-4 md:mr-3">
+          <use xlink:href="/icons/icons.svg#arrow-left"></use>
+        </svg>
+        <span class="pt-px leading-none">
+          <span class="md:hidden">Wróć</span>
+          <span class="hidden md:inline">Wróć do strony głównej</span>
+        </span>
+      </a>
+      <h2 class="px-6 mx-auto text-xl font-semibold leading-tight text-center text-white uppercase">
+        KACPER RIETZ
+      </h2>
+      <div class="flex justify-center space-x-1 sm:space-x-2 sm:justify-end">
+        <button
+          class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 js-sound-btn"
+          aria-label="Wyłącz dźwięk"
+        >
+          <svg viewBox="-10 0 130 120" class="block w-4 h-4 fill-current">
+            <path
+              fill="currentColor"
+              stroke="currentColor"
+              stroke-width="10"
+              d="M9.6 34.1c-2.5 0-4.6 0.9-6.4 2.7 -1.7 1.7-2.6 3.8-2.6 6.3v33.8c0 2.5 0.9 4.7 2.6 6.5C5 85 7.1 85.8 9.6 85.8h17.9l39.8 30.4V3.7L27.5 34.1H9.6"
+              class="css-qeu6t3"
+            ></path>
+            <path
+              class="vol"
+              d="M84.9 29.3l-7.8 8.2c6.5 6.5 9.8 14 9.8 22.5s-3.3 16-9.8 22.5l7.8 8.3C93.7 82 98 71.8 98 60S93.7 38 84.9 29.3"
+              style="transform-origin: 0px 0px 0px; opacity: 1;"
+              data-svg-origin="77.0999984741211 29.299999237060547"
+              transform="matrix(1,0,0,1,0,0)"
+            ></path>
+            <path
+              class="vol"
+              d="M99.5 15L92 22.8c10.5 10.5 15.8 22.9 15.8 37.2 0 14.7-5.3 27.1-15.8 37.1l7.5 8.3C112.5 92.9 119 77.8 119 60 119 42.2 112.5 27.2 99.5 15z"
+              style="transform-origin: 0px 0px 0px; opacity: 1;"
+              data-svg-origin="92 15"
+              transform="matrix(1,0,0,1,0,0)"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550"
+          aria-label="Wyłącz tryb natychmiastowego wyświetlania wyniku"
+        >
+          <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
+        </button>
+      </div>
+    </header>
+    <CaseRoulette caseItems={caseItems} />
+    <CaseContents itemData={itemData} />
+    <div class="container mx-auto"></div>
+  </div>
+</main>

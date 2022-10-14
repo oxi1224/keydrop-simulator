@@ -8,5 +8,8 @@
   "overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }],
   "tabWidth": 2,
   "semi": true,
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "svelteSortOrder": "options-styles-scripts-markup",
+  "svelteStrictMode": true,
+  "htmlWhitespaceSensitivity": "ignore"
 }

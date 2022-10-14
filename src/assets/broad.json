@@ -5,222 +5,58 @@
       "imgName": "kacper1.webp",
       "href": "/skins/category/kacper-rietz"
     },
-    "MATEO": {
-      "price": 19.71,
-      "imgName": "mateoo.webp",
-      "href": "/skins/category/mateo"
-    },
-    "ISAMU": {
-      "price": 49.32,
-      "imgName": "isamu.webp",
-      "href": "/skins/category/isamu"
-    },
-    "MEDUSA": {
-      "price": 33.53,
-      "imgName": "medusa1.webp",
-      "href": "/skins/category/medusa"
-    },
-    "INNOCENT": {
-      "price": 27.63,
-      "imgName": "innocent.webp",
-      "href": "/skins/category/innocent"
-    },
-    "DMG": {
-      "price": 99.81,
-      "imgName": "dmg.webp",
-      "href": "/skins/category/dmg"
-    },
+    "MATEO": { "price": 19.71, "imgName": "mateoo.webp", "href": "/skins/category/mateo" },
+    "ISAMU": { "price": 49.32, "imgName": "isamu.webp", "href": "/skins/category/isamu" },
+    "MEDUSA": { "price": 33.53, "imgName": "medusa1.webp", "href": "/skins/category/medusa" },
+    "INNOCENT": { "price": 27.63, "imgName": "innocent.webp", "href": "/skins/category/innocent" },
+    "DMG": { "price": 99.81, "imgName": "dmg.webp", "href": "/skins/category/dmg" },
     "GILATHISS": {
       "price": 49.32,
       "imgName": "gilathiss.webp",
       "href": "/skins/category/gilathiss"
     },
-    "NEXE": {
-      "price": 33.3,
-      "imgName": "nexe2.webp",
-      "href": "/skins/category/nexe"
-    },
-    "FOREVER": {
-      "price": 45,
-      "imgName": "FOREVER.webp",
-      "href": "/skins/category/forever"
-    },
-    "ZONY": {
-      "price": 47.34,
-      "imgName": "zony.webp",
-      "href": "/skins/category/zony"
-    }
+    "NEXE": { "price": 33.3, "imgName": "nexe2.webp", "href": "/skins/category/nexe" },
+    "FOREVER": { "price": 45, "imgName": "FOREVER.webp", "href": "/skins/category/forever" },
+    "ZONY": { "price": 47.34, "imgName": "zony.webp", "href": "/skins/category/zony" }
   },
   "cs-go-kings": {
-    "SPARK": {
-      "price": 6.89,
-      "imgName": "SPARK.webp",
-      "href": "/skins/category/spark"
-    },
-    "DAGGERS": {
-      "price": 2.39,
-      "imgName": "DAGGERS.webp",
-      "href": "/skins/category/daggers"
-    },
-    "PERFECT": {
-      "price": 15.8,
-      "imgName": "PERFECT.webp",
-      "href": "/skins/category/perfect"
-    },
-    "ENERGY": {
-      "price": 2.39,
-      "imgName": "ENERGY1.webp",
-      "href": "/skins/category/energy-2"
-    },
-    "SHARP": {
-      "price": 39.47,
-      "imgName": "SHARP.webp",
-      "href": "/skins/category/sharp-2"
-    },
-    "SWAP": {
-      "price": 15.8,
-      "imgName": "SWAP.webp",
-      "href": "/skins/category/swap"
-    },
-    "SIGNAL": {
-      "price": 14.81,
-      "imgName": "SIGNAL.webp",
-      "href": "/skins/category/signal"
-    },
-    "SMART": {
-      "price": 17.78,
-      "imgName": "SMART.webp",
-      "href": "/skins/category/smart-2"
-    },
-    "CAPITAL": {
-      "price": 15.8,
-      "imgName": "CAPITAL.webp",
-      "href": "/skins/category/capital"
-    },
-    "TECH": {
-      "price": 2.39,
-      "imgName": "TECH.webp",
-      "href": "/skins/category/tech"
-    },
-    "1% PROFIT": {
-      "price": 3.38,
-      "imgName": "1PROFIT2.webp",
-      "href": "/skins/category/1-profit"
-    },
-    "LORD": {
-      "price": 19.71,
-      "imgName": "LORD2.webp",
-      "href": "/skins/category/lord"
-    },
-    "TOKEN": {
-      "price": 11.84,
-      "imgName": "TOKEN2.webp",
-      "href": "/skins/category/token"
-    },
-    "ROCKET": {
-      "price": 20.25,
-      "imgName": "ROCKET2.webp",
-      "href": "/skins/category/rocket"
-    },
-    "1% KNIFE": {
-      "price": 3.96,
-      "imgName": "1KNIFE3.webp",
-      "href": "/skins/category/1-knife"
-    }
+    "SPARK": { "price": 6.89, "imgName": "SPARK.webp", "href": "/skins/category/spark" },
+    "DAGGERS": { "price": 2.39, "imgName": "DAGGERS.webp", "href": "/skins/category/daggers" },
+    "PERFECT": { "price": 15.8, "imgName": "PERFECT.webp", "href": "/skins/category/perfect" },
+    "ENERGY": { "price": 2.39, "imgName": "ENERGY1.webp", "href": "/skins/category/energy-2" },
+    "SHARP": { "price": 39.47, "imgName": "SHARP.webp", "href": "/skins/category/sharp-2" },
+    "SWAP": { "price": 15.8, "imgName": "SWAP.webp", "href": "/skins/category/swap" },
+    "SIGNAL": { "price": 14.81, "imgName": "SIGNAL.webp", "href": "/skins/category/signal" },
+    "SMART": { "price": 17.78, "imgName": "SMART.webp", "href": "/skins/category/smart-2" },
+    "CAPITAL": { "price": 15.8, "imgName": "CAPITAL.webp", "href": "/skins/category/capital" },
+    "TECH": { "price": 2.39, "imgName": "TECH.webp", "href": "/skins/category/tech" },
+    "1% PROFIT": { "price": 3.38, "imgName": "1PROFIT2.webp", "href": "/skins/category/1-profit" },
+    "LORD": { "price": 19.71, "imgName": "LORD2.webp", "href": "/skins/category/lord" },
+    "TOKEN": { "price": 11.84, "imgName": "TOKEN2.webp", "href": "/skins/category/token" },
+    "ROCKET": { "price": 20.25, "imgName": "ROCKET2.webp", "href": "/skins/category/rocket" },
+    "1% KNIFE": { "price": 3.96, "imgName": "1KNIFE3.webp", "href": "/skins/category/1-knife" }
   },
   "cs-go-cage": {
-    "SPACE": {
-      "price": 27.63,
-      "imgName": "29.webp",
-      "href": "/skins/category/space"
-    },
-    "FOCUS": {
-      "price": 15.8,
-      "imgName": "117.webp",
-      "href": "/skins/category/focus"
-    },
-    "FANG": {
-      "price": 146.03,
-      "imgName": "57.webp",
-      "href": "/skins/category/fang"
-    },
-    "COBRA": {
-      "price": 394.65,
-      "imgName": "68.webp",
-      "href": "/skins/category/cobra"
-    },
-    "ROYAL": {
-      "price": 59.18,
-      "imgName": "310.webp",
-      "href": "/skins/category/royal"
-    },
-    "THUNDER": {
-      "price": 78.93,
-      "imgName": "47.webp",
-      "href": "/skins/category/thunder"
-    }
+    "SPACE": { "price": 27.63, "imgName": "29.webp", "href": "/skins/category/space" },
+    "FOCUS": { "price": 15.8, "imgName": "117.webp", "href": "/skins/category/focus" },
+    "FANG": { "price": 146.03, "imgName": "57.webp", "href": "/skins/category/fang" },
+    "COBRA": { "price": 394.65, "imgName": "68.webp", "href": "/skins/category/cobra" },
+    "ROYAL": { "price": 59.18, "imgName": "310.webp", "href": "/skins/category/royal" },
+    "THUNDER": { "price": 78.93, "imgName": "47.webp", "href": "/skins/category/thunder" }
   },
   "cs-go-magic": {
-    "TOOTH": {
-      "price": 40.91,
-      "imgName": "tooth.webp",
-      "href": "/skins/category/tooth"
-    },
-    "BUBBLE": {
-      "price": 56.97,
-      "imgName": "bubble.webp",
-      "href": "/skins/category/bubble"
-    },
-    "HIVE": {
-      "price": 32.22,
-      "imgName": "hive.webp",
-      "href": "/skins/category/hive"
-    },
-    "STRIKE": {
-      "price": 23.58,
-      "imgName": "strike.webp",
-      "href": "/skins/category/strike"
-    },
-    "SPLINTER": {
-      "price": 68.58,
-      "imgName": "splinter.webp",
-      "href": "/skins/category/splinter"
-    },
-    "VISION": {
-      "price": 123.44,
-      "imgName": "vision.webp",
-      "href": "/skins/category/vision"
-    },
-    "TOXIC": {
-      "price": 6.66,
-      "imgName": "toxic.webp",
-      "href": "/skins/category/toxic"
-    },
-    "OMEGA": {
-      "price": 49.19,
-      "imgName": "omega.webp",
-      "href": "/skins/category/omega"
-    },
-    "DREAM": {
-      "price": 97.61,
-      "imgName": "dream.webp",
-      "href": "/skins/category/dream"
-    },
-    "DIABLO": {
-      "price": 5.63,
-      "imgName": "diablo.webp",
-      "href": "/skins/category/diablo"
-    },
-    "SHADOW": {
-      "price": 14.13,
-      "imgName": "shadow.webp",
-      "href": "/skins/category/shadow"
-    },
-    "ICE BLAST": {
-      "price": 1.58,
-      "imgName": "ice_blast.webp",
-      "href": "/skins/category/ice-blast"
-    }
+    "TOOTH": { "price": 40.91, "imgName": "tooth.webp", "href": "/skins/category/tooth" },
+    "BUBBLE": { "price": 56.97, "imgName": "bubble.webp", "href": "/skins/category/bubble" },
+    "HIVE": { "price": 32.22, "imgName": "hive.webp", "href": "/skins/category/hive" },
+    "STRIKE": { "price": 23.58, "imgName": "strike.webp", "href": "/skins/category/strike" },
+    "SPLINTER": { "price": 68.58, "imgName": "splinter.webp", "href": "/skins/category/splinter" },
+    "VISION": { "price": 123.44, "imgName": "vision.webp", "href": "/skins/category/vision" },
+    "TOXIC": { "price": 6.66, "imgName": "toxic.webp", "href": "/skins/category/toxic" },
+    "OMEGA": { "price": 49.19, "imgName": "omega.webp", "href": "/skins/category/omega" },
+    "DREAM": { "price": 97.61, "imgName": "dream.webp", "href": "/skins/category/dream" },
+    "DIABLO": { "price": 5.63, "imgName": "diablo.webp", "href": "/skins/category/diablo" },
+    "SHADOW": { "price": 14.13, "imgName": "shadow.webp", "href": "/skins/category/shadow" },
+    "ICE BLAST": { "price": 1.58, "imgName": "ice_blast.webp", "href": "/skins/category/ice-blast" }
   },
   "cs-go-heroes": {
     "DEADPOOL": {
@@ -233,26 +69,10 @@
       "imgName": "csgoheroes2.webp",
       "href": "/skins/category/rocket-raccon"
     },
-    "BATMAN": {
-      "price": 7.52,
-      "imgName": "csgoheroes5.webp",
-      "href": "/skins/category/batman"
-    },
-    "VENOM": {
-      "price": 92.34,
-      "imgName": "csgoheroes4.webp",
-      "href": "/skins/category/venom"
-    },
-    "THANOS": {
-      "price": 22.1,
-      "imgName": "csgoheroes6.webp",
-      "href": "/skins/category/thanos"
-    },
-    "IRONMAN": {
-      "price": 14.99,
-      "imgName": "csgoheroes3.webp",
-      "href": "/skins/category/ironman"
-    },
+    "BATMAN": { "price": 7.52, "imgName": "csgoheroes5.webp", "href": "/skins/category/batman" },
+    "VENOM": { "price": 92.34, "imgName": "csgoheroes4.webp", "href": "/skins/category/venom" },
+    "THANOS": { "price": 22.1, "imgName": "csgoheroes6.webp", "href": "/skins/category/thanos" },
+    "IRONMAN": { "price": 14.99, "imgName": "csgoheroes3.webp", "href": "/skins/category/ironman" },
     "CAPTAIN AMERICA": {
       "price": 34.74,
       "imgName": "csgoheroes9.webp",
@@ -263,38 +83,14 @@
       "imgName": "csgoheroes8.webp",
       "href": "/skins/category/thor"
     },
-    "HULK": {
-      "price": 24.08,
-      "imgName": "csgoheroes7.webp",
-      "href": "/skins/category/hulk"
-    }
+    "HULK": { "price": 24.08, "imgName": "csgoheroes7.webp", "href": "/skins/category/hulk" }
   },
   "cs-go-premium": {
-    "VEST": {
-      "price": 898.38,
-      "imgName": "vest.webp",
-      "href": "/skins/category/vest"
-    },
-    "SERPENT": {
-      "price": 273.96,
-      "imgName": "serpent.webp",
-      "href": "/skins/category/serpent"
-    },
-    "ARROW": {
-      "price": 591.35,
-      "imgName": "arrow.webp",
-      "href": "/skins/category/arrow"
-    },
-    "LORE": {
-      "price": 1973.21,
-      "imgName": "lore.webp",
-      "href": "/skins/category/lore"
-    },
-    "VICE": {
-      "price": 1182.87,
-      "imgName": "vice.webp",
-      "href": "/skins/category/vice"
-    },
+    "VEST": { "price": 898.38, "imgName": "vest.webp", "href": "/skins/category/vest" },
+    "SERPENT": { "price": 273.96, "imgName": "serpent.webp", "href": "/skins/category/serpent" },
+    "ARROW": { "price": 591.35, "imgName": "arrow.webp", "href": "/skins/category/arrow" },
+    "LORE": { "price": 1973.21, "imgName": "lore.webp", "href": "/skins/category/lore" },
+    "VICE": { "price": 1182.87, "imgName": "vice.webp", "href": "/skins/category/vice" },
     "BLOODSHOT": {
       "price": 1578.6,
       "imgName": "bloodshot.webp",
@@ -302,31 +98,15 @@
     }
   },
   "cs-go-skins": {
-    "TERRORIST": {
-      "price": 11.07,
-      "imgName": "1_1.webp",
-      "href": "/skins/category/terrorist"
-    },
+    "TERRORIST": { "price": 11.07, "imgName": "1_1.webp", "href": "/skins/category/terrorist" },
     "NICE SHOT": {
       "price": 37.49,
       "imgName": "nice_shot.webp",
       "href": "/skins/category/nice-shot"
     },
-    "VIPER": {
-      "price": 19.71,
-      "imgName": "4_4.webp",
-      "href": "/skins/category/viper"
-    },
-    "MASTER": {
-      "price": 15.8,
-      "imgName": "7.webp",
-      "href": "/skins/category/master"
-    },
-    "MARKER": {
-      "price": 4.73,
-      "imgName": "2_2.webp",
-      "href": "/skins/category/marker"
-    },
+    "VIPER": { "price": 19.71, "imgName": "4_4.webp", "href": "/skins/category/viper" },
+    "MASTER": { "price": 15.8, "imgName": "7.webp", "href": "/skins/category/master" },
+    "MARKER": { "price": 4.73, "imgName": "2_2.webp", "href": "/skins/category/marker" },
     "CRIMSON EMERALD": {
       "price": 49.32,
       "imgName": "crimson_emerald.webp",
@@ -337,214 +117,58 @@
       "imgName": "8978.webp",
       "href": "/skins/category/the-expendables"
     },
-    "DRAGON": {
-      "price": 19.4,
-      "imgName": "dragon.webp",
-      "href": "/skins/category/dragon"
-    },
+    "DRAGON": { "price": 19.4, "imgName": "dragon.webp", "href": "/skins/category/dragon" },
     "PIKA PIKA": {
       "price": 18.23,
       "imgName": "pikapika.webp",
       "href": "/skins/category/pika-pika"
     },
-    "AVALANCHE": {
-      "price": 3.69,
-      "imgName": "21.webp",
-      "href": "/skins/category/avalanche"
-    },
-    "SPIDER": {
-      "price": 31.59,
-      "imgName": "221.webp",
-      "href": "/skins/category/spider"
-    },
-    "TEETH": {
-      "price": 2.79,
-      "imgName": "17.webp",
-      "href": "/skins/category/teeth"
-    },
-    "MAFIA": {
-      "price": 14.99,
-      "imgName": "15.webp",
-      "href": "/skins/category/mafia"
-    },
-    "GRADIENT": {
-      "price": 15.48,
-      "imgName": "gradient.webp",
-      "href": "/skins/category/gradient"
-    },
-    "BEAST": {
-      "price": 2.57,
-      "imgName": "191.webp",
-      "href": "/skins/category/beast"
-    },
-    "BUMBLEBEE": {
-      "price": 111.69,
-      "imgName": "20.webp",
-      "href": "/skins/category/bumblebee"
-    },
-    "LAZURE": {
-      "price": 7.52,
-      "imgName": "lazure.webp",
-      "href": "/skins/category/lazure"
-    },
-    "JOKER": {
-      "price": 197.33,
-      "imgName": "8.webp",
-      "href": "/skins/category/joker"
-    },
-    "BULLET": {
-      "price": 5.63,
-      "imgName": "bullet.webp",
-      "href": "/skins/category/bullet"
-    },
-    "BANANA": {
-      "price": 5.36,
-      "imgName": "banana.webp",
-      "href": "/skins/category/banana"
-    },
-    "RAZOR": {
-      "price": 43.43,
-      "imgName": "3_3.webp",
-      "href": "/skins/category/razor"
-    }
+    "AVALANCHE": { "price": 3.69, "imgName": "21.webp", "href": "/skins/category/avalanche" },
+    "SPIDER": { "price": 31.59, "imgName": "221.webp", "href": "/skins/category/spider" },
+    "TEETH": { "price": 2.79, "imgName": "17.webp", "href": "/skins/category/teeth" },
+    "MAFIA": { "price": 14.99, "imgName": "15.webp", "href": "/skins/category/mafia" },
+    "GRADIENT": { "price": 15.48, "imgName": "gradient.webp", "href": "/skins/category/gradient" },
+    "BEAST": { "price": 2.57, "imgName": "191.webp", "href": "/skins/category/beast" },
+    "BUMBLEBEE": { "price": 111.69, "imgName": "20.webp", "href": "/skins/category/bumblebee" },
+    "LAZURE": { "price": 7.52, "imgName": "lazure.webp", "href": "/skins/category/lazure" },
+    "JOKER": { "price": 197.33, "imgName": "8.webp", "href": "/skins/category/joker" },
+    "BULLET": { "price": 5.63, "imgName": "bullet.webp", "href": "/skins/category/bullet" },
+    "BANANA": { "price": 5.36, "imgName": "banana.webp", "href": "/skins/category/banana" },
+    "RAZOR": { "price": 43.43, "imgName": "3_3.webp", "href": "/skins/category/razor" }
   },
   "cs-go-guns": {
-    "AK-47": {
-      "price": 19.71,
-      "imgName": "ak-47.webp",
-      "href": "/skins/category/ak-47"
-    },
-    "AWP": {
-      "price": 17.37,
-      "imgName": "AWP.webp",
-      "href": "/skins/category/awp"
-    },
-    "KNIVES": {
-      "price": 374.9,
-      "imgName": "knives.webp",
-      "href": "/skins/category/knives"
-    },
-    "GLOVES": {
-      "price": 635.4,
-      "imgName": "gloves.webp",
-      "href": "/skins/category/gloves"
-    },
-    "AGENT": {
-      "price": 5.31,
-      "imgName": "12.webp",
-      "href": "/skins/category/agent"
-    },
-    "GLOCK-18": {
-      "price": 5.54,
-      "imgName": "13.webp",
-      "href": "/skins/category/glock-18"
-    },
-    "M4": {
-      "price": 19.08,
-      "imgName": "14.webp",
-      "href": "/skins/category/m4"
-    },
-    "USP-S": {
-      "price": 5.94,
-      "imgName": "18.webp",
-      "href": "/skins/category/usp-s"
-    },
-    "NEW KNIVES": {
-      "price": 473.58,
-      "imgName": "161.webp",
-      "href": "/skins/category/new-knives"
-    },
-    "MILSPEC": {
-      "price": 1.17,
-      "imgName": "6.webp",
-      "href": "/skins/category/milspec"
-    },
-    "RESTRICTED": {
-      "price": 7.52,
-      "imgName": "10.webp",
-      "href": "/skins/category/restricted"
-    },
-    "COVERT": {
-      "price": 27.23,
-      "imgName": "covert.webp",
-      "href": "/skins/category/covert"
-    }
+    "AK-47": { "price": 19.71, "imgName": "ak-47.webp", "href": "/skins/category/ak-47" },
+    "AWP": { "price": 17.37, "imgName": "AWP.webp", "href": "/skins/category/awp" },
+    "KNIVES": { "price": 374.9, "imgName": "knives.webp", "href": "/skins/category/knives" },
+    "GLOVES": { "price": 635.4, "imgName": "gloves.webp", "href": "/skins/category/gloves" },
+    "AGENT": { "price": 5.31, "imgName": "12.webp", "href": "/skins/category/agent" },
+    "GLOCK-18": { "price": 5.54, "imgName": "13.webp", "href": "/skins/category/glock-18" },
+    "M4": { "price": 19.08, "imgName": "14.webp", "href": "/skins/category/m4" },
+    "USP-S": { "price": 5.94, "imgName": "18.webp", "href": "/skins/category/usp-s" },
+    "NEW KNIVES": { "price": 473.58, "imgName": "161.webp", "href": "/skins/category/new-knives" },
+    "MILSPEC": { "price": 1.17, "imgName": "6.webp", "href": "/skins/category/milspec" },
+    "RESTRICTED": { "price": 7.52, "imgName": "10.webp", "href": "/skins/category/restricted" },
+    "COVERT": { "price": 27.23, "imgName": "covert.webp", "href": "/skins/category/covert" }
   },
   "gold-area": {
-    "FOSTER": {
-      "price": 610,
-      "imgName": "FOSTER.webp",
-      "href": "/skins/category/foster"
-    },
-    "PREDATOR": {
-      "price": 1200,
-      "imgName": "PREDATOR.webp",
-      "href": "/skins/category/predator"
-    },
-    "OPTIMAL": {
-      "price": 1930,
-      "imgName": "OPTIMAL.webp",
-      "href": "/skins/category/optimal"
-    },
-    "SOLAR": {
-      "price": 5600,
-      "imgName": "SOLAR.webp",
-      "href": "/skins/category/solar"
-    },
-    "WIND": {
-      "price": 12500,
-      "imgName": "WIND.webp",
-      "href": "/skins/category/wind"
-    },
-    "RUBY": {
-      "price": 1300,
-      "imgName": "433.webp",
-      "href": "/skins/category/ruby"
-    },
-    "SHARK": {
-      "price": 680,
-      "imgName": "532.webp",
-      "href": "/skins/category/shark"
-    },
-    "WRAP": {
-      "price": 4900,
-      "imgName": "235.webp",
-      "href": "/skins/category/wrap"
-    },
-    "SAMURAI": {
-      "price": 9900,
-      "imgName": "147.webp",
-      "href": "/skins/category/samurai"
-    },
-    "ATUM": {
-      "price": 2670,
-      "imgName": "336.webp",
-      "href": "/skins/category/atum"
-    },
-    "GOLD DIGGER": {
-      "price": 480,
-      "imgName": "11.webp",
-      "href": "/skins/category/gold-digger"
-    },
-    "RUBIN RAIN": {
-      "price": 840,
-      "imgName": "23.webp",
-      "href": "/skins/category/rubin-rain"
-    },
+    "FOSTER": { "price": 610, "imgName": "FOSTER.webp", "href": "/skins/category/foster" },
+    "PREDATOR": { "price": 1200, "imgName": "PREDATOR.webp", "href": "/skins/category/predator" },
+    "OPTIMAL": { "price": 1930, "imgName": "OPTIMAL.webp", "href": "/skins/category/optimal" },
+    "SOLAR": { "price": 5600, "imgName": "SOLAR.webp", "href": "/skins/category/solar" },
+    "WIND": { "price": 12500, "imgName": "WIND.webp", "href": "/skins/category/wind" },
+    "RUBY": { "price": 1300, "imgName": "433.webp", "href": "/skins/category/ruby" },
+    "SHARK": { "price": 680, "imgName": "532.webp", "href": "/skins/category/shark" },
+    "WRAP": { "price": 4900, "imgName": "235.webp", "href": "/skins/category/wrap" },
+    "SAMURAI": { "price": 9900, "imgName": "147.webp", "href": "/skins/category/samurai" },
+    "ATUM": { "price": 2670, "imgName": "336.webp", "href": "/skins/category/atum" },
+    "GOLD DIGGER": { "price": 480, "imgName": "11.webp", "href": "/skins/category/gold-digger" },
+    "RUBIN RAIN": { "price": 840, "imgName": "23.webp", "href": "/skins/category/rubin-rain" },
     "AMETHYST LIGHT": {
       "price": 1400,
       "imgName": "31.webp",
       "href": "/skins/category/amethyst-light"
     },
-    "DIAMOND SKY": {
-      "price": 6200,
-      "imgName": "41.webp",
-      "href": "/skins/category/diamond-sky"
-    },
-    "EMERALD CUT": {
-      "price": 19200,
-      "imgName": "51.webp",
-      "href": "/skins/category/emerald-cut"
-    }
+    "DIAMOND SKY": { "price": 6200, "imgName": "41.webp", "href": "/skins/category/diamond-sky" },
+    "EMERALD CUT": { "price": 19200, "imgName": "51.webp", "href": "/skins/category/emerald-cut" }
   }
 }

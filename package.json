@@ -17,6 +17,9 @@
     },
     "@static": {
       "default": "./static/*/"
+    },
+    "@lib": { 
+      "default": "./src/lib/index.js"
     }
   },
   "devDependencies": {

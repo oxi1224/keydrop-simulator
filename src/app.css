@@ -61,6 +61,7 @@
 
 * {
   font-family: Urbane, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -71,6 +72,25 @@ body {
   background-color: rgba(220, 174, 100, 0.99);
   -webkit-text-fill-color: #111114;
   color: #111114;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+[type="button"], [type="reset"], [type="submit"], button {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+
+[role="button"], button {
+  cursor: pointer;
 }
 
 .navbar-left::after {
@@ -148,22 +168,109 @@ body {
 }
 
 .ratio {
-  position:relative;
-  --ratio: 1
- }
+  position: relative;
+  --ratio: 1;
+}
 
 .ratio::before {
-  content: "";
+  content: '';
   display: block;
-  padding-top: calc(var(--ratio)*100%);
+  padding-top: calc(var(--ratio) * 100%);
   grid-row-start: 1;
   grid-column-start: 1;
 }
 
 .ratio-1\.5 {
-  --ratio: 1.5
+  --ratio: 1.5;
 }
 
 .ratio-1\.12 {
-  --ratio: 1.12
+  --ratio: 1.12;
+}
+
+.css-1ti3c59 {
+  transform: translate(0%);
+  width: 20%;
+  box-shadow: rgba(80, 227, 109, 0.4) 0px 0px 6px, rgba(80, 227, 109, 0.4) 0px 0px 6px inset;
+  background-color: rgba(80, 227, 109, 0.03);
+}
+
+.css-awr5wf {
+  --ratio: 0.7;
+  background-image: url("https://key-drop.com/web/KD/static/images/case-item-bg.png?v48");
+  font-size: 13px;
+}
+
+.css-ik2bl7 {
+  contain: content;
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+.css-awr5wf {
+  font-size: 16px;
+}
+}
+
+.css-5mrvkg {
+  padding: 6%;
+  font-size: 0.625em;
+}
+
+.css-1f31obc {
+  padding: 7%;
+  text-shadow: rgb(31, 31, 39) 0px 0px 3px;
+  font-size: 0.5em;
+}
+
+@media (min-width: 640px) {
+.css-96c4l3 {
+  width: 60%;
+}
+}
+
+.css-1w1pcrf {
+  aspect-ratio: 1.3 / 1;
+}
+
+.css-1jurzha {
+  padding: 0px 7% 7%;
+  text-shadow: rgb(31, 31, 39) 0px 0px 3px;
+}
+
+.css-6plnry {
+  font-size: 0.75em;
+}
+
+.css-ix4kef {
+  font-size: 110%;
+}
+
+.css-5mrvkg {
+  padding: 6%;
+  font-size: 0.625em;
+}
+
+.css-a27jap {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .css-a27jap {
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  }
+}
+
+button:hover > .css-1t6ze00 {
+  background-color: rgb(66, 66, 84);
+}
+
+.css-15kssi9 {
+  grid-template-columns: repeat(4, auto);
+  padding: 7%;
+  font-size: 0.5625em;
+}
+
+.css-bnrups {
+  backdrop-filter: blur(3px);
 }
