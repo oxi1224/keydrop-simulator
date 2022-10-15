@@ -1,13 +1,14 @@
 <script>
   import Footer from '@components/footer.svelte';
   import Header from '@components/header.svelte';
+  import { page } from '$app/stores';
   import Case from '@components/case.svelte';
-  import data from '@assets/cases/kacper-rietz.json';
+  export let promise = import(`../../../../assets/cases/${$page.params.slug}.json`);
 </script>
 
 
 <Header />
-
-<Case data="{data}"/>
-
+{#await promise then data}
+  <Case data="{data}"/>
+{/await}
 <Footer />

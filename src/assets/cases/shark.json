@@ -1,5 +1,6 @@
 {
   "price": 680,
+  "websiteName": "SHARK",
   "drops": [
     {
       "skinName": "Hyper Beast",
@@ -11,7 +12,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "117,68PLN",
-        "range": [99955, 100000],
+        "range": [
+          99955,
+          100000
+        ],
         "odds": "0,046%"
       }
     },
@@ -25,7 +29,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "19,44PLN",
-        "range": [99787, 99908],
+        "range": [
+          99787,
+          99908
+        ],
         "odds": "0,122%"
       }
     },
@@ -39,7 +46,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "18,95PLN",
-        "range": [99909, 99954],
+        "range": [
+          99909,
+          99954
+        ],
         "odds": "0,046%"
       }
     },
@@ -53,7 +63,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "10,71PLN",
-        "range": [99681, 99786],
+        "range": [
+          99681,
+          99786
+        ],
         "odds": "0,106%"
       }
     },
@@ -67,7 +80,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "7,43PLN",
-        "range": [99233, 99680],
+        "range": [
+          99233,
+          99680
+        ],
         "odds": "0,448%"
       }
     },
@@ -81,7 +97,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "6,80PLN",
-        "range": [98986, 99232],
+        "range": [
+          98986,
+          99232
+        ],
         "odds": "0,247%"
       }
     },
@@ -95,7 +114,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "4,14PLN",
-        "range": [94283, 95830],
+        "range": [
+          94283,
+          95830
+        ],
         "odds": "1,548%"
       }
     },
@@ -109,7 +131,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,39PLN",
-        "range": [52373, 55819],
+        "range": [
+          52373,
+          55819
+        ],
         "odds": "3,447%"
       }
     },
@@ -123,7 +148,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "1,94PLN",
-        "range": [25214, 27324],
+        "range": [
+          25214,
+          27324
+        ],
         "odds": "2,111%"
       }
     },
@@ -137,7 +165,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "3,92PLN",
-        "range": [94001, 94282],
+        "range": [
+          94001,
+          94282
+        ],
         "odds": "0,282%"
       }
     },
@@ -151,7 +182,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,88PLN",
-        "range": [83942, 84784],
+        "range": [
+          83942,
+          84784
+        ],
         "odds": "0,843%"
       }
     },
@@ -165,7 +199,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "3,78PLN",
-        "range": [95831, 97597],
+        "range": [
+          95831,
+          97597
+        ],
         "odds": "1,767%"
       }
     },
@@ -179,7 +216,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,52PLN",
-        "range": [69180, 72108],
+        "range": [
+          69180,
+          72108
+        ],
         "odds": "2,929%"
       }
     },
@@ -193,7 +233,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "2,03PLN",
-        "range": [37027, 40946],
+        "range": [
+          37027,
+          40946
+        ],
         "odds": "3,920%"
       }
     },
@@ -207,7 +250,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "3,65PLN",
-        "range": [97598, 98985],
+        "range": [
+          97598,
+          98985
+        ],
         "odds": "1,388%"
       }
     },
@@ -221,7 +267,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,57PLN",
-        "range": [72109, 75236],
+        "range": [
+          72109,
+          75236
+        ],
         "odds": "3,128%"
       }
     },
@@ -235,7 +284,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "2,43PLN",
-        "range": [63966, 65995],
+        "range": [
+          63966,
+          65995
+        ],
         "odds": "2,030%"
       }
     },
@@ -249,7 +301,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "3,42PLN",
-        "range": [91214, 92949],
+        "range": [
+          91214,
+          92949
+        ],
         "odds": "1,736%"
       }
     },
@@ -263,7 +318,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,25PLN",
-        "range": [59805, 62086],
+        "range": [
+          59805,
+          62086
+        ],
         "odds": "2,282%"
       }
     },
@@ -277,7 +335,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "3,38PLN",
-        "range": [88225, 89256],
+        "range": [
+          88225,
+          89256
+        ],
         "odds": "1,032%"
       }
     },
@@ -291,7 +352,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,43PLN",
-        "range": [58642, 59804],
+        "range": [
+          58642,
+          59804
+        ],
         "odds": "1,163%"
       }
     },
@@ -305,7 +369,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "1,85PLN",
-        "range": [51248, 52372],
+        "range": [
+          51248,
+          52372
+        ],
         "odds": "1,125%"
       }
     },
@@ -319,7 +386,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "3,06PLN",
-        "range": [89257, 91213],
+        "range": [
+          89257,
+          91213
+        ],
         "odds": "1,957%"
       }
     },
@@ -333,7 +403,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "2,25PLN",
-        "range": [75237, 76181],
+        "range": [
+          75237,
+          76181
+        ],
         "odds": "0,945%"
       }
     },
@@ -347,7 +420,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "1,89PLN",
-        "range": [48231, 51247],
+        "range": [
+          48231,
+          51247
+        ],
         "odds": "3,017%"
       }
     },
@@ -361,7 +437,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "1,89PLN",
-        "range": [76182, 78975],
+        "range": [
+          76182,
+          78975
+        ],
         "odds": "2,794%"
       }
     },
@@ -375,7 +454,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,66PLN",
-        "range": [81312, 83941],
+        "range": [
+          81312,
+          83941
+        ],
         "odds": "2,630%"
       }
     },
@@ -389,7 +471,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "2,61PLN",
-        "range": [62087, 63965],
+        "range": [
+          62087,
+          63965
+        ],
         "odds": "1,879%"
       }
     },
@@ -403,7 +488,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,48PLN",
-        "range": [78976, 81311],
+        "range": [
+          78976,
+          81311
+        ],
         "odds": "2,336%"
       }
     },
@@ -417,7 +505,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,30PLN",
-        "range": [57113, 58641],
+        "range": [
+          57113,
+          58641
+        ],
         "odds": "1,529%"
       }
     },
@@ -431,7 +522,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,25PLN",
-        "range": [65996, 68116],
+        "range": [
+          65996,
+          68116
+        ],
         "odds": "2,121%"
       }
     },
@@ -445,7 +539,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "2,03PLN",
-        "range": [55820, 57112],
+        "range": [
+          55820,
+          57112
+        ],
         "odds": "1,293%"
       }
     },
@@ -459,7 +556,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "1,80PLN",
-        "range": [85123, 87885],
+        "range": [
+          85123,
+          87885
+        ],
         "odds": "2,763%"
       }
     },
@@ -473,7 +573,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,03PLN",
-        "range": [31811, 33708],
+        "range": [
+          31811,
+          33708
+        ],
         "odds": "1,898%"
       }
     },
@@ -487,7 +590,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "1,85PLN",
-        "range": [42043, 45012],
+        "range": [
+          42043,
+          45012
+        ],
         "odds": "2,970%"
       }
     },
@@ -501,7 +607,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "1,85PLN",
-        "range": [45013, 48230],
+        "range": [
+          45013,
+          48230
+        ],
         "odds": "3,218%"
       }
     },
@@ -515,7 +624,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "3,78PLN",
-        "range": [92950, 94000],
+        "range": [
+          92950,
+          94000
+        ],
         "odds": "1,051%"
       }
     },
@@ -529,7 +641,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2,30PLN",
-        "range": [68117, 69179],
+        "range": [
+          68117,
+          69179
+        ],
         "odds": "1,063%"
       }
     },
@@ -543,7 +658,10 @@
       "dropDetails": {
         "quality": "FN",
         "price": "3,33PLN",
-        "range": [84785, 85122],
+        "range": [
+          84785,
+          85122
+        ],
         "odds": "0,338%"
       }
     },
@@ -557,7 +675,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "1,94PLN",
-        "range": [21328, 22248],
+        "range": [
+          21328,
+          22248
+        ],
         "odds": "0,921%"
       }
     },
@@ -571,7 +692,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "1,76PLN",
-        "range": [40947, 42042],
+        "range": [
+          40947,
+          42042
+        ],
         "odds": "1,096%"
       }
     },
@@ -585,7 +709,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "1,17PLN",
-        "range": [5939, 7770],
+        "range": [
+          5939,
+          7770
+        ],
         "odds": "1,832%"
       }
     },
@@ -599,7 +726,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "1,08PLN",
-        "range": [14513, 16705],
+        "range": [
+          14513,
+          16705
+        ],
         "odds": "2,193%"
       }
     },
@@ -613,7 +743,10 @@
       "dropDetails": {
         "quality": "FN",
         "price": "3,11PLN",
-        "range": [87886, 88224],
+        "range": [
+          87886,
+          88224
+        ],
         "odds": "0,339%"
       }
     },
@@ -627,7 +760,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "1,94PLN",
-        "range": [35760, 37026],
+        "range": [
+          35760,
+          37026
+        ],
         "odds": "1,267%"
       }
     },
@@ -641,7 +777,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "1,76PLN",
-        "range": [33709, 35759],
+        "range": [
+          33709,
+          35759
+        ],
         "odds": "2,051%"
       }
     },
@@ -655,7 +794,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "1,08PLN",
-        "range": [22249, 25213],
+        "range": [
+          22249,
+          25213
+        ],
         "odds": "2,965%"
       }
     },
@@ -669,7 +811,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "1,04PLN",
-        "range": [18825, 21327],
+        "range": [
+          18825,
+          21327
+        ],
         "odds": "2,503%"
       }
     },
@@ -683,7 +828,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "2,03PLN",
-        "range": [29126, 31810],
+        "range": [
+          29126,
+          31810
+        ],
         "odds": "2,685%"
       }
     },
@@ -697,7 +845,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "1,98PLN",
-        "range": [27325, 29125],
+        "range": [
+          27325,
+          29125
+        ],
         "odds": "1,801%"
       }
     },
@@ -711,7 +862,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "1,08PLN",
-        "range": [7771, 10253],
+        "range": [
+          7771,
+          10253
+        ],
         "odds": "2,483%"
       }
     },
@@ -725,7 +879,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "1,04PLN",
-        "range": [10254, 11179],
+        "range": [
+          10254,
+          11179
+        ],
         "odds": "0,926%"
       }
     },
@@ -739,7 +896,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "1,13PLN",
-        "range": [11180, 14512],
+        "range": [
+          11180,
+          14512
+        ],
         "odds": "3,333%"
       }
     },
@@ -753,7 +913,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "0,63PLN",
-        "range": [1, 2886],
+        "range": [
+          1,
+          2886
+        ],
         "odds": "2,886%"
       }
     },
@@ -767,7 +930,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": "0,59PLN",
-        "range": [2887, 4066],
+        "range": [
+          2887,
+          4066
+        ],
         "odds": "1,180%"
       }
     },
@@ -781,7 +947,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "0,50PLN",
-        "range": [4067, 5938],
+        "range": [
+          4067,
+          5938
+        ],
         "odds": "1,872%"
       }
     },
@@ -795,7 +964,10 @@
       "dropDetails": {
         "quality": "FN",
         "price": "1,08PLN",
-        "range": [16706, 18824],
+        "range": [
+          16706,
+          18824
+        ],
         "odds": "2,119%"
       }
     }

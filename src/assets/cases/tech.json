@@ -1,5 +1,6 @@
 {
   "price": 2.39,
+  "websiteName": "TECH",
   "drops": [
     {
       "skinName": "Lore",
@@ -11,7 +12,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "664,70PLN",
-        "range": [99781, 100000],
+        "range": [
+          99781,
+          100000
+        ],
         "odds": "0,220%"
       }
     },
@@ -25,7 +29,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "152,91PLN",
-        "range": [99481, 99780],
+        "range": [
+          99481,
+          99780
+        ],
         "odds": "0,300%"
       }
     },
@@ -39,7 +46,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "17,33PLN",
-        "range": [99001, 99480],
+        "range": [
+          99001,
+          99480
+        ],
         "odds": "0,480%"
       }
     },
@@ -53,7 +63,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "0,18PLN",
-        "range": [1, 99000],
+        "range": [
+          1,
+          99000
+        ],
         "odds": "99,000%"
       }
     }

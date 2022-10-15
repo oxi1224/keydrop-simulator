@@ -11,7 +11,7 @@
 <header class="sticky top-0 z-50 md:relative bg-navy-600">
   <div class="container relative flex w-auto h-20 mx-auto md:h-24">
     <div class="relative flex items-center h-full navbar-left">
-      <a href="https://key-drop.com/pl" class="w-32 mb-1 md:w-40">
+      <a href="/" class="w-32 mb-1 md:w-40">
         <svg
           version="1.1"
           id="Warstwa_1"

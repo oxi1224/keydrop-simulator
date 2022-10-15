@@ -1,5 +1,6 @@
 {
   "price": 20.25,
+  "websiteName": "ROCKET",
   "drops": [
     {
       "skinName": "Gamma Doppler",
@@ -11,7 +12,10 @@
       "dropDetails": {
         "quality": "FN",
         "price": "3047,27PLN",
-        "range": [99976, 100000],
+        "range": [
+          99976,
+          100000
+        ],
         "odds": "0,025%"
       }
     },
@@ -25,7 +29,10 @@
       "dropDetails": {
         "quality": "FN",
         "price": "1297,58PLN",
-        "range": [99941, 99975],
+        "range": [
+          99941,
+          99975
+        ],
         "odds": "0,035%"
       }
     },
@@ -39,7 +46,10 @@
       "dropDetails": {
         "quality": "FN",
         "price": "712,40PLN",
-        "range": [99776, 99940],
+        "range": [
+          99776,
+          99940
+        ],
         "odds": "0,165%"
       }
     },
@@ -47,42 +57,51 @@
       "skinName": "Bright Water",
       "skinWeapon": "Falchion Knife",
       "skinPriceRange": "501,12PLN",
-      "skinDisplayChance": "0,325%",
+      "skinDisplayChance": "0,625%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/aa/aa9459f86535ed2ceb7ebbf709de6171.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
         "price": "501,12PLN",
-        "range": [99451, 99775],
-        "odds": "0,325%"
+        "range": [
+          99151,
+          99775
+        ],
+        "odds": "0,625%"
       }
     },
     {
       "skinName": "Damascus Steel",
       "skinWeapon": "Navaja Knife",
       "skinPriceRange": "359,82PLN",
-      "skinDisplayChance": "3,750%",
+      "skinDisplayChance": "3,650%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2d/2dac2a8115713cb8970267076e9203df.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
         "price": "359,82PLN",
-        "range": [95701, 99450],
-        "odds": "3,750%"
+        "range": [
+          95501,
+          99150
+        ],
+        "odds": "3,650%"
       }
     },
     {
       "skinName": "Predator",
       "skinWeapon": "Nova",
       "skinPriceRange": "0,14PLN",
-      "skinDisplayChance": "95,700%",
+      "skinDisplayChance": "95,500%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/45/45593b1f296b5f3cbbd8987766032276.png",
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "WW",
         "price": "0,14PLN",
-        "range": [1, 95700],
-        "odds": "95,700%"
+        "range": [
+          1,
+          95500
+        ],
+        "odds": "95,500%"
       }
     }
   ]

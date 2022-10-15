@@ -82,5 +82,4 @@
       {/each}
     </ul>
   </section>
-
 </div>

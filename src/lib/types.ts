@@ -2,6 +2,7 @@ import type { colors } from "./constants";
 
 export interface CaseData {
   price: number,
+  websiteName: string,
   drops: CaseDrop[],
 }
 

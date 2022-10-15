@@ -1,6 +1,62 @@
 <script lang="ts">
-  import { colors, type CaseDrop } from '@lib';
-  export let caseItems: CaseDrop[];
+  import { colors, goldenNames, type CaseData, type CaseDrop } from '@lib';
+  export let caseItems: CaseDrop[] = [];
+  export let multipleCaseItems: CaseDrop[][] = [];
+  export let data: CaseData;
+  export let caseCount = 1;
+  export let casePrice = data.price;
+  
+  generateRollItems(caseCount);
+  function generateRollItems(rouletteCount: number) {
+    caseItems = [];
+    multipleCaseItems = [];
+    if (rouletteCount === 1) {
+      for (let i = 0; i < 60; i++) {
+        const roll = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
+        const item = data.drops.find(
+          (obj) => obj.dropDetails.range[0] <= roll && obj.dropDetails.range[1] >= roll
+        );
+        if (!item) continue;
+        caseItems.push(item);
+      }
+    } else {
+      for (let i = 0; i < rouletteCount; i++) {
+        const rollItems: CaseDrop[] = [];
+        for (let itemI = 0; itemI < 60; itemI++) {
+          const roll = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
+          const item = data.drops.find(
+            (obj) => obj.dropDetails.range[0] <= roll && obj.dropDetails.range[1] >= roll
+          );
+          if (!item) continue;
+          rollItems.push(item);
+        }
+        multipleCaseItems.push(rollItems);
+      }
+    }
+  }
+
+  export function changeRouletteCount(rollCount: number) {
+    const singleRoll = document.querySelector('.single-roll');
+    const btnArr = [...document.querySelectorAll('.case-count-btn')];
+    const btnOverlay = document.querySelector('div.css-1ti3c59') as HTMLElement;
+    const arrows = [...document.querySelectorAll('svg.point-arrow')];
+    document.querySelector('.case-count-btn.case-count-selected-btn')?.classList.toggle('case-count-selected-btn');
+    btnArr[rollCount - 1].classList.toggle('case-count-selected-btn');
+    if (rollCount !== 1 && !singleRoll?.classList.contains('hidden')) { 
+      singleRoll?.classList.toggle('hidden');
+      arrows[0].classList.toggle('arrow-left');
+      arrows[1].classList.toggle('arrow-right');
+    }
+    if (rollCount === 1 && singleRoll?.classList.contains('hidden')) { 
+      singleRoll.classList.remove('hidden');
+      arrows[0].classList.remove('arrow-left');
+      arrows[1].classList.remove('arrow-right');
+    }
+    caseCount = rollCount;
+    btnOverlay!.style.left = `${20 * (caseCount - 1)}%`;
+    casePrice = Math.round(data.price * caseCount * 100) / 100;
+    generateRollItems(caseCount);
+  }
 </script>
 
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
@@ -84,7 +140,7 @@
       style="height: 300px; box-shadow: rgba(66, 66, 84, 0.2) 0px 0px 0px 5px;"
     >
       <div
-        class="absolute top-0 left-0 w-full h-full grid grid-stack"
+        class="absolute top-0 left-0 w-full h-full grid grid-stack single-roll"
         style="width: 1480px; left: calc(50% - 740px);"
       >
         <ul class="flex w-full h-full CaseRolls-row">
@@ -109,6 +165,31 @@
             </li>
           {/each}
         </ul>
+      </div>
+      <div class="flex absolute top-0 left-0 w-full h-full css-1ubc7bb">
+        {#each multipleCaseItems as caseItemsArray}
+          <div
+            style="width: {1 / caseCount * 100}%;"
+            class="CaseRolls-roll flex-shrink-0 h-full will-change-transform border-r border-dashed border-navy-550"
+          >
+              {#each caseItemsArray as caseItem}
+                <div
+                  class="CaseRolls-skin w-full h-auto my-5 lg:h-full lg:my-0 css-1hmgmgm flex items-center justify-center relative"
+                > 
+                <img
+                  alt=""
+                  class="object-contain absolute mx-auto w-1/2"
+                  src="{colors.itemBg[caseItem.skinRarity]}"
+                />
+                  <img
+                    src="{caseItem.skinImgSource}"
+                    alt=""
+                    class="block object-contain w-1/2 h-full z-10"
+                  />
+                </div>
+              {/each}
+          </div>
+        {/each}
       </div>
     </div>
   </div>
@@ -166,30 +247,36 @@
     >
       <div class="relative flex h-10 sm:h-15">
         <div
-          class="absolute top-0 left-0 h-full py-6 z-10 border border-solid transition-all duration-700 -ml-px will-change-transform border-pastelGreen rounded-l sm:rounded-l-lg css-1ti3c59"
+          style="left: 0;"
+          class="absolute top-0 h-full py-6 z-10 border border-solid transition-all duration-700 -ml-px will-change-transform border-pastelGreen css-1ti3c59"
         ></div>
         <button
-          class="flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 rounded-l sm:rounded-l-lg ml-0 text-pastelGreen pointer-events-none hover:text-white hover:bg-navy-600"
+          on:click="{() => changeRouletteCount(1)}"
+          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 rounded-l text-navy-200 sm:rounded-l-lg ml-0 case-count-selected-btn hover:text-white hover:bg-navy-600"
         >
           1
         </button>
         <button
-          class="flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
+        on:click="{() => changeRouletteCount(2)}"
+          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           2
         </button>
         <button
-          class="flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
+        on:click="{() => changeRouletteCount(3)}"
+          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           3
         </button>
         <button
-          class="flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
+        on:click="{() => changeRouletteCount(4)}"
+          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           4
         </button>
         <button
-          class="flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px rounded-r sm:rounded-r-lg text-navy-200 hover:text-white hover:bg-navy-600"
+        on:click="{() => changeRouletteCount(5)}"
+          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px rounded-r sm:rounded-r-lg text-navy-200 hover:text-white hover:bg-navy-600"
         >
           5
         </button>
@@ -217,7 +304,7 @@
           </svg>
         </span>
         <span class="flex items-center col-start-1 row-start-1 transition-opacity duration-300">
-          Dodaj środki aby otworzyć <div class="flex items-center ml-2">19,71&nbsp;PLN</div>
+          Dodaj środki aby otworzyć <div class="flex items-center ml-2">{casePrice} {@html goldenNames.includes(data.websiteName) ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">' : 'PLN'}</div>
         </span>
       </a>
     </div>

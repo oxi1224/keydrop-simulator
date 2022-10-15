@@ -1,5 +1,6 @@
 {
   "price": 2.39,
+  "websiteName": "DAGGERS",
   "drops": [
     {
       "skinName": "Lore",
@@ -11,7 +12,10 @@
       "dropDetails": {
         "quality": "FT",
         "price": "585,72PLN",
-        "range": [99801, 100000],
+        "range": [
+          99801,
+          100000
+        ],
         "odds": "0,200%"
       }
     },
@@ -25,7 +29,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "68,94PLN",
-        "range": [99541, 99800],
+        "range": [
+          99541,
+          99800
+        ],
         "odds": "0,260%"
       }
     },
@@ -39,7 +46,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": "46,76PLN",
-        "range": [99001, 99540],
+        "range": [
+          99001,
+          99540
+        ],
         "odds": "0,540%"
       }
     },
@@ -53,7 +63,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": "0,63PLN",
-        "range": [1, 99000],
+        "range": [
+          1,
+          99000
+        ],
         "odds": "99,000%"
       }
     }

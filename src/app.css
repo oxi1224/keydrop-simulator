@@ -274,3 +274,41 @@ button:hover > .css-1t6ze00 {
 .css-bnrups {
   backdrop-filter: blur(3px);
 }
+
+img {
+  user-select: none;
+}
+
+.glow-pastelGreen {
+  box-shadow: 0 0 6px rgba(80,227,109,.4),inset 0 0 6px rgba(80,227,109,.4);
+}
+
+.grid-stack {
+  grid-template: "area"/minmax(0,1fr);
+}
+
+.case-count-selected-btn {
+  --tw-text-opacity: 1;
+  color: rgb(80 227 109 / var(--tw-text-opacity));
+  pointer-events: none;
+}
+
+.css-1ubc7bb {
+  contain: size layout paint;
+}
+
+.css-1hmgmgm {
+  backface-visibility: hidden;
+}
+
+.arrow-left {
+  top: 50%;
+  left: 0;
+  transform: rotate(90deg);
+}
+
+.arrow-right {
+  top: 50%;
+  left: 100%;
+  transform: rotate(-90deg);
+}

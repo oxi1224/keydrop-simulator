@@ -6,15 +6,6 @@
   export let caseItems: CaseDrop[] = [];
   export let itemData: CaseItemData[] = [];
 
-  for (let i = 0; i < 60; i++) {
-    const roll = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
-    const item = data.drops.find(
-      (obj) => obj.dropDetails.range[0] <= roll && obj.dropDetails.range[1] >= roll
-    );
-    if (!item) continue;
-    caseItems.push(item);
-  }
-
   const skinNames = (() => {
     const arr = [];
     for (const drop of data.drops) {
@@ -34,10 +25,9 @@
       skinDisplayChance: allItems[0].skinDisplayChance,
       skinImgSource: allItems[0].skinImgSource,
       skinRarity: allItems[0].skinRarity,
-      details: []
+      details: details
     });
   }
-
 
   // export function rollItem() {
   //   const items = [...document.querySelectorAll('li.case-item')];
@@ -85,7 +75,7 @@
         </span>
       </a>
       <h2 class="px-6 mx-auto text-xl font-semibold leading-tight text-center text-white uppercase">
-        KACPER RIETZ
+        {data.websiteName}
       </h2>
       <div class="flex justify-center space-x-1 sm:space-x-2 sm:justify-end">
         <button
@@ -124,7 +114,7 @@
         </button>
       </div>
     </header>
-    <CaseRoulette caseItems={caseItems} />
+    <CaseRoulette caseItems={caseItems} data={data} />
     <CaseContents itemData={itemData} />
     <div class="container mx-auto"></div>
   </div>
