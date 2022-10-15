@@ -1,9 +1,11 @@
 <script lang="ts">
   import { colors, type CaseItemData } from '@lib';
   export let itemData: CaseItemData[];
-  export function toggleDetails(e: MouseEvent & {
-    currentTarget: EventTarget & HTMLButtonElement;
-  }) {
+  export function toggleDetails(
+    e: MouseEvent & {
+      currentTarget: EventTarget & HTMLButtonElement;
+    }
+  ) {
     e.currentTarget.offsetParent?.querySelector('.details-page')?.classList.toggle('hidden');
   }
 </script>
@@ -43,7 +45,7 @@
             <button
               id="detailsToggle"
               class="z-30 self-start col-start-1 row-start-1 justify-self-start css-5mrvkg text-navy-200"
-              on:click="{e => toggleDetails(e)}"
+              on:click="{(e) => toggleDetails(e)}"
             >
               <div
                 class="flex items-center justify-center w-5 h-5 font-bold text-center transition-colors duration-200 rounded-full bg-navy-500 css-1t6ze00"

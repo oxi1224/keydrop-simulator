@@ -9,7 +9,7 @@ const config: UserConfig = {
       '@components': path.resolve('./src/components/'),
       '@static': path.resolve('./static/'),
       '@assets': path.resolve('./src/assets/'),
-      '@lib': path.resolve('./src/lib/'),
+      '@lib': path.resolve('./src/lib/')
     }
   },
   server: {

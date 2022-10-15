@@ -114,8 +114,8 @@
         </button>
       </div>
     </header>
-    <CaseRoulette caseItems={caseItems} data={data} />
-    <CaseContents itemData={itemData} />
+    <CaseRoulette caseItems="{caseItems}" data="{data}" />
+    <CaseContents itemData="{itemData}" />
     <div class="container mx-auto"></div>
   </div>
 </main>

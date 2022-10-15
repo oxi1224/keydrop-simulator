@@ -6,9 +6,8 @@
   export let promise = import(`../../../../assets/cases/${$page.params.slug}.json`);
 </script>
 
-
 <Header />
 {#await promise then data}
-  <Case data="{data}"/>
+  <Case data="{data}" />
 {/await}
 <Footer />

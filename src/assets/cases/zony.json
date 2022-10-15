@@ -12,10 +12,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "4071,92PLN",
-        "range": [
-          99901,
-          100000
-        ],
+        "range": [99901, 100000],
         "odds": "0,100%"
       }
     },
@@ -29,10 +26,7 @@
       "dropDetails": {
         "quality": "FN",
         "price": "3047,27PLN",
-        "range": [
-          99801,
-          99900
-        ],
+        "range": [99801, 99900],
         "odds": "0,100%"
       }
     },
@@ -46,10 +40,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "2211,89PLN",
-        "range": [
-          99691,
-          99800
-        ],
+        "range": [99691, 99800],
         "odds": "0,110%"
       }
     },
@@ -63,10 +54,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "732,65PLN",
-        "range": [
-          99541,
-          99690
-        ],
+        "range": [99541, 99690],
         "odds": "0,150%"
       }
     },
@@ -80,10 +68,7 @@
       "dropDetails": {
         "quality": "FN",
         "price": "544,46PLN",
-        "range": [
-          99341,
-          99540
-        ],
+        "range": [99341, 99540],
         "odds": "0,200%"
       }
     },
@@ -97,10 +82,7 @@
       "dropDetails": {
         "quality": "FN",
         "price": "453,51PLN",
-        "range": [
-          99141,
-          99340
-        ],
+        "range": [99141, 99340],
         "odds": "0,200%"
       }
     },
@@ -114,10 +96,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "393,93PLN",
-        "range": [
-          98841,
-          99140
-        ],
+        "range": [98841, 99140],
         "odds": "0,300%"
       }
     },
@@ -131,10 +110,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "380,88PLN",
-        "range": [
-          98461,
-          98840
-        ],
+        "range": [98461, 98840],
         "odds": "0,380%"
       }
     },
@@ -148,10 +124,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "359,82PLN",
-        "range": [
-          94801,
-          98460
-        ],
+        "range": [94801, 98460],
         "odds": "3,660%"
       }
     },
@@ -165,10 +138,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "320,31PLN",
-        "range": [
-          90001,
-          94800
-        ],
+        "range": [90001, 94800],
         "odds": "4,800%"
       }
     },
@@ -182,10 +152,7 @@
       "dropDetails": {
         "quality": "MW",
         "price": "0,68PLN",
-        "range": [
-          60001,
-          65000
-        ],
+        "range": [60001, 65000],
         "odds": "5,000%"
       }
     },
@@ -199,10 +166,7 @@
       "dropDetails": {
         "quality": "BS",
         "price": "0,50PLN",
-        "range": [
-          25001,
-          35000
-        ],
+        "range": [25001, 35000],
         "odds": "10,000%"
       }
     },
@@ -216,10 +180,7 @@
       "dropDetails": {
         "quality": "WW",
         "price": "0,41PLN",
-        "range": [
-          1,
-          10000
-        ],
+        "range": [1, 10000],
         "odds": "10,000%"
       }
     },
@@ -233,10 +194,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "0,41PLN",
-        "range": [
-          10001,
-          25000
-        ],
+        "range": [10001, 25000],
         "odds": "15,000%"
       }
     },
@@ -250,10 +208,7 @@
       "dropDetails": {
         "quality": "MW",
         "price": "0,63PLN",
-        "range": [
-          80001,
-          90000
-        ],
+        "range": [80001, 90000],
         "odds": "10,000%"
       }
     },
@@ -267,10 +222,7 @@
       "dropDetails": {
         "quality": "BS",
         "price": "0,54PLN",
-        "range": [
-          65001,
-          80000
-        ],
+        "range": [65001, 80000],
         "odds": "15,000%"
       }
     },
@@ -284,10 +236,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": "0,50PLN",
-        "range": [
-          35001,
-          60000
-        ],
+        "range": [35001, 60000],
         "odds": "25,000%"
       }
     }

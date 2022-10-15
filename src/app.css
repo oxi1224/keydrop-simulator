@@ -74,7 +74,11 @@ body {
   color: #111114;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   font-family: inherit;
   font-size: 100%;
   line-height: inherit;
@@ -83,13 +87,17 @@ button, input, optgroup, select, textarea {
   padding: 0;
 }
 
-[type="button"], [type="reset"], [type="submit"], button {
+[type='button'],
+[type='reset'],
+[type='submit'],
+button {
   -webkit-appearance: button;
   background-color: transparent;
   background-image: none;
 }
 
-[role="button"], button {
+[role='button'],
+button {
   cursor: pointer;
 }
 
@@ -197,7 +205,7 @@ button, input, optgroup, select, textarea {
 
 .css-awr5wf {
   --ratio: 0.7;
-  background-image: url("https://key-drop.com/web/KD/static/images/case-item-bg.png?v48");
+  background-image: url('https://key-drop.com/web/KD/static/images/case-item-bg.png?v48');
   font-size: 13px;
 }
 
@@ -207,9 +215,9 @@ button, input, optgroup, select, textarea {
 }
 
 @media (min-width: 640px) {
-.css-awr5wf {
-  font-size: 16px;
-}
+  .css-awr5wf {
+    font-size: 16px;
+  }
 }
 
 .css-5mrvkg {
@@ -224,9 +232,9 @@ button, input, optgroup, select, textarea {
 }
 
 @media (min-width: 640px) {
-.css-96c4l3 {
-  width: 60%;
-}
+  .css-96c4l3 {
+    width: 60%;
+  }
 }
 
 .css-1w1pcrf {
@@ -280,11 +288,11 @@ img {
 }
 
 .glow-pastelGreen {
-  box-shadow: 0 0 6px rgba(80,227,109,.4),inset 0 0 6px rgba(80,227,109,.4);
+  box-shadow: 0 0 6px rgba(80, 227, 109, 0.4), inset 0 0 6px rgba(80, 227, 109, 0.4);
 }
 
 .grid-stack {
-  grid-template: "area"/minmax(0,1fr);
+  grid-template: 'area' / minmax(0, 1fr);
 }
 
 .case-count-selected-btn {

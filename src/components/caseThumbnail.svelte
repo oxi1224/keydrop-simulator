@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { goldenNames } from "@lib";
+  import { goldenNames } from '@lib';
   export let name: string;
   export let data: {
     imgName: string;
@@ -31,7 +31,10 @@
       <div
         class="flex flex-row items-center absolute py-1.5 px-3 font-semibold rounded bg-navy-900 text-gold-500 top-3 right-3 text-xs"
       >
-        {data.price} {@html goldenNames.includes(name) ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">' : 'PLN'}
+        {data.price}
+        {@html goldenNames.includes(name)
+          ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
+          : 'PLN'}
       </div>
       <div
         class="z-10 max-w-full p-2 mx-auto mt-auto mb-4 text-sm font-normal leading-none text-center text-white uppercase rounded-lg bg-navy-700 min-w-[8rem]"

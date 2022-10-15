@@ -5,7 +5,7 @@
   export let data: CaseData;
   export let caseCount = 1;
   export let casePrice = data.price;
-  
+
   generateRollItems(caseCount);
   function generateRollItems(rouletteCount: number) {
     caseItems = [];
@@ -40,14 +40,16 @@
     const btnArr = [...document.querySelectorAll('.case-count-btn')];
     const btnOverlay = document.querySelector('div.css-1ti3c59') as HTMLElement;
     const arrows = [...document.querySelectorAll('svg.point-arrow')];
-    document.querySelector('.case-count-btn.case-count-selected-btn')?.classList.toggle('case-count-selected-btn');
+    document
+      .querySelector('.case-count-btn.case-count-selected-btn')
+      ?.classList.toggle('case-count-selected-btn');
     btnArr[rollCount - 1].classList.toggle('case-count-selected-btn');
-    if (rollCount !== 1 && !singleRoll?.classList.contains('hidden')) { 
+    if (rollCount !== 1 && !singleRoll?.classList.contains('hidden')) {
       singleRoll?.classList.toggle('hidden');
       arrows[0].classList.toggle('arrow-left');
       arrows[1].classList.toggle('arrow-right');
     }
-    if (rollCount === 1 && singleRoll?.classList.contains('hidden')) { 
+    if (rollCount === 1 && singleRoll?.classList.contains('hidden')) {
       singleRoll.classList.remove('hidden');
       arrows[0].classList.remove('arrow-left');
       arrows[1].classList.remove('arrow-right');
@@ -66,14 +68,7 @@
       class="point-arrow absolute z-10 w-10 h-10 -mt-5 -ml-5 top-0 left-1/2 rotate-180"
     >
       <defs>
-        <filter
-          id="Polygon_43"
-          x="1.5"
-          y="2.5"
-          width="28"
-          height="24"
-          filterUnits="userSpaceOnUse"
-        >
+        <filter id="Polygon_43" x="1.5" y="2.5" width="28" height="24" filterUnits="userSpaceOnUse">
           <feGaussianBlur stdDeviation="2.5" result="blur"></feGaussianBlur>
           <feFlood flood-color="#ff445d" flood-opacity="0.388"></feFlood>
           <feComposite operator="in" in2="blur"></feComposite>
@@ -103,14 +98,7 @@
       class="point-arrow absolute z-10 w-10 h-10 -mt-5 -ml-5 top-full left-1/2 rotate-0"
     >
       <defs>
-        <filter
-          id="Polygon_43"
-          x="1.5"
-          y="2.5"
-          width="28"
-          height="24"
-          filterUnits="userSpaceOnUse"
-        >
+        <filter id="Polygon_43" x="1.5" y="2.5" width="28" height="24" filterUnits="userSpaceOnUse">
           <feGaussianBlur stdDeviation="2.5" result="blur"></feGaussianBlur>
           <feFlood flood-color="#ff445d" flood-opacity="0.388"></feFlood>
           <feComposite operator="in" in2="blur"></feComposite>
@@ -149,11 +137,7 @@
               class="flex-shrink-0 flex h-full min-w-0 relative case-item"
               style="width: 14.2857%; background-image: {colors.gradient[item.skinRarity]};"
             >
-              <img
-                src="{item.skinImgSource}"
-                alt=""
-                class="object-contain mx-auto w-4/5 h-full"
-              />
+              <img src="{item.skinImgSource}" alt="" class="object-contain mx-auto w-4/5 h-full" />
               <div
                 class="absolute bottom-0 left-0 w-full p-2 -mb-1 font-semibold leading-tight uppercase md:p-5"
               >
@@ -169,25 +153,25 @@
       <div class="flex absolute top-0 left-0 w-full h-full css-1ubc7bb">
         {#each multipleCaseItems as caseItemsArray}
           <div
-            style="width: {1 / caseCount * 100}%;"
+            style="width: {(1 / caseCount) * 100}%;"
             class="CaseRolls-roll flex-shrink-0 h-full will-change-transform border-r border-dashed border-navy-550"
           >
-              {#each caseItemsArray as caseItem}
-                <div
-                  class="CaseRolls-skin w-full h-auto my-5 lg:h-full lg:my-0 css-1hmgmgm flex items-center justify-center relative"
-                > 
+            {#each caseItemsArray as caseItem}
+              <div
+                class="CaseRolls-skin w-full h-auto my-5 lg:h-full lg:my-0 css-1hmgmgm flex items-center justify-center relative"
+              >
                 <img
                   alt=""
                   class="object-contain absolute mx-auto w-1/2"
                   src="{colors.itemBg[caseItem.skinRarity]}"
                 />
-                  <img
-                    src="{caseItem.skinImgSource}"
-                    alt=""
-                    class="block object-contain w-1/2 h-full z-10"
-                  />
-                </div>
-              {/each}
+                <img
+                  src="{caseItem.skinImgSource}"
+                  alt=""
+                  class="block object-contain w-1/2 h-full z-10"
+                />
+              </div>
+            {/each}
           </div>
         {/each}
       </div>
@@ -257,25 +241,25 @@
           1
         </button>
         <button
-        on:click="{() => changeRouletteCount(2)}"
+          on:click="{() => changeRouletteCount(2)}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           2
         </button>
         <button
-        on:click="{() => changeRouletteCount(3)}"
+          on:click="{() => changeRouletteCount(3)}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           3
         </button>
         <button
-        on:click="{() => changeRouletteCount(4)}"
+          on:click="{() => changeRouletteCount(4)}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           4
         </button>
         <button
-        on:click="{() => changeRouletteCount(5)}"
+          on:click="{() => changeRouletteCount(5)}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px rounded-r sm:rounded-r-lg text-navy-200 hover:text-white hover:bg-navy-600"
         >
           5
@@ -304,7 +288,12 @@
           </svg>
         </span>
         <span class="flex items-center col-start-1 row-start-1 transition-opacity duration-300">
-          Dodaj środki aby otworzyć <div class="flex items-center ml-2">{casePrice} {@html goldenNames.includes(data.websiteName) ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">' : 'PLN'}</div>
+          Dodaj środki aby otworzyć <div class="flex items-center ml-2">
+            {casePrice}
+            {@html goldenNames.includes(data.websiteName)
+              ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
+              : 'PLN'}
+          </div>
         </span>
       </a>
     </div>
