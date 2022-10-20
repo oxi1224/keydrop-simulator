@@ -11,18 +11,19 @@
     "outDir": "dist",
     "removeComments": true,
     "preserveValueImports": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitOverride": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "paths": {
-      "@components": ["./src/components/*/"],
-      "@static": ["./static/*/"],
-      "@assets": ["./src/assets/*/"],
-      "@lib": ["./src/lib/index.js"]
+      "$components/*": ["./src/components/*"],
+      "$static/*": ["./static/*"],
+      "$assets/*": ["./src/assets/*"],
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
     }
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias

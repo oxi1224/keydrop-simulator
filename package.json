@@ -12,19 +12,26 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "imports": {
-    "@components": {
+    "$components": {
       "default": "./src/components/*/"
     },
-    "@static": {
+    "$static": {
       "default": "./static/*/"
     },
-    "@lib": {
+    "$assets": {
+      "default": "./src/assets/*/"
+    },
+    "$lib": {
       "default": "./src/lib/index.js"
+    },
+    "$lib/server": {
+      "default": "./src/lib/server/index.js"
     }
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
+    "@types/bcrypt": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "autoprefixer": "^10.4.12",
@@ -43,9 +50,12 @@
     "vite": "^3.1.0"
   },
   "type": "module",
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie": "^0.5.0",
     "dotenv": "^16.0.3",
+    "nanoid": "^4.0.0",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.25.2"

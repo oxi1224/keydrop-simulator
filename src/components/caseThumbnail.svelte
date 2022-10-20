@@ -1,12 +1,8 @@
 <script lang="ts">
-  import { goldenNames } from '@lib';
+  import { goldenNames } from '$lib';
   export let name: string;
-  export let data: {
-    imgName: string;
-    price: number;
-    href: string;
-  };
   export let sectionId: string;
+  export let data: { price: number; imgName: string; href: string };
 </script>
 
 <div

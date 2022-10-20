@@ -1,5 +1,13 @@
 import type { colors } from './constants';
 
+export interface CaseThumbnailData {
+  [key: string]: {
+    price: number;
+    imgName: string;
+    href: string;
+  };
+}
+
 export interface CaseData {
   price: number;
   websiteName: string;
@@ -21,6 +29,15 @@ export interface DropDetails {
   price: string;
   range: [number, number];
   odds: string;
+}
+
+export interface Item {
+  skinName: string;
+  skinPrice: number;
+  skinWeapon: string;
+  skinImgSource: string;
+  skinRarity: SkinRarity;
+  skinQuality: string;
 }
 
 export interface CaseItemData extends Omit<CaseDrop, 'dropDetails'> {

@@ -8,7 +8,7 @@
   }
 </script>
 
-<header class="sticky top-0 z-50 md:relative bg-navy-600">
+<header class="sticky top-0 z-40 md:relative bg-navy-600">
   <div class="container relative flex w-auto h-20 mx-auto md:h-24">
     <div class="relative flex items-center h-full navbar-left">
       <a href="/" class="w-32 mb-1 md:w-40">

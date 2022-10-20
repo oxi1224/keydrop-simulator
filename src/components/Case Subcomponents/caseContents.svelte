@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { colors, type CaseItemData } from '@lib';
+  import { colors, type CaseItemData } from '$lib';
   export let itemData: CaseItemData[];
   export function toggleDetails(
     e: MouseEvent & {

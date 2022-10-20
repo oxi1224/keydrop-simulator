@@ -1,7 +1,7 @@
 <script lang="ts">
   import CaseRoulette from './Case Subcomponents/caseRoulette.svelte';
   import CaseContents from './Case Subcomponents/caseContents.svelte';
-  import type { CaseData, CaseDrop, CaseItemData, DropDetails } from '@lib';
+  import type { CaseData, CaseDrop, CaseItemData, DropDetails } from '$lib';
   export let data: CaseData;
   export let caseItems: CaseDrop[] = [];
   export let itemData: CaseItemData[] = [];

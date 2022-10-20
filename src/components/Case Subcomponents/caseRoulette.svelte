@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { colors, goldenNames, type CaseData, type CaseDrop } from '@lib';
+  import { colors, goldenNames, type CaseData, type CaseDrop } from '$lib';
   export let caseItems: CaseDrop[] = [];
   export let multipleCaseItems: CaseDrop[][] = [];
   export let data: CaseData;
