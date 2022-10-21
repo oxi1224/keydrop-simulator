@@ -1,0 +1,23 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String  @id @unique
+  username     String  @unique
+  passwordHash String
+  inventory    Json[]  @default([])
+  balance      Int     @default(50)
+  goldBalance  Int     @default(0)
+  sandboxMode  Boolean @default(false)
+}
+
+model Session {
+  id     String    @id @unique
+  userId String    @unique
+}

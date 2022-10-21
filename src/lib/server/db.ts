@@ -1,21 +1,18 @@
-import 'dotenv/config';
-import { Sequelize } from 'sequelize';
-import { Users } from './models/Users.js';
-import { Sessions } from './models/Sessions.js';
+import { PrismaClient } from '@prisma/client';
 
-export const db = new Sequelize(process.env.DATABASE_URL ?? '', {
-  dialect: 'postgres',
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false
+let prisma: PrismaClient;
+
+if (typeof window === "undefined") {
+  if (process.env.NODE_ENV === "production") {
+    prisma = new PrismaClient();
+  } else {
+    if (!global.prisma) {
+      global.prisma = new PrismaClient();
     }
-  },
-  define: { timestamps: false },
-  logging: false
-});
+    prisma = global.prisma;
+  }
+}
 
-await db.authenticate();
-Users.initialize(db);
-Sessions.initialize(db);
-await db.sync({ alter: true });
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export const db = prisma;
