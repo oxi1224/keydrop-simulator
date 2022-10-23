@@ -1,10 +1,22 @@
 <script>
+  import { createPopup } from '$lib';
+
   function toggleDropdown() {
     document.getElementById('user-dropdown').classList.toggle('is-open');
   }
 
   function mobileDropdown() {
     [...document.querySelectorAll('.nav')].forEach((e) => e.classList.toggle('is-open'));
+  }
+
+  async function handleLogout() {
+    const res = await fetch('/api/logout');
+    createPopup({
+      type: 'success',
+      header: 'sukces',
+      message: (await res.json()).message
+    });
+    window.location.reload();
   }
 </script>
 
@@ -360,17 +372,17 @@
                 </a>
               </li>
               <li>
-                <a
+                <button
                   rel="alternate"
                   hreflang="pl"
-                  href="https://key-drop.com/pl/steam/logout"
+                  on:click="{handleLogout}"
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
                     <use xlink:href="/icons/nav-icons.svg#logout"></use>
                   </svg>
                   Wyloguj się
-                </a>
+                </button>
               </li>
             </ul>
           </nav>

@@ -40,7 +40,12 @@ module.exports = {
           1000: 'rgb(220 174 100)'
         },
         current: 'currentColor',
-        pastelGreen: 'rgb(80, 227, 109)'
+        pastelGreen: 'rgb(80, 227, 109)',
+        failure: '#ff445d',
+        success: '#588806'
+      },
+      translate: {
+        110: '110%'
       }
     }
   },

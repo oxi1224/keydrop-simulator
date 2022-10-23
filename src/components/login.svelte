@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { createPopup } from '$lib';
+
   let name: string;
   let password: string;
   async function handleLogin() {
@@ -9,13 +11,41 @@
         'Content-Type': 'application/json'
       }
     });
-    return res;
+    if (!res.ok) {
+      createPopup({
+        type: 'error',
+        header: 'błąd',
+        message: (await res.json()).message
+      });
+      return;
+    }
+    createPopup({
+      type: 'success',
+      header: 'sukces',
+      message: (await res.json()).message
+    });
+    const loginPage = document.getElementById('loginPage');
+    const registerPage = document.getElementById('registerPage');
+    loginPage?.classList.remove('flex');
+    registerPage?.classList.remove('flex');
+    loginPage?.classList.add('hidden');
+    registerPage?.classList.add('hidden');
+    return;
+  }
+
+  export function toggleScreens() {
+    const loginPage = document.getElementById('loginPage');
+    const registerPage = document.getElementById('registerPage');
+    loginPage?.classList.toggle('flex');
+    loginPage?.classList.toggle('hidden');
+    registerPage?.classList.toggle('flex');
+    registerPage?.classList.toggle('hidden');
   }
 </script>
 
 <div
   id="loginPage"
-  class="hidden items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-navy-700 bg-opacity-75 fixed top-0 z-50 w-full h-full"
+  class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-navy-700 bg-opacity-75 fixed top-0 z-50 w-full h-full"
 >
   <div
     class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border"
@@ -50,8 +80,13 @@
           />
         </div>
       </div>
-
       <div>
+        <div
+          class="text-xs text-navy-200 mb-2 hover:text-navy-100 w-fit transition-colors duration-100"
+          on:click="{toggleScreens}"
+        >
+          <button class="w-fit">Nie masz konta? Stwórz je!</button>
+        </div>
         <button
           type="submit"
           class="group relative flex w-full justify-center rounded-md border border-transparent bg-navy-500 py-2 px-4 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

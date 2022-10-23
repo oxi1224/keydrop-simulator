@@ -2,7 +2,7 @@ import { db } from '$lib/server';
 import { parse } from 'cookie';
 
 /** @type {import('@sveltejs/kit').Handle} */
-export async function handle({ event, resolve }: { event: any, resolve: any }) {
+export async function handle({ event, resolve }: { event: any; resolve: any }) {
   const cookies = parse(event.headers.cookie || '');
 
   if (cookies.session_id) {
@@ -28,7 +28,5 @@ export async function handle({ event, resolve }: { event: any, resolve: any }) {
 
 /** @type {import('@sveltejs/kit').GetSession} */
 export function getSession(event: any) {
-  return event?.locals?.user ? {
-    user: event?.locals?.user
-  } : {};
+  return event?.locals?.user ? { user: event?.locals?.user } : {};
 }

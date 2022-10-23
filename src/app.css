@@ -319,3 +319,24 @@ img {
   left: 100%;
   transform: rotate(-90deg);
 }
+
+.popup-close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.9375rem;
+  color: hsla(0, 0%, 100%, 0.5);
+}
+
+.popup-close-btn::before {
+  content: '✕';
+  font-size: 0.8125rem;
+  line-height: 1;
+  transition-property: color, -webkit-transform;
+  transition-property: color, transform;
+  transition-property: color, transform, -webkit-transform;
+  transition-duration: 0.3s;
+}

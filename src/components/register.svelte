@@ -1,9 +1,20 @@
 <script lang="ts">
+  import { createPopup } from '$lib';
+
   let name: string;
   let password: string;
   let passwordConfirm: string;
+  let sandboxMode: boolean;
 
   async function handleRegister() {
+    if (password !== passwordConfirm) {
+      createPopup({
+        type: 'error',
+        header: 'błąd',
+        message: 'Hasła się nie zgadzają.'
+      });
+      return;
+    }
     const res = await fetch('/api/register', {
       method: 'POST',
       body: JSON.stringify({ name, password }),
@@ -11,19 +22,49 @@
         'Content-Type': 'application/json'
       }
     });
-    return res;
+    if (!res.ok) {
+      createPopup({
+        type: 'error',
+        header: 'błąd',
+        message: (await res.json()).message
+      });
+      return;
+    }
+    createPopup({
+      type: 'success',
+      header: 'sukces',
+      message: (await res.json()).message
+    });
+    const loginPage = document.getElementById('loginPage');
+    const registerPage = document.getElementById('registerPage');
+    loginPage?.classList.remove('flex');
+    registerPage?.classList.remove('flex');
+    loginPage?.classList.add('hidden');
+    registerPage?.classList.add('hidden');
+    return;
+  }
+
+  export function toggleScreens() {
+    const loginPage = document.getElementById('loginPage');
+    const registerPage = document.getElementById('registerPage');
+    loginPage?.classList.toggle('flex');
+    loginPage?.classList.toggle('hidden');
+    registerPage?.classList.toggle('flex');
+    registerPage?.classList.toggle('hidden');
   }
 </script>
 
 <div
   id="registerPage"
-  class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-navy-700 bg-opacity-75 fixed top-0 z-50 w-full h-full"
+  class="hidden items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-navy-700 bg-opacity-75 fixed top-0 z-50 w-full h-full"
 >
   <div
     class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border"
   >
     <div>
-      <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">Zarejestruj się</h2>
+      <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">
+        Zarejestruj się
+      </h2>
     </div>
     <form class="mt-8 space-y-6" on:submit|preventDefault="{handleRegister}">
       <input type="hidden" name="remember" value="true" />
@@ -57,14 +98,31 @@
             type="password"
             autocomplete="current-password"
             required
-            class="relative block w-full appearance-none rounded-b-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+            class="relative block w-full appearance-none border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             placeholder="Potwierdź hasło"
             bind:value="{passwordConfirm}"
           />
         </div>
+        <div class="bg-white rounded-b-md border border-gray-300 px-3 py-2 sm:text-sm">
+          <input
+            id="sandboxToggle"
+            name="sandboxToggle"
+            type="checkbox"
+            bind:checked="{sandboxMode}"
+          />
+          <label for="sandboxToggle" class="text-navy-300 w-full">
+            Tryb sandbox (nielimitowany balans)
+          </label>
+        </div>
       </div>
 
       <div>
+        <div
+          class="text-xs text-navy-200 mb-2 hover:text-navy-100 w-fit transition-colors duration-100"
+          on:click="{toggleScreens}"
+        >
+          <button class="w-fit">Nie masz konta? Stwórz je!</button>
+        </div>
         <button
           type="submit"
           class="group relative flex w-full justify-center rounded-md border border-transparent bg-navy-500 py-2 px-4 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

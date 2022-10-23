@@ -1,3 +1,4 @@
+import type { User } from '@prisma/client';
 import type { colors } from './constants';
 
 export interface CaseThumbnailData {
@@ -45,3 +46,17 @@ export interface CaseItemData extends Omit<CaseDrop, 'dropDetails'> {
 }
 
 export type SkinRarity = keyof typeof colors.itemBg | keyof typeof colors.gradient;
+
+export interface PopupProps {
+  type: 'error' | 'success';
+  header: string;
+  message: string;
+}
+
+export interface UserData {
+  username: string;
+  inventory: User['inventory'];
+  balance: number;
+  goldBalance: number;
+  sandboxMode: boolean;
+}
