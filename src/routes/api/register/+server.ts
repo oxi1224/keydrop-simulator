@@ -6,8 +6,9 @@ import { nanoid } from 'nanoid';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST({ request }: { request: Request }) {
-  const { name, password }: { name: string; password: string } = await request.json();
-  const isTaken = await db.user.findFirst({
+  const { name, password, sandboxMode }: { name: string; password: string; sandboxMode: boolean } =
+    await request.json();
+  const isTaken = await db.user.findUnique({
     where: {
       username: name
     }
@@ -19,7 +20,8 @@ export async function POST({ request }: { request: Request }) {
     data: {
       id: nanoid(),
       username: name,
-      passwordHash: hash
+      passwordHash: hash,
+      sandboxMode: sandboxMode || false
     }
   });
   const session = await db.session.create({

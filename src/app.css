@@ -340,3 +340,41 @@ img {
   transition-property: color, transform, -webkit-transform;
   transition-duration: 0.3s;
 }
+
+.button-primary {
+  --tw-border-opacity: 1;
+  border: 1px solid rgb(220 174 100 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(62 50 30 / var(--tw-bg-opacity));
+}
+
+.button {
+  display: flex;
+  height: 2.75rem;
+  -webkit-appearance: none;
+  appearance: none;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, fill, stroke,
+    -webkit-text-decoration-color;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke,
+    -webkit-text-decoration-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+}
+
+.button-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(94 72 47 / var(--tw-bg-opacity));
+}

@@ -12,7 +12,6 @@ export async function POST({ request }: { request: Request }) {
       username: name
     }
   });
-
   if (!user || bcrypt.compareSync(password, user.passwordHash))
     return new Response(JSON.stringify({ message: 'Nieprawidłowy użytkownik lub hasło' }), {
       status: 401

@@ -7,4 +7,8 @@ export const popupProps: Writable<PopupProps> = writable({
   header: '',
   message: ''
 });
-export const userData: Writable<UserData | null> = writable();
+export const setUserData = async () => {
+  const { data } = await (await fetch('/api/getUser', { method: 'get' })).json();
+  userData.set(data);
+};
+export const userData: Writable<UserData | null> = writable(null);

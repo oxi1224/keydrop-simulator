@@ -1,14 +1,10 @@
-<script lang="ts">
+<script>
   import Footer from '$components/footer.svelte';
   import Header from '$components/header.svelte';
   import CaseSection from '$components/caseSection.svelte';
-  import Register from '$components/register.svelte';
-  import Login from '$components/login.svelte';
   import caseData from '$assets/broad.json';
 </script>
 
-<Login />
-<Register />
 <Header />
 
 <main class="bg-no-repeat" style="background-position: center top; background-size: auto 1400px;">

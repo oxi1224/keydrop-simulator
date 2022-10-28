@@ -8,7 +8,7 @@
 
 <div
   id="popup-container"
-  class="z-50 hidden fixed right-0 bottom-0 max-w-full md:right-5 md:bottom-5 md:w-96 transition-transform duration-500 translate-x-110 is-open:-translate-x-0 {open
+  class="z-50 fixed right-0 bottom-0 max-w-full md:right-5 md:bottom-5 md:w-96 transition-transform duration-500 translate-x-110 is-open:-translate-x-0 {open
     ? 'is-open'
     : ''}"
   on:click="{closePopup}"

@@ -1,8 +1,8 @@
-<script>
-  import { createPopup } from '$lib';
-
+<script lang="ts">
+  import { createPopup, userData } from '$lib';
+  import HeaderUserPanel from './headerUserPanel.svelte';
   function toggleDropdown() {
-    document.getElementById('user-dropdown').classList.toggle('is-open');
+    document.getElementById('user-dropdown')!.classList.toggle('is-open');
   }
 
   function mobileDropdown() {
@@ -162,65 +162,13 @@
       </div>
     </div>
     <div class="h-full hidden items-center ml-auto md:flex">
-      <div class="h-16 flex items-center">
-        <div class="flex items-center bg-navy-700 rounded-md p-3">
-          <div class="flex items-center">
-            <div>
-              <span class="flex flex-row text-navy-200 text-2xs items-center font-bold">
-                <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
-                PORTFEL:
-              </span>
-              <span class="text-gold font-semibold text-sm md:text-xs">69,69 PLN</span>
-            </div>
-          </div>
-          <a href="https://key-drop.com/pl/panel/profil/deposit-money">
-            <button
-              class="border-gold bg-gold-900 border p-1.5 text-gold rounded-md ml-5 hover:bg-gold-850 transition-colors duration-200 flex flex-row"
-            >
-              <div class="bg-black text-white rounded w-4 h-4 flex justify-center items-center">
-                <svg viewBox="0 0 6 6" class="w-1.5 h-1.5 stroke-current">
-                  <path d="M3 0V6"></path>
-                  <path d="M6 3L-1.19125e-07 3"></path>
-                </svg>
-              </div>
-              <span
-                class="font-semibold text-2xs ml-1.5 flex items-center whitespace-nowrap sm:text-3xs"
-              >
-                DOŁADUJ KONTO
-              </span>
-            </button>
-          </a>
-        </div>
-        <div class="flex ml-9 h-16">
-          <div class="flex flex-col justify-evenly">
-            <span class="font-semibold text-sm text-navy-200 h-min">USER</span>
-            <div class="flex flex-row items-center">
-              <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
-              <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">6969</span>
-            </div>
-          </div>
-        </div>
-        <div class="ml-6 flex items-center">
-          <a href="https://key-drop.com/pl/panel/profil">
-            <img
-              src="https://avatars.akamai.steamstatic.com/581b6f5bda39607d2cef61c4d04ed3e0b5670b88_full.jpg"
-              alt="Avatar"
-              class="object-cover transition-all duration-200 rounded-md w-14 h-14 hover:rounded-xl"
-              referrerpolicy="no-referrer"
-            />
-          </a>
-          <button class="flex items-center px-4 self-stretch group">
-            <div
-              class="flex items-center justify-center w-5 h-5 transition-all duration-200 border border-solid rounded-md border-navy-300 bg-navy-800 group-hover:border-navy-100"
-              on:click="{toggleDropdown}"
-            >
-              <svg class="mt-px text-white" style="width: 10px; height: 10px">
-                <use xlink:href="/icons/icons.svg#arrow-down"></use>
-              </svg>
-            </div>
-          </button>
-        </div>
-      </div>
+      {#if $userData}
+        <HeaderUserPanel data="{$userData}" />
+      {:else}
+        <a class="hidden ml-5 md:flex button button-primary h-13 uppercase" href="/login">
+          zaloguj się
+        </a>
+      {/if}
     </div>
     <div class="flex items-center justify-center w-auto md:hidden ml-auto nav">
       <button class="flex items-center ml-4 md:hidden nav" on:click="{mobileDropdown}">
@@ -239,22 +187,22 @@
         class="z-10 min-w-max bg-navy-900 overflow-hidden border border-solid border-navy-400 rounded-bl-2xl rounded-br-2xl absolute top-0 right-0 opacity-0 transition duration-300 scale-90 origin-top-right in-open:opacity-100 in-open:scale-100"
       >
         <div class="pt-6 pb-3 bg-navy-600">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col px-5">
             <div class="flex flex-row items-center">
-              <a href="https://key-drop.com/pl/panel/profil">
+              <a href="/panel/profil">
                 <img
-                  src="https://avatars.akamai.steamstatic.com/581b6f5bda39607d2cef61c4d04ed3e0b5670b88_full.jpg"
+                  src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/eb/ebd92149e5950221fcb87ca8475493b8e77833f3_full.jpg"
                   alt="Avatar"
                   class="object-cover transition-all duration-200 rounded-md w-14 h-14 hover:rounded-xl"
                   referrerpolicy="no-referrer"
                 />
               </a>
               <div class="ml-5">
-                <span class="font-semibold text-sm text-white h-min">USER</span>
+                <span class="font-semibold text-sm text-white h-min">{$userData?.username}</span>
                 <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
                   PORTFEL:
                 </span>
-                <span class="text-gold font-semibold text-xs">69,69 PLN</span>
+                <span class="text-gold font-semibold text-xs">{$userData?.balance}zł</span>
               </div>
             </div>
           </div>
@@ -264,7 +212,7 @@
                 <a
                   rel="alternate"
                   hreflang="pl"
-                  href="https://key-drop.com/pl/panel/profil"
+                  href="/panel/profil"
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
@@ -275,22 +223,7 @@
               </li>
               <li>
                 <a
-                  data-payment-modal=""
-                  rel="alternate"
-                  hreflang="pl"
-                  href="https://key-drop.com/pl/panel/profil/deposit-money"
-                  class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-                >
-                  <svg class="w-6 h-6 mr-3">
-                    <use xlink:href="/icons/nav-icons.svg#card"></use>
-                  </svg>
-                  DOŁADUJ KONTO
-                </a>
-              </li>
-              <li>
-                <a
                   href="d"
-                  data-promocode-modal="new"
                   class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
                 >
                   <svg class="w-6 h-6 mr-3">
@@ -399,7 +332,7 @@
           <a
             rel="alternate"
             hreflang="pl"
-            href="https://key-drop.com/pl/panel/profil"
+            href="/panel/profil"
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
@@ -409,22 +342,7 @@
           </a>
         </li>
         <li class="w-1/2">
-          <a
-            rel="alternate"
-            hreflang="pl"
-            href="https://key-drop.com/pl/panel/profil/deposit-money"
-            data-payment-modal=""
-            class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-          >
-            <svg class="flex-shrink-0 w-6 h-6 mr-3">
-              <use xlink:href="/icons/nav-icons.svg#card"></use>
-            </svg>
-            DOŁADUJ KONTO
-          </a>
-        </li>
-        <li class="w-1/2">
           <button
-            data-promocode-modal="old"
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white open-promo-code-modal"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
@@ -552,7 +470,7 @@
           <a
             rel="alternate"
             hreflang="pl"
-            href="https://key-drop.com/pl/steam/logout"
+            href="/logout"
             class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
           >
             <svg class="flex-shrink-0 w-6 h-6 mr-3">
@@ -564,41 +482,37 @@
       </ul>
     </nav>
     <div class="bg-navy-700 px-3 py-5 flex flex-row">
-      <div class="flex flex-col items-center w-fit">
-        <div class="flex flex-row items-center">
-          <a href="https://key-drop.com/pl/panel/profil">
-            <img
-              src="https://avatars.akamai.steamstatic.com/581b6f5bda39607d2cef61c4d04ed3e0b5670b88_full.jpg"
-              alt="Avatar"
-              class="object-cover transition-all duration-200 rounded-md w-14 h-14 hover:rounded-xl"
-              referrerpolicy="no-referrer"
-            />
-          </a>
-          <div class="ml-5">
-            <span class="font-semibold text-sm text-white h-min">USER</span>
-            <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
-              PORTFEL:
-            </span>
-            <span class="text-gold font-semibold text-xs">69,69 PLN</span>
+      {#if $userData}
+        <div class="flex flex-col items-center w-fit">
+          <div class="flex flex-row items-center">
+            <a href="/panel/profil">
+              <img
+                src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/eb/ebd92149e5950221fcb87ca8475493b8e77833f3_full.jpg"
+                alt="Avatar"
+                class="object-cover transition-all duration-200 rounded-md w-14 h-14 hover:rounded-xl"
+                referrerpolicy="no-referrer"
+              />
+            </a>
+            <div class="ml-5">
+              <span class="font-semibold text-sm text-white h-min">{$userData.username}</span>
+              <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
+                PORTFEL:
+              </span>
+              <span class="text-gold font-semibold text-xs">{$userData.balance}zł</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="flex flex-row items-center ml-auto">
-        <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
-        <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">6969</span>
-      </div>
-    </div>
-    <div class="bg-navy-900 p-3">
-      <a href="https://key-drop.com/pl/panel/profil/deposit-money">
-        <button
-          class="border-gold bg-gold-900 border p-2 text-white rounded-md hover:bg-gold-850 transition-colors duration-200 flex flex-row items-center w-full justify-center text-2xs"
-        >
-          <svg class="flex-shrink-0 w-6 h-6 mr-3">
-            <use xlink:href="/icons/nav-icons.svg#card"></use>
-          </svg>
-          DOŁADUJ KONTO
-        </button>
-      </a>
+        <div class="flex flex-row items-center ml-auto">
+          <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
+          <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">
+            {$userData.goldBalance}
+          </span>
+        </div>
+      {:else}
+        <a class="hidden ml-5 md:flex button button-primary h-13 uppercase w-full" href="/login">
+          zaloguj się
+        </a>
+      {/if}
     </div>
   </div>
   <div class="hidden overflow-hidden md:block bg-navy-700">
@@ -619,7 +533,6 @@
         </li>
         <li>
           <button
-            data-promocode-modal="old"
             class="flex items-center h-full px-2.5 font-semibold leading-none text-white uppercase transition-opacity duration-100 text-10px py-7 lg:px-3  whitespace-nowrap opacity-90 hover:opacity-100 open-promo-code-modal"
           >
             <svg class="w-5 h-5 mr-2">

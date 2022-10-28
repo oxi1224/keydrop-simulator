@@ -3,8 +3,10 @@
 
   let name: string;
   let password: string;
+  let submitBtn: HTMLButtonElement;
   async function handleLogin() {
-    const res = await fetch('/api/log-in', {
+    submitBtn.disabled = true;
+    const res = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({ name, password }),
       headers: {
@@ -17,6 +19,7 @@
         header: 'błąd',
         message: (await res.json()).message
       });
+      submitBtn.disabled = false;
       return;
     }
     createPopup({
@@ -24,32 +27,24 @@
       header: 'sukces',
       message: (await res.json()).message
     });
-    const loginPage = document.getElementById('loginPage');
-    const registerPage = document.getElementById('registerPage');
-    loginPage?.classList.remove('flex');
-    registerPage?.classList.remove('flex');
-    loginPage?.classList.add('hidden');
-    registerPage?.classList.add('hidden');
     return;
   }
 
-  export function toggleScreens() {
+  function toggleLogin() {
     const loginPage = document.getElementById('loginPage');
-    const registerPage = document.getElementById('registerPage');
     loginPage?.classList.toggle('flex');
     loginPage?.classList.toggle('hidden');
-    registerPage?.classList.toggle('flex');
-    registerPage?.classList.toggle('hidden');
   }
 </script>
 
 <div
   id="loginPage"
-  class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-navy-700 bg-opacity-75 fixed top-0 z-50 w-full h-full"
+  class="hidden items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-navy-700 bg-opacity-75 fixed top-0 z-50 w-full h-full"
 >
   <div
-    class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border"
+    class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border relative"
   >
+    <div class="absolute top-5 right-5 cursor-pointer text-lg" on:click="{toggleLogin}">✖</div>
     <div>
       <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">Zaloguj się</h2>
     </div>
@@ -81,14 +76,9 @@
         </div>
       </div>
       <div>
-        <div
-          class="text-xs text-navy-200 mb-2 hover:text-navy-100 w-fit transition-colors duration-100"
-          on:click="{toggleScreens}"
-        >
-          <button class="w-fit">Nie masz konta? Stwórz je!</button>
-        </div>
         <button
           type="submit"
+          bind:this="{submitBtn}"
           class="group relative flex w-full justify-center rounded-md border border-transparent bg-navy-500 py-2 px-4 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           <span class="absolute inset-y-0 left-0 flex items-center pl-3">
