@@ -1,41 +1,48 @@
 <script lang="ts">
-  import { colors, goldenNames, type CaseData, type CaseDrop } from '$lib';
-  export let caseItems: CaseDrop[] = [];
-  export let multipleCaseItems: CaseDrop[][] = [];
+  import { colors, goldenNames, userData, type CaseData, type CaseDrop } from '$lib';
+  export let rouletteItems: CaseDrop[] = [];
   export let data: CaseData;
-  export let caseCount = 1;
-  export let casePrice = data.price;
+  let multipleRoulettesItems: CaseDrop[][] = [];
+  let rouletteCount = 1;
+  let casePrice = data.price;
+  let winningItem: CaseDrop | null = null;
+  let winningItems: CaseDrop[] = [];
+  let rollBtn: HTMLButtonElement;
 
-  generateRollItems(caseCount);
-  function generateRollItems(rouletteCount: number) {
-    caseItems = [];
-    multipleCaseItems = [];
-    if (rouletteCount === 1) {
+  generateRollItems(rouletteCount);
+  function generateRollItems(count: number) {
+    rouletteItems = [];
+    multipleRoulettesItems = [];
+    if (count === 1) {
       for (let i = 0; i < 60; i++) {
-        const roll = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
+        const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
         const item = data.drops.find(
-          (obj) => obj.dropDetails.range[0] <= roll && obj.dropDetails.range[1] >= roll
+          (obj) => obj.dropDetails.range[0] <= rollNumber && obj.dropDetails.range[1] >= rollNumber
         );
         if (!item) continue;
-        caseItems.push(item);
+        rouletteItems.push(item);
       }
+      winningItem = rouletteItems[45];
+      winningItems = [];
     } else {
-      for (let i = 0; i < rouletteCount; i++) {
+      for (let i = 0; i < count; i++) {
         const rollItems: CaseDrop[] = [];
         for (let itemI = 0; itemI < 60; itemI++) {
-          const roll = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
+          const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
           const item = data.drops.find(
-            (obj) => obj.dropDetails.range[0] <= roll && obj.dropDetails.range[1] >= roll
+            (obj) => obj.dropDetails.range[0] <= rollNumber && obj.dropDetails.range[1] >= rollNumber
           );
           if (!item) continue;
           rollItems.push(item);
         }
-        multipleCaseItems.push(rollItems);
+        multipleRoulettesItems.push(rollItems);
       }
+      multipleRoulettesItems.forEach(rI => winningItems.push(rI[45]));
+      winningItem = null;
     }
   }
 
-  export function changeRouletteCount(rollCount: number) {
+  function changeRouletteCount(rollCount: number) {
     const singleRoll = document.querySelector('.single-roll');
     const btnArr = [...document.querySelectorAll('.case-count-btn')];
     const btnOverlay = document.querySelector('div.css-1ti3c59') as HTMLElement;
@@ -54,10 +61,63 @@
       arrows[0].classList.remove('arrow-left');
       arrows[1].classList.remove('arrow-right');
     }
-    caseCount = rollCount;
-    btnOverlay!.style.left = `${20 * (caseCount - 1)}%`;
-    casePrice = Math.round(data.price * caseCount * 100) / 100;
-    generateRollItems(caseCount);
+    rouletteCount = rollCount;
+    btnOverlay!.style.left = `${20 * (rouletteCount - 1)}%`;
+    casePrice = Math.round(data.price * rouletteCount * 100) / 100;
+    generateRollItems(rouletteCount);
+  }
+
+  /**
+   * TODO:
+   * - check balance and chest price
+   * - create prize screen
+   * - open another button
+   * - award items to user
+   * - item selling
+  */
+  function handleRoll() {
+    return;
+  }
+
+  function roll() {
+    generateRollItems(rouletteCount);
+    if (rouletteCount === 1) {
+      const bounds = [...document.querySelectorAll('li.case-item')][45].getBoundingClientRect();
+      const x = Math.floor(Math.random() * (bounds.right - bounds.left + 1)) + bounds.right;
+      document
+        .querySelector('ul.CaseRolls-row')!
+        .animate(
+          [
+            { transform: 'translateX(0)' },
+            { transform: `translateX(-${x}px)` }
+          ],
+          {
+            iterations: 1,
+            duration: 2500,
+            easing: 'cubic-bezier(.8,0,0,1)',
+            fill: 'forwards'
+          }
+        );
+    } else {
+      const roulettes = [...document.querySelectorAll('div.CaseRolls-roll')];
+      roulettes.forEach(roulette => {
+        const bounds = [...document.querySelectorAll('div.CaseRolls-skin')][45].getBoundingClientRect();
+        const y = Math.floor((bounds.bottom - bounds.top + 1)) + bounds.bottom;
+        roulette.animate(
+          [
+            { transform: 'translateY(0)' },
+            { transform: `translateY(-${y / 2}px)` },
+            { transform: `translateY(-${y}px)` }
+          ],
+          {
+            iterations: 1,
+            duration: 2500,
+            easing: 'cubic-bezier(.8,0,0,1)',
+            fill: 'forwards'
+          }
+        );
+      });
+    }
   }
 </script>
 
@@ -132,7 +192,7 @@
         style="width: 1480px; left: calc(50% - 740px);"
       >
         <ul class="flex w-full h-full CaseRolls-row">
-          {#each caseItems as item}
+          {#each rouletteItems as item}
             <li
               class="flex-shrink-0 flex h-full min-w-0 relative case-item"
               style="width: 14.2857%; background-image: {colors.gradient[item.skinRarity]};"
@@ -151,12 +211,12 @@
         </ul>
       </div>
       <div class="flex absolute top-0 left-0 w-full h-full css-1ubc7bb">
-        {#each multipleCaseItems as caseItemsArray}
+        {#each multipleRoulettesItems as rouletteItemsArray}
           <div
-            style="width: {(1 / caseCount) * 100}%;"
+            style="width: {(1 / rouletteCount) * 100}%;"
             class="CaseRolls-roll flex-shrink-0 h-full will-change-transform border-r border-dashed border-navy-550"
           >
-            {#each caseItemsArray as caseItem}
+            {#each rouletteItemsArray as caseItem}
               <div
                 class="CaseRolls-skin w-full h-auto my-5 lg:h-full lg:my-0 css-1hmgmgm flex items-center justify-center relative"
               >
@@ -265,10 +325,13 @@
           5
         </button>
       </div>
-      <a
-        href="https://key-drop.com/pl/panel/profil/deposit-money"
+      <button
         target="_blank"
-        class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser border-red-500 text-red-500 glow-red hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi"
+        class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser {!$userData
+          ? 'border-red-500 text-red-500 glow-red'
+          : 'border-green-500 text-green-500 glow-pastelGreen'}  hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi"
+          on:click="{handleRoll}"
+          bind:this="{rollBtn}"
       >
         <span
           class="row-start-1 col-start-1 flex items-center justify-center transition duration-300 transform scale-50 opacity-0"
@@ -288,14 +351,18 @@
           </svg>
         </span>
         <span class="flex items-center col-start-1 row-start-1 transition-opacity duration-300">
-          Dodaj środki aby otworzyć <div class="flex items-center ml-2">
-            {casePrice.toFixed(2)}
+          {!$userData
+            ? 'Zaloguj się aby otworzyć'
+            : $userData.balance >= casePrice
+            ? `Otwórz za ${casePrice.toFixed(2)}`
+            : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
+          <div class="flex items-center ml-2">
             {@html goldenNames.includes(data.websiteName)
               ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
               : 'PLN'}
           </div>
         </span>
-      </a>
+      </button>
     </div>
   </div>
 </section>

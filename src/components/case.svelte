@@ -28,29 +28,6 @@
       details: details
     });
   }
-
-  // export function rollItem() {
-  //   const items = [...document.querySelectorAll('li.case-item')];
-  //   const winningItem = items[Math.floor(Math.random() * (items.length - 3 - 7 + 1)) + 7];
-  //   const bounds = winningItem.getBoundingClientRect();
-  //   const x = Math.floor(Math.random() * (bounds.right - bounds.left + 1)) + bounds.right;
-  //   document
-  //     .querySelector('ul.CaseRolls-row')
-  //     .animate(
-  //       [
-  //         { transform: 'translateX(0)' },
-  //         { transform: `translateX(-${x / 2}px)` },
-  //         { transform: `translateX(-${x}px)` }
-  //       ],
-  //       {
-  //         iterations: 1,
-  //         duration: 1500,
-  //         easing: 'ease-in-out',
-  //         endDelay: 500
-  //       }
-  //     );
-  //   document.querySelector('ul.CaseRolls-row').style.transform = `translateX(-${x}px)`;
-  // }
 </script>
 
 <main
@@ -108,13 +85,12 @@
         </button>
         <button
           class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550"
-          aria-label="Wyłącz tryb natychmiastowego wyświetlania wyniku"
         >
           <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
         </button>
       </div>
     </header>
-    <CaseRoulette caseItems="{caseItems}" data="{data}" />
+    <CaseRoulette rouletteItems="{caseItems}" data="{data}" />
     <CaseContents itemData="{itemData}" />
     <div class="container mx-auto"></div>
   </div>

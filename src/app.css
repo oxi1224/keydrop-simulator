@@ -286,6 +286,10 @@ img {
   user-select: none;
 }
 
+.glow-red {
+  box-shadow: 0 0 6px rgba(255,68,93,.4),inset 0 0 6px rgba(255,68,93,.4);
+}
+
 .glow-pastelGreen {
   box-shadow: 0 0 6px rgba(80, 227, 109, 0.4), inset 0 0 6px rgba(80, 227, 109, 0.4);
 }

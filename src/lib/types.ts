@@ -27,7 +27,7 @@ export interface CaseDrop {
 
 export interface DropDetails {
   quality: string;
-  price: number;
+  price: string;
   range: [number, number];
   odds: string;
 }
@@ -43,6 +43,10 @@ export interface Item {
 
 export interface CaseItemData extends Omit<CaseDrop, 'dropDetails'> {
   details: DropDetails[];
+}
+
+export interface UserItem extends Item {
+  id: string
 }
 
 export type SkinRarity = keyof typeof colors.itemBg | keyof typeof colors.gradient;
