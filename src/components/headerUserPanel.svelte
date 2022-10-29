@@ -39,10 +39,9 @@
         referrerpolicy="no-referrer"
       />
     </a>
-    <button class="flex items-center px-4 self-stretch group">
+    <button class="flex items-center px-4 self-stretch group" on:click="{toggleDropdown}">
       <div
         class="flex items-center justify-center w-5 h-5 transition-all duration-200 border border-solid rounded-md border-navy-300 bg-navy-800 group-hover:border-navy-100"
-        on:click="{toggleDropdown}"
       >
         <svg class="mt-px text-white" style="width: 10px; height: 10px">
           <use xlink:href="/icons/icons.svg#arrow-down"></use>

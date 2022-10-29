@@ -1,17 +1,17 @@
 {
-  "price": 14.81,
+  "price": 14.8,
   "websiteName": "SIGNAL",
   "drops": [
     {
       "skinName": "Dragon Lore",
       "skinWeapon": "AWP",
-      "skinPriceRange": "15575,54PLN",
+      "skinPriceRange": "17618,65PLN",
       "skinDisplayChance": "0,010%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d5/d520662b3a11647160a6d59a1292841a.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "15575,54PLN",
+        "price": 17618,
         "range": [99991, 100000],
         "odds": "0,010%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "Lightning Strike",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2336,58PLN",
+      "skinPriceRange": "2612,00PLN",
       "skinDisplayChance": "0,020%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1a/1a738fb5cc1b0db8b40e263a7ff78e9b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FN",
-        "price": "2336,58PLN",
+        "price": 2612,
         "range": [99971, 99990],
         "odds": "0,020%"
       }
@@ -33,13 +33,13 @@
     {
       "skinName": "Asiimov",
       "skinWeapon": "AWP",
-      "skinPriceRange": "280,98PLN - 488,61PLN",
+      "skinPriceRange": "318,90PLN - 571,90PLN",
       "skinDisplayChance": "0,150%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/18/188d1e4b8c1eada48b28aa58944a8fb2.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "488,61PLN",
+        "price": 571,
         "range": [99951, 99970],
         "odds": "0,020%"
       }
@@ -47,13 +47,13 @@
     {
       "skinName": "Asiimov",
       "skinWeapon": "AWP",
-      "skinPriceRange": "280,98PLN - 488,61PLN",
+      "skinPriceRange": "318,90PLN - 571,90PLN",
       "skinDisplayChance": "0,150%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/18/188d1e4b8c1eada48b28aa58944a8fb2.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": "386,87PLN",
+        "price": 437,
         "range": [99921, 99950],
         "odds": "0,030%"
       }
@@ -61,99 +61,99 @@
     {
       "skinName": "Asiimov",
       "skinWeapon": "AWP",
-      "skinPriceRange": "280,98PLN - 488,61PLN",
+      "skinPriceRange": "318,90PLN - 571,90PLN",
       "skinDisplayChance": "0,150%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/18/188d1e4b8c1eada48b28aa58944a8fb2.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "280,98PLN",
+        "price": 318,
         "range": [99821, 99920],
         "odds": "0,100%"
       }
     },
     {
-      "skinName": "Hyper Beast",
-      "skinWeapon": "AWP",
-      "skinPriceRange": "99,54PLN - 239,49PLN",
-      "skinDisplayChance": "6,540%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
-      "skinRarity": "red",
-      "dropDetails": {
-        "quality": "MW",
-        "price": "239,49PLN",
-        "range": [99721, 99820],
-        "odds": "0,100%"
-      }
-    },
-    {
-      "skinName": "Hyper Beast",
-      "skinWeapon": "AWP",
-      "skinPriceRange": "99,54PLN - 239,49PLN",
-      "skinDisplayChance": "6,540%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
-      "skinRarity": "red",
-      "dropDetails": {
-        "quality": "WW",
-        "price": "125,64PLN",
-        "range": [94891, 97440],
-        "odds": "2,550%"
-      }
-    },
-    {
-      "skinName": "Hyper Beast",
-      "skinWeapon": "AWP",
-      "skinPriceRange": "99,54PLN - 239,49PLN",
-      "skinDisplayChance": "6,540%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
-      "skinRarity": "red",
-      "dropDetails": {
-        "quality": "BS",
-        "price": "99,54PLN",
-        "range": [91001, 94890],
-        "odds": "3,890%"
-      }
-    },
-    {
       "skinName": "Wildfire",
       "skinWeapon": "AWP",
-      "skinPriceRange": "147,11PLN - 237,83PLN",
-      "skinDisplayChance": "2,280%",
+      "skinPriceRange": "153,90PLN - 265,15PLN",
+      "skinDisplayChance": "1,480%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d6/d607971687111038146824ecba50f183.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "237,83PLN",
-        "range": [99571, 99720],
+        "price": 265,
+        "range": [99671, 99820],
         "odds": "0,150%"
       }
     },
     {
       "skinName": "Wildfire",
       "skinWeapon": "AWP",
-      "skinPriceRange": "147,11PLN - 237,83PLN",
-      "skinDisplayChance": "2,280%",
+      "skinPriceRange": "153,90PLN - 265,15PLN",
+      "skinDisplayChance": "1,480%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d6/d607971687111038146824ecba50f183.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "147,11PLN",
-        "range": [97441, 99570],
-        "odds": "2,130%"
+        "price": 153,
+        "range": [98241, 99570],
+        "odds": "1,330%"
+      }
+    },
+    {
+      "skinName": "Hyper Beast",
+      "skinWeapon": "AWP",
+      "skinPriceRange": "110,90PLN - 257,80PLN",
+      "skinDisplayChance": "6,340%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
+      "skinRarity": "red",
+      "dropDetails": {
+        "quality": "MW",
+        "price": 257,
+        "range": [99571, 99670],
+        "odds": "0,100%"
+      }
+    },
+    {
+      "skinName": "Hyper Beast",
+      "skinWeapon": "AWP",
+      "skinPriceRange": "110,90PLN - 257,80PLN",
+      "skinDisplayChance": "6,340%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
+      "skinRarity": "red",
+      "dropDetails": {
+        "quality": "WW",
+        "price": 125,
+        "range": [95591, 98240],
+        "odds": "2,650%"
+      }
+    },
+    {
+      "skinName": "Hyper Beast",
+      "skinWeapon": "AWP",
+      "skinPriceRange": "110,90PLN - 257,80PLN",
+      "skinDisplayChance": "6,340%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
+      "skinRarity": "red",
+      "dropDetails": {
+        "quality": "BS",
+        "price": 110,
+        "range": [92001, 95590],
+        "odds": "3,590%"
       }
     },
     {
       "skinName": "Safari Mesh",
       "skinWeapon": "AWP",
-      "skinPriceRange": "0,54PLN",
-      "skinDisplayChance": "91,000%",
+      "skinPriceRange": "0,55PLN",
+      "skinDisplayChance": "92,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/65/657652af14b833f772b825490cad9bec.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": "0,54PLN",
-        "range": [1, 91000],
-        "odds": "91,000%"
+        "price": 0,
+        "range": [1, 92000],
+        "odds": "92,000%"
       }
     }
   ]

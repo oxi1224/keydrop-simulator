@@ -1,718 +1,732 @@
 {
-  "price": 1973.21,
+  "price": 1973.2,
   "websiteName": "LORE",
   "drops": [
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "2170,35PLN - 12027,83PLN",
-      "skinDisplayChance": "4,578%",
+      "skinPriceRange": "2625,80PLN - 14366,55PLN",
+      "skinDisplayChance": "2,219%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "12027,83PLN",
-        "range": [99539, 99635],
+        "price": 14366,
+        "range": [99549, 99645],
         "odds": "0,097%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "2170,35PLN - 12027,83PLN",
-      "skinDisplayChance": "4,578%",
+      "skinPriceRange": "2625,80PLN - 14366,55PLN",
+      "skinDisplayChance": "2,219%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": "9036,54PLN",
-        "range": [99375, 99482],
+        "price": 10040,
+        "range": [99385, 99492],
         "odds": "0,108%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "2170,35PLN - 12027,83PLN",
-      "skinDisplayChance": "4,578%",
+      "skinPriceRange": "2625,80PLN - 14366,55PLN",
+      "skinDisplayChance": "2,219%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": "5084,10PLN",
-        "range": [98529, 98661],
+        "price": 5081,
+        "range": [98559, 98691],
         "odds": "0,133%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "2170,35PLN - 12027,83PLN",
-      "skinDisplayChance": "4,578%",
+      "skinPriceRange": "2625,80PLN - 14366,55PLN",
+      "skinDisplayChance": "2,219%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": "3350,52PLN",
-        "range": [93885, 94121],
+        "price": 3860,
+        "range": [96601, 96837],
         "odds": "0,237%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "2170,35PLN - 12027,83PLN",
-      "skinDisplayChance": "4,578%",
+      "skinPriceRange": "2625,80PLN - 14366,55PLN",
+      "skinDisplayChance": "2,219%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": "2170,35PLN",
-        "range": [78253, 82255],
-        "odds": "4,003%"
+        "price": 2625,
+        "range": [90743, 92386],
+        "odds": "1,644%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "8346,74PLN",
+      "skinPriceRange": "9183,80PLN",
       "skinDisplayChance": "0,019%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/17403c6590f5085575ae52dada099bf8.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "8346,74PLN",
-        "range": [99279, 99297],
+        "price": 9183,
+        "range": [99350, 99368],
         "odds": "0,019%"
       }
     },
     {
       "skinName": "Marble Fade",
       "skinWeapon": "Butterfly Knife",
-      "skinPriceRange": "8118,63PLN",
+      "skinPriceRange": "8678,35PLN",
       "skinDisplayChance": "0,026%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e7/e759e61888fa7df5b6dd639bceb922c1.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "8118,63PLN",
-        "range": [99253, 99278],
+        "price": 8678,
+        "range": [99324, 99349],
         "odds": "0,026%"
       }
     },
     {
       "skinName": "Superconductor",
       "skinWeapon": "Sport Gloves",
-      "skinPriceRange": "3001,59PLN - 7672,50PLN",
+      "skinPriceRange": "3629,70PLN - 8525,00PLN",
       "skinDisplayChance": "0,289%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/82/82f0687cf1c451211d1cc9ab6562d7fd.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": "7672,50PLN",
-        "range": [99298, 99358],
+        "price": 8525,
+        "range": [99263, 99323],
         "odds": "0,061%"
       }
     },
     {
       "skinName": "Superconductor",
       "skinWeapon": "Sport Gloves",
-      "skinPriceRange": "3001,59PLN - 7672,50PLN",
+      "skinPriceRange": "3629,70PLN - 8525,00PLN",
       "skinDisplayChance": "0,289%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/82/82f0687cf1c451211d1cc9ab6562d7fd.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": "3001,59PLN",
-        "range": [93132, 93359],
+        "price": 3629,
+        "range": [95338, 95565],
         "odds": "0,228%"
-      }
-    },
-    {
-      "skinName": "Fade",
-      "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "773,82PLN - 6617,07PLN",
-      "skinDisplayChance": "32,963%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "MW",
-        "price": "6617,07PLN",
-        "range": [99182, 99234],
-        "odds": "0,053%"
-      }
-    },
-    {
-      "skinName": "Fade",
-      "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "773,82PLN - 6617,07PLN",
-      "skinDisplayChance": "32,963%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "FT",
-        "price": "1781,19PLN",
-        "range": [58952, 62791],
-        "odds": "3,840%"
-      }
-    },
-    {
-      "skinName": "Fade",
-      "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "773,82PLN - 6617,07PLN",
-      "skinDisplayChance": "32,963%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "WW",
-        "price": "1340,10PLN",
-        "range": [32437, 46188],
-        "odds": "13,752%"
-      }
-    },
-    {
-      "skinName": "Fade",
-      "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "773,82PLN - 6617,07PLN",
-      "skinDisplayChance": "32,963%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "BS",
-        "price": "773,82PLN",
-        "range": [1, 15318],
-        "odds": "15,318%"
       }
     },
     {
       "skinName": "Crimson Web",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2659,32PLN - 6247,94PLN",
-      "skinDisplayChance": "0,994%",
+      "skinPriceRange": "2711,70PLN - 7802,35PLN",
+      "skinDisplayChance": "0,794%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/17a650ddf1cd7181ee2363c59099f7cc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": "6247,94PLN",
-        "range": [99235, 99252],
+        "price": 7802,
+        "range": [99245, 99262],
         "odds": "0,018%"
       }
     },
     {
       "skinName": "Crimson Web",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2659,32PLN - 6247,94PLN",
-      "skinDisplayChance": "0,994%",
+      "skinPriceRange": "2711,70PLN - 7802,35PLN",
+      "skinDisplayChance": "0,794%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/17a650ddf1cd7181ee2363c59099f7cc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": "3736,22PLN",
-        "range": [94901, 95145],
+        "price": 4411,
+        "range": [96940, 97184],
         "odds": "0,245%"
       }
     },
     {
       "skinName": "Crimson Web",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2659,32PLN - 6247,94PLN",
-      "skinDisplayChance": "0,994%",
+      "skinPriceRange": "2711,70PLN - 7802,35PLN",
+      "skinDisplayChance": "0,794%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/17a650ddf1cd7181ee2363c59099f7cc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": "2659,32PLN",
-        "range": [91941, 92671],
-        "odds": "0,731%"
+        "price": 2711,
+        "range": [92755, 93285],
+        "odds": "0,531%"
       }
     },
     {
-      "skinName": "Vice",
-      "skinWeapon": "Sport Gloves",
-      "skinPriceRange": "3660,53PLN - 5751,54PLN",
-      "skinDisplayChance": "0,133%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/97/97707c4600fc97decdac711ca8a2caa1.png",
+      "skinName": "Fade",
+      "skinWeapon": "Specialist Gloves",
+      "skinPriceRange": "824,00PLN - 6777,70PLN",
+      "skinDisplayChance": "31,963%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "MW",
+        "price": 6777,
+        "range": [99192, 99244],
+        "odds": "0,053%"
+      }
+    },
+    {
+      "skinName": "Fade",
+      "skinWeapon": "Specialist Gloves",
+      "skinPriceRange": "824,00PLN - 6777,70PLN",
+      "skinDisplayChance": "31,963%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FT",
+        "price": 1942,
+        "range": [58451, 60290],
+        "odds": "1,840%"
+      }
+    },
+    {
+      "skinName": "Fade",
+      "skinWeapon": "Specialist Gloves",
+      "skinPriceRange": "824,00PLN - 6777,70PLN",
+      "skinDisplayChance": "31,963%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": "5751,54PLN",
-        "range": [99100, 99181],
-        "odds": "0,082%"
+        "price": 1435,
+        "range": [53699, 58450],
+        "odds": "4,752%"
       }
     },
     {
-      "skinName": "Vice",
-      "skinWeapon": "Sport Gloves",
-      "skinPriceRange": "3660,53PLN - 5751,54PLN",
-      "skinDisplayChance": "0,133%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/97/97707c4600fc97decdac711ca8a2caa1.png",
+      "skinName": "Fade",
+      "skinWeapon": "Specialist Gloves",
+      "skinPriceRange": "824,00PLN - 6777,70PLN",
+      "skinDisplayChance": "31,963%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": "3660,53PLN",
-        "range": [96682, 96732],
-        "odds": "0,051%"
+        "price": 824,
+        "range": [1, 25318],
+        "odds": "25,318%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "1677,11PLN - 5284,49PLN",
-      "skinDisplayChance": "18,199%",
+      "skinPriceRange": "1973,15PLN - 6456,35PLN",
+      "skinDisplayChance": "18,699%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9b/9bf706c469b73a0ba33f6bef978363ca.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "5284,49PLN",
-        "range": [98870, 99026],
+        "price": 6456,
+        "range": [98953, 99109],
         "odds": "0,157%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "1677,11PLN - 5284,49PLN",
-      "skinDisplayChance": "18,199%",
+      "skinPriceRange": "1973,15PLN - 6456,35PLN",
+      "skinDisplayChance": "18,699%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9b/9bf706c469b73a0ba33f6bef978363ca.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": "3912,71PLN",
-        "range": [94850, 94900],
+        "price": 3835,
+        "range": [96838, 96888],
         "odds": "0,051%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "1677,11PLN - 5284,49PLN",
-      "skinDisplayChance": "18,199%",
+      "skinPriceRange": "1973,15PLN - 6456,35PLN",
+      "skinDisplayChance": "18,699%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9b/9bf706c469b73a0ba33f6bef978363ca.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": "2206,13PLN",
-        "range": [82256, 87483],
-        "odds": "5,228%"
+        "price": 2515,
+        "range": [90015, 90742],
+        "odds": "0,728%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "1677,11PLN - 5284,49PLN",
-      "skinDisplayChance": "18,199%",
+      "skinPriceRange": "1973,15PLN - 6456,35PLN",
+      "skinDisplayChance": "18,699%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9b/9bf706c469b73a0ba33f6bef978363ca.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": "1677,11PLN",
-        "range": [46189, 58951],
-        "odds": "12,763%"
+        "price": 1973,
+        "range": [60291, 78053],
+        "odds": "17,763%"
+      }
+    },
+    {
+      "skinName": "Vice",
+      "skinWeapon": "Sport Gloves",
+      "skinPriceRange": "4067,25PLN - 6390,60PLN",
+      "skinDisplayChance": "0,133%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/97/97707c4600fc97decdac711ca8a2caa1.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "WW",
+        "price": 6390,
+        "range": [99110, 99191],
+        "odds": "0,082%"
+      }
+    },
+    {
+      "skinName": "Vice",
+      "skinWeapon": "Sport Gloves",
+      "skinPriceRange": "4067,25PLN - 6390,60PLN",
+      "skinDisplayChance": "0,133%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/97/97707c4600fc97decdac711ca8a2caa1.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "BS",
+        "price": 4067,
+        "range": [96889, 96939],
+        "odds": "0,051%"
       }
     },
     {
       "skinName": "Slaughter",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "3533,36PLN - 4601,97PLN",
-      "skinDisplayChance": "1,045%",
+      "skinPriceRange": "4386,25PLN - 5517,10PLN",
+      "skinDisplayChance": "0,525%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f6912c2514ada8c8000a0238281ef14.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "4601,97PLN",
-        "range": [98662, 98803],
-        "odds": "0,142%"
+        "price": 5517,
+        "range": [98692, 98813],
+        "odds": "0,122%"
       }
     },
     {
       "skinName": "Slaughter",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "3533,36PLN - 4601,97PLN",
-      "skinDisplayChance": "1,045%",
+      "skinPriceRange": "4386,25PLN - 5517,10PLN",
+      "skinDisplayChance": "0,525%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f6912c2514ada8c8000a0238281ef14.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": "3853,22PLN",
-        "range": [97036, 97557],
-        "odds": "0,522%"
+        "price": 4634,
+        "range": [98126, 98347],
+        "odds": "0,222%"
       }
     },
     {
       "skinName": "Slaughter",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "3533,36PLN - 4601,97PLN",
-      "skinDisplayChance": "1,045%",
+      "skinPriceRange": "4386,25PLN - 5517,10PLN",
+      "skinDisplayChance": "0,525%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f6912c2514ada8c8000a0238281ef14.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": "3533,36PLN",
-        "range": [95309, 95689],
-        "odds": "0,381%"
-      }
-    },
-    {
-      "skinName": "Slaughter",
-      "skinWeapon": "Skeleton Knife",
-      "skinPriceRange": "4098,02PLN",
-      "skinDisplayChance": "0,108%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7c4e1a1c884ac02e867ef1c2d361a33e.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "FN",
-        "price": "4098,02PLN",
-        "range": [97558, 97665],
-        "odds": "0,108%"
+        "price": 4386,
+        "range": [97600, 97780],
+        "odds": "0,181%"
       }
     },
     {
       "skinName": "Damascus Steel",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2834,69PLN - 4060,13PLN",
-      "skinDisplayChance": "0,934%",
+      "skinPriceRange": "2980,25PLN - 4647,50PLN",
+      "skinDisplayChance": "1,934%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0d/0d117a1c66d9c0d0c282306f3e75aa3f.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "4060,13PLN",
-        "range": [98218, 98528],
-        "odds": "0,311%"
+        "price": 4647,
+        "range": [98348, 98558],
+        "odds": "0,211%"
       }
     },
     {
       "skinName": "Damascus Steel",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2834,69PLN - 4060,13PLN",
-      "skinDisplayChance": "0,934%",
+      "skinPriceRange": "2980,25PLN - 4647,50PLN",
+      "skinDisplayChance": "1,934%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0d/0d117a1c66d9c0d0c282306f3e75aa3f.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": "3547,62PLN",
-        "range": [95146, 95308],
+        "price": 4213,
+        "range": [97437, 97599],
         "odds": "0,163%"
       }
     },
     {
       "skinName": "Damascus Steel",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2834,69PLN - 4060,13PLN",
-      "skinDisplayChance": "0,934%",
+      "skinPriceRange": "2980,25PLN - 4647,50PLN",
+      "skinDisplayChance": "1,934%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0d/0d117a1c66d9c0d0c282306f3e75aa3f.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": "2834,69PLN",
-        "range": [92672, 93131],
-        "odds": "0,460%"
-      }
-    },
-    {
-      "skinName": "Black Laminate",
-      "skinWeapon": "Karambit",
-      "skinPriceRange": "3425,00PLN - 3666,29PLN",
-      "skinDisplayChance": "2,445%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "BS",
-        "price": "3666,29PLN",
-        "range": [95690, 96681],
-        "odds": "0,992%"
-      }
-    },
-    {
-      "skinName": "Black Laminate",
-      "skinWeapon": "Karambit",
-      "skinPriceRange": "3425,00PLN - 3666,29PLN",
-      "skinDisplayChance": "2,445%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "MW",
-        "price": "3564,86PLN",
-        "range": [97666, 98217],
-        "odds": "0,552%"
-      }
-    },
-    {
-      "skinName": "Black Laminate",
-      "skinWeapon": "Karambit",
-      "skinPriceRange": "3425,00PLN - 3666,29PLN",
-      "skinDisplayChance": "2,445%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "WW",
-        "price": "3448,35PLN",
-        "range": [94474, 94849],
-        "odds": "0,376%"
-      }
-    },
-    {
-      "skinName": "Black Laminate",
-      "skinWeapon": "Karambit",
-      "skinPriceRange": "3425,00PLN - 3666,29PLN",
-      "skinDisplayChance": "2,445%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "FT",
-        "price": "3425,00PLN",
-        "range": [93360, 93884],
-        "odds": "0,525%"
-      }
-    },
-    {
-      "skinName": "Doppler",
-      "skinWeapon": "Bayonet",
-      "skinPriceRange": "2205,32PLN - 2399,63PLN",
-      "skinDisplayChance": "6,106%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bdb2f6167145c3ecf53480474c624b2.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "MW",
-        "price": "2399,63PLN",
-        "range": [91603, 91940],
-        "odds": "0,338%"
-      }
-    },
-    {
-      "skinName": "Doppler",
-      "skinWeapon": "Bayonet",
-      "skinPriceRange": "2205,32PLN - 2399,63PLN",
-      "skinDisplayChance": "6,106%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bdb2f6167145c3ecf53480474c624b2.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "FN",
-        "price": "2205,32PLN",
-        "range": [72485, 78252],
-        "odds": "5,768%"
+        "price": 2980,
+        "range": [93286, 94845],
+        "odds": "1,560%"
       }
     },
     {
       "skinName": "Slaughter",
-      "skinWeapon": "Nomad Knife",
-      "skinPriceRange": "2302,52PLN",
-      "skinDisplayChance": "4,119%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/29c74956eeb19a06095fb4defd183011.png",
+      "skinWeapon": "Skeleton Knife",
+      "skinPriceRange": "4552,40PLN",
+      "skinDisplayChance": "0,108%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7c4e1a1c884ac02e867ef1c2d361a33e.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "2302,52PLN",
-        "range": [87484, 91602],
-        "odds": "4,119%"
+        "price": 4552,
+        "range": [98018, 98125],
+        "odds": "0,108%"
+      }
+    },
+    {
+      "skinName": "Black Laminate",
+      "skinWeapon": "Karambit",
+      "skinPriceRange": "3371,50PLN - 4028,25PLN",
+      "skinDisplayChance": "1,345%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "MW",
+        "price": 4028,
+        "range": [97185, 97436],
+        "odds": "0,252%"
+      }
+    },
+    {
+      "skinName": "Black Laminate",
+      "skinWeapon": "Karambit",
+      "skinPriceRange": "3371,50PLN - 4028,25PLN",
+      "skinDisplayChance": "1,345%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "BS",
+        "price": 3927,
+        "range": [95566, 96157],
+        "odds": "0,592%"
+      }
+    },
+    {
+      "skinName": "Black Laminate",
+      "skinWeapon": "Karambit",
+      "skinPriceRange": "3371,50PLN - 4028,25PLN",
+      "skinDisplayChance": "1,345%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FT",
+        "price": 3719,
+        "range": [96158, 96382],
+        "odds": "0,225%"
+      }
+    },
+    {
+      "skinName": "Black Laminate",
+      "skinWeapon": "Karambit",
+      "skinPriceRange": "3371,50PLN - 4028,25PLN",
+      "skinDisplayChance": "1,345%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9e8a62250fc278c13975bf934f72108e.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "WW",
+        "price": 3371,
+        "range": [95062, 95337],
+        "odds": "0,276%"
+      }
+    },
+    {
+      "skinName": "Case Hardened",
+      "skinWeapon": "Nomad Knife",
+      "skinPriceRange": "1362,80PLN - 3142,10PLN",
+      "skinDisplayChance": "13,878%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b3/b32a96bc2d1bb7bad4b8eb3a7ebcf38e.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FN",
+        "price": 3142,
+        "range": [94846, 95061],
+        "odds": "0,216%"
+      }
+    },
+    {
+      "skinName": "Case Hardened",
+      "skinWeapon": "Nomad Knife",
+      "skinPriceRange": "1362,80PLN - 3142,10PLN",
+      "skinDisplayChance": "13,878%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b3/b32a96bc2d1bb7bad4b8eb3a7ebcf38e.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "WW",
+        "price": 1362,
+        "range": [25319, 38980],
+        "odds": "13,662%"
+      }
+    },
+    {
+      "skinName": "Doppler",
+      "skinWeapon": "Bayonet",
+      "skinPriceRange": "2389,75PLN - 2666,25PLN",
+      "skinDisplayChance": "6,136%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bdb2f6167145c3ecf53480474c624b2.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "MW",
+        "price": 2666,
+        "range": [92387, 92754],
+        "odds": "0,368%"
+      }
+    },
+    {
+      "skinName": "Doppler",
+      "skinWeapon": "Bayonet",
+      "skinPriceRange": "2389,75PLN - 2666,25PLN",
+      "skinDisplayChance": "6,136%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bdb2f6167145c3ecf53480474c624b2.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FN",
+        "price": 2389,
+        "range": [84247, 90014],
+        "odds": "5,768%"
       }
     },
     {
       "skinName": "Tiger Tooth",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "2080,04PLN",
-      "skinDisplayChance": "5,110%",
+      "skinPriceRange": "2419,65PLN",
+      "skinDisplayChance": "3,510%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c3/c334de3ed9a091d233f92cf62d143a1a.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": "2080,04PLN",
-        "range": [67375, 72484],
-        "odds": "5,110%"
+        "price": 2419,
+        "range": [80737, 84246],
+        "odds": "3,510%"
       }
     },
     {
       "skinName": "Gungnir",
       "skinWeapon": "AWP",
-      "skinPriceRange": "29561,09PLN",
-      "skinDisplayChance": "0,131%",
+      "skinPriceRange": "32845,65PLN",
+      "skinDisplayChance": "0,121%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/05/055ab20474b52e400318bd2f41dc6ae3.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "29561,09PLN",
-        "range": [99870, 100000],
-        "odds": "0,131%"
+        "price": 32845,
+        "range": [99880, 100000],
+        "odds": "0,121%"
       }
     },
     {
       "skinName": "Dragon Lore",
       "skinWeapon": "AWP",
-      "skinPriceRange": "21767,04PLN",
+      "skinPriceRange": "23586,80PLN",
       "skinDisplayChance": "0,108%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d5/d520662b3a11647160a6d59a1292841a.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "21767,04PLN",
-        "range": [99762, 99869],
+        "price": 23586,
+        "range": [99772, 99879],
         "odds": "0,108%"
       }
     },
     {
       "skinName": "The Prince",
       "skinWeapon": "AWP",
-      "skinPriceRange": "15170,63PLN",
+      "skinPriceRange": "17216,05PLN",
       "skinDisplayChance": "0,126%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c6/c697e60395c66df0181737b6a8180363.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": "15170,63PLN",
-        "range": [99636, 99761],
+        "price": 17216,
+        "range": [99646, 99771],
         "odds": "0,126%"
       }
     },
     {
       "skinName": "Wild Lotus",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "10562,54PLN",
+      "skinPriceRange": "11736,15PLN",
       "skinDisplayChance": "0,018%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e0/e0482832f5ac1f41a646a8a58b28abbf.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "10562,54PLN",
-        "range": [99521, 99538],
+        "price": 11736,
+        "range": [99531, 99548],
         "odds": "0,018%"
       }
     },
     {
       "skinName": "Medusa",
       "skinWeapon": "AWP",
-      "skinPriceRange": "9806,27PLN",
+      "skinPriceRange": "10895,85PLN",
       "skinDisplayChance": "0,038%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5d/5d7297d239817dc9dd2a81344f6bf9b1.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "9806,27PLN",
-        "range": [99483, 99520],
+        "price": 10895,
+        "range": [99493, 99530],
         "odds": "0,038%"
       }
     },
     {
       "skinName": "Akihabara Accept",
       "skinWeapon": "AUG",
-      "skinPriceRange": "1311,12PLN - 8917,02PLN",
-      "skinDisplayChance": "20,621%",
+      "skinPriceRange": "1511,50PLN - 9674,10PLN",
+      "skinDisplayChance": "16,921%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/33/3335c7669097deaa40c746aeab835d80.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": "8917,02PLN",
-        "range": [99359, 99374],
+        "price": 9674,
+        "range": [99369, 99384],
         "odds": "0,016%"
       }
     },
     {
       "skinName": "Akihabara Accept",
       "skinWeapon": "AUG",
-      "skinPriceRange": "1311,12PLN - 8917,02PLN",
-      "skinDisplayChance": "20,621%",
+      "skinPriceRange": "1511,50PLN - 9674,10PLN",
+      "skinDisplayChance": "16,921%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/33/3335c7669097deaa40c746aeab835d80.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "3511,89PLN",
-        "range": [96733, 96798],
+        "price": 3690,
+        "range": [96535, 96600],
         "odds": "0,066%"
       }
     },
     {
       "skinName": "Akihabara Accept",
       "skinWeapon": "AUG",
-      "skinPriceRange": "1311,12PLN - 8917,02PLN",
-      "skinDisplayChance": "20,621%",
+      "skinPriceRange": "1511,50PLN - 9674,10PLN",
+      "skinDisplayChance": "16,921%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/33/3335c7669097deaa40c746aeab835d80.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": "1891,44PLN",
-        "range": [62792, 66212],
-        "odds": "3,421%"
+        "price": 2095,
+        "range": [78054, 80174],
+        "odds": "2,121%"
       }
     },
     {
       "skinName": "Akihabara Accept",
       "skinWeapon": "AUG",
-      "skinPriceRange": "1311,12PLN - 8917,02PLN",
-      "skinDisplayChance": "20,621%",
+      "skinPriceRange": "1511,50PLN - 9674,10PLN",
+      "skinDisplayChance": "16,921%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/33/3335c7669097deaa40c746aeab835d80.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "1311,12PLN",
-        "range": [15319, 32436],
-        "odds": "17,118%"
+        "price": 1511,
+        "range": [38981, 53698],
+        "odds": "14,718%"
       }
     },
     {
       "skinName": "Fire Serpent",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "2009,88PLN - 4820,36PLN",
-      "skinDisplayChance": "1,580%",
+      "skinPriceRange": "2266,15PLN - 5687,10PLN",
+      "skinDisplayChance": "0,780%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/75/759a10c939e62d2b933f49a33e842cd0.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": "4820,36PLN",
-        "range": [98804, 98869],
+        "price": 5687,
+        "range": [98814, 98879],
         "odds": "0,066%"
       }
     },
     {
       "skinName": "Fire Serpent",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "2009,88PLN - 4820,36PLN",
-      "skinDisplayChance": "1,580%",
+      "skinPriceRange": "2266,15PLN - 5687,10PLN",
+      "skinDisplayChance": "0,780%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/75/759a10c939e62d2b933f49a33e842cd0.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "3221,82PLN",
-        "range": [94122, 94473],
-        "odds": "0,352%"
+        "price": 3667,
+        "range": [96383, 96534],
+        "odds": "0,152%"
       }
     },
     {
       "skinName": "Fire Serpent",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "2009,88PLN - 4820,36PLN",
-      "skinDisplayChance": "1,580%",
+      "skinPriceRange": "2266,15PLN - 5687,10PLN",
+      "skinDisplayChance": "0,780%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/75/759a10c939e62d2b933f49a33e842cd0.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "2009,88PLN",
-        "range": [66213, 67374],
-        "odds": "1,162%"
+        "price": 2266,
+        "range": [80175, 80736],
+        "odds": "0,562%"
       }
     },
     {
       "skinName": "Poseidon",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "3899,93PLN",
+      "skinPriceRange": "4304,05PLN",
       "skinDisplayChance": "0,237%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7ce9e04e3789b9083a22948e22441d49.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": "3899,93PLN",
-        "range": [96799, 97035],
+        "price": 4304,
+        "range": [97781, 98017],
         "odds": "0,237%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5422,50PLN",
+      "skinPriceRange": "5955,05PLN",
       "skinDisplayChance": "0,073%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7cadae997973c04583bf16456e8ebfff.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": "5422,50PLN",
-        "range": [99027, 99099],
+        "price": 5955,
+        "range": [98880, 98952],
         "odds": "0,073%"
       }
     }

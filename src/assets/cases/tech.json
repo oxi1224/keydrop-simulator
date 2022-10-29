@@ -1,59 +1,59 @@
 {
-  "price": 2.39,
+  "price": 2.4,
   "websiteName": "TECH",
   "drops": [
     {
       "skinName": "Lore",
       "skinWeapon": "Gut Knife",
-      "skinPriceRange": "664,70PLN",
-      "skinDisplayChance": "0,220%",
+      "skinPriceRange": "762,10PLN",
+      "skinDisplayChance": "0,190%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2b/2bc4c98b29f92efa7a9c9f6c8b7ce492.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": "664,70PLN",
-        "range": [99781, 100000],
-        "odds": "0,220%"
+        "price": 762,
+        "range": [99811, 100000],
+        "odds": "0,190%"
       }
     },
     {
       "skinName": "Neon Rider",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "152,91PLN",
-      "skinDisplayChance": "0,300%",
+      "skinPriceRange": "171,35PLN",
+      "skinDisplayChance": "0,230%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/de/dea3ad4e14c6b446359f537614759443.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "152,91PLN",
-        "range": [99481, 99780],
-        "odds": "0,300%"
+        "price": 171,
+        "range": [99581, 99810],
+        "odds": "0,230%"
       }
     },
     {
       "skinName": "Desolate Space",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "17,33PLN",
-      "skinDisplayChance": "0,480%",
+      "skinPriceRange": "18,65PLN",
+      "skinDisplayChance": "0,580%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bfee5381c335a970a77254d952c1f3f.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": "17,33PLN",
-        "range": [99001, 99480],
-        "odds": "0,480%"
+        "price": 18,
+        "range": [99001, 99580],
+        "odds": "0,580%"
       }
     },
     {
       "skinName": "Facility Draft",
       "skinWeapon": "P250",
-      "skinPriceRange": "0,18PLN",
+      "skinPriceRange": "0,20PLN",
       "skinDisplayChance": "99,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7cb149f4e291588bb1e0c94d5bb89358.png",
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "MW",
-        "price": "0,18PLN",
+        "price": 0,
         "range": [1, 99000],
         "odds": "99,000%"
       }

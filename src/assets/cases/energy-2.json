@@ -1,61 +1,61 @@
 {
-  "price": 2.39,
+  "price": 2.4,
   "websiteName": "ENERGY",
   "drops": [
     {
       "skinName": "Chantico's Fire",
       "skinWeapon": "M4A1-S",
-      "skinPriceRange": "94,95PLN",
-      "skinDisplayChance": "0,850%",
+      "skinPriceRange": "79,90PLN",
+      "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/09/093706091d0018b2211abdc3a6fa880f.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "94,95PLN",
-        "range": [99151, 100000],
-        "odds": "0,850%"
+        "price": 79,
+        "range": [99181, 100000],
+        "odds": "0,820%"
       }
     },
     {
       "skinName": "Nightwish",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "68,94PLN",
-      "skinDisplayChance": "0,850%",
+      "skinPriceRange": "73,05PLN",
+      "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": "68,94PLN",
-        "range": [98301, 99150],
-        "odds": "0,850%"
+        "price": 73,
+        "range": [98361, 99180],
+        "odds": "0,820%"
       }
     },
     {
       "skinName": "The Emperor",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "47,43PLN",
-      "skinDisplayChance": "0,850%",
+      "skinPriceRange": "49,55PLN",
+      "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ecc8d860236e73a561aef334dc3d404.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": "47,43PLN",
-        "range": [97451, 98300],
-        "odds": "0,850%"
+        "price": 49,
+        "range": [97541, 98360],
+        "odds": "0,820%"
       }
     },
     {
       "skinName": "Freight",
       "skinWeapon": "P90",
-      "skinPriceRange": "0,41PLN",
-      "skinDisplayChance": "97,450%",
+      "skinPriceRange": "0,50PLN",
+      "skinDisplayChance": "97,540%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4b8b245334e4461bc03acaac7827dd4b.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": "0,41PLN",
-        "range": [1, 97450],
-        "odds": "97,450%"
+        "price": 0,
+        "range": [1, 97540],
+        "odds": "97,540%"
       }
     }
   ]

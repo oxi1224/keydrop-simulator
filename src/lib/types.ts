@@ -27,7 +27,7 @@ export interface CaseDrop {
 
 export interface DropDetails {
   quality: string;
-  price: string;
+  price: number;
   range: [number, number];
   odds: string;
 }

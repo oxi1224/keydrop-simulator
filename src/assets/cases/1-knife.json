@@ -1,17 +1,17 @@
 {
-  "price": 3.96,
+  "price": 4.4,
   "websiteName": "1% KNIFE",
   "drops": [
     {
       "skinName": "Bright Water",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "352,04PLN",
+      "skinPriceRange": "391,15PLN",
       "skinDisplayChance": "1,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cbaac2f54e905aa336cbfe6cd9c195d.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": "352,04PLN",
+        "price": 391,
         "range": [99001, 100000],
         "odds": "1,000%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "Rust Coat",
       "skinWeapon": "MAG-7",
-      "skinPriceRange": "0,23PLN",
+      "skinPriceRange": "0,25PLN",
       "skinDisplayChance": "99,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a8/a87a1b088087f606ed3d9ea6b63d4522.png",
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "MW",
-        "price": "0,23PLN",
+        "price": 0,
         "range": [1, 99000],
         "odds": "99,000%"
       }

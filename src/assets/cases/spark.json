@@ -1,17 +1,17 @@
 {
-  "price": 6.89,
+  "price": 7.65,
   "websiteName": "SPARK",
   "drops": [
     {
       "skinName": "Bright Water",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "640,89PLN",
+      "skinPriceRange": "712,10PLN",
       "skinDisplayChance": "1,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8a/8ae255f0388c01467659a8e4ba531157.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": "640,89PLN",
+        "price": 712,
         "range": [99001, 100000],
         "odds": "1,000%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "Coolant",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "0,18PLN",
+      "skinPriceRange": "0,15PLN",
       "skinDisplayChance": "99,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6e/6ecc89010d440265e3e2a71aeb9c0a25.png",
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "FT",
-        "price": "0,18PLN",
+        "price": 0,
         "range": [1, 99000],
         "odds": "99,000%"
       }

@@ -289,7 +289,7 @@
         </span>
         <span class="flex items-center col-start-1 row-start-1 transition-opacity duration-300">
           Dodaj środki aby otworzyć <div class="flex items-center ml-2">
-            {casePrice}
+            {casePrice.toFixed(2)}
             {@html goldenNames.includes(data.websiteName)
               ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
               : 'PLN'}

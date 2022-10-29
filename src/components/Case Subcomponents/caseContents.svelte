@@ -36,7 +36,7 @@
                 <div class="font-bold text-white uppercase">Odds</div>
                 {#each drop.details as details}
                   <div class="text-navy-100">{details.quality}</div>
-                  <div class="text-gold">{details.price}</div>
+                  <div class="text-gold">{details.price.toFixed(2)} PLN</div>
                   <div class="text-navy-100">{details.range[0]} - {details.range[0]}</div>
                   <div class="text-navy-100">{details.odds}</div>
                 {/each}
