@@ -6,9 +6,7 @@
   import { onMount } from 'svelte';
 
   onMount(async () => {
-    const { userData } = await import('$lib');
-    const { get } = await import('svelte/store');
-    if (get(userData)) window.location.href = '/';
+    if (localStorage.getItem('logged_in') === 'true') window.location.href = '/';
   });
 
   function toggleLogin() {

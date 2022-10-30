@@ -1,4 +1,4 @@
-import { PrismaClient, type User } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 let prisma: PrismaClient;
 
@@ -17,7 +17,7 @@ if (typeof window === 'undefined') {
 // @ts-ignore
 export const db = prisma;
 
-export async function userFromSessionID(sessionID: string): Promise<User | null> {
+export async function userFromSessionID(sessionID: string) {
   const session = await db.session.findUnique({
     where: {
       id: sessionID
@@ -26,7 +26,10 @@ export async function userFromSessionID(sessionID: string): Promise<User | null>
   if (!session) return null;
   const user = await db.user.findUnique({
     where: {
-      id: session?.id
+      id: session?.userId
+    },
+    include: {
+      inventory: true
     }
   });
   return user;

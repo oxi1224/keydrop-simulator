@@ -5,7 +5,6 @@
   let multipleRoulettesItems: CaseDrop[][] = [];
   let rouletteCount = 1;
   let casePrice = data.price;
-  let winningItem: CaseDrop | null = null;
   let winningItems: CaseDrop[] = [];
   let rollBtn: HTMLButtonElement;
 
@@ -22,8 +21,7 @@
         if (!item) continue;
         rouletteItems.push(item);
       }
-      winningItem = rouletteItems[45];
-      winningItems = [];
+      winningItems = [rouletteItems[45]];
     } else {
       for (let i = 0; i < count; i++) {
         const rollItems: CaseDrop[] = [];
@@ -38,7 +36,6 @@
         multipleRoulettesItems.push(rollItems);
       }
       multipleRoulettesItems.forEach(rI => winningItems.push(rI[45]));
-      winningItem = null;
     }
   }
 
@@ -66,15 +63,9 @@
     casePrice = Math.round(data.price * rouletteCount * 100) / 100;
     generateRollItems(rouletteCount);
   }
-
-  /**
-   * TODO:
-   * - check balance and chest price
-   * - create prize screen
-   * - open another button
-   * - award items to user
-   * - item selling
-  */
+  // TODO Create prize screen
+  // TODO Create roulette reset system
+  // TODO Make calls to API to properly award/sell dropped items
   function handleRoll() {
     return;
   }

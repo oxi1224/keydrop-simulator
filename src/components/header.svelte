@@ -1,4 +1,5 @@
 <script lang="ts">
+  // FIXME Split into more components
   import { createPopup, userData } from '$lib';
   import HeaderUserPanel from './headerUserPanel.svelte';
   function toggleDropdown() {

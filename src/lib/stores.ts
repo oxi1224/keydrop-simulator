@@ -8,7 +8,8 @@ export const popupProps: Writable<PopupProps> = writable({
   message: ''
 });
 export const setUserData = async () => {
-  const { data } = await (await fetch('/api/getUser', { method: 'get' })).json();
+  const { data } = await (await fetch('/api/get-user', { method: 'get' })).json();
   userData.set(data);
+  localStorage.setItem('logged_in', `${!!data}`);
 };
 export const userData: Writable<UserData | null> = writable(null);

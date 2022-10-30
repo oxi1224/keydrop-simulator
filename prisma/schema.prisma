@@ -11,13 +11,25 @@ model User {
   id           String  @id @unique
   username     String  @unique
   passwordHash String
-  inventory    Json[]  @default([])
-  balance      Int     @default(50)
+  inventory    Item[]
+  balance      Float   @default(50)
   goldBalance  Int     @default(0)
   sandboxMode  Boolean @default(false)
 }
 
+model Item {
+  owner         User @relation(fields: [ownerId], references: [id])
+  ownerId       String 
+  dropId        String @id @unique
+  skinName      String
+  skinPrice     Float
+  skinWeapon    String
+  skinImgSource String
+  skinRarity    String
+  skinQuality   String
+}
+
 model Session {
   id     String    @id @unique
-  userId String    @unique
+  userId String
 }
