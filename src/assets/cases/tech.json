@@ -5,13 +5,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Gut Knife",
-      "skinPriceRange": "762,10PLN",
+      "skinPriceRange": "709,45PLN",
       "skinDisplayChance": "0,190%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2b/2bc4c98b29f92efa7a9c9f6c8b7ce492.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 762,
+        "price": 709.45,
         "range": [99811, 100000],
         "odds": "0,190%"
       }
@@ -19,29 +19,29 @@
     {
       "skinName": "Neon Rider",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "171,35PLN",
-      "skinDisplayChance": "0,230%",
+      "skinPriceRange": "165,70PLN",
+      "skinDisplayChance": "0,310%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/de/dea3ad4e14c6b446359f537614759443.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 171,
-        "range": [99581, 99810],
-        "odds": "0,230%"
+        "price": 165.7,
+        "range": [99501, 99810],
+        "odds": "0,310%"
       }
     },
     {
       "skinName": "Desolate Space",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "18,65PLN",
-      "skinDisplayChance": "0,580%",
+      "skinPriceRange": "17,90PLN",
+      "skinDisplayChance": "0,500%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bfee5381c335a970a77254d952c1f3f.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 18,
-        "range": [99001, 99580],
-        "odds": "0,580%"
+        "price": 17.9,
+        "range": [99001, 99500],
+        "odds": "0,500%"
       }
     },
     {
@@ -53,7 +53,7 @@
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "MW",
-        "price": 0,
+        "price": 0.2,
         "range": [1, 99000],
         "odds": "99,000%"
       }

@@ -14,7 +14,9 @@
         <span class="flex flex-row text-navy-200 text-2xs items-center font-bold space-x-1.5">
           <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
           PORTFEL:
-          <span class="text-gold font-semibold text-sm md:text-xs">{data.balance}zł</span>
+          <span class="text-gold font-semibold text-sm md:text-xs">
+            {data.balance.toFixed(2)}zł
+          </span>
         </span>
       </div>
     </div>

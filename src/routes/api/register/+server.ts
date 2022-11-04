@@ -7,21 +7,27 @@ import { nanoid } from 'nanoid';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST(event: RequestEvent) {
-  const { name, password, sandboxMode }: { name: string; password: string; sandboxMode: boolean } = await event.request.json();
-  if (event.cookies.get('session_id')) return new Response(JSON.stringify({ message: 'Użytkownik jest już zalogowany' }), { status: 406 });
+  const { name, password, sandboxMode }: { name: string; password: string; sandboxMode: boolean } =
+    await event.request.json();
+  if (event.cookies.get('session_id'))
+    return new Response(JSON.stringify({ message: 'Użytkownik jest już zalogowany' }), {
+      status: 406
+    });
   const isTaken = await db.user.findUnique({
     where: {
       username: name
     }
   });
-  if (isTaken) return new Response(JSON.stringify({ message: 'Nazwa użytkownika zajęta' }), { status: 409 });
+  if (isTaken)
+    return new Response(JSON.stringify({ message: 'Nazwa użytkownika zajęta' }), { status: 409 });
   const hash = await bcrypt.hash(password, 15);
   const user = await db.user.create({
     data: {
       id: nanoid(),
       username: name,
       passwordHash: hash,
-      sandboxMode: sandboxMode || false,
+      balance: 50,
+      sandboxMode: sandboxMode || false
     }
   });
   const session = await db.session.create({

@@ -1,11 +1,13 @@
 <script lang="ts">
   import { createPopup } from '$lib';
+  import Spinner from '$components/spinner.svelte';
 
+  let loading = false;
   let name: string;
   let password: string;
-  let submitBtn: HTMLButtonElement;
+
   async function handleLogin() {
-    submitBtn.disabled = true;
+    loading = true;
     const res = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({ name, password }),
@@ -13,20 +15,13 @@
         'Content-Type': 'application/json'
       }
     });
-    if (!res.ok) {
-      createPopup({
-        type: 'error',
-        header: 'błąd',
-        message: (await res.json()).message
-      });
-      submitBtn.disabled = false;
-      return;
-    }
+
     createPopup({
-      type: 'success',
-      header: 'sukces',
+      type: res.ok ? 'success' : 'error',
+      header: res.ok ? 'sukces' : 'błąd',
       message: (await res.json()).message
     });
+    loading = false;
     return;
   }
 
@@ -75,10 +70,17 @@
           />
         </div>
       </div>
-      <div>
+      <div class="relative overflow-hidden">
+        <div
+          class="bg-navy-500 bg-opacity-95 min-w-full min-h-full z-50 rounded-md {loading
+            ? 'flex'
+            : 'hidden'} absolute pointer-events-none justify-center items-center"
+        >
+          <Spinner size="2em" borderWidth=".3em" />
+        </div>
         <button
           type="submit"
-          bind:this="{submitBtn}"
+          disabled="{loading}"
           class="group relative flex w-full justify-center rounded-md border border-transparent bg-navy-500 py-2 px-4 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           <span class="absolute inset-y-0 left-0 flex items-center pl-3">

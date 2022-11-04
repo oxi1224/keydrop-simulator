@@ -204,7 +204,7 @@ button {
 
 .css-awr5wf {
   --ratio: 0.7;
-  background-image: url('https://key-drop.com/web/KD/static/images/case-item-bg.png?v48');
+  background-image: url('/images/case-item-bg.png');
   font-size: 13px;
 }
 
@@ -287,7 +287,7 @@ img {
 }
 
 .glow-red {
-  box-shadow: 0 0 6px rgba(255,68,93,.4),inset 0 0 6px rgba(255,68,93,.4);
+  box-shadow: 0 0 6px rgba(255, 68, 93, 0.4), inset 0 0 6px rgba(255, 68, 93, 0.4);
 }
 
 .glow-pastelGreen {

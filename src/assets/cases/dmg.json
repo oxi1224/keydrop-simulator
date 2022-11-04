@@ -5,13 +5,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Paracord Knife",
-      "skinPriceRange": "2743,15PLN",
+      "skinPriceRange": "2672,50PLN",
       "skinDisplayChance": "0,096%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/34/3430a89905fb749780eb5e088da942e3.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 2743,
+        "price": 2672.5,
         "range": [99724, 99819],
         "odds": "0,096%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "CAUTION!",
       "skinWeapon": "Hand Wraps",
-      "skinPriceRange": "1513,20PLN",
+      "skinPriceRange": "1495,20PLN",
       "skinDisplayChance": "0,169%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/50/507645daac294395df113896adff2473.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 1513,
+        "price": 1495.2,
         "range": [99555, 99723],
         "odds": "0,169%"
       }
@@ -39,7 +39,7 @@
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 6623,
+        "price": 6623.1,
         "range": [99953, 100000],
         "odds": "0,048%"
       }
@@ -47,13 +47,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "AWP",
-      "skinPriceRange": "4275,25PLN",
+      "skinPriceRange": "4207,40PLN",
       "skinDisplayChance": "0,069%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6f/6fb994704a709dfd522e60c603ab84e1.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FN",
-        "price": 4275,
+        "price": 4207.4,
         "range": [99820, 99888],
         "odds": "0,069%"
       }
@@ -67,7 +67,7 @@
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 339,
+        "price": 339.45,
         "range": [98476, 99554],
         "odds": "1,079%"
       }
@@ -75,13 +75,13 @@
     {
       "skinName": "Printstream",
       "skinWeapon": "Desert Eagle",
-      "skinPriceRange": "188,15PLN",
+      "skinPriceRange": "191,30PLN",
       "skinDisplayChance": "5,345%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/19/19cfb9de8d87b53a024570838e277473.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 188,
+        "price": 191.3,
         "range": [92825, 98169],
         "odds": "5,345%"
       }
@@ -89,13 +89,13 @@
     {
       "skinName": "Kill Confirmed",
       "skinWeapon": "USP-S",
-      "skinPriceRange": "176,60PLN",
+      "skinPriceRange": "175,80PLN",
       "skinDisplayChance": "5,505%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/db/db4586c58ea4586aa4a7b6fd76363606.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 176,
+        "price": 175.8,
         "range": [87320, 92824],
         "odds": "5,505%"
       }
@@ -103,7 +103,7 @@
     {
       "skinName": "The Emperor",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "38,40PLN - 145,70PLN",
+      "skinPriceRange": "37,85PLN - 145,00PLN",
       "skinDisplayChance": "19,227%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ecc8d860236e73a561aef334dc3d404.png",
       "skinRarity": "red",
@@ -117,13 +117,13 @@
     {
       "skinName": "The Emperor",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "38,40PLN - 145,70PLN",
+      "skinPriceRange": "37,85PLN - 145,00PLN",
       "skinDisplayChance": "19,227%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ecc8d860236e73a561aef334dc3d404.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 49,
+        "price": 49.55,
         "range": [21558, 26790],
         "odds": "5,233%"
       }
@@ -131,13 +131,13 @@
     {
       "skinName": "The Emperor",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "38,40PLN - 145,70PLN",
+      "skinPriceRange": "37,85PLN - 145,00PLN",
       "skinDisplayChance": "19,227%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ecc8d860236e73a561aef334dc3d404.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": 45,
+        "price": 48.45,
         "range": [9324, 13791],
         "odds": "4,468%"
       }
@@ -145,13 +145,13 @@
     {
       "skinName": "The Emperor",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "38,40PLN - 145,70PLN",
+      "skinPriceRange": "37,85PLN - 145,00PLN",
       "skinDisplayChance": "19,227%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ecc8d860236e73a561aef334dc3d404.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 38,
+        "price": 37.85,
         "range": [1, 9323],
         "odds": "9,323%"
       }
@@ -159,13 +159,13 @@
     {
       "skinName": "Redline",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "46,55PLN - 317,70PLN",
+      "skinPriceRange": "46,15PLN - 342,05PLN",
       "skinDisplayChance": "19,953%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/be/bedacdc90b52e3ef9095c861013e9f2e.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 317,
+        "price": 342.05,
         "range": [98170, 98475],
         "odds": "0,306%"
       }
@@ -173,13 +173,13 @@
     {
       "skinName": "Redline",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "46,55PLN - 317,70PLN",
+      "skinPriceRange": "46,15PLN - 342,05PLN",
       "skinDisplayChance": "19,953%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/be/bedacdc90b52e3ef9095c861013e9f2e.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 69,
+        "price": 69.05,
         "range": [71878, 77825],
         "odds": "5,948%"
       }
@@ -187,13 +187,13 @@
     {
       "skinName": "Redline",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "46,55PLN - 317,70PLN",
+      "skinPriceRange": "46,15PLN - 342,05PLN",
       "skinDisplayChance": "19,953%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/be/bedacdc90b52e3ef9095c861013e9f2e.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "WW",
-        "price": 64,
+        "price": 62.5,
         "range": [49129, 55061],
         "odds": "5,933%"
       }
@@ -201,13 +201,13 @@
     {
       "skinName": "Redline",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "46,55PLN - 317,70PLN",
+      "skinPriceRange": "46,15PLN - 342,05PLN",
       "skinDisplayChance": "19,953%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/be/bedacdc90b52e3ef9095c861013e9f2e.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 46,
+        "price": 46.15,
         "range": [13792, 21557],
         "odds": "7,766%"
       }
@@ -215,13 +215,13 @@
     {
       "skinName": "Fairy Tale",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "66,55PLN - 159,35PLN",
+      "skinPriceRange": "66,10PLN - 159,45PLN",
       "skinDisplayChance": "24,412%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e9/e99537efc069d9147f939fe893abb9aa.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FN",
-        "price": 159,
+        "price": 159.45,
         "range": [87063, 87319],
         "odds": "0,257%"
       }
@@ -229,13 +229,13 @@
     {
       "skinName": "Fairy Tale",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "66,55PLN - 159,35PLN",
+      "skinPriceRange": "66,10PLN - 159,45PLN",
       "skinDisplayChance": "24,412%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e9/e99537efc069d9147f939fe893abb9aa.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 100,
+        "price": 97.3,
         "range": [86148, 86600],
         "odds": "0,453%"
       }
@@ -243,13 +243,13 @@
     {
       "skinName": "Fairy Tale",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "66,55PLN - 159,35PLN",
+      "skinPriceRange": "66,10PLN - 159,45PLN",
       "skinDisplayChance": "24,412%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e9/e99537efc069d9147f939fe893abb9aa.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 71,
+        "price": 71.95,
         "range": [77826, 84711],
         "odds": "6,886%"
       }
@@ -257,13 +257,13 @@
     {
       "skinName": "Fairy Tale",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "66,55PLN - 159,35PLN",
+      "skinPriceRange": "66,10PLN - 159,45PLN",
       "skinDisplayChance": "24,412%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e9/e99537efc069d9147f939fe893abb9aa.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "WW",
-        "price": 67,
+        "price": 67.2,
         "range": [64034, 71877],
         "odds": "7,844%"
       }
@@ -271,13 +271,13 @@
     {
       "skinName": "Fairy Tale",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "66,55PLN - 159,35PLN",
+      "skinPriceRange": "66,10PLN - 159,45PLN",
       "skinDisplayChance": "24,412%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e9/e99537efc069d9147f939fe893abb9aa.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 66,
+        "price": 66.1,
         "range": [55062, 64033],
         "odds": "8,972%"
       }
@@ -285,13 +285,13 @@
     {
       "skinName": "Elite Build",
       "skinWeapon": "AWP",
-      "skinPriceRange": "49,95PLN - 133,45PLN",
+      "skinPriceRange": "47,50PLN - 125,80PLN",
       "skinDisplayChance": "24,033%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d1/d110958b892195f45ce2980be0c34a67.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FN",
-        "price": 133,
+        "price": 125.8,
         "range": [86601, 86859],
         "odds": "0,259%"
       }
@@ -299,13 +299,13 @@
     {
       "skinName": "Elite Build",
       "skinWeapon": "AWP",
-      "skinPriceRange": "49,95PLN - 133,45PLN",
+      "skinPriceRange": "47,50PLN - 125,80PLN",
       "skinDisplayChance": "24,033%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d1/d110958b892195f45ce2980be0c34a67.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 76,
+        "price": 76.4,
         "range": [84712, 86147],
         "odds": "1,436%"
       }
@@ -313,13 +313,13 @@
     {
       "skinName": "Elite Build",
       "skinWeapon": "AWP",
-      "skinPriceRange": "49,95PLN - 133,45PLN",
+      "skinPriceRange": "47,50PLN - 125,80PLN",
       "skinDisplayChance": "24,033%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d1/d110958b892195f45ce2980be0c34a67.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 57,
+        "price": 56.5,
         "range": [40721, 49128],
         "odds": "8,408%"
       }
@@ -327,13 +327,13 @@
     {
       "skinName": "Elite Build",
       "skinWeapon": "AWP",
-      "skinPriceRange": "49,95PLN - 133,45PLN",
+      "skinPriceRange": "47,50PLN - 125,80PLN",
       "skinDisplayChance": "24,033%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d1/d110958b892195f45ce2980be0c34a67.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "WW",
-        "price": 55,
+        "price": 55.7,
         "range": [34786, 40720],
         "odds": "5,935%"
       }
@@ -341,13 +341,13 @@
     {
       "skinName": "Elite Build",
       "skinWeapon": "AWP",
-      "skinPriceRange": "49,95PLN - 133,45PLN",
+      "skinPriceRange": "47,50PLN - 125,80PLN",
       "skinDisplayChance": "24,033%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d1/d110958b892195f45ce2980be0c34a67.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 49,
+        "price": 47.5,
         "range": [26791, 34785],
         "odds": "7,995%"
       }
@@ -355,13 +355,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5955,05PLN",
+      "skinPriceRange": "5671,25PLN",
       "skinDisplayChance": "0,064%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7cadae997973c04583bf16456e8ebfff.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 5955,
+        "price": 5671.25,
         "range": [99889, 99952],
         "odds": "0,064%"
       }

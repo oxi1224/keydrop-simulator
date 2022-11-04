@@ -6,16 +6,28 @@
   export let caseItems: CaseDrop[] = [];
   export let itemData: CaseItemData[] = [];
 
-  const skinNames = (() => {
+  const skins = (() => {
     const arr = [];
     for (const drop of data.drops) {
-      arr.push(drop.skinName);
+      arr.push({
+        name: drop.skinName,
+        weapon: drop.skinWeapon
+      });
     }
-    return [...new Set(arr)];
+    return arr.filter(
+      (
+        (s) => (o) =>
+          ((k) => !s.has(k) && s.add(k))(
+            ['name', 'weapon'].map((k) => o[k as keyof typeof o]).join('|')
+          )
+      )(new Set())
+    );
   })();
 
-  for (const skinName of skinNames) {
-    const allItems = data.drops.filter((obj) => obj.skinName === skinName);
+  for (const o of Object.values(skins)) {
+    const allItems = data.drops.filter(
+      (obj) => obj.skinName === o.name && obj.skinWeapon === o.weapon
+    );
     const details: DropDetails[] = [];
     allItems.forEach((obj) => details.push(obj.dropDetails));
     itemData.push({

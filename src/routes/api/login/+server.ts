@@ -7,7 +7,10 @@ import { nanoid } from 'nanoid';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST(event: RequestEvent) {
-  if (event.cookies.get('session_id')) return new Response(JSON.stringify({ message: 'Użytkownik jest już zalogowany' }), { status: 406 });
+  if (event.cookies.get('session_id'))
+    return new Response(JSON.stringify({ message: 'Użytkownik jest już zalogowany' }), {
+      status: 406
+    });
   const { name, password } = await event.request.json();
   const user = await db.user.findUnique({
     where: {

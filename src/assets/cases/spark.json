@@ -11,7 +11,7 @@
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 712,
+        "price": 712.1,
         "range": [99001, 100000],
         "odds": "1,000%"
       }
@@ -25,7 +25,7 @@
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "FT",
-        "price": 0,
+        "price": 0.15,
         "range": [1, 99000],
         "odds": "99,000%"
       }

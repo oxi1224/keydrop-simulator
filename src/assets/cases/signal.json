@@ -11,7 +11,7 @@
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 17618,
+        "price": 17618.65,
         "range": [99991, 100000],
         "odds": "0,010%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "Lightning Strike",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2612,00PLN",
+      "skinPriceRange": "2530,95PLN",
       "skinDisplayChance": "0,020%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1a/1a738fb5cc1b0db8b40e263a7ff78e9b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FN",
-        "price": 2612,
+        "price": 2530.95,
         "range": [99971, 99990],
         "odds": "0,020%"
       }
@@ -33,13 +33,13 @@
     {
       "skinName": "Asiimov",
       "skinWeapon": "AWP",
-      "skinPriceRange": "318,90PLN - 571,90PLN",
+      "skinPriceRange": "319,25PLN - 577,05PLN",
       "skinDisplayChance": "0,150%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/18/188d1e4b8c1eada48b28aa58944a8fb2.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 571,
+        "price": 577.05,
         "range": [99951, 99970],
         "odds": "0,020%"
       }
@@ -47,13 +47,13 @@
     {
       "skinName": "Asiimov",
       "skinWeapon": "AWP",
-      "skinPriceRange": "318,90PLN - 571,90PLN",
+      "skinPriceRange": "319,25PLN - 577,05PLN",
       "skinDisplayChance": "0,150%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/18/188d1e4b8c1eada48b28aa58944a8fb2.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": 437,
+        "price": 442.5,
         "range": [99921, 99950],
         "odds": "0,030%"
       }
@@ -61,13 +61,13 @@
     {
       "skinName": "Asiimov",
       "skinWeapon": "AWP",
-      "skinPriceRange": "318,90PLN - 571,90PLN",
+      "skinPriceRange": "319,25PLN - 577,05PLN",
       "skinDisplayChance": "0,150%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/18/188d1e4b8c1eada48b28aa58944a8fb2.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 318,
+        "price": 319.25,
         "range": [99821, 99920],
         "odds": "0,100%"
       }
@@ -75,13 +75,13 @@
     {
       "skinName": "Wildfire",
       "skinWeapon": "AWP",
-      "skinPriceRange": "153,90PLN - 265,15PLN",
+      "skinPriceRange": "153,85PLN - 260,75PLN",
       "skinDisplayChance": "1,480%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d6/d607971687111038146824ecba50f183.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 265,
+        "price": 260.75,
         "range": [99671, 99820],
         "odds": "0,150%"
       }
@@ -89,13 +89,13 @@
     {
       "skinName": "Wildfire",
       "skinWeapon": "AWP",
-      "skinPriceRange": "153,90PLN - 265,15PLN",
+      "skinPriceRange": "153,85PLN - 260,75PLN",
       "skinDisplayChance": "1,480%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d6/d607971687111038146824ecba50f183.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 153,
+        "price": 153.85,
         "range": [98241, 99570],
         "odds": "1,330%"
       }
@@ -103,13 +103,13 @@
     {
       "skinName": "Hyper Beast",
       "skinWeapon": "AWP",
-      "skinPriceRange": "110,90PLN - 257,80PLN",
+      "skinPriceRange": "108,85PLN - 255,65PLN",
       "skinDisplayChance": "6,340%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": 257,
+        "price": 255.65,
         "range": [99571, 99670],
         "odds": "0,100%"
       }
@@ -117,13 +117,13 @@
     {
       "skinName": "Hyper Beast",
       "skinWeapon": "AWP",
-      "skinPriceRange": "110,90PLN - 257,80PLN",
+      "skinPriceRange": "108,85PLN - 255,65PLN",
       "skinDisplayChance": "6,340%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": 125,
+        "price": 124.65,
         "range": [95591, 98240],
         "odds": "2,650%"
       }
@@ -131,13 +131,13 @@
     {
       "skinName": "Hyper Beast",
       "skinWeapon": "AWP",
-      "skinPriceRange": "110,90PLN - 257,80PLN",
+      "skinPriceRange": "108,85PLN - 255,65PLN",
       "skinDisplayChance": "6,340%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 110,
+        "price": 108.85,
         "range": [92001, 95590],
         "odds": "3,590%"
       }
@@ -151,7 +151,7 @@
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": 0,
+        "price": 0.55,
         "range": [1, 92000],
         "odds": "92,000%"
       }

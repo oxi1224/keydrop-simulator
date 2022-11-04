@@ -46,6 +46,9 @@ module.exports = {
       },
       translate: {
         110: '110%'
+      },
+      maxWidth: {
+        '1/2': '50%'
       }
     }
   },

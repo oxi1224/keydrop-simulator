@@ -5,13 +5,13 @@
     {
       "skinName": "Bright Water",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "391,15PLN",
+      "skinPriceRange": "387,25PLN",
       "skinDisplayChance": "1,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cbaac2f54e905aa336cbfe6cd9c195d.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 391,
+        "price": 387.25,
         "range": [99001, 100000],
         "odds": "1,000%"
       }
@@ -25,7 +25,7 @@
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "MW",
-        "price": 0,
+        "price": 0.25,
         "range": [1, 99000],
         "odds": "99,000%"
       }

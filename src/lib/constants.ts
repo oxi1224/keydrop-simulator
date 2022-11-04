@@ -37,6 +37,14 @@ export const colors = {
   }
 };
 
+export const wearConversions = {
+  MW: 'Minimal Wear',
+  FN: 'Factory New',
+  BS: 'Battle Scarred',
+  FT: 'Field Tested',
+  WW: 'Well Worn'
+};
+
 export enum TimeInMs {
   Milisecond = 1,
   Second = Milisecond * 1000,

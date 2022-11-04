@@ -31,7 +31,6 @@ export interface DropDetails {
   odds: string;
 }
 
-
 export interface CaseItemData extends Omit<CaseDrop, 'dropDetails'> {
   details: DropDetails[];
 }

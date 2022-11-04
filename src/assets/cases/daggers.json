@@ -5,13 +5,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "633,90PLN",
+      "skinPriceRange": "638,85PLN",
       "skinDisplayChance": "0,150%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 633,
+        "price": 638.85,
         "range": [99851, 100000],
         "odds": "0,150%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "Nightwish",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "73,05PLN",
+      "skinPriceRange": "67,25PLN",
       "skinDisplayChance": "0,600%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 73,
+        "price": 67.25,
         "range": [99251, 99850],
         "odds": "0,600%"
       }
@@ -33,13 +33,13 @@
     {
       "skinName": "Cyber Security",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "51,45PLN",
+      "skinPriceRange": "52,75PLN",
       "skinDisplayChance": "0,250%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a5/a5a642c7fe34d91ae72968e4ce0dd5c9.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 51,
+        "price": 52.75,
         "range": [99001, 99250],
         "odds": "0,250%"
       }
@@ -53,7 +53,7 @@
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "MW",
-        "price": 0,
+        "price": 0.65,
         "range": [1, 99000],
         "odds": "99,000%"
       }

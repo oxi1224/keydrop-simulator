@@ -5,13 +5,13 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "3210,15PLN",
+      "skinPriceRange": "3239,00PLN",
       "skinDisplayChance": "0,132%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 3210,
+        "price": 3239,
         "range": [99869, 100000],
         "odds": "0,132%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Skeleton Knife",
-      "skinPriceRange": "2400,25PLN",
+      "skinPriceRange": "2450,90PLN",
       "skinDisplayChance": "0,376%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ec/ec3fba6338d7e4cac3408ea3d9b312c2.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": 2400,
+        "price": 2450.9,
         "range": [99493, 99868],
         "odds": "0,376%"
       }
@@ -33,13 +33,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Huntsman Knife",
-      "skinPriceRange": "1145,85PLN",
+      "skinPriceRange": "1134,15PLN",
       "skinDisplayChance": "0,355%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e1/e104ae0420a043ffed8bed90e931b3f9.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 1145,
+        "price": 1134.15,
         "range": [99138, 99492],
         "odds": "0,355%"
       }
@@ -47,13 +47,13 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "783,20PLN",
+      "skinPriceRange": "739,75PLN",
       "skinDisplayChance": "0,332%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/72/729043653075a49da36b959686e35099.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 783,
+        "price": 739.75,
         "range": [98806, 99137],
         "odds": "0,332%"
       }
@@ -61,13 +61,13 @@
     {
       "skinName": "Printstream",
       "skinWeapon": "Desert Eagle",
-      "skinPriceRange": "246,90PLN",
+      "skinPriceRange": "239,65PLN",
       "skinDisplayChance": "0,327%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/19/19cfb9de8d87b53a024570838e277473.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 246,
+        "price": 239.65,
         "range": [98479, 98805],
         "odds": "0,327%"
       }
@@ -75,13 +75,13 @@
     {
       "skinName": "Neo-Noir",
       "skinWeapon": "AWP",
-      "skinPriceRange": "144,25PLN",
+      "skinPriceRange": "138,75PLN",
       "skinDisplayChance": "1,235%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d0/d0ed1c35d8364d8542e62f419c4c9985.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 144,
+        "price": 138.75,
         "range": [97244, 98478],
         "odds": "1,235%"
       }
@@ -89,7 +89,7 @@
     {
       "skinName": "Neon Rider",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "108,70PLN",
+      "skinPriceRange": "108,00PLN",
       "skinDisplayChance": "1,882%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/de/dea3ad4e14c6b446359f537614759443.png",
       "skinRarity": "red",
@@ -103,13 +103,13 @@
     {
       "skinName": "Player Two",
       "skinWeapon": "M4A1-S",
-      "skinPriceRange": "81,35PLN",
+      "skinPriceRange": "80,00PLN",
       "skinDisplayChance": "3,505%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/178a41d6dc19464c0ecf482bdd1feedc.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 81,
+        "price": 80,
         "range": [91857, 95361],
         "odds": "3,505%"
       }
@@ -117,13 +117,13 @@
     {
       "skinName": "Leet Museo",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "80,80PLN",
+      "skinPriceRange": "77,95PLN",
       "skinDisplayChance": "3,431%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/49/4935b7a432a5d4c9bcfeb5acc7f5e594.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 80,
+        "price": 77.95,
         "range": [88426, 91856],
         "odds": "3,431%"
       }
@@ -131,13 +131,13 @@
     {
       "skinName": "Nightwish",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "73,05PLN",
+      "skinPriceRange": "67,25PLN",
       "skinDisplayChance": "2,850%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 73,
+        "price": 67.25,
         "range": [85576, 88425],
         "odds": "2,850%"
       }
@@ -145,13 +145,13 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,50PLN - 7,35PLN",
+      "skinPriceRange": "1,60PLN - 7,20PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 7,
+        "price": 7.2,
         "range": [79586, 85575],
         "odds": "5,990%"
       }
@@ -159,13 +159,13 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,50PLN - 7,35PLN",
+      "skinPriceRange": "1,60PLN - 7,20PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 3,
+        "price": 3.05,
         "range": [26922, 37814],
         "odds": "10,893%"
       }
@@ -173,13 +173,13 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,50PLN - 7,35PLN",
+      "skinPriceRange": "1,60PLN - 7,20PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "WW",
-        "price": 2,
+        "price": 2.25,
         "range": [16008, 26921],
         "odds": "10,914%"
       }
@@ -187,13 +187,13 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,50PLN - 7,35PLN",
+      "skinPriceRange": "1,60PLN - 7,20PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "BS",
-        "price": 1,
+        "price": 1.6,
         "range": [1, 16007],
         "odds": "16,007%"
       }
@@ -201,13 +201,13 @@
     {
       "skinName": "Spider Lily",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "4,25PLN - 5,10PLN",
+      "skinPriceRange": "4,15PLN - 5,30PLN",
       "skinDisplayChance": "41,771%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/99/99d7da5f3919cedd2bc564841d726621.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 5,
+        "price": 5.3,
         "range": [66737, 79585],
         "odds": "12,849%"
       }
@@ -215,29 +215,29 @@
     {
       "skinName": "Spider Lily",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "4,25PLN - 5,10PLN",
-      "skinDisplayChance": "41,771%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/99/99d7da5f3919cedd2bc564841d726621.png",
-      "skinRarity": "violet",
-      "dropDetails": {
-        "quality": "BS",
-        "price": 4,
-        "range": [37815, 51773],
-        "odds": "13,959%"
-      }
-    },
-    {
-      "skinName": "Spider Lily",
-      "skinWeapon": "M4A4",
-      "skinPriceRange": "4,25PLN - 5,10PLN",
+      "skinPriceRange": "4,15PLN - 5,30PLN",
       "skinDisplayChance": "41,771%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/99/99d7da5f3919cedd2bc564841d726621.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "WW",
-        "price": 4,
+        "price": 4.45,
         "range": [51774, 66736],
         "odds": "14,963%"
+      }
+    },
+    {
+      "skinName": "Spider Lily",
+      "skinWeapon": "M4A4",
+      "skinPriceRange": "4,15PLN - 5,30PLN",
+      "skinDisplayChance": "41,771%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/99/99d7da5f3919cedd2bc564841d726621.png",
+      "skinRarity": "violet",
+      "dropDetails": {
+        "quality": "BS",
+        "price": 4.15,
+        "range": [37815, 51773],
+        "odds": "13,959%"
       }
     }
   ]

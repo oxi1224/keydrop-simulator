@@ -1,24 +1,38 @@
 <script lang="ts">
-  import { colors, goldenNames, userData, type CaseData, type CaseDrop } from '$lib';
+  import {
+    colors,
+    createPopup,
+    goldenNames,
+    setUserData,
+    userData,
+    wearConversions,
+    type CaseData,
+    type CaseDrop
+  } from '$lib';
   export let rouletteItems: CaseDrop[] = [];
   export let data: CaseData;
   let multipleRoulettesItems: CaseDrop[][] = [];
   let rouletteCount = 1;
   let casePrice = data.price;
   let winningItems: CaseDrop[] = [];
-  let rollBtn: HTMLButtonElement;
+  let loading = false;
+  $: tooPoor = !$userData ? true : $userData.balance < casePrice;
 
   generateRollItems(rouletteCount);
   function generateRollItems(count: number) {
     rouletteItems = [];
     multipleRoulettesItems = [];
+    winningItems = [];
     if (count === 1) {
       for (let i = 0; i < 60; i++) {
         const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
         const item = data.drops.find(
           (obj) => obj.dropDetails.range[0] <= rollNumber && obj.dropDetails.range[1] >= rollNumber
         );
-        if (!item) continue;
+        if (!item) {
+          i--;
+          continue;
+        }
         rouletteItems.push(item);
       }
       winningItems = [rouletteItems[45]];
@@ -28,14 +42,15 @@
         for (let itemI = 0; itemI < 60; itemI++) {
           const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
           const item = data.drops.find(
-            (obj) => obj.dropDetails.range[0] <= rollNumber && obj.dropDetails.range[1] >= rollNumber
+            (obj) =>
+              obj.dropDetails.range[0] <= rollNumber && obj.dropDetails.range[1] >= rollNumber
           );
           if (!item) continue;
           rollItems.push(item);
         }
         multipleRoulettesItems.push(rollItems);
       }
-      multipleRoulettesItems.forEach(rI => winningItems.push(rI[45]));
+      multipleRoulettesItems.forEach((rI) => winningItems.push(rI[45]));
     }
   }
 
@@ -63,37 +78,73 @@
     casePrice = Math.round(data.price * rouletteCount * 100) / 100;
     generateRollItems(rouletteCount);
   }
-  // TODO Create prize screen
   // TODO Create roulette reset system
-  // TODO Make calls to API to properly award/sell dropped items
-  function handleRoll() {
+  async function handleRoll() {
+    loading = true;
+    // roll();
+    const res = await fetch('/api/skins/case-open', {
+      method: 'POST',
+      body: JSON.stringify({ items: winningItems, cost: casePrice }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (!res.ok) {
+      createPopup({
+        type: 'error',
+        header: 'błąd',
+        message: (await res.json()).message
+      });
+      loading = false;
+      return;
+    } else {
+      await setUserData();
+    }
+    await roll();
+    const winElmArr = [
+      ...document.querySelectorAll(
+        `div.${rouletteCount === 1 ? 'single-roll-winScreen' : 'CaseRolls-winScreen'}`
+      )
+    ];
+    winElmArr.forEach((elm, i) => {
+      elm.classList.remove('hidden');
+      elm.classList.add('flex');
+      elm.querySelector('.award-chance')!.textContent = winningItems[i].dropDetails.odds;
+      elm.querySelector('.award-skin')!.textContent = winningItems[i].skinName;
+      elm.querySelector('.award-weapon')!.textContent = winningItems[i].skinWeapon;
+      elm.querySelector('.award-wear')!.textContent =
+        wearConversions[winningItems[i].dropDetails.quality as keyof typeof wearConversions];
+      elm.querySelector('.award-price')!.textContent = winningItems[i].dropDetails.price.toFixed(2);
+    });
+    createPopup({
+      type: 'success',
+      header: `Wygrana: ${winningItems.reduce((c, n) => c + n.dropDetails.price, 0).toFixed(2)}`,
+      message: `Strata: ${casePrice - winningItems.reduce((c, n) => c + n.dropDetails.price, 0)}`
+    });
     return;
   }
 
-  function roll() {
-    generateRollItems(rouletteCount);
+  async function roll() {
     if (rouletteCount === 1) {
-      const bounds = [...document.querySelectorAll('li.case-item')][45].getBoundingClientRect();
-      const x = Math.floor(Math.random() * (bounds.right - bounds.left + 1)) + bounds.right;
+      const bounds = document.querySelectorAll('li.case-item')[45].getBoundingClientRect();
+      const x = Math.floor(
+        Math.random() * (bounds.width * 41 - bounds.width * 41.9) + bounds.width * 41.9
+      );
       document
         .querySelector('ul.CaseRolls-row')!
-        .animate(
-          [
-            { transform: 'translateX(0)' },
-            { transform: `translateX(-${x}px)` }
-          ],
-          {
-            iterations: 1,
-            duration: 2500,
-            easing: 'cubic-bezier(.8,0,0,1)',
-            fill: 'forwards'
-          }
-        );
+        .animate([{ transform: 'translateX(0)' }, { transform: `translateX(-${x}px)` }], {
+          iterations: 1,
+          duration: 2500,
+          easing: 'cubic-bezier(.8,0,0,1)',
+          fill: 'forwards'
+        });
     } else {
       const roulettes = [...document.querySelectorAll('div.CaseRolls-roll')];
-      roulettes.forEach(roulette => {
-        const bounds = [...document.querySelectorAll('div.CaseRolls-skin')][45].getBoundingClientRect();
-        const y = Math.floor((bounds.bottom - bounds.top + 1)) + bounds.bottom;
+      roulettes.forEach((roulette) => {
+        const bounds = [
+          ...document.querySelectorAll('div.CaseRolls-skin')
+        ][45].getBoundingClientRect();
+        const y = Math.floor(bounds.height * 45 - bounds.height * 46 + 1) + bounds.height * 46;
         roulette.animate(
           [
             { transform: 'translateY(0)' },
@@ -109,6 +160,8 @@
         );
       });
     }
+    // TODO make this not hardcoded + add fast open toggle
+    await new Promise((r) => setTimeout(r, 2500));
   }
 </script>
 
@@ -182,6 +235,36 @@
         class="absolute top-0 left-0 w-full h-full grid grid-stack single-roll"
         style="width: 1480px; left: calc(50% - 740px);"
       >
+        <div class="single-roll-winScreen hidden absolute top-0 left-0 w-full h-full z-30">
+          <div
+            class="p-2 mb-auto space-y-1 sm:space-y-0 items-center w-full font-semibold leading-none text-right transform uppercase md:p-5 text-navy-200 opacity-100 translate-y-3 text-2xs"
+          >
+            <div class="ml-2 text-2xs">
+              Chance
+              <br />
+              <!-- chance -->
+              <span style="font-size: 110%;" class="award-chance"></span>
+            </div>
+          </div>
+          <div
+            class="absolute bottom-0 p-2 md:p-5 flex flex-col items-center lg:flex-row w-full font-semibold leading-tight justify-between uppercase min-w-0 opacity-100 md:text-xl"
+          >
+            <div class="flex-1 md:max-w-1/2">
+              <!-- skin -->
+              <div class="truncate text-navy-200 text-2xs award-skin"></div>
+              <!-- weapon -->
+              <div class="font-bold text-white truncate text-xs award-weapon"></div>
+              <!-- wear -->
+              <div class="truncate text-navy-200 text-2xs award-wear"></div>
+            </div>
+            <button
+              class="px-2 py-1 mt-1 h-3/4 font-bold text-sm uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate"
+            >
+              Sprzedaj <br class="md:hidden" />
+              <span class="award-price"></span>
+            </button>
+          </div>
+        </div>
         <ul class="flex w-full h-full CaseRolls-row">
           {#each rouletteItems as item}
             <li
@@ -205,24 +288,60 @@
         {#each multipleRoulettesItems as rouletteItemsArray}
           <div
             style="width: {(1 / rouletteCount) * 100}%;"
-            class="CaseRolls-roll flex-shrink-0 h-full will-change-transform border-r border-dashed border-navy-550"
+            class="CaseRolls-wrapper h-full will-change-transform border-r border-dashed border-navy-550"
           >
-            {#each rouletteItemsArray as caseItem}
+            <div
+              class="CaseRolls-winScreen hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-full z-30"
+            >
               <div
-                class="CaseRolls-skin w-full h-auto my-5 lg:h-full lg:my-0 css-1hmgmgm flex items-center justify-center relative"
+                class="p-2 mb-auto space-y-1 sm:space-y-0 items-center w-full font-semibold leading-none text-right transform uppercase md:p-5 text-navy-200 opacity-100 translate-y-3 text-2xs"
               >
-                <img
-                  alt=""
-                  class="object-contain absolute mx-auto w-1/2"
-                  src="{colors.itemBg[caseItem.skinRarity]}"
-                />
-                <img
-                  src="{caseItem.skinImgSource}"
-                  alt=""
-                  class="block object-contain w-1/2 h-full z-10"
-                />
+                <div class="ml-2 text-2xs">
+                  Chance
+                  <br />
+                  <!-- chance -->
+                  <span style="font-size: 110%;" class="award-chance"></span>
+                </div>
               </div>
-            {/each}
+              <div
+                class="absolute bottom-0 p-2 md:p-5 flex flex-col items-center lg:flex-row w-full font-semibold leading-tight justify-between uppercase min-w-0 opacity-100 md:text-xl"
+              >
+                <div class="flex-1 md:max-w-1/2">
+                  <!-- skin -->
+                  <div class="truncate text-navy-200 text-2xs award-skin"></div>
+                  <!-- weapon -->
+                  <div class="font-bold text-white truncate text-xs award-weapon"></div>
+                  <!-- wear -->
+                  <div class="truncate text-navy-200 text-2xs award-wear"></div>
+                </div>
+                <button
+                  class="px-2 py-1 mt-1 h-3/4 font-bold text-xs uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate"
+                >
+                  Sprzedaj <br class="md:hidden" />
+                  <span class="award-price"></span>
+                </button>
+              </div>
+            </div>
+            <div class="CaseRolls-roll flex-shrink-0 h-full w-full">
+              {#each rouletteItemsArray as caseItem}
+                <div
+                  class="CaseRolls-skin w-full h-auto my-5 lg:h-full lg:my-0 css-1hmgmgm flex items-center justify-center relative border-navy-400 border-dotted border"
+                >
+                  <img
+                    alt=""
+                    class="object-contain absolute mx-auto"
+                    style="width: {(3 + rouletteCount) * 10}%;"
+                    src="{colors.itemBg[caseItem.skinRarity]}"
+                  />
+                  <img
+                    src="{caseItem.skinImgSource}"
+                    alt=""
+                    style="width: {(3 + rouletteCount) * 10}%;"
+                    class="block object-contain h-full z-10"
+                  />
+                </div>
+              {/each}
+            </div>
           </div>
         {/each}
       </div>
@@ -287,30 +406,35 @@
         ></div>
         <button
           on:click="{() => changeRouletteCount(1)}"
+          disabled="{loading}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 rounded-l text-navy-200 sm:rounded-l-lg ml-0 case-count-selected-btn hover:text-white hover:bg-navy-600"
         >
           1
         </button>
         <button
           on:click="{() => changeRouletteCount(2)}"
+          disabled="{loading}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           2
         </button>
         <button
           on:click="{() => changeRouletteCount(3)}"
+          disabled="{loading}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           3
         </button>
         <button
           on:click="{() => changeRouletteCount(4)}"
+          disabled="{loading}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           4
         </button>
         <button
           on:click="{() => changeRouletteCount(5)}"
+          disabled="{loading}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px rounded-r sm:rounded-r-lg text-navy-200 hover:text-white hover:bg-navy-600"
         >
           5
@@ -318,11 +442,14 @@
       </div>
       <button
         target="_blank"
-        class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser {!$userData
+        class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
+        {!$userData
           ? 'border-red-500 text-red-500 glow-red'
-          : 'border-green-500 text-green-500 glow-pastelGreen'}  hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi"
-          on:click="{handleRoll}"
-          bind:this="{rollBtn}"
+          : $userData.balance >= casePrice
+          ? 'border-green-500 text-green-500 glow-pastelGreen'
+          : 'border-red-500 text-red-500 glow-red'}"
+        on:click="{handleRoll}"
+        disabled="{loading || tooPoor}"
       >
         <span
           class="row-start-1 col-start-1 flex items-center justify-center transition duration-300 transform scale-50 opacity-0"

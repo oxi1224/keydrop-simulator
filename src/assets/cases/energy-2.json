@@ -5,13 +5,13 @@
     {
       "skinName": "Chantico's Fire",
       "skinWeapon": "M4A1-S",
-      "skinPriceRange": "79,90PLN",
+      "skinPriceRange": "84,10PLN",
       "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/09/093706091d0018b2211abdc3a6fa880f.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 79,
+        "price": 84.1,
         "range": [99181, 100000],
         "odds": "0,820%"
       }
@@ -19,13 +19,13 @@
     {
       "skinName": "Nightwish",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "73,05PLN",
+      "skinPriceRange": "67,25PLN",
       "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 73,
+        "price": 67.25,
         "range": [98361, 99180],
         "odds": "0,820%"
       }
@@ -39,7 +39,7 @@
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 49,
+        "price": 49.55,
         "range": [97541, 98360],
         "odds": "0,820%"
       }
@@ -53,7 +53,7 @@
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": 0,
+        "price": 0.5,
         "range": [1, 97540],
         "odds": "97,540%"
       }
