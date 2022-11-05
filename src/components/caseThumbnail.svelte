@@ -25,9 +25,9 @@
     />
     <div class="z-10 flex flex-col w-full h-full">
       <div
-        class="flex flex-row items-center absolute py-1.5 px-3 font-semibold rounded bg-navy-900 text-gold-500 top-3 right-3 text-xs"
+        class="flex flex-row items-center absolute py-1.5 px-3 font-semibold rounded text-gold-500 top-3 right-3 text-xs"
       >
-        {data.price.toFixed(2)}
+        {goldenNames.includes(name) ? data.price : data.price.toFixed(2)}
         {@html goldenNames.includes(name)
           ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
           : 'PLN'}

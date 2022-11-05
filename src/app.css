@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+}
+
 @font-face {
   font-family: 'urbane';
   src: url('https://use.typekit.net/af/d69d3b/00000000000000007735c098/30/l?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n7&v=3')
@@ -294,6 +298,14 @@ img {
   box-shadow: 0 0 6px rgba(80, 227, 109, 0.4), inset 0 0 6px rgba(80, 227, 109, 0.4);
 }
 
+.glow-gold {
+ box-shadow:0 0 6px rgba(220,174,100,.4),inset 0 0 6px rgba(220,174,100,.4)
+}
+
+.glow-teal {
+ box-shadow:0 0 6px rgba(16,227,180,.4),inset 0 0 6px rgba(16,227,180,.4)
+}
+
 .grid-stack {
   grid-template: 'area' / minmax(0, 1fr);
 }
@@ -381,4 +393,9 @@ img {
 .button-primary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(94 72 47 / var(--tw-bg-opacity));
+}
+
+.css-dap7rg {
+  --ratio: 0.7;
+  background-image: url("/images/case-item-bg.png");
 }

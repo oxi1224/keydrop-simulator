@@ -5,7 +5,11 @@
   export let data: CaseData;
   export let caseItems: CaseDrop[] = [];
   export let itemData: CaseItemData[] = [];
-
+  let fastOpen = (() => {
+    const str = localStorage.getItem('fast-open');
+    if (!str) return false;
+    return str === 'true' ? true : false;
+  })();
   const skins = (() => {
     const arr = [];
     for (const drop of data.drops) {
@@ -39,6 +43,11 @@
       skinRarity: allItems[0].skinRarity,
       details: details
     });
+  }
+
+  function setFastOpen(e: MouseEvent) {
+    const checked = (e.target as HTMLInputElement).checked;
+    localStorage.setItem('fast-open', `${checked}`);
   }
 </script>
 
@@ -95,11 +104,17 @@
             ></path>
           </svg>
         </button>
-        <button
-          class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550"
-        >
-          <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
-        </button>
+      <label class="flex cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {fastOpen ? '' : 'brightness-75'}">
+        <input
+          type="checkbox"
+          id="fast-open"
+          name="fast-open"
+          class="absolute opacity-0 cursor-pointer h-0 w-0"
+          bind:checked="{fastOpen}"
+          on:click="{(e) => setFastOpen(e)}"
+        />
+        <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
+      </label>
       </div>
     </header>
     <CaseRoulette rouletteItems="{caseItems}" data="{data}" />

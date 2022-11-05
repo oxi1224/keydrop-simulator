@@ -9,13 +9,17 @@
     type CaseData,
     type CaseDrop
   } from '$lib';
+  import Spinner from '$components/spinner.svelte';
+  import type { Item } from '@prisma/client';
   export let rouletteItems: CaseDrop[] = [];
   export let data: CaseData;
   let multipleRoulettesItems: CaseDrop[][] = [];
   let rouletteCount = 1;
   let casePrice = data.price;
   let winningItems: CaseDrop[] = [];
+  let itemsIndb: Item[];
   let loading = false;
+  let sellLoading = false;
   $: tooPoor = !$userData ? true : $userData.balance < casePrice;
 
   generateRollItems(rouletteCount);
@@ -74,14 +78,20 @@
       arrows[1].classList.remove('arrow-right');
     }
     rouletteCount = rollCount;
-    btnOverlay!.style.left = `${20 * (rouletteCount - 1)}%`;
+    btnOverlay!.style.transform = `translateX(${100 * (rouletteCount - 1)}%)`;
     casePrice = Math.round(data.price * rouletteCount * 100) / 100;
     generateRollItems(rouletteCount);
   }
   // TODO Create roulette reset system
   async function handleRoll() {
+    if (!$userData || $userData.balance < casePrice) {
+      createPopup({
+        type: 'error',
+        header: 'błąd',
+        message: 'Niewystarczające saldo'
+      });
+    }
     loading = true;
-    // roll();
     const res = await fetch('/api/skins/case-open', {
       method: 'POST',
       body: JSON.stringify({ items: winningItems, cost: casePrice }),
@@ -99,8 +109,9 @@
       return;
     } else {
       await setUserData();
+      itemsIndb = (await res.json()).items;
     }
-    await roll();
+    await playRollAnimation();
     const winElmArr = [
       ...document.querySelectorAll(
         `div.${rouletteCount === 1 ? 'single-roll-winScreen' : 'CaseRolls-winScreen'}`
@@ -115,26 +126,40 @@
       elm.querySelector('.award-wear')!.textContent =
         wearConversions[winningItems[i].dropDetails.quality as keyof typeof wearConversions];
       elm.querySelector('.award-price')!.textContent = winningItems[i].dropDetails.price.toFixed(2);
+      if (elm.querySelector('.award-img')) {
+        (elm.querySelector('.award-img') as HTMLImageElement).src = winningItems[i].skinImgSource;
+        (elm.querySelector('.award-bg-img') as HTMLImageElement).src =
+          colors.itemBg[winningItems[i].skinRarity];
+      }
     });
+    document.querySelector('.total-award-price')!.textContent = winningItems
+      .reduce((n, o) => n + o.dropDetails.price, 0)
+      .toFixed(2);
     createPopup({
       type: 'success',
-      header: `Wygrana: ${winningItems.reduce((c, n) => c + n.dropDetails.price, 0).toFixed(2)}`,
-      message: `Strata: ${casePrice - winningItems.reduce((c, n) => c + n.dropDetails.price, 0)}`
+      header: `Wygrana: ${winningItems.reduce((n, o) => n + o.dropDetails.price, 0).toFixed(2)}`,
+      message: `Strata: ${(
+        casePrice - winningItems.reduce((n, o) => n + o.dropDetails.price, 0)
+      ).toFixed(2)}`
     });
+    switchMenus();
+    loading = false;
     return;
   }
 
-  async function roll() {
+  async function playRollAnimation() {
+    const fastOpen = localStorage.getItem('fast-open');
+    const duration = fastOpen === 'true' ? 750 : 2500;
     if (rouletteCount === 1) {
       const bounds = document.querySelectorAll('li.case-item')[45].getBoundingClientRect();
       const x = Math.floor(
-        Math.random() * (bounds.width * 41 - bounds.width * 41.9) + bounds.width * 41.9
+        Math.random() * (bounds.width * 41.9 - bounds.width * 41.1) + bounds.width * 41.1
       );
       document
         .querySelector('ul.CaseRolls-row')!
         .animate([{ transform: 'translateX(0)' }, { transform: `translateX(-${x}px)` }], {
           iterations: 1,
-          duration: 2500,
+          duration: duration,
           easing: 'cubic-bezier(.8,0,0,1)',
           fill: 'forwards'
         });
@@ -153,15 +178,55 @@
           ],
           {
             iterations: 1,
-            duration: 2500,
+            duration: duration,
             easing: 'cubic-bezier(.8,0,0,1)',
             fill: 'forwards'
           }
         );
       });
     }
-    // TODO make this not hardcoded + add fast open toggle
-    await new Promise((r) => setTimeout(r, 2500));
+    await new Promise((r) => setTimeout(r, duration));
+  }
+
+  async function switchMenus() {
+    document.querySelector('div.Case-MainUI')?.classList.toggle('is-open');
+    await new Promise((r) => setTimeout(r, 250));
+    document.querySelector('div.Case-AfterOpen')?.classList.toggle('is-open');
+  }
+
+  function reOpen() {
+    generateRollItems(rouletteCount);
+    switchMenus();
+    const winElmArr = [
+      ...document.querySelectorAll(
+        `div.${rouletteCount === 1 ? 'single-roll-winScreen' : 'CaseRolls-winScreen'}`
+      )
+    ];
+    winElmArr.forEach((elm) => {
+      elm.classList.add('hidden');
+      elm.classList.remove('flex');
+    });
+    handleRoll();
+  }
+
+  // TODO move this to a separate file
+  async function massSellSkins(skins: Item[]) {
+    sellLoading = true;
+    const IDs = skins.map((obj) => obj.dropId);
+    const res = await fetch('/api/skins/mass-sell/', {
+      method: 'POST',
+      body: JSON.stringify({ itemIDs: IDs }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    createPopup({
+      type: res.ok ? 'success' : 'error',
+      header: res.ok ? 'sukces' : 'błąd',
+      message: (await res.json()).message
+    });
+    if (res.ok) setUserData();
+    sellLoading = false;
   }
 </script>
 
@@ -235,34 +300,48 @@
         class="absolute top-0 left-0 w-full h-full grid grid-stack single-roll"
         style="width: 1480px; left: calc(50% - 740px);"
       >
-        <div class="single-roll-winScreen hidden absolute top-0 left-0 w-full h-full z-30">
+        <div
+          class="z-40 single-roll-winScreen hidden absolute left-1/2 w-full -translate-x-1/2 overflow-hidden sm:rounded-lg bg-navy-800 bg-opacity-50 "
+          style="height: 300px; box-shadow: rgba(66, 66, 84, 0.2) 0px 0px 0px 5px;"
+        >
           <div
-            class="p-2 mb-auto space-y-1 sm:space-y-0 items-center w-full font-semibold leading-none text-right transform uppercase md:p-5 text-navy-200 opacity-100 translate-y-3 text-2xs"
+            class="flex transform self-center justify-self-center absolute z-10 top-1/2 left-1/2 h-5/6 -translate-x-1/2 -translate-y-1/2 scale-100 transition-all duration-700"
+            style="aspect-ratio: 5/3;"
           >
-            <div class="ml-2 text-2xs">
-              Chance
-              <br />
-              <!-- chance -->
-              <span style="font-size: 110%;" class="award-chance"></span>
-            </div>
-          </div>
-          <div
-            class="absolute bottom-0 p-2 md:p-5 flex flex-col items-center lg:flex-row w-full font-semibold leading-tight justify-between uppercase min-w-0 opacity-100 md:text-xl"
-          >
-            <div class="flex-1 md:max-w-1/2">
-              <!-- skin -->
-              <div class="truncate text-navy-200 text-2xs award-skin"></div>
-              <!-- weapon -->
-              <div class="font-bold text-white truncate text-xs award-weapon"></div>
-              <!-- wear -->
-              <div class="truncate text-navy-200 text-2xs award-wear"></div>
-            </div>
-            <button
-              class="px-2 py-1 mt-1 h-3/4 font-bold text-sm uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate"
+            <div
+              class="z-0 grid items-center justify-center grid-cols-1 grid-rows-1 bg-center bg-cover border border-solid rounded bg-navy-700 glow-gold group justify-items-center ratio border-gold sm:rounded-lg css-dap7rg"
             >
-              Sprzedaj <br class="md:hidden" />
-              <span class="award-price"></span>
-            </button>
+              <div
+                class="z-10 flex items-center justify-end w-full col-start-1 row-start-1 p-3 mb-auto font-semibold leading-none text-right uppercase md:p-5 text-navy-200 text-3xs"
+              >
+                <div class="ml-2">
+                  Chance
+                  <br />
+                  <!-- chance -->
+                  <span class="award-chance"></span>
+                </div>
+              </div>
+              <!-- bg img -->
+              <img
+                src=""
+                alt=""
+                class="award-bg-img w-3/5 object-contain col-start-1 mt-6 md:mt-0 row-start-1 duration-300 transform group-hover:scale-110 ease-in-out"
+              />
+              <!-- img -->
+              <img
+                alt=""
+                class="award-img object-contain w-2/3 col-start-1 row-start-1 mt-6 duration-300 ease-in-out transform pointer-events-none group-hover:scale-75 group-hover:rotate-10"
+              />
+              <div
+                class="z-10 self-end w-full col-start-1 row-start-2 p-3 font-semibold leading-tight uppercase md:p-5 md:row-start-1 justify-self-start"
+              >
+                <!-- skin, weapon, wear, price -->
+                <div class="truncate text-navy-200 award-skin text-2xs"></div>
+                <div class="font-bold text-white truncate award-weapon text-xs"></div>
+                <div class="truncate text-navy-200 award-wear text-2xs"></div>
+                <div class="-mb-1 font-bold truncate text-gold award-price text-xs"></div>
+              </div>
+            </div>
           </div>
         </div>
         <ul class="flex w-full h-full CaseRolls-row">
@@ -349,13 +428,15 @@
   </div>
   <div class="grid w-full px-2 mt-6 sm:mt-8 sm:w-auto">
     <div
-      class="col-start-1 row-start-1 transition duration-1000 ease-out transform opacity-0 pointer-events-none translate-y-5"
+      class="Case-AfterOpen col-start-1 row-start-1 transition duration-1000 ease-out -translate-y-5 invisible is-open:visible is-open:translate-y-0"
     >
       <div
-        class="grid gap-2 mx-auto mb-4 sm:gap-4 md:gap-8 sm:mb-6 grid-cols-2 max-w-5xl css-15mnzd9"
+        class="grid grid-cols-2 gap-2 mx-auto mb-4 sm:gap-4 md:gap-8 sm:mb-6 max-w-5xl"
+        style="grid-template-columns: auto 1fr 1fr 1fr;"
       >
         <button
-          class="flex items-center justify-center h-10 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:rounded-lg text-2xs sm:text-sm md:w-15 sm:h-15 border-gray text-gray bg-navy-700 hover:bg-gray hover:bg-opacity-5 active:bg-opacity-15 active:duration-0"
+          on:click="{switchMenus}"
+          class="flex items-center justify-center h-10 font-extrabold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:rounded-lg text-2xs sm:text-sm md:w-15 sm:h-15 border-navy-400 aspect-square text-navy-400 bg-navy-700 hover:bg-gray hover:bg-opacity-5 active:bg-opacity-15 active:duration-0"
         >
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 md:mr-0 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg#arrow-left"></use>
@@ -363,46 +444,47 @@
           <span class="md:hidden">Wróć</span>
         </button>
         <button
-          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red text-red bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
+          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red-500 text-red-500 bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
+          on:click="{reOpen}"
         >
-          <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5 css-rvhfxd">
+          <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg#try-again"></use>
           </svg>
           Otwórz ponownie
         </button>
         <button
-          class="flex items-center justify-center h-10 px-3 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 ga_sellButtonLoser text-gold hover:bg-gold glow-gold border-gold pointer-events-none"
+          class="flex items-center justify-center h-10 px-3 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold"
+          on:click="{() => massSellSkins(itemsIndb)}"
+          disabled="{sellLoading}"
         >
-          <svg class="flex-shrink-0 w-3 h-4 mr-2 sm:mr-3 sm:w-5 sm:h-6 css-rvhfxd">
-            <use xlink:href="/icons/icons.svg#sell"></use>
-          </svg>
+          {#if sellLoading}
+            <Spinner size="1.5em" borderWidth=".25em" />
+          {:else}
+            <svg class="flex-shrink-0 w-3 h-4 mr-2 sm:mr-3 sm:w-5 sm:h-6">
+              <use xlink:href="/icons/icons.svg#sell"></use>
+            </svg>
+            sprzedaj&nbsp;za&nbsp;
+            <span class="total-award-price"></span>
+          {/if}
         </button>
         <a
           href="/skins/Upgrader?"
-          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-teal text-teal bg-navy-700 hover:bg-teal hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-teal ga_upgradeButtonLoser"
+          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-teal-500 text-teal-500 bg-navy-700 hover:bg-teal-500 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-teal"
         >
-          <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5 css-vhe3yc">
+          <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg?38#upgrader"></use>
           </svg>
-          Ulepszenia
+          Ulepsz Wszystko
         </a>
       </div>
-      <p class="text-xs text-center text-navy-200">
-        Możesz wycofać te skiny w zakładce <a
-          class="text-red underline hover:text-white transition-colors duration-200"
-          href="/panel/profil?p=my_winner"
-        >
-          Moje Konto
-        </a>
-      </p>
     </div>
     <div
-      class="w-full md:w-auto grid col-start-1 row-start-1 gap-2 sm:gap-4 md:gap-8 transition duration-1000 ease-out transform mx-auto grid-cols-2"
+      class="Case-MainUI w-full p-1 md:w-auto grid col-start-1 row-start-1 gap-2 sm:gap-4 md:gap-8 mx-auto transition-all will-change-transform grid-cols-2 invisible -translate-y-5 is-open:visible is-open:translate-y-0 is-open"
     >
       <div class="relative flex h-10 sm:h-15">
         <div
           style="left: 0;"
-          class="absolute top-0 h-full py-6 z-10 border border-solid transition-all duration-700 -ml-px will-change-transform border-pastelGreen css-1ti3c59"
+          class="absolute top-0 h-full py-6 z-10 border border-solid transition-transform duration-700 -ml-px will-change-transform border-pastelGreen css-1ti3c59"
         ></div>
         <button
           on:click="{() => changeRouletteCount(1)}"
@@ -469,16 +551,20 @@
           </svg>
         </span>
         <span class="flex items-center col-start-1 row-start-1 transition-opacity duration-300">
-          {!$userData
-            ? 'Zaloguj się aby otworzyć'
-            : $userData.balance >= casePrice
-            ? `Otwórz za ${casePrice.toFixed(2)}`
-            : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
-          <div class="flex items-center ml-2">
-            {@html goldenNames.includes(data.websiteName)
-              ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
-              : 'PLN'}
-          </div>
+          {#if loading}
+            <Spinner size="1.5em" borderWidth=".25em" />
+          {:else}
+            {!$userData
+              ? 'Zaloguj się aby otworzyć'
+              : $userData.balance >= casePrice
+              ? `Otwórz za ${casePrice.toFixed(2)}`
+              : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
+            <div class="flex items-center ml-2">
+              {@html goldenNames.includes(data.websiteName)
+                ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
+                : 'PLN'}
+            </div>
+          {/if}
         </span>
       </button>
     </div>
