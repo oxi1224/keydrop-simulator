@@ -1,11 +1,7 @@
 <script>
-  import Footer from '$components/footer.svelte';
-  import Header from '$components/header.svelte';
   import CaseSection from '$components/caseSection.svelte';
   import caseData from '$assets/broad.json';
 </script>
-
-<Header />
 
 <main class="bg-no-repeat" style="background-position: center top; background-size: auto 1400px;">
   <div class="relative">
@@ -20,4 +16,3 @@
     </div>
   </div>
 </main>
-<Footer />

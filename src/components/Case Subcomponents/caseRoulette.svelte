@@ -3,6 +3,8 @@
     colors,
     createPopup,
     goldenNames,
+    massSellSkins,
+    sellSkin,
     setUserData,
     userData,
     wearConversions,
@@ -13,14 +15,19 @@
   import type { Item } from '@prisma/client';
   export let rouletteItems: CaseDrop[] = [];
   export let data: CaseData;
+
   let multipleRoulettesItems: CaseDrop[][] = [];
   let rouletteCount = 1;
   let casePrice = data.price;
   let winningItems: CaseDrop[] = [];
-  let itemsIndb: Item[];
+  let itemsIndb: Item[] = [];
+  let soldItems: Item[] = [];
   let loading = false;
   let sellLoading = false;
+  let sellSuccess = false;
+  let totalAwardPrice: number;
   $: tooPoor = !$userData ? true : $userData.balance < casePrice;
+  $: totalAwardPrice = itemsIndb.reduce((n, o) => n + o.skinPrice, 0);
 
   generateRollItems(rouletteCount);
   function generateRollItems(count: number) {
@@ -59,6 +66,14 @@
   }
 
   function changeRouletteCount(rollCount: number) {
+    [
+      ...document.querySelectorAll(
+        `div.${rouletteCount === 1 ? 'single-roll-winScreen' : 'CaseRolls-winScreen'}`
+      )
+    ].forEach((elm) => {
+      elm.classList.add('hidden');
+      elm.classList.remove('flex');
+    });
     const singleRoll = document.querySelector('.single-roll');
     const btnArr = [...document.querySelectorAll('.case-count-btn')];
     const btnOverlay = document.querySelector('div.css-1ti3c59') as HTMLElement;
@@ -82,8 +97,13 @@
     casePrice = Math.round(data.price * rouletteCount * 100) / 100;
     generateRollItems(rouletteCount);
   }
-  // TODO Create roulette reset system
+
   async function handleRoll() {
+    sellSuccess = false;
+    [...document.querySelectorAll('.single-sell-btn')].forEach((el) => {
+      (el as HTMLButtonElement).disabled = false;
+    });
+    soldItems = [];
     if (!$userData || $userData.balance < casePrice) {
       createPopup({
         type: 'error',
@@ -136,14 +156,11 @@
           colors.itemBg[winningItems[i].skinRarity];
       }
     });
-    document.querySelector('.total-award-price')!.textContent = winningItems
-      .reduce((n, o) => n + o.dropDetails.price, 0)
-      .toFixed(2);
     createPopup({
       type: 'success',
       header: `Wygrana: ${winningItems.reduce((n, o) => n + o.dropDetails.price, 0).toFixed(2)}`,
-      message: `Strata: ${(
-        casePrice - winningItems.reduce((n, o) => n + o.dropDetails.price, 0)
+      message: `Zysk: ${(
+        winningItems.reduce((n, o) => n + o.dropDetails.price, 0) - casePrice
       ).toFixed(2)}`
     });
     switchMenus();
@@ -157,7 +174,7 @@
     if (rouletteCount === 1) {
       const bounds = document.querySelectorAll('li.case-item')[45].getBoundingClientRect();
       const x = Math.floor(
-        Math.random() * (bounds.width * 41.9 - bounds.width * 41.1) + bounds.width * 41.1
+        Math.random() * (bounds.width * 42.5 - bounds.width * 41.5) + bounds.width * 41.5
       );
       document
         .querySelector('ul.CaseRolls-row')!
@@ -213,29 +230,40 @@
     handleRoll();
   }
 
-  // TODO move this to a separate file
-  async function massSellSkins(skins: Item[]) {
+  async function handleSingleSell(e: MouseEvent) {
     sellLoading = true;
-    const IDs = skins.map((obj) => obj.dropId);
-    const res = await fetch('/api/skins/mass-sell/', {
-      method: 'POST',
-      body: JSON.stringify({ itemIDs: IDs }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    createPopup({
-      type: res.ok ? 'success' : 'error',
-      header: res.ok ? 'sukces' : 'błąd',
-      message: (await res.json()).message
-    });
-    if (res.ok) setUserData();
+    const sellBtns = [...document.querySelectorAll('.single-sell-btn')];
+    const clickedEl = (e.target as Element).closest('.single-sell-btn') as Element;
+    const index = sellBtns.indexOf(clickedEl);
+    const item = itemsIndb[index];
+    const res = await sellSkin(item);
+    clickedEl.setAttribute('disabled', '');
+    if (res.ok) {
+      soldItems.push(item);
+      totalAwardPrice -= item.skinPrice;
+    }
     sellLoading = false;
   }
+
+  async function handleMassSell(skins: Item[]) {
+    sellLoading = true;
+    const soldIDs = soldItems.map(i => i.dropId);
+    const IDs = (skins.map((obj) => obj.dropId)).filter(str => !soldIDs.includes(str));
+    const res = await massSellSkins(IDs);
+    if (res.ok) {
+      itemsIndb = itemsIndb.filter((item) => IDs.includes(item.dropId));
+      totalAwardPrice = 0;
+      [...document.querySelectorAll('.single-sell-btn')].forEach((el) => {
+        (el as HTMLButtonElement).disabled = true;
+      });
+      sellSuccess = true;
+    }
+    sellLoading = false;
+  }  
 </script>
 
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
-  <div class="relative">
+  <div class="relative overflow-hidden lg:overflow-visible">
     <svg
       viewBox="0 0 31 31"
       class="point-arrow absolute z-10 w-10 h-10 -mt-5 -ml-5 top-0 left-1/2 rotate-180"
@@ -398,7 +426,8 @@
                   <div class="truncate text-navy-200 text-2xs award-wear"></div>
                 </div>
                 <button
-                  class="px-2 py-1 mt-1 h-3/4 font-bold text-xs uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate"
+                  class="single-sell-btn events px-2 py-1 mt-1 h-3/4 font-bold text-xs uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate disabled:brightness-50"
+                  on:click="{(e) => handleSingleSell(e)}"
                 >
                   Sprzedaj <br class="md:hidden" />
                   <span class="award-price"></span>
@@ -408,7 +437,7 @@
             <div class="CaseRolls-roll flex-shrink-0 h-full w-full">
               {#each rouletteItemsArray as caseItem}
                 <div
-                  class="CaseRolls-skin w-full h-auto my-5 lg:h-full lg:my-0 css-1hmgmgm flex items-center justify-center relative border-navy-400 border-dotted border"
+                  class="CaseRolls-skin w-full h-full css-1hmgmgm flex items-center justify-center relative border-navy-400 border-dotted border"
                 >
                   <img
                     alt=""
@@ -457,18 +486,20 @@
           Otwórz ponownie
         </button>
         <button
-          class="flex items-center justify-center h-10 px-3 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold"
-          on:click="{() => massSellSkins(itemsIndb)}"
-          disabled="{sellLoading}"
+          class="mass-sell-btn flex items-center justify-center h-10 px-3 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold disabled:brightness-50 disabled:hover:bg-navy-700"
+          on:click="{() => handleMassSell(itemsIndb)}"
+          disabled="{sellLoading || sellSuccess}"
         >
           {#if sellLoading}
             <Spinner size="1.5em" borderWidth=".25em" />
+          {:else if sellSuccess}
+            Pomyślnie sprzedano
           {:else}
             <svg class="flex-shrink-0 w-3 h-4 mr-2 sm:mr-3 sm:w-5 sm:h-6">
               <use xlink:href="/icons/icons.svg#sell"></use>
             </svg>
             sprzedaj&nbsp;za&nbsp;
-            <span class="total-award-price"></span>
+            <span class="total-award-price">{totalAwardPrice.toFixed(2)}</span>
           {/if}
         </button>
         <a

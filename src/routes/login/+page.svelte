@@ -1,6 +1,4 @@
 <script>
-  import Header from '$components/header.svelte';
-  import Footer from '$components/footer.svelte';
   import Login from '$components/login.svelte';
   import Register from '$components/register.svelte';
   import { onMount } from 'svelte';
@@ -22,7 +20,6 @@
   }
 </script>
 
-<Header />
 <Login />
 <Register />
 <main
@@ -57,4 +54,3 @@
     </div>
   </main>
 </main>
-<Footer />
