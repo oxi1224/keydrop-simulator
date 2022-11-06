@@ -5,112 +5,136 @@
     {
       "skinName": "FBI",
       "skinWeapon": "Special Agent Ava",
-      "skinPriceRange": "43,00PLN",
+      "skinPriceRange": "42,90PLN",
       "skinDisplayChance": "0,057%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f2/f2479e247df8333e8ab8a987f9815796.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "",
-        "price": 43,
-        "range": [99944, 100000],
+        "price": 42.9,
+        "range": [
+          99944,
+          100000
+        ],
         "odds": "0,057%"
       }
     },
     {
       "skinName": "NSWC SEAL",
       "skinWeapon": "Lt. Commander Ricksaw",
-      "skinPriceRange": "33,15PLN",
+      "skinPriceRange": "33,20PLN",
       "skinDisplayChance": "0,010%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/46/46ccaf7507d3d97325e3138070df6f7d.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "",
-        "price": 33.15,
-        "range": [99934, 99943],
+        "price": 33.2,
+        "range": [
+          99934,
+          99943
+        ],
         "odds": "0,010%"
       }
     },
     {
       "skinName": "Sabre",
       "skinWeapon": "'The Doctor' Romanov",
-      "skinPriceRange": "19,40PLN",
+      "skinPriceRange": "19,65PLN",
       "skinDisplayChance": "0,051%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6c/6ca1ec85a20aa37a3baed3f45c249aba.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "",
-        "price": 19.4,
-        "range": [99883, 99933],
+        "price": 19.65,
+        "range": [
+          99883,
+          99933
+        ],
         "odds": "0,051%"
       }
     },
     {
       "skinName": "Elite Crew",
       "skinWeapon": "The Elite Mr. Muhlik",
-      "skinPriceRange": "12,80PLN",
+      "skinPriceRange": "12,70PLN",
       "skinDisplayChance": "0,098%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9b/9b99784c624850b8c77930725ecdccb7.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "",
-        "price": 12.8,
-        "range": [99459, 99556],
+        "price": 12.7,
+        "range": [
+          99459,
+          99556
+        ],
         "odds": "0,098%"
       }
     },
     {
       "skinName": "Sabre",
       "skinWeapon": "Blackwolf",
-      "skinPriceRange": "10,00PLN",
+      "skinPriceRange": "9,65PLN",
       "skinDisplayChance": "0,032%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5b/5bbe841e6e6911537ff05d6a448bea5d.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "",
-        "price": 10,
-        "range": [99427, 99458],
+        "price": 9.65,
+        "range": [
+          99427,
+          99458
+        ],
         "odds": "0,032%"
       }
     },
     {
       "skinName": "Sabre",
       "skinWeapon": "Rezan The Ready",
-      "skinPriceRange": "9,40PLN",
+      "skinPriceRange": "9,30PLN",
       "skinDisplayChance": "0,050%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/31/31da27e4a2ae424eaa6c45a6e4ef25b2.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "",
-        "price": 9.4,
-        "range": [99377, 99426],
+        "price": 9.3,
+        "range": [
+          99377,
+          99426
+        ],
         "odds": "0,050%"
       }
     },
     {
       "skinName": "Elite Crew",
       "skinWeapon": "Prof. Shahmat",
-      "skinPriceRange": "5,70PLN",
+      "skinPriceRange": "6,20PLN",
       "skinDisplayChance": "11,699%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/30/30a51f841227f3be09f96b6725a66fb3.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "",
-        "price": 5.7,
-        "range": [80808, 92506],
+        "price": 6.2,
+        "range": [
+          80808,
+          92506
+        ],
         "odds": "11,699%"
       }
     },
     {
       "skinName": "FBI HRT",
       "skinWeapon": "Markus Delrow",
-      "skinPriceRange": "8,15PLN",
+      "skinPriceRange": "8,20PLN",
       "skinDisplayChance": "0,123%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/25/2591ba8c48a38268a5579cf1de79ee81.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "",
-        "price": 8.15,
-        "range": [99254, 99376],
+        "price": 8.2,
+        "range": [
+          99254,
+          99376
+        ],
         "odds": "0,123%"
       }
     },
@@ -124,119 +148,146 @@
       "dropDetails": {
         "quality": "",
         "price": 7.8,
-        "range": [99034, 99253],
+        "range": [
+          99034,
+          99253
+        ],
         "odds": "0,220%"
       }
     },
     {
       "skinName": "Phoenix",
       "skinWeapon": "Slingshot",
-      "skinPriceRange": "7,30PLN",
+      "skinPriceRange": "7,50PLN",
       "skinDisplayChance": "0,188%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b2/b2c127f55000eddee087961cff810e9e.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "",
-        "price": 7.3,
-        "range": [98846, 99033],
+        "price": 7.5,
+        "range": [
+          98846,
+          99033
+        ],
         "odds": "0,188%"
       }
     },
     {
       "skinName": "Sabre",
       "skinWeapon": "Dragomir",
-      "skinPriceRange": "6,50PLN",
+      "skinPriceRange": "6,05PLN",
       "skinDisplayChance": "14,645%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/28/28e5b4d28437bd68d1776b13aa7faef5.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "",
-        "price": 6.5,
-        "range": [66163, 80807],
+        "price": 6.05,
+        "range": [
+          66163,
+          80807
+        ],
         "odds": "14,645%"
       }
     },
     {
       "skinName": "Elite Crew",
       "skinWeapon": "Osiris",
-      "skinPriceRange": "5,80PLN",
+      "skinPriceRange": "6,00PLN",
       "skinDisplayChance": "6,339%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c4/c47d4a7ba1908254ae945f9eb300b5a0.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "",
-        "price": 5.8,
-        "range": [92507, 98845],
+        "price": 6,
+        "range": [
+          92507,
+          98845
+        ],
         "odds": "6,339%"
       }
     },
     {
       "skinName": "Sabre",
       "skinWeapon": "Maximus",
-      "skinPriceRange": "5,10PLN",
+      "skinPriceRange": "5,05PLN",
       "skinDisplayChance": "14,140%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0d/0dc6dd667f3465a236d1402fb6a5c139.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "",
-        "price": 5.1,
-        "range": [35070, 49209],
+        "price": 5.05,
+        "range": [
+          35070,
+          49209
+        ],
         "odds": "14,140%"
       }
     },
     {
       "skinName": "KSK",
       "skinWeapon": "3rd Commando Company",
-      "skinPriceRange": "15,30PLN",
+      "skinPriceRange": "15,20PLN",
       "skinDisplayChance": "0,056%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/66/66e34bebc98efb2fca91d4713c97fe35.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "",
-        "price": 15.3,
-        "range": [99827, 99882],
+        "price": 15.2,
+        "range": [
+          99827,
+          99882
+        ],
         "odds": "0,056%"
       }
     },
     {
       "skinName": "SAS",
       "skinWeapon": "B Squadron Officer",
-      "skinPriceRange": "14,60PLN",
+      "skinPriceRange": "15,05PLN",
       "skinDisplayChance": "0,098%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/09/0967c618ae776b3742cb531b9e67fdc3.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "",
-        "price": 14.6,
-        "range": [99729, 99826],
+        "price": 15.05,
+        "range": [
+          99729,
+          99826
+        ],
         "odds": "0,098%"
       }
     },
     {
       "skinName": "NSWC SEAL",
       "skinWeapon": "Seal Team 6 Soldier",
-      "skinPriceRange": "12,10PLN",
+      "skinPriceRange": "11,95PLN",
       "skinDisplayChance": "0,059%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/df/df26cb66569bee75d2575fdfe8e78d38.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "",
-        "price": 12.1,
-        "range": [99670, 99728],
+        "price": 11.95,
+        "range": [
+          99670,
+          99728
+        ],
         "odds": "0,059%"
       }
     },
     {
       "skinName": "FBI SWAT",
       "skinWeapon": "Operator",
-      "skinPriceRange": "11,70PLN",
+      "skinPriceRange": "11,60PLN",
       "skinDisplayChance": "0,113%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f9/f98c521d5deb226e74623cbdef42b860.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "",
-        "price": 11.7,
-        "range": [99557, 99669],
+        "price": 11.6,
+        "range": [
+          99557,
+          99669
+        ],
         "odds": "0,113%"
       }
     },
@@ -250,7 +301,10 @@
       "dropDetails": {
         "quality": "",
         "price": 5.55,
-        "range": [49210, 66162],
+        "range": [
+          49210,
+          66162
+        ],
         "odds": "16,953%"
       }
     },
@@ -264,7 +318,10 @@
       "dropDetails": {
         "quality": "",
         "price": 4.55,
-        "range": [1, 35069],
+        "range": [
+          1,
+          35069
+        ],
         "odds": "35,069%"
       }
     }

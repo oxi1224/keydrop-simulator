@@ -5,56 +5,68 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Navaja Knife",
-      "skinPriceRange": "685,25PLN",
+      "skinPriceRange": "684,50PLN",
       "skinDisplayChance": "0,202%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ba/bab5f65c9bde8a8fa5920238b988af41.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 685.25,
-        "range": [99783, 99984],
+        "price": 684.5,
+        "range": [
+          99783,
+          99984
+        ],
         "odds": "0,202%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "R8 Revolver",
-      "skinPriceRange": "24,60PLN - 31,60PLN",
+      "skinPriceRange": "22,35PLN - 31,40PLN",
       "skinDisplayChance": "11,683%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3c/3c6db57a44d5a2bfaab77d42d6632924.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": 31.6,
-        "range": [93126, 94959],
+        "price": 31.4,
+        "range": [
+          93126,
+          94959
+        ],
         "odds": "1,834%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "R8 Revolver",
-      "skinPriceRange": "24,60PLN - 31,60PLN",
+      "skinPriceRange": "22,35PLN - 31,40PLN",
       "skinDisplayChance": "11,683%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3c/3c6db57a44d5a2bfaab77d42d6632924.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
         "price": 26.9,
-        "range": [88663, 91968],
+        "range": [
+          88663,
+          91968
+        ],
         "odds": "3,306%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "R8 Revolver",
-      "skinPriceRange": "24,60PLN - 31,60PLN",
+      "skinPriceRange": "22,35PLN - 31,40PLN",
       "skinDisplayChance": "11,683%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3c/3c6db57a44d5a2bfaab77d42d6632924.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 24.6,
-        "range": [82120, 88662],
+        "price": 22.35,
+        "range": [
+          82120,
+          88662
+        ],
         "odds": "6,543%"
       }
     },
@@ -68,7 +80,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": 8.8,
-        "range": [67561, 75217],
+        "range": [
+          67561,
+          75217
+        ],
         "odds": "7,657%"
       }
     },
@@ -81,8 +96,11 @@
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FN",
-        "price": 6.05,
-        "range": [49323, 59083],
+        "price": 6.15,
+        "range": [
+          49323,
+          59083
+        ],
         "odds": "9,761%"
       }
     },
@@ -95,8 +113,11 @@
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 4.95,
-        "range": [32090, 41098],
+        "price": 4.85,
+        "range": [
+          32090,
+          41098
+        ],
         "odds": "9,009%"
       }
     },
@@ -110,119 +131,146 @@
       "dropDetails": {
         "quality": "FT",
         "price": 4.8,
-        "range": [26213, 32089],
+        "range": [
+          26213,
+          32089
+        ],
         "odds": "5,877%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5671,25PLN",
+      "skinPriceRange": "5898,80PLN",
       "skinDisplayChance": "0,016%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7cadae997973c04583bf16456e8ebfff.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 5671.25,
-        "range": [99985, 100000],
+        "price": 5898.8,
+        "range": [
+          99985,
+          100000
+        ],
         "odds": "0,016%"
       }
     },
     {
       "skinName": "Amber Fade",
       "skinWeapon": "P2000",
-      "skinPriceRange": "33,05PLN - 35,35PLN",
+      "skinPriceRange": "33,95PLN - 36,90PLN",
       "skinDisplayChance": "2,624%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/93/93c726e0d2be15e187014277442f1b72.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "WW",
-        "price": 35.35,
-        "range": [96238, 97583],
+        "price": 36.9,
+        "range": [
+          96238,
+          97583
+        ],
         "odds": "1,346%"
       }
     },
     {
       "skinName": "Amber Fade",
       "skinWeapon": "P2000",
-      "skinPriceRange": "33,05PLN - 35,35PLN",
+      "skinPriceRange": "33,95PLN - 36,90PLN",
       "skinDisplayChance": "2,624%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/93/93c726e0d2be15e187014277442f1b72.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 33.05,
-        "range": [94960, 96237],
+        "price": 33.95,
+        "range": [
+          94960,
+          96237
+        ],
         "odds": "1,278%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "MP7",
-      "skinPriceRange": "23,15PLN - 32,85PLN",
+      "skinPriceRange": "23,85PLN - 32,00PLN",
       "skinDisplayChance": "8,059%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3c/3cf01a5a414f954c337b65ab887f257f.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 32.85,
-        "range": [91969, 93125],
+        "price": 32,
+        "range": [
+          91969,
+          93125
+        ],
         "odds": "1,157%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "MP7",
-      "skinPriceRange": "23,15PLN - 32,85PLN",
+      "skinPriceRange": "23,85PLN - 32,00PLN",
       "skinDisplayChance": "8,059%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3c/3cf01a5a414f954c337b65ab887f257f.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 23.15,
-        "range": [75218, 82119],
+        "price": 23.85,
+        "range": [
+          75218,
+          82119
+        ],
         "odds": "6,902%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "MAC-10",
-      "skinPriceRange": "95,35PLN",
+      "skinPriceRange": "97,05PLN",
       "skinDisplayChance": "0,851%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/21/21ac19e6a0c6b2a2781dde8ae3301ab8.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FN",
-        "price": 95.35,
-        "range": [98932, 99782],
+        "price": 97.05,
+        "range": [
+          98932,
+          99782
+        ],
         "odds": "0,851%"
       }
     },
     {
       "skinName": "Amber Fade",
       "skinWeapon": "MAC-10",
-      "skinPriceRange": "42,25PLN - 50,70PLN",
+      "skinPriceRange": "42,25PLN - 58,45PLN",
       "skinDisplayChance": "1,348%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7e/7e0508b3bb47b199aec178838621b655.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": 50.7,
-        "range": [98055, 98931],
+        "price": 58.45,
+        "range": [
+          98055,
+          98931
+        ],
         "odds": "0,877%"
       }
     },
     {
       "skinName": "Amber Fade",
       "skinWeapon": "MAC-10",
-      "skinPriceRange": "42,25PLN - 50,70PLN",
+      "skinPriceRange": "42,25PLN - 58,45PLN",
       "skinDisplayChance": "1,348%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7e/7e0508b3bb47b199aec178838621b655.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "MW",
         "price": 42.25,
-        "range": [97584, 98054],
+        "range": [
+          97584,
+          98054
+        ],
         "odds": "0,471%"
       }
     },
@@ -236,63 +284,78 @@
       "dropDetails": {
         "quality": "FN",
         "price": 7.15,
-        "range": [59084, 67560],
+        "range": [
+          59084,
+          67560
+        ],
         "odds": "8,477%"
       }
     },
     {
       "skinName": "Amber Fade",
       "skinWeapon": "Sawed-Off",
-      "skinPriceRange": "3,25PLN - 5,25PLN",
+      "skinPriceRange": "3,25PLN - 5,15PLN",
       "skinDisplayChance": "34,436%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c0/c0df88d334d9b30f9195b03c09e5a9a8.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FN",
-        "price": 5.25,
-        "range": [41099, 49322],
+        "price": 5.15,
+        "range": [
+          41099,
+          49322
+        ],
         "odds": "8,224%"
       }
     },
     {
       "skinName": "Amber Fade",
       "skinWeapon": "Sawed-Off",
-      "skinPriceRange": "3,25PLN - 5,25PLN",
-      "skinDisplayChance": "34,436%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c0/c0df88d334d9b30f9195b03c09e5a9a8.png",
-      "skinRarity": "blue",
-      "dropDetails": {
-        "quality": "MW",
-        "price": 3.7,
-        "range": [19206, 26212],
-        "odds": "7,007%"
-      }
-    },
-    {
-      "skinName": "Amber Fade",
-      "skinWeapon": "Sawed-Off",
-      "skinPriceRange": "3,25PLN - 5,25PLN",
+      "skinPriceRange": "3,25PLN - 5,15PLN",
       "skinDisplayChance": "34,436%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c0/c0df88d334d9b30f9195b03c09e5a9a8.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "WW",
-        "price": 3.5,
-        "range": [9913, 19205],
+        "price": 3.6,
+        "range": [
+          9913,
+          19205
+        ],
         "odds": "9,293%"
       }
     },
     {
       "skinName": "Amber Fade",
       "skinWeapon": "Sawed-Off",
-      "skinPriceRange": "3,25PLN - 5,25PLN",
+      "skinPriceRange": "3,25PLN - 5,15PLN",
+      "skinDisplayChance": "34,436%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c0/c0df88d334d9b30f9195b03c09e5a9a8.png",
+      "skinRarity": "blue",
+      "dropDetails": {
+        "quality": "MW",
+        "price": 3.5,
+        "range": [
+          19206,
+          26212
+        ],
+        "odds": "7,007%"
+      }
+    },
+    {
+      "skinName": "Amber Fade",
+      "skinWeapon": "Sawed-Off",
+      "skinPriceRange": "3,25PLN - 5,15PLN",
       "skinDisplayChance": "34,436%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c0/c0df88d334d9b30f9195b03c09e5a9a8.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
         "price": 3.25,
-        "range": [1, 9912],
+        "range": [
+          1,
+          9912
+        ],
         "odds": "9,912%"
       }
     }

@@ -91,6 +91,15 @@
         message: 'Niewystarczające saldo'
       });
     }
+    const winElmArr = [
+      ...document.querySelectorAll(
+        `div.${rouletteCount === 1 ? 'single-roll-winScreen' : 'CaseRolls-winScreen'}`
+      )
+    ];
+    winElmArr.forEach((elm) => {
+      elm.classList.add('hidden');
+      elm.classList.remove('flex');
+    });
     loading = true;
     const res = await fetch('/api/skins/case-open', {
       method: 'POST',
@@ -112,11 +121,6 @@
       itemsIndb = (await res.json()).items;
     }
     await playRollAnimation();
-    const winElmArr = [
-      ...document.querySelectorAll(
-        `div.${rouletteCount === 1 ? 'single-roll-winScreen' : 'CaseRolls-winScreen'}`
-      )
-    ];
     winElmArr.forEach((elm, i) => {
       elm.classList.remove('hidden');
       elm.classList.add('flex');

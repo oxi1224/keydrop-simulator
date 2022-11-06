@@ -5,70 +5,85 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "3239,00PLN",
+      "skinPriceRange": "3075,25PLN",
       "skinDisplayChance": "0,025%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 3239,
-        "range": [99976, 100000],
+        "price": 3075.25,
+        "range": [
+          99976,
+          100000
+        ],
         "odds": "0,025%"
       }
     },
     {
       "skinName": "Fade",
       "skinWeapon": "Huntsman Knife",
-      "skinPriceRange": "1484,60PLN",
+      "skinPriceRange": "1477,20PLN",
       "skinDisplayChance": "0,035%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/a2/a262e08be98f032f48c8e8a2753d9b46.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 1484.6,
-        "range": [99941, 99975],
+        "price": 1477.2,
+        "range": [
+          99941,
+          99975
+        ],
         "odds": "0,035%"
       }
     },
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "739,75PLN",
+      "skinPriceRange": "729,65PLN",
       "skinDisplayChance": "0,165%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/72/729043653075a49da36b959686e35099.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 739.75,
-        "range": [99776, 99940],
+        "price": 729.65,
+        "range": [
+          99776,
+          99940
+        ],
         "odds": "0,165%"
       }
     },
     {
       "skinName": "Bright Water",
       "skinWeapon": "Falchion Knife",
-      "skinPriceRange": "543,05PLN",
+      "skinPriceRange": "547,35PLN",
       "skinDisplayChance": "0,325%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/aa/aa9459f86535ed2ceb7ebbf709de6171.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 543.05,
-        "range": [99451, 99775],
+        "price": 547.35,
+        "range": [
+          99451,
+          99775
+        ],
         "odds": "0,325%"
       }
     },
     {
       "skinName": "Damascus Steel",
       "skinWeapon": "Navaja Knife",
-      "skinPriceRange": "344,70PLN",
+      "skinPriceRange": "340,95PLN",
       "skinDisplayChance": "3,950%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2d/2dac2a8115713cb8970267076e9203df.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 344.7,
-        "range": [95501, 99450],
+        "price": 340.95,
+        "range": [
+          95501,
+          99450
+        ],
         "odds": "3,950%"
       }
     },
@@ -82,7 +97,10 @@
       "dropDetails": {
         "quality": "WW",
         "price": 0.2,
-        "range": [1, 95500],
+        "range": [
+          1,
+          95500
+        ],
         "odds": "95,500%"
       }
     }

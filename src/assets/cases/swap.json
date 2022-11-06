@@ -5,14 +5,17 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "567,40PLN",
+      "skinPriceRange": "556,05PLN",
       "skinDisplayChance": "2,500%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 567.4,
-        "range": [97501, 100000],
+        "price": 556.05,
+        "range": [
+          97501,
+          100000
+        ],
         "odds": "2,500%"
       }
     },
@@ -26,7 +29,10 @@
       "dropDetails": {
         "quality": "FN",
         "price": 0.3,
-        "range": [1, 97500],
+        "range": [
+          1,
+          97500
+        ],
         "odds": "97,500%"
       }
     }

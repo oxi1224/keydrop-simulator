@@ -12,7 +12,10 @@
       "dropDetails": {
         "quality": "BS",
         "price": 387.25,
-        "range": [99001, 100000],
+        "range": [
+          99001,
+          100000
+        ],
         "odds": "1,000%"
       }
     },
@@ -26,7 +29,10 @@
       "dropDetails": {
         "quality": "MW",
         "price": 0.25,
-        "range": [1, 99000],
+        "range": [
+          1,
+          99000
+        ],
         "odds": "99,000%"
       }
     }

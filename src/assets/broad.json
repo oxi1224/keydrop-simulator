@@ -1,4 +1,85 @@
 {
+  "event": {
+    "PUGSLEY": {
+      "price": 4.75,
+      "imgName": "FESTER.webp",
+      "href": "/skins/category/pugsley"
+    },
+    "GOMEZ": {
+      "price": 43.75,
+      "imgName": "MORTICIA.webp",
+      "href": "/skins/category/gomez"
+    },
+    "THING": {
+      "price": 95,
+      "imgName": "HAND.webp",
+      "href": "/skins/category/thing"
+    },
+    "MORTICIA": {
+      "price": 20,
+      "imgName": "GOMEZ.webp",
+      "href": "/skins/category/morticia"
+    },
+    "WEDNESDAY": {
+      "price": 8,
+      "imgName": "WEDNESDAY.webp",
+      "href": "/skins/category/wednesday"
+    }
+  },
+  "limited-edition": {
+    "DING": {
+      "price": 6,
+      "imgName": "DING1.webp",
+      "href": "/skins/category/ding"
+    },
+    "PULSE": {
+      "price": 75,
+      "imgName": "PULSE.webp",
+      "href": "/skins/category/pulse"
+    },
+    "BEAN": {
+      "price": 150,
+      "imgName": "BEAN1.webp",
+      "href": "/skins/category/bean"
+    },
+    "BAR": {
+      "price": 22,
+      "imgName": "BAR1.webp",
+      "href": "/skins/category/bar"
+    },
+    "GRIST": {
+      "price": 15,
+      "imgName": "GRIST2.webp",
+      "href": "/skins/category/grist"
+    }
+  },
+  "legacy": {
+    "HORUS": {
+      "price": 7.5,
+      "imgName": "352.webp",
+      "href": "/skins/category/horus"
+    },
+    "TITAN": {
+      "price": 60,
+      "imgName": "1211.webp",
+      "href": "/skins/category/titan"
+    },
+    "CREW": {
+      "price": 10,
+      "imgName": "518.webp",
+      "href": "/skins/category/crew"
+    },
+    "DIVER": {
+      "price": 40,
+      "imgName": "414.webp",
+      "href": "/skins/category/diver"
+    },
+    "NINJA": {
+      "price": 100,
+      "imgName": "ninja.webp",
+      "href": "/skins/category/ninja"
+    }
+  },
   "youtubers-cases": {
     "KACPER RIETZ": {
       "price": 19.7,

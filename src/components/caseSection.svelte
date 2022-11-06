@@ -35,7 +35,7 @@
   <div
     class="grid grid-cols-2 gap-6 relative z-0 md:py-7 {id === 'youtubers-cases'
       ? 'md:px-8'
-      : ''} {['gold-area', 'youtubers-cases', 'cs-go-kings'].includes(id)
+      : ''} {['gold-area', 'youtubers-cases', 'cs-go-kings', 'legacy', 'event', 'limited-edition'].includes(id)
       ? 'md:grid-cols-5'
       : 'md:grid-cols-payments'}"
   >
