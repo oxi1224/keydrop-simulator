@@ -1,5 +1,5 @@
-import { createPopup } from "../popup";
-import { setUserData } from "../stores";
+import { createPopup } from '../popup';
+import { setUserData } from '../stores';
 
 export async function massSellSkins(IDs: string[]) {
   const res = await fetch('/api/skins/mass-sell/', {

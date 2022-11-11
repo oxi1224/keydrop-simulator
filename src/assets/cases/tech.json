@@ -12,10 +12,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": 698.15,
-        "range": [
-          99811,
-          100000
-        ],
+        "range": [99811, 100000],
         "odds": "0,190%"
       }
     },
@@ -29,10 +26,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": 166.45,
-        "range": [
-          99501,
-          99810
-        ],
+        "range": [99501, 99810],
         "odds": "0,310%"
       }
     },
@@ -46,10 +40,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": 18.3,
-        "range": [
-          99001,
-          99500
-        ],
+        "range": [99001, 99500],
         "odds": "0,500%"
       }
     },
@@ -63,10 +54,7 @@
       "dropDetails": {
         "quality": "MW",
         "price": 0.2,
-        "range": [
-          1,
-          99000
-        ],
+        "range": [1, 99000],
         "odds": "99,000%"
       }
     }

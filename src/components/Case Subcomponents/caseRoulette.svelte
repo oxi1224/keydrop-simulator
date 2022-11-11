@@ -247,8 +247,8 @@
 
   async function handleMassSell(skins: Item[]) {
     sellLoading = true;
-    const soldIDs = soldItems.map(i => i.dropId);
-    const IDs = (skins.map((obj) => obj.dropId)).filter(str => !soldIDs.includes(str));
+    const soldIDs = soldItems.map((i) => i.dropId);
+    const IDs = skins.map((obj) => obj.dropId).filter((str) => !soldIDs.includes(str));
     const res = await massSellSkins(IDs);
     if (res.ok) {
       itemsIndb = itemsIndb.filter((item) => IDs.includes(item.dropId));
@@ -260,7 +260,7 @@
       await setUserData();
     }
     sellLoading = false;
-  }  
+  }
 </script>
 
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">

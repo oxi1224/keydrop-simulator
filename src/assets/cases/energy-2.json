@@ -12,10 +12,7 @@
       "dropDetails": {
         "quality": "BS",
         "price": 89.7,
-        "range": [
-          99181,
-          100000
-        ],
+        "range": [99181, 100000],
         "odds": "0,820%"
       }
     },
@@ -29,10 +26,7 @@
       "dropDetails": {
         "quality": "BS",
         "price": 64.5,
-        "range": [
-          98361,
-          99180
-        ],
+        "range": [98361, 99180],
         "odds": "0,820%"
       }
     },
@@ -46,10 +40,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": 50.7,
-        "range": [
-          97541,
-          98360
-        ],
+        "range": [97541, 98360],
         "odds": "0,820%"
       }
     },
@@ -63,10 +54,7 @@
       "dropDetails": {
         "quality": "FT",
         "price": 0.5,
-        "range": [
-          1,
-          97540
-        ],
+        "range": [1, 97540],
         "odds": "97,540%"
       }
     }

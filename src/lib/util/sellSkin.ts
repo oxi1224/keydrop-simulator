@@ -1,6 +1,6 @@
-import type { Item } from "@prisma/client";
-import { createPopup } from "../popup";
-import { setUserData } from "../stores";
+import type { Item } from '@prisma/client';
+import { createPopup } from '../popup';
+import { setUserData } from '../stores';
 
 export async function sellSkin(skin: Item) {
   const ID = skin.dropId;

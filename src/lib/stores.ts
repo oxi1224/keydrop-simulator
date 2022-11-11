@@ -16,5 +16,5 @@ export const setUserData = async () => {
 export const userData: Writable<UserDataStore | null> = writable(null);
 
 export interface UserDataStore extends Omit<User, 'passwordHash'> {
-  inventory: Item[]
+  inventory: Item[];
 }

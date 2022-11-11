@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 @layer utilities {
-
 }
 
 @font-face {
@@ -299,11 +298,11 @@ img {
 }
 
 .glow-gold {
- box-shadow:0 0 6px rgba(220,174,100,.4),inset 0 0 6px rgba(220,174,100,.4)
+  box-shadow: 0 0 6px rgba(220, 174, 100, 0.4), inset 0 0 6px rgba(220, 174, 100, 0.4);
 }
 
 .glow-teal {
- box-shadow:0 0 6px rgba(16,227,180,.4),inset 0 0 6px rgba(16,227,180,.4)
+  box-shadow: 0 0 6px rgba(16, 227, 180, 0.4), inset 0 0 6px rgba(16, 227, 180, 0.4);
 }
 
 .grid-stack {
@@ -397,5 +396,5 @@ img {
 
 .css-dap7rg {
   --ratio: 0.7;
-  background-image: url("/images/case-item-bg.png");
+  background-image: url('/images/case-item-bg.png');
 }

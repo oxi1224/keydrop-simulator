@@ -15,14 +15,17 @@ export async function POST(event: RequestEvent) {
   if (!user)
     return new Response(JSON.stringify({ message: 'Użytkownik nie istnieje' }), { status: 404 });
   const items: Item[] = [];
-  itemIDs.forEach(ID => {
-    const item = user.inventory.find(obj => obj.dropId === ID);
+  itemIDs.forEach((ID) => {
+    const item = user.inventory.find((obj) => obj.dropId === ID);
     if (item) items.push(item);
   });
   if (items.length !== itemIDs.length)
-    return new Response(JSON.stringify({ message: 'Użytkownik nie posiada jednego lub paru przedmiotów z listy' }), {
-      status: 404
-    });
+    return new Response(
+      JSON.stringify({ message: 'Użytkownik nie posiada jednego lub paru przedmiotów z listy' }),
+      {
+        status: 404
+      }
+    );
   const priceSum = items.reduce((n, o) => n + o.skinPrice, 0);
   const updatedUser = await db.user.update({
     where: {
@@ -37,5 +40,7 @@ export async function POST(event: RequestEvent) {
       }
     }
   });
-  return new Response(JSON.stringify({ message: 'Pomyślnie sprzedano', data: updatedUser }), { status: 200 });
+  return new Response(JSON.stringify({ message: 'Pomyślnie sprzedano', data: updatedUser }), {
+    status: 200
+  });
 }

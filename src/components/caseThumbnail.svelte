@@ -6,8 +6,12 @@
 </script>
 
 <div
-  class="relative grid grid-cols-1 grid-rows-1 transition-all duration-200 ratio {
-    ['cs-go-kings', 'gold-area', 'legacy', 'limited-edition'].includes(sectionId)
+  class="relative grid grid-cols-1 grid-rows-1 transition-all duration-200 ratio {[
+    'cs-go-kings',
+    'gold-area',
+    'legacy',
+    'limited-edition'
+  ].includes(sectionId)
     ? 'ratio-1.5'
     : ''} {sectionId === 'youtubers-cases' || sectionId === 'event'
     ? 'ratio-1.12'

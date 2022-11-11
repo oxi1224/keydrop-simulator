@@ -10,7 +10,7 @@
 
   async function handleMassSell(skins: Item[]) {
     sellLoading = true;
-    const IDs = (skins.map((obj) => obj.dropId));
+    const IDs = skins.map((obj) => obj.dropId);
     const res = await massSellSkins(IDs);
     if (res.ok) await setUserData();
     sellLoading = false;

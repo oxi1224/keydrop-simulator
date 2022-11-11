@@ -9,6 +9,7 @@
     await setUserData();
   });
 </script>
+
 <Header />
 <slot />
 <Footer />

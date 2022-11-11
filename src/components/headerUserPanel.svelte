@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { UserDataStore } from "$lib";
+  import type { UserDataStore } from '$lib';
 
   function toggleDropdown() {
     document.getElementById('user-dropdown')!.classList.toggle('is-open');

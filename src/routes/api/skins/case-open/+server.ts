@@ -39,5 +39,7 @@ export async function POST(event: RequestEvent) {
       balance: Math.round((user.balance - cost + Number.EPSILON) * 100) / 100
     }
   });
-  return new Response(JSON.stringify({ message: 'Sukces', data: updatedUser, items: itemsToAdd }), { status: 200 });
+  return new Response(JSON.stringify({ message: 'Sukces', data: updatedUser, items: itemsToAdd }), {
+    status: 200
+  });
 }
