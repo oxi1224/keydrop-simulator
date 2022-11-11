@@ -110,6 +110,7 @@
         header: 'błąd',
         message: 'Niewystarczające saldo'
       });
+      return;
     }
     const winElmArr = [
       ...document.querySelectorAll(
@@ -211,7 +212,6 @@
 
   async function switchMenus() {
     document.querySelector('div.Case-MainUI')?.classList.toggle('is-open');
-    await new Promise((r) => setTimeout(r, 250));
     document.querySelector('div.Case-AfterOpen')?.classList.toggle('is-open');
   }
 
@@ -257,6 +257,7 @@
         (el as HTMLButtonElement).disabled = true;
       });
       sellSuccess = true;
+      await setUserData();
     }
     sellLoading = false;
   }  
@@ -461,7 +462,7 @@
   </div>
   <div class="grid w-full px-2 mt-6 sm:mt-8 sm:w-auto">
     <div
-      class="Case-AfterOpen col-start-1 row-start-1 transition duration-1000 ease-out -translate-y-5 invisible is-open:visible is-open:translate-y-0"
+      class="Case-AfterOpen col-start-1 row-start-1 transition duration-1000 ease-out -translate-y-5 opacity-0 -z-10 is-open:opacity-100 is-open:z-20 is-open:translate-y-0"
     >
       <div
         class="grid grid-cols-2 gap-2 mx-auto mb-4 sm:gap-4 md:gap-8 sm:mb-6 max-w-5xl"
@@ -514,7 +515,7 @@
       </div>
     </div>
     <div
-      class="Case-MainUI w-full p-1 md:w-auto grid col-start-1 row-start-1 gap-2 sm:gap-4 md:gap-8 mx-auto transition-all will-change-transform grid-cols-2 invisible -translate-y-5 is-open:visible is-open:translate-y-0 is-open"
+      class="Case-MainUI w-full p-1 md:w-auto grid col-start-1 row-start-1 gap-2 sm:gap-4 md:gap-8 mx-auto transition duration-1000 ease-in-out will-change-transform grid-cols-2 opacity-0 -z-10 -translate-y-5 is-open:opacity-100 is-open:z-20 is-open:translate-y-0 is-open"
     >
       <div class="relative flex h-10 sm:h-15">
         <div

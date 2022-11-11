@@ -5,13 +5,13 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "3075,25PLN",
+      "skinPriceRange": "3032,90PLN",
       "skinDisplayChance": "0,132%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 3075.25,
+        "price": 3032.9,
         "range": [
           99869,
           100000
@@ -22,13 +22,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Skeleton Knife",
-      "skinPriceRange": "2447,80PLN",
+      "skinPriceRange": "2449,80PLN",
       "skinDisplayChance": "0,376%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ec/ec3fba6338d7e4cac3408ea3d9b312c2.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": 2447.8,
+        "price": 2449.8,
         "range": [
           99493,
           99868
@@ -39,13 +39,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Huntsman Knife",
-      "skinPriceRange": "1129,75PLN",
+      "skinPriceRange": "1129,15PLN",
       "skinDisplayChance": "0,355%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e1/e104ae0420a043ffed8bed90e931b3f9.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 1129.75,
+        "price": 1129.15,
         "range": [
           99138,
           99492
@@ -56,13 +56,13 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "729,65PLN",
+      "skinPriceRange": "727,80PLN",
       "skinDisplayChance": "0,332%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/72/729043653075a49da36b959686e35099.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 729.65,
+        "price": 727.8,
         "range": [
           98806,
           99137
@@ -73,13 +73,13 @@
     {
       "skinName": "Printstream",
       "skinWeapon": "Desert Eagle",
-      "skinPriceRange": "236,40PLN",
+      "skinPriceRange": "237,55PLN",
       "skinDisplayChance": "0,327%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/19/19cfb9de8d87b53a024570838e277473.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 236.4,
+        "price": 237.55,
         "range": [
           98479,
           98805
@@ -90,13 +90,13 @@
     {
       "skinName": "Neo-Noir",
       "skinWeapon": "AWP",
-      "skinPriceRange": "138,45PLN",
+      "skinPriceRange": "138,85PLN",
       "skinDisplayChance": "1,235%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d0/d0ed1c35d8364d8542e62f419c4c9985.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 138.45,
+        "price": 138.85,
         "range": [
           97244,
           98478
@@ -107,13 +107,13 @@
     {
       "skinName": "Neon Rider",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "106,65PLN",
+      "skinPriceRange": "104,65PLN",
       "skinDisplayChance": "1,882%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/de/dea3ad4e14c6b446359f537614759443.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 106.65,
+        "price": 104.65,
         "range": [
           95362,
           97243
@@ -124,13 +124,13 @@
     {
       "skinName": "Player Two",
       "skinWeapon": "M4A1-S",
-      "skinPriceRange": "81,20PLN",
+      "skinPriceRange": "80,95PLN",
       "skinDisplayChance": "3,505%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/178a41d6dc19464c0ecf482bdd1feedc.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 81.2,
+        "price": 80.95,
         "range": [
           91857,
           95361
@@ -141,13 +141,13 @@
     {
       "skinName": "Leet Museo",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "77,00PLN",
+      "skinPriceRange": "77,65PLN",
       "skinDisplayChance": "3,431%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/49/4935b7a432a5d4c9bcfeb5acc7f5e594.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 77,
+        "price": 77.65,
         "range": [
           88426,
           91856
@@ -158,13 +158,13 @@
     {
       "skinName": "Nightwish",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "65,10PLN",
+      "skinPriceRange": "64,50PLN",
       "skinDisplayChance": "2,850%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 65.1,
+        "price": 64.5,
         "range": [
           85576,
           88425
@@ -175,13 +175,13 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,60PLN - 7,50PLN",
+      "skinPriceRange": "1,60PLN - 7,55PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 7.5,
+        "price": 7.55,
         "range": [
           79586,
           85575
@@ -192,13 +192,13 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,60PLN - 7,50PLN",
+      "skinPriceRange": "1,60PLN - 7,55PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 2.95,
+        "price": 3.2,
         "range": [
           26922,
           37814
@@ -209,7 +209,7 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,60PLN - 7,50PLN",
+      "skinPriceRange": "1,60PLN - 7,55PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
@@ -226,7 +226,7 @@
     {
       "skinName": "Ghost Crusader",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "1,60PLN - 7,50PLN",
+      "skinPriceRange": "1,60PLN - 7,55PLN",
       "skinDisplayChance": "43,804%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b89d76a953499d4ee83982103a3ef39.png",
       "skinRarity": "violet",
@@ -243,13 +243,13 @@
     {
       "skinName": "Spider Lily",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "4,20PLN - 5,40PLN",
+      "skinPriceRange": "4,30PLN - 5,55PLN",
       "skinDisplayChance": "41,771%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/99/99d7da5f3919cedd2bc564841d726621.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 5.4,
+        "price": 5.55,
         "range": [
           66737,
           79585
@@ -260,13 +260,13 @@
     {
       "skinName": "Spider Lily",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "4,20PLN - 5,40PLN",
+      "skinPriceRange": "4,30PLN - 5,55PLN",
       "skinDisplayChance": "41,771%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/99/99d7da5f3919cedd2bc564841d726621.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "WW",
-        "price": 4.45,
+        "price": 4.5,
         "range": [
           51774,
           66736
@@ -277,13 +277,13 @@
     {
       "skinName": "Spider Lily",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "4,20PLN - 5,40PLN",
+      "skinPriceRange": "4,30PLN - 5,55PLN",
       "skinDisplayChance": "41,771%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/99/99d7da5f3919cedd2bc564841d726621.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "BS",
-        "price": 4.2,
+        "price": 4.3,
         "range": [
           37815,
           51773

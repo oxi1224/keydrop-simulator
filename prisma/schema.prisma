@@ -27,6 +27,7 @@ model Item {
   skinImgSource String
   skinRarity    String
   skinQuality   String
+  dropDate      DateTime @default(now()) 
 }
 
 model Session {

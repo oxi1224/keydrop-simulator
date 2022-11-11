@@ -5,13 +5,13 @@
     {
       "skinName": "Chantico's Fire",
       "skinWeapon": "M4A1-S",
-      "skinPriceRange": "87,20PLN",
+      "skinPriceRange": "89,70PLN",
       "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/09/093706091d0018b2211abdc3a6fa880f.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 87.2,
+        "price": 89.7,
         "range": [
           99181,
           100000
@@ -22,13 +22,13 @@
     {
       "skinName": "Nightwish",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "65,10PLN",
+      "skinPriceRange": "64,50PLN",
       "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/83/83499ee5a1395a98f5af3b9d4ca91e94.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 65.1,
+        "price": 64.5,
         "range": [
           98361,
           99180
@@ -39,13 +39,13 @@
     {
       "skinName": "The Emperor",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "50,05PLN",
+      "skinPriceRange": "50,70PLN",
       "skinDisplayChance": "0,820%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ecc8d860236e73a561aef334dc3d404.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 50.05,
+        "price": 50.7,
         "range": [
           97541,
           98360

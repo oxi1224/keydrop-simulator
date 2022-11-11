@@ -22,13 +22,13 @@
     {
       "skinName": "Predator",
       "skinWeapon": "Nova",
-      "skinPriceRange": "0,20PLN",
+      "skinPriceRange": "0,30PLN",
       "skinDisplayChance": "99,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/45/45593b1f296b5f3cbbd8987766032276.png",
       "skinRarity": "gray",
       "dropDetails": {
         "quality": "WW",
-        "price": 0.2,
+        "price": 0.3,
         "range": [
           1,
           99000

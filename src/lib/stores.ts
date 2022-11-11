@@ -1,5 +1,6 @@
+import type { Item, User } from '@prisma/client';
 import { writable, type Writable } from 'svelte/store';
-import type { PopupProps, UserData } from './types';
+import type { PopupProps } from './types';
 
 export const popupOpen = writable(false);
 export const popupProps: Writable<PopupProps> = writable({
@@ -12,4 +13,8 @@ export const setUserData = async () => {
   userData.set(data);
   localStorage.setItem('logged_in', `${!!data}`);
 };
-export const userData: Writable<UserData | null> = writable(null);
+export const userData: Writable<UserDataStore | null> = writable(null);
+
+export interface UserDataStore extends Omit<User, 'passwordHash'> {
+  inventory: Item[]
+}

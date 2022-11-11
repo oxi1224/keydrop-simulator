@@ -42,10 +42,3 @@ export interface PopupProps {
   header: string;
   message: string;
 }
-
-export interface UserData {
-  username: string;
-  balance: number;
-  goldBalance: number;
-  sandboxMode: boolean;
-}

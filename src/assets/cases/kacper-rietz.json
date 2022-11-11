@@ -5,13 +5,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "5107,65PLN",
+      "skinPriceRange": "5300,55PLN",
       "skinDisplayChance": "0,005%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 5107.65,
+        "price": 5300.55,
         "range": [
           99991,
           99995
@@ -22,13 +22,13 @@
     {
       "skinName": "Tiger Tooth",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "2404,15PLN",
+      "skinPriceRange": "2385,85PLN",
       "skinDisplayChance": "0,006%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c3/c334de3ed9a091d233f92cf62d143a1a.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 2404.15,
+        "price": 2385.85,
         "range": [
           99985,
           99990
@@ -56,13 +56,13 @@
     {
       "skinName": "Fuel Injector",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "331,40PLN",
+      "skinPriceRange": "335,85PLN",
       "skinDisplayChance": "0,158%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b3/b36e89e5333359c3d8919c1a4f90bcd9.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 331.4,
+        "price": 335.85,
         "range": [
           99827,
           99984
@@ -73,13 +73,13 @@
     {
       "skinName": "Golden Coil",
       "skinWeapon": "M4A1-S",
-      "skinPriceRange": "144,60PLN",
+      "skinPriceRange": "142,75PLN",
       "skinDisplayChance": "0,263%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d8/d81292a26bb03134e48364494ab932d1.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 144.6,
+        "price": 142.75,
         "range": [
           99356,
           99618
@@ -90,13 +90,13 @@
     {
       "skinName": "The Empress",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "121,65PLN",
+      "skinPriceRange": "119,50PLN",
       "skinDisplayChance": "0,352%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/04/04c876c4aab732feb859d89efb69b30b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 121.65,
+        "price": 119.5,
         "range": [
           99004,
           99355
@@ -107,13 +107,13 @@
     {
       "skinName": "Bullet Queen",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "31,90PLN - 85,80PLN",
+      "skinPriceRange": "30,90PLN - 85,60PLN",
       "skinDisplayChance": "4,558%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ee78c70be4f7f9bcbfc8a8d4d46e36b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": 85.8,
+        "price": 85.6,
         "range": [
           98685,
           99003
@@ -124,13 +124,13 @@
     {
       "skinName": "Bullet Queen",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "31,90PLN - 85,80PLN",
+      "skinPriceRange": "30,90PLN - 85,60PLN",
       "skinDisplayChance": "4,558%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ee78c70be4f7f9bcbfc8a8d4d46e36b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 49.1,
+        "price": 49.3,
         "range": [
           95282,
           95640
@@ -141,13 +141,13 @@
     {
       "skinName": "Bullet Queen",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "31,90PLN - 85,80PLN",
+      "skinPriceRange": "30,90PLN - 85,60PLN",
       "skinDisplayChance": "4,558%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ee78c70be4f7f9bcbfc8a8d4d46e36b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": 32.4,
+        "price": 31.9,
         "range": [
           92112,
           93329
@@ -158,13 +158,13 @@
     {
       "skinName": "Bullet Queen",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "31,90PLN - 85,80PLN",
+      "skinPriceRange": "30,90PLN - 85,60PLN",
       "skinDisplayChance": "4,558%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3ee78c70be4f7f9bcbfc8a8d4d46e36b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 31.9,
+        "price": 30.9,
         "range": [
           89450,
           92111
@@ -173,32 +173,15 @@
       }
     },
     {
-      "skinName": "Commemoration",
-      "skinWeapon": "FAMAS",
-      "skinPriceRange": "54,85PLN",
-      "skinDisplayChance": "1,096%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c2/c282086cef9a99e045bdaa37413bc16a.png",
-      "skinRarity": "red",
-      "dropDetails": {
-        "quality": "FT",
-        "price": 54.85,
-        "range": [
-          97150,
-          98245
-        ],
-        "odds": "1,096%"
-      }
-    },
-    {
       "skinName": "The Coalition",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "25,05PLN - 53,50PLN",
+      "skinPriceRange": "25,45PLN - 58,25PLN",
       "skinDisplayChance": "9,917%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6d/6df494b88c55681fb72db541d6738931.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 53.5,
+        "price": 58.25,
         "range": [
           95641,
           96078
@@ -209,13 +192,13 @@
     {
       "skinName": "The Coalition",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "25,05PLN - 53,50PLN",
+      "skinPriceRange": "25,45PLN - 58,25PLN",
       "skinDisplayChance": "9,917%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6d/6df494b88c55681fb72db541d6738931.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": 26.8,
+        "price": 27.8,
         "range": [
           80570,
           85487
@@ -226,13 +209,13 @@
     {
       "skinName": "The Coalition",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "25,05PLN - 53,50PLN",
+      "skinPriceRange": "25,45PLN - 58,25PLN",
       "skinDisplayChance": "9,917%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/6d/6df494b88c55681fb72db541d6738931.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 25.05,
+        "price": 25.45,
         "range": [
           76009,
           80569
@@ -241,15 +224,32 @@
       }
     },
     {
+      "skinName": "Commemoration",
+      "skinWeapon": "FAMAS",
+      "skinPriceRange": "54,65PLN",
+      "skinDisplayChance": "1,096%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c2/c282086cef9a99e045bdaa37413bc16a.png",
+      "skinRarity": "red",
+      "dropDetails": {
+        "quality": "FT",
+        "price": 54.65,
+        "range": [
+          97150,
+          98245
+        ],
+        "odds": "1,096%"
+      }
+    },
+    {
       "skinName": "Chatterbox",
       "skinWeapon": "Galil AR",
-      "skinPriceRange": "53,40PLN",
+      "skinPriceRange": "53,85PLN",
       "skinDisplayChance": "0,858%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/52/52cc4e53f2297aa5a33cefcb3e068a8e.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": 53.4,
+        "price": 53.85,
         "range": [
           96079,
           96936
@@ -260,13 +260,13 @@
     {
       "skinName": "Stalker",
       "skinWeapon": "MAC-10",
-      "skinPriceRange": "49,00PLN",
+      "skinPriceRange": "49,80PLN",
       "skinDisplayChance": "0,539%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c1/c1a9d0f2e6edd7a4df7cf23b2a58a701.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 49,
+        "price": 49.8,
         "range": [
           94392,
           94930
@@ -277,13 +277,13 @@
     {
       "skinName": "Buzz Kill",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "25,90PLN - 41,90PLN",
+      "skinPriceRange": "26,70PLN - 43,40PLN",
       "skinDisplayChance": "9,975%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f0/f01f5de8cd9a7fcd64e7d73df9bae419.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": 41.9,
+        "price": 43.4,
         "range": [
           93866,
           94391
@@ -294,7 +294,7 @@
     {
       "skinName": "Buzz Kill",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "25,90PLN - 41,90PLN",
+      "skinPriceRange": "26,70PLN - 43,40PLN",
       "skinDisplayChance": "9,975%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f0/f01f5de8cd9a7fcd64e7d73df9bae419.png",
       "skinRarity": "red",
@@ -311,13 +311,13 @@
     {
       "skinName": "Buzz Kill",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "25,90PLN - 41,90PLN",
+      "skinPriceRange": "26,70PLN - 43,40PLN",
       "skinDisplayChance": "9,975%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f0/f01f5de8cd9a7fcd64e7d73df9bae419.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 27.65,
+        "price": 28.15,
         "range": [
           85488,
           89449
@@ -328,13 +328,13 @@
     {
       "skinName": "Buzz Kill",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "25,90PLN - 41,90PLN",
+      "skinPriceRange": "26,70PLN - 43,40PLN",
       "skinDisplayChance": "9,975%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f0/f01f5de8cd9a7fcd64e7d73df9bae419.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 25.9,
+        "price": 26.7,
         "range": [
           70636,
           75586
@@ -345,13 +345,13 @@
     {
       "skinName": "Orion",
       "skinWeapon": "USP-S",
-      "skinPriceRange": "187,75PLN",
+      "skinPriceRange": "187,10PLN",
       "skinDisplayChance": "0,208%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e8/e811e110c815fd4beba8ee7d898d239c.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 187.75,
+        "price": 187.1,
         "range": [
           99619,
           99826
@@ -362,13 +362,13 @@
     {
       "skinName": "Fuel Injector",
       "skinWeapon": "Tec-9",
-      "skinPriceRange": "10,75PLN - 55,10PLN",
+      "skinPriceRange": "11,00PLN - 54,95PLN",
       "skinDisplayChance": "16,122%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0c/0ca5adb359ca202a0021bb00dcc94589.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FN",
-        "price": 55.1,
+        "price": 54.95,
         "range": [
           98246,
           98684
@@ -379,13 +379,13 @@
     {
       "skinName": "Fuel Injector",
       "skinWeapon": "Tec-9",
-      "skinPriceRange": "10,75PLN - 55,10PLN",
+      "skinPriceRange": "11,00PLN - 54,95PLN",
       "skinDisplayChance": "16,122%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0c/0ca5adb359ca202a0021bb00dcc94589.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 23.7,
+        "price": 23.8,
         "range": [
           75587,
           76008
@@ -396,13 +396,13 @@
     {
       "skinName": "Fuel Injector",
       "skinWeapon": "Tec-9",
-      "skinPriceRange": "10,75PLN - 55,10PLN",
+      "skinPriceRange": "11,00PLN - 54,95PLN",
       "skinDisplayChance": "16,122%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0c/0ca5adb359ca202a0021bb00dcc94589.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 13.55,
+        "price": 14,
         "range": [
           64347,
           67527
@@ -413,7 +413,7 @@
     {
       "skinName": "Fuel Injector",
       "skinWeapon": "Tec-9",
-      "skinPriceRange": "10,75PLN - 55,10PLN",
+      "skinPriceRange": "11,00PLN - 54,95PLN",
       "skinDisplayChance": "16,122%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0c/0ca5adb359ca202a0021bb00dcc94589.png",
       "skinRarity": "pink",
@@ -430,13 +430,13 @@
     {
       "skinName": "Fuel Injector",
       "skinWeapon": "Tec-9",
-      "skinPriceRange": "10,75PLN - 55,10PLN",
+      "skinPriceRange": "11,00PLN - 54,95PLN",
       "skinDisplayChance": "16,122%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0c/0ca5adb359ca202a0021bb00dcc94589.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 10.75,
+        "price": 11,
         "range": [
           36184,
           42145
@@ -447,13 +447,13 @@
     {
       "skinName": "Monkey Business",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "9,50PLN - 46,80PLN",
+      "skinPriceRange": "9,50PLN - 47,10PLN",
       "skinDisplayChance": "16,969%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5c/5cb3d12ada41c67e59f10aa873e5de4f.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 46.8,
+        "price": 47.1,
         "range": [
           94931,
           95281
@@ -464,13 +464,13 @@
     {
       "skinName": "Monkey Business",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "9,50PLN - 46,80PLN",
+      "skinPriceRange": "9,50PLN - 47,10PLN",
       "skinDisplayChance": "16,969%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5c/5cb3d12ada41c67e59f10aa873e5de4f.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 12.6,
+        "price": 13.25,
         "range": [
           48264,
           53181
@@ -481,13 +481,13 @@
     {
       "skinName": "Monkey Business",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "9,50PLN - 46,80PLN",
+      "skinPriceRange": "9,50PLN - 47,10PLN",
       "skinDisplayChance": "16,969%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5c/5cb3d12ada41c67e59f10aa873e5de4f.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "WW",
-        "price": 10.85,
+        "price": 11.05,
         "range": [
           53182,
           58533
@@ -498,7 +498,7 @@
     {
       "skinName": "Monkey Business",
       "skinWeapon": "Five-SeveN",
-      "skinPriceRange": "9,50PLN - 46,80PLN",
+      "skinPriceRange": "9,50PLN - 47,10PLN",
       "skinDisplayChance": "16,969%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5c/5cb3d12ada41c67e59f10aa873e5de4f.png",
       "skinRarity": "pink",
@@ -583,13 +583,13 @@
     {
       "skinName": "Bulldozer",
       "skinWeapon": "MAG-7",
-      "skinPriceRange": "11,35PLN - 57,35PLN",
+      "skinPriceRange": "11,30PLN - 56,35PLN",
       "skinDisplayChance": "9,134%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/05/056a57ea92b770fff68ca79ed9dc539a.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 57.35,
+        "price": 56.35,
         "range": [
           96937,
           97149
@@ -600,13 +600,13 @@
     {
       "skinName": "Bulldozer",
       "skinWeapon": "MAG-7",
-      "skinPriceRange": "11,35PLN - 57,35PLN",
+      "skinPriceRange": "11,30PLN - 56,35PLN",
       "skinDisplayChance": "9,134%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/05/056a57ea92b770fff68ca79ed9dc539a.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 18.35,
+        "price": 13.5,
         "range": [
           70287,
           70635
@@ -617,7 +617,7 @@
     {
       "skinName": "Bulldozer",
       "skinWeapon": "MAG-7",
-      "skinPriceRange": "11,35PLN - 57,35PLN",
+      "skinPriceRange": "11,30PLN - 56,35PLN",
       "skinDisplayChance": "9,134%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/05/056a57ea92b770fff68ca79ed9dc539a.png",
       "skinRarity": "violet",
@@ -634,13 +634,13 @@
     {
       "skinName": "Bulldozer",
       "skinWeapon": "MAG-7",
-      "skinPriceRange": "11,35PLN - 57,35PLN",
+      "skinPriceRange": "11,30PLN - 56,35PLN",
       "skinDisplayChance": "9,134%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/05/056a57ea92b770fff68ca79ed9dc539a.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "BS",
-        "price": 11.35,
+        "price": 11.3,
         "range": [
           67528,
           70286
@@ -651,13 +651,13 @@
     {
       "skinName": "Neural Net",
       "skinWeapon": "FAMAS",
-      "skinPriceRange": "3,45PLN - 8,85PLN",
+      "skinPriceRange": "3,45PLN - 8,80PLN",
       "skinDisplayChance": "12,922%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/10/109579ba2d31bbdb54d1286c0df0fb1e.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 8.85,
+        "price": 8.8,
         "range": [
           29398,
           29835
@@ -668,13 +668,13 @@
     {
       "skinName": "Neural Net",
       "skinWeapon": "FAMAS",
-      "skinPriceRange": "3,45PLN - 8,85PLN",
+      "skinPriceRange": "3,45PLN - 8,80PLN",
       "skinDisplayChance": "12,922%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/10/109579ba2d31bbdb54d1286c0df0fb1e.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 6.05,
+        "price": 6.35,
         "range": [
           21603,
           22130
@@ -685,13 +685,13 @@
     {
       "skinName": "Neural Net",
       "skinWeapon": "FAMAS",
-      "skinPriceRange": "3,45PLN - 8,85PLN",
+      "skinPriceRange": "3,45PLN - 8,80PLN",
       "skinDisplayChance": "12,922%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/10/109579ba2d31bbdb54d1286c0df0fb1e.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "WW",
-        "price": 4.45,
+        "price": 4.4,
         "range": [
           7986,
           11956
@@ -702,7 +702,7 @@
     {
       "skinName": "Neural Net",
       "skinWeapon": "FAMAS",
-      "skinPriceRange": "3,45PLN - 8,85PLN",
+      "skinPriceRange": "3,45PLN - 8,80PLN",
       "skinDisplayChance": "12,922%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/10/109579ba2d31bbdb54d1286c0df0fb1e.png",
       "skinRarity": "violet",
@@ -719,7 +719,7 @@
     {
       "skinName": "Neural Net",
       "skinWeapon": "FAMAS",
-      "skinPriceRange": "3,45PLN - 8,85PLN",
+      "skinPriceRange": "3,45PLN - 8,80PLN",
       "skinDisplayChance": "12,922%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/10/109579ba2d31bbdb54d1286c0df0fb1e.png",
       "skinRarity": "violet",

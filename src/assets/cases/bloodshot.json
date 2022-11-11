@@ -39,7 +39,7 @@
     {
       "skinName": "Crimson Web",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2952,15PLN - 7474,50PLN",
+      "skinPriceRange": "2965,40PLN - 7474,50PLN",
       "skinDisplayChance": "0,660%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/17a650ddf1cd7181ee2363c59099f7cc.png",
       "skinRarity": "gold",
@@ -56,13 +56,13 @@
     {
       "skinName": "Crimson Web",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2952,15PLN - 7474,50PLN",
+      "skinPriceRange": "2965,40PLN - 7474,50PLN",
       "skinDisplayChance": "0,660%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/17a650ddf1cd7181ee2363c59099f7cc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 4132,
+        "price": 4127.5,
         "range": [
           98537,
           98756
@@ -73,13 +73,13 @@
     {
       "skinName": "Crimson Web",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2952,15PLN - 7474,50PLN",
+      "skinPriceRange": "2965,40PLN - 7474,50PLN",
       "skinDisplayChance": "0,660%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/17/17a650ddf1cd7181ee2363c59099f7cc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 2952.15,
+        "price": 2965.4,
         "range": [
           94745,
           95128
@@ -107,13 +107,13 @@
     {
       "skinName": "Marble Fade",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "5594,65PLN",
+      "skinPriceRange": "5570,15PLN",
       "skinDisplayChance": "0,046%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/0f/0fbf01b94be0630dd7c42bc2775c2168.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 5594.65,
+        "price": 5570.15,
         "range": [
           99421,
           99466
@@ -124,13 +124,13 @@
     {
       "skinName": "Crimson Kimono",
       "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "3213,40PLN - 5586,75PLN",
+      "skinPriceRange": "3218,40PLN - 5549,55PLN",
       "skinDisplayChance": "0,322%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/78/780b30adb988e51ca232dc9942e32620.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": 5586.75,
+        "price": 5549.55,
         "range": [
           99325,
           99420
@@ -141,13 +141,13 @@
     {
       "skinName": "Crimson Kimono",
       "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "3213,40PLN - 5586,75PLN",
+      "skinPriceRange": "3218,40PLN - 5549,55PLN",
       "skinDisplayChance": "0,322%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/78/780b30adb988e51ca232dc9942e32620.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 3213.4,
+        "price": 3218.4,
         "range": [
           97451,
           97676
@@ -158,13 +158,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Nomad Knife",
-      "skinPriceRange": "4786,95PLN",
+      "skinPriceRange": "4845,35PLN",
       "skinDisplayChance": "0,176%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3d/3dfa69a439102a7a42f9d8addbffb4ce.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 4786.95,
+        "price": 4845.35,
         "range": [
           98757,
           98932
@@ -175,13 +175,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Butterfly Knife",
-      "skinPriceRange": "3770,85PLN - 4215,15PLN",
+      "skinPriceRange": "3789,10PLN - 4214,40PLN",
       "skinDisplayChance": "0,829%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/fb/fb76ae9c98bd7e78677f80878ccfa948.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 4215.15,
+        "price": 4214.4,
         "range": [
           99023,
           99324
@@ -192,30 +192,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Butterfly Knife",
-      "skinPriceRange": "3770,85PLN - 4215,15PLN",
-      "skinDisplayChance": "0,829%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/fb/fb76ae9c98bd7e78677f80878ccfa948.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "WW",
-        "price": 3822.7,
-        "range": [
-          97200,
-          97450
-        ],
-        "odds": "0,251%"
-      }
-    },
-    {
-      "skinName": "Case Hardened",
-      "skinWeapon": "Butterfly Knife",
-      "skinPriceRange": "3770,85PLN - 4215,15PLN",
+      "skinPriceRange": "3789,10PLN - 4214,40PLN",
       "skinDisplayChance": "0,829%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/fb/fb76ae9c98bd7e78677f80878ccfa948.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 3770.85,
+        "price": 3792.1,
         "range": [
           98261,
           98536
@@ -224,49 +207,32 @@
       }
     },
     {
-      "skinName": "Slaughter",
-      "skinWeapon": "Talon Knife",
-      "skinPriceRange": "3070,00PLN - 3859,55PLN",
-      "skinDisplayChance": "0,649%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5d/5de0542069c55d0adf0eff04f2972f67.png",
+      "skinName": "Case Hardened",
+      "skinWeapon": "Butterfly Knife",
+      "skinPriceRange": "3789,10PLN - 4214,40PLN",
+      "skinDisplayChance": "0,829%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/fb/fb76ae9c98bd7e78677f80878ccfa948.png",
       "skinRarity": "gold",
       "dropDetails": {
-        "quality": "FN",
-        "price": 3859.55,
+        "quality": "WW",
+        "price": 3789.1,
         "range": [
-          97965,
-          98260
+          97200,
+          97450
         ],
-        "odds": "0,296%"
-      }
-    },
-    {
-      "skinName": "Slaughter",
-      "skinWeapon": "Talon Knife",
-      "skinPriceRange": "3070,00PLN - 3859,55PLN",
-      "skinDisplayChance": "0,649%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5d/5de0542069c55d0adf0eff04f2972f67.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "MW",
-        "price": 3070,
-        "range": [
-          95875,
-          96227
-        ],
-        "odds": "0,353%"
+        "odds": "0,251%"
       }
     },
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "2617,25PLN - 3814,85PLN",
+      "skinPriceRange": "2620,50PLN - 3856,30PLN",
       "skinDisplayChance": "0,590%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": 3814.85,
+        "price": 3856.3,
         "range": [
           97677,
           97964
@@ -277,13 +243,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "2617,25PLN - 3814,85PLN",
+      "skinPriceRange": "2620,50PLN - 3856,30PLN",
       "skinDisplayChance": "0,590%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/85/85eb432982536c0d88424ea73cfac746.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 2617.25,
+        "price": 2620.5,
         "range": [
           94443,
           94744
@@ -292,15 +258,49 @@
       }
     },
     {
+      "skinName": "Slaughter",
+      "skinWeapon": "Talon Knife",
+      "skinPriceRange": "3044,20PLN - 3851,25PLN",
+      "skinDisplayChance": "0,649%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5d/5de0542069c55d0adf0eff04f2972f67.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FN",
+        "price": 3851.25,
+        "range": [
+          97965,
+          98260
+        ],
+        "odds": "0,296%"
+      }
+    },
+    {
+      "skinName": "Slaughter",
+      "skinWeapon": "Talon Knife",
+      "skinPriceRange": "3044,20PLN - 3851,25PLN",
+      "skinDisplayChance": "0,649%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5d/5de0542069c55d0adf0eff04f2972f67.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "MW",
+        "price": 3044.2,
+        "range": [
+          95875,
+          96227
+        ],
+        "odds": "0,353%"
+      }
+    },
+    {
       "skinName": "Blue Steel",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2844,55PLN - 3434,95PLN",
+      "skinPriceRange": "2918,70PLN - 3422,50PLN",
       "skinDisplayChance": "0,841%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1d/1d3e2902312b9321220e8bd545baa592.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 3434.95,
+        "price": 3422.5,
         "range": [
           96228,
           96615
@@ -311,13 +311,13 @@
     {
       "skinName": "Blue Steel",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "2844,55PLN - 3434,95PLN",
+      "skinPriceRange": "2918,70PLN - 3422,50PLN",
       "skinDisplayChance": "0,841%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1d/1d3e2902312b9321220e8bd545baa592.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 2844.55,
+        "price": 2918.7,
         "range": [
           95129,
           95581
@@ -328,7 +328,7 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "3075,25PLN - 3211,30PLN",
+      "skinPriceRange": "3032,90PLN - 3211,30PLN",
       "skinDisplayChance": "0,584%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
       "skinRarity": "gold",
@@ -345,13 +345,13 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "3075,25PLN - 3211,30PLN",
+      "skinPriceRange": "3032,90PLN - 3211,30PLN",
       "skinDisplayChance": "0,584%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 3075.25,
+        "price": 3032.9,
         "range": [
           96888,
           97199
@@ -362,13 +362,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Classic Knife",
-      "skinPriceRange": "2716,30PLN",
+      "skinPriceRange": "2677,00PLN",
       "skinDisplayChance": "0,293%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3f/3fe009fb3078228528dd86eed8242a38.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 2716.3,
+        "price": 2677,
         "range": [
           95582,
           95874
@@ -379,13 +379,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Ursus Knife",
-      "skinPriceRange": "2680,90PLN",
+      "skinPriceRange": "2618,70PLN",
       "skinDisplayChance": "2,585%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/50/5070570357e7d4772f0c03f6448f0334.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 2680.9,
+        "price": 2618.7,
         "range": [
           91858,
           94442
@@ -396,13 +396,13 @@
     {
       "skinName": "Slaughter",
       "skinWeapon": "Nomad Knife",
-      "skinPriceRange": "2585,95PLN",
+      "skinPriceRange": "2391,05PLN",
       "skinDisplayChance": "0,358%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/29c74956eeb19a06095fb4defd183011.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 2585.95,
+        "price": 2391.05,
         "range": [
           91500,
           91857
@@ -430,13 +430,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "825,30PLN - 1901,80PLN",
+      "skinPriceRange": "814,75PLN - 1877,85PLN",
       "skinDisplayChance": "22,884%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 1901.8,
+        "price": 1877.85,
         "range": [
           85932,
           87107
@@ -447,13 +447,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "825,30PLN - 1901,80PLN",
+      "skinPriceRange": "814,75PLN - 1877,85PLN",
       "skinDisplayChance": "22,884%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": 1400.7,
+        "price": 1383.15,
         "range": [
           66187,
           67098
@@ -464,13 +464,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "825,30PLN - 1901,80PLN",
+      "skinPriceRange": "814,75PLN - 1877,85PLN",
       "skinDisplayChance": "22,884%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 825.3,
+        "price": 814.75,
         "range": [
           15962,
           36757
@@ -481,13 +481,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Bowie Knife",
-      "skinPriceRange": "1675,35PLN",
+      "skinPriceRange": "1680,80PLN",
       "skinDisplayChance": "15,896%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/39/3900cd5f0af32d10004a7e695d9c3a25.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 1675.35,
+        "price": 1680.8,
         "range": [
           70036,
           85931
@@ -498,13 +498,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "1092,05PLN - 1536,15PLN",
+      "skinPriceRange": "1089,75PLN - 1539,90PLN",
       "skinDisplayChance": "23,857%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/cb/cb4b523d52a5fec80013f7e9cb7be075.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 1536.15,
+        "price": 1539.9,
         "range": [
           67099,
           70035
@@ -515,13 +515,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "1092,05PLN - 1536,15PLN",
+      "skinPriceRange": "1089,75PLN - 1539,90PLN",
       "skinDisplayChance": "23,857%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/cb/cb4b523d52a5fec80013f7e9cb7be075.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 1092.05,
+        "price": 1089.75,
         "range": [
           36758,
           57677
@@ -532,13 +532,13 @@
     {
       "skinName": "Slaughter",
       "skinWeapon": "Survival Knife",
-      "skinPriceRange": "1430,70PLN",
+      "skinPriceRange": "1446,70PLN",
       "skinDisplayChance": "4,627%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/63/6386e0fc798a1fa45acbb6fedb3bcb95.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 1430.7,
+        "price": 1446.7,
         "range": [
           61560,
           66186
@@ -549,13 +549,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Paracord Knife",
-      "skinPriceRange": "764,35PLN - 1189,40PLN",
+      "skinPriceRange": "756,75PLN - 1194,60PLN",
       "skinDisplayChance": "19,843%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f7421fd97045b1ef83d593fe7f40049.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 1189.4,
+        "price": 1194.6,
         "range": [
           57678,
           61559
@@ -566,13 +566,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Paracord Knife",
-      "skinPriceRange": "764,35PLN - 1189,40PLN",
+      "skinPriceRange": "756,75PLN - 1194,60PLN",
       "skinDisplayChance": "19,843%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f7421fd97045b1ef83d593fe7f40049.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 764.35,
+        "price": 756.75,
         "range": [
           1,
           15961
@@ -634,13 +634,13 @@
     {
       "skinName": "Poseidon",
       "skinWeapon": "M4A4",
-      "skinPriceRange": "4393,25PLN",
+      "skinPriceRange": "4302,45PLN",
       "skinDisplayChance": "0,090%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7ce9e04e3789b9083a22948e22441d49.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 4393.25,
+        "price": 4302.45,
         "range": [
           98933,
           99022

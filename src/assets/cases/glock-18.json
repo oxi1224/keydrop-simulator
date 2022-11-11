@@ -5,13 +5,13 @@
     {
       "skinName": "Wasteland Rebel",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "25,30PLN",
+      "skinPriceRange": "25,60PLN",
       "skinDisplayChance": "0,013%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/25/25becf7ae4427cffb09bc7288c4b71f1.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": 25.3,
+        "price": 25.6,
         "range": [
           99805,
           99817
@@ -22,13 +22,13 @@
     {
       "skinName": "Twilight Galaxy",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "247,05PLN",
+      "skinPriceRange": "248,65PLN",
       "skinDisplayChance": "0,022%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/74/74acc9ac9847e25693387dd6e3c7d48a.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 247.05,
+        "price": 248.65,
         "range": [
           99827,
           99848
@@ -39,13 +39,13 @@
     {
       "skinName": "Water Elemental",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "21,75PLN",
+      "skinPriceRange": "20,40PLN",
       "skinDisplayChance": "0,189%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/25/2577e2c105f1f6cab379180e65c1a5c4.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 21.75,
+        "price": 20.4,
         "range": [
           99616,
           99804
@@ -56,13 +56,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5898,80PLN",
+      "skinPriceRange": "5980,40PLN",
       "skinDisplayChance": "0,018%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7cadae997973c04583bf16456e8ebfff.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 5898.8,
+        "price": 5980.4,
         "range": [
           99983,
           100000
@@ -73,13 +73,13 @@
     {
       "skinName": "Synth Leaf",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "751,40PLN",
+      "skinPriceRange": "754,30PLN",
       "skinDisplayChance": "0,058%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c1/c1c7eee6dc8ffc158b59a1570d3a1bf2.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 751.4,
+        "price": 754.3,
         "range": [
           99925,
           99982
@@ -90,13 +90,13 @@
     {
       "skinName": "Dragon Tattoo",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "355,80PLN",
+      "skinPriceRange": "354,80PLN",
       "skinDisplayChance": "0,076%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7b/7b8cb604a702b915bc5a79de826e96d9.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 355.8,
+        "price": 354.8,
         "range": [
           99849,
           99924
@@ -107,13 +107,13 @@
     {
       "skinName": "Brass",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "39,15PLN",
+      "skinPriceRange": "39,25PLN",
       "skinDisplayChance": "0,009%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d4/d498c5b14eb498360d4ac3741763060b.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 39.15,
+        "price": 39.25,
         "range": [
           99818,
           99826
@@ -124,13 +124,13 @@
     {
       "skinName": "Nuclear Garden",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "16,65PLN - 19,40PLN",
+      "skinPriceRange": "16,60PLN - 19,30PLN",
       "skinDisplayChance": "1,459%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ef/ef1d119f837d098e56415164df35042a.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 19.4,
+        "price": 19.3,
         "range": [
           97071,
           97091
@@ -141,13 +141,13 @@
     {
       "skinName": "Nuclear Garden",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "16,65PLN - 19,40PLN",
+      "skinPriceRange": "16,60PLN - 19,30PLN",
       "skinDisplayChance": "1,459%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ef/ef1d119f837d098e56415164df35042a.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "BS",
-        "price": 16.65,
+        "price": 16.6,
         "range": [
           95633,
           97070
@@ -158,13 +158,13 @@
     {
       "skinName": "Steel Disruption",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "15,20PLN",
+      "skinPriceRange": "15,50PLN",
       "skinDisplayChance": "0,181%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c4/c4351f4b5092403569262e3e86c093b7.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 15.2,
+        "price": 15.5,
         "range": [
           95452,
           95632
@@ -175,13 +175,13 @@
     {
       "skinName": "Royal Legion",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "8,20PLN - 10,65PLN",
+      "skinPriceRange": "8,10PLN - 10,60PLN",
       "skinDisplayChance": "0,388%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3c/3cf2199b8d0c04d5bc22028a505bc36f.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 10.65,
+        "price": 10.6,
         "range": [
           95045,
           95250
@@ -192,13 +192,13 @@
     {
       "skinName": "Royal Legion",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "8,20PLN - 10,65PLN",
+      "skinPriceRange": "8,10PLN - 10,60PLN",
       "skinDisplayChance": "0,388%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3c/3cf2199b8d0c04d5bc22028a505bc36f.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 8.2,
+        "price": 8.1,
         "range": [
           93426,
           93607
@@ -209,13 +209,13 @@
     {
       "skinName": "Grinder",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "7,45PLN - 9,35PLN",
+      "skinPriceRange": "7,60PLN - 10,35PLN",
       "skinDisplayChance": "2,283%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e0/e0e383db98619438cff5c8bb9d9372cb.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 9.35,
+        "price": 10.35,
         "range": [
           93608,
           94415
@@ -226,13 +226,13 @@
     {
       "skinName": "Grinder",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "7,45PLN - 9,35PLN",
+      "skinPriceRange": "7,60PLN - 10,35PLN",
       "skinDisplayChance": "2,283%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e0/e0e383db98619438cff5c8bb9d9372cb.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 7.45,
+        "price": 7.6,
         "range": [
           91771,
           93245
@@ -243,13 +243,13 @@
     {
       "skinName": "Moonrise",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "3,35PLN - 6,40PLN",
+      "skinPriceRange": "3,45PLN - 6,50PLN",
       "skinDisplayChance": "4,927%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/34/34124c596cb0d872e7ad618a2bec45fb.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 6.4,
+        "price": 6.5,
         "range": [
           88145,
           88513
@@ -260,13 +260,13 @@
     {
       "skinName": "Moonrise",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "3,35PLN - 6,40PLN",
+      "skinPriceRange": "3,45PLN - 6,50PLN",
       "skinDisplayChance": "4,927%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/34/34124c596cb0d872e7ad618a2bec45fb.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 3.35,
+        "price": 3.45,
         "range": [
           71891,
           76448
@@ -311,13 +311,13 @@
     {
       "skinName": "Blue Fissure",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5,40PLN - 8,85PLN",
+      "skinPriceRange": "5,40PLN - 9,00PLN",
       "skinDisplayChance": "1,958%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4d/4d57f005de77d2fdec8a89b997a2db7d.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "WW",
-        "price": 8.85,
+        "price": 9,
         "range": [
           94416,
           95044
@@ -328,7 +328,7 @@
     {
       "skinName": "Blue Fissure",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5,40PLN - 8,85PLN",
+      "skinPriceRange": "5,40PLN - 9,00PLN",
       "skinDisplayChance": "1,958%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4d/4d57f005de77d2fdec8a89b997a2db7d.png",
       "skinRarity": "blue",
@@ -345,7 +345,7 @@
     {
       "skinName": "Blue Fissure",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5,40PLN - 8,85PLN",
+      "skinPriceRange": "5,40PLN - 9,00PLN",
       "skinDisplayChance": "1,958%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4d/4d57f005de77d2fdec8a89b997a2db7d.png",
       "skinRarity": "blue",
@@ -362,7 +362,7 @@
     {
       "skinName": "Blue Fissure",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5,40PLN - 8,85PLN",
+      "skinPriceRange": "5,40PLN - 9,00PLN",
       "skinDisplayChance": "1,958%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4d/4d57f005de77d2fdec8a89b997a2db7d.png",
       "skinRarity": "blue",
@@ -379,13 +379,13 @@
     {
       "skinName": "Sacrifice",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,70PLN - 7,05PLN",
+      "skinPriceRange": "0,70PLN - 7,00PLN",
       "skinDisplayChance": "8,333%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3a/3ae04c452136a653b8f00e40498fefd8.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FN",
-        "price": 7.05,
+        "price": 7,
         "range": [
           93246,
           93425
@@ -396,13 +396,13 @@
     {
       "skinName": "Sacrifice",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,70PLN - 7,05PLN",
+      "skinPriceRange": "0,70PLN - 7,00PLN",
       "skinDisplayChance": "8,333%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3a/3ae04c452136a653b8f00e40498fefd8.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "MW",
-        "price": 1.6,
+        "price": 1.7,
         "range": [
           43089,
           47850
@@ -413,7 +413,7 @@
     {
       "skinName": "Sacrifice",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,70PLN - 7,05PLN",
+      "skinPriceRange": "0,70PLN - 7,00PLN",
       "skinDisplayChance": "8,333%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3a/3ae04c452136a653b8f00e40498fefd8.png",
       "skinRarity": "blue",
@@ -430,13 +430,13 @@
     {
       "skinName": "Candy Apple",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5,40PLN - 6,80PLN",
+      "skinPriceRange": "5,45PLN - 6,90PLN",
       "skinDisplayChance": "3,868%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/31/31c8c94ec214f5ca1d766eb65522531c.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FN",
-        "price": 6.8,
+        "price": 6.9,
         "range": [
           91571,
           91770
@@ -447,13 +447,13 @@
     {
       "skinName": "Candy Apple",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "5,40PLN - 6,80PLN",
+      "skinPriceRange": "5,45PLN - 6,90PLN",
       "skinDisplayChance": "3,868%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/31/31c8c94ec214f5ca1d766eb65522531c.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "MW",
-        "price": 5.4,
+        "price": 5.45,
         "range": [
           79471,
           83138
@@ -464,13 +464,13 @@
     {
       "skinName": "Bunsen Burner",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,85PLN - 5,15PLN",
+      "skinPriceRange": "0,90PLN - 5,30PLN",
       "skinDisplayChance": "16,743%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d176645456b218c26927de1ef54d6d2.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FN",
-        "price": 5.15,
+        "price": 5.3,
         "range": [
           83139,
           87087
@@ -481,7 +481,7 @@
     {
       "skinName": "Bunsen Burner",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,85PLN - 5,15PLN",
+      "skinPriceRange": "0,90PLN - 5,30PLN",
       "skinDisplayChance": "16,743%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d176645456b218c26927de1ef54d6d2.png",
       "skinRarity": "blue",
@@ -498,7 +498,7 @@
     {
       "skinName": "Bunsen Burner",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,85PLN - 5,15PLN",
+      "skinPriceRange": "0,90PLN - 5,30PLN",
       "skinDisplayChance": "16,743%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d176645456b218c26927de1ef54d6d2.png",
       "skinRarity": "blue",
@@ -515,13 +515,13 @@
     {
       "skinName": "Bunsen Burner",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,85PLN - 5,15PLN",
+      "skinPriceRange": "0,90PLN - 5,30PLN",
       "skinDisplayChance": "16,743%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d176645456b218c26927de1ef54d6d2.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": 0.85,
+        "price": 0.9,
         "range": [
           11924,
           16116
@@ -532,7 +532,7 @@
     {
       "skinName": "Warhawk",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,95PLN - 3,80PLN",
+      "skinPriceRange": "0,90PLN - 3,80PLN",
       "skinDisplayChance": "10,959%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/eb/eb992217977459eb688f9b4f1964f619.png",
       "skinRarity": "blue",
@@ -549,7 +549,7 @@
     {
       "skinName": "Warhawk",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,95PLN - 3,80PLN",
+      "skinPriceRange": "0,90PLN - 3,80PLN",
       "skinDisplayChance": "10,959%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/eb/eb992217977459eb688f9b4f1964f619.png",
       "skinRarity": "blue",
@@ -566,13 +566,13 @@
     {
       "skinName": "Warhawk",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "0,95PLN - 3,80PLN",
+      "skinPriceRange": "0,90PLN - 3,80PLN",
       "skinDisplayChance": "10,959%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/eb/eb992217977459eb688f9b4f1964f619.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": 0.95,
+        "price": 0.9,
         "range": [
           16117,
           19862
@@ -702,13 +702,13 @@
     {
       "skinName": "Groundwater",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "24,60PLN",
+      "skinPriceRange": "24,30PLN",
       "skinDisplayChance": "2,474%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e9/e99b7421c069e1993adcf4c9ef6ca283.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "BS",
-        "price": 24.6,
+        "price": 24.3,
         "range": [
           97142,
           99615
@@ -719,13 +719,13 @@
     {
       "skinName": "Sand Dune",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "14,75PLN",
+      "skinPriceRange": "15,00PLN",
       "skinDisplayChance": "0,201%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c9/c97eedc0657596c602ae26e530ee6084.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "BS",
-        "price": 14.75,
+        "price": 15,
         "range": [
           95251,
           95451
@@ -736,13 +736,13 @@
     {
       "skinName": "Night",
       "skinWeapon": "Glock-18",
-      "skinPriceRange": "6,10PLN",
+      "skinPriceRange": "5,95PLN",
       "skinDisplayChance": "2,785%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/76/764569c1f87581baf231767188eefdda.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": 6.1,
+        "price": 5.95,
         "range": [
           88514,
           91298

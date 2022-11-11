@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { UserData } from '$lib';
+  import type { UserDataStore } from "$lib";
 
   function toggleDropdown() {
     document.getElementById('user-dropdown')!.classList.toggle('is-open');
   }
-  export let data: UserData;
+  export let data: UserDataStore;
 </script>
 
 <div class="h-16 flex items-center">
@@ -15,7 +15,7 @@
           <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
           PORTFEL:
           <span class="text-gold font-semibold text-sm md:text-xs">
-            {data.balance.toFixed(2)}zł
+            {data.balance.toFixed(2)} PLN
           </span>
         </span>
       </div>

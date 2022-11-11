@@ -22,13 +22,13 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "5560,15PLN",
+      "skinPriceRange": "5590,20PLN",
       "skinDisplayChance": "0,147%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/58/58c08a9a2c319456d5f498dc06d126ae.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 5560.15,
+        "price": 5590.2,
         "range": [
           99324,
           99470
@@ -39,13 +39,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Nomad Knife",
-      "skinPriceRange": "4786,95PLN",
+      "skinPriceRange": "4845,35PLN",
       "skinDisplayChance": "0,153%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3d/3dfa69a439102a7a42f9d8addbffb4ce.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 4786.95,
+        "price": 4845.35,
         "range": [
           98911,
           99063
@@ -56,13 +56,13 @@
     {
       "skinName": "Slaughter",
       "skinWeapon": "M9 Bayonet",
-      "skinPriceRange": "4764,60PLN",
+      "skinPriceRange": "4739,95PLN",
       "skinDisplayChance": "0,118%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/7c/7ca4e362104f1cd7cad02225340f7664.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 4764.6,
+        "price": 4739.95,
         "range": [
           99206,
           99323
@@ -73,13 +73,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "4511,95PLN",
+      "skinPriceRange": "4462,55PLN",
       "skinDisplayChance": "0,138%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/fc/fc14e06e4f2df1407f7080b3a18b9091.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 4511.95,
+        "price": 4462.55,
         "range": [
           98773,
           98910
@@ -90,13 +90,13 @@
     {
       "skinName": "Marble Fade",
       "skinWeapon": "Talon Knife",
-      "skinPriceRange": "4405,95PLN",
+      "skinPriceRange": "4411,50PLN",
       "skinDisplayChance": "0,142%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9c/9c1f6525a7e8bb167c0ed074ed63c9da.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 4405.95,
+        "price": 4411.5,
         "range": [
           99064,
           99205
@@ -107,13 +107,13 @@
     {
       "skinName": "",
       "skinWeapon": "Skeleton Knife",
-      "skinPriceRange": "3698,50PLN",
+      "skinPriceRange": "3688,05PLN",
       "skinDisplayChance": "0,153%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d2/d201f6a7c12343908bdca8c559be4a1e.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "",
-        "price": 3698.5,
+        "price": 3688.05,
         "range": [
           98620,
           98772
@@ -124,13 +124,13 @@
     {
       "skinName": "Amphibious",
       "skinWeapon": "Sport Gloves",
-      "skinPriceRange": "2455,25PLN",
+      "skinPriceRange": "2463,75PLN",
       "skinDisplayChance": "0,138%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c0/c08275849c877832e3b76e2e680ccbd1.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 2455.25,
+        "price": 2463.75,
         "range": [
           98472,
           98609
@@ -141,13 +141,13 @@
     {
       "skinName": "Tiger Tooth",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "1505,10PLN - 1743,55PLN",
+      "skinPriceRange": "1506,55PLN - 1740,15PLN",
       "skinDisplayChance": "1,496%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ed/ed330246308cecb86cd9a43db77ab564.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 1743.55,
+        "price": 1740.15,
         "range": [
           97401,
           98201
@@ -158,13 +158,13 @@
     {
       "skinName": "Tiger Tooth",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "1505,10PLN - 1743,55PLN",
+      "skinPriceRange": "1506,55PLN - 1740,15PLN",
       "skinDisplayChance": "1,496%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ed/ed330246308cecb86cd9a43db77ab564.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 1505.1,
+        "price": 1506.55,
         "range": [
           94543,
           95237
@@ -173,32 +173,15 @@
       }
     },
     {
-      "skinName": "Doppler",
-      "skinWeapon": "Flip Knife",
-      "skinPriceRange": "1660,35PLN",
-      "skinDisplayChance": "0,205%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/76/76d921b4ebe166e6b3ebfc569cc585f6.png",
-      "skinRarity": "gold",
-      "dropDetails": {
-        "quality": "FN",
-        "price": 1660.35,
-        "range": [
-          97196,
-          97400
-        ],
-        "odds": "0,205%"
-      }
-    },
-    {
       "skinName": "Lore",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "556,05PLN - 1614,70PLN",
+      "skinPriceRange": "554,25PLN - 1630,35PLN",
       "skinDisplayChance": "19,834%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 1614.7,
+        "price": 1630.35,
         "range": [
           98202,
           98339
@@ -209,13 +192,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "556,05PLN - 1614,70PLN",
+      "skinPriceRange": "554,25PLN - 1630,35PLN",
       "skinDisplayChance": "19,834%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 711.5,
+        "price": 717.1,
         "range": [
           68537,
           68904
@@ -226,13 +209,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "556,05PLN - 1614,70PLN",
+      "skinPriceRange": "554,25PLN - 1630,35PLN",
       "skinDisplayChance": "19,834%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/e4/e4d893e9c89995643a129a104b832ba8.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 556.05,
+        "price": 554.25,
         "range": [
           34421,
           53748
@@ -243,13 +226,13 @@
     {
       "skinName": "Autotronic",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "1176,30PLN - 1491,40PLN",
+      "skinPriceRange": "1195,00PLN - 1568,20PLN",
       "skinDisplayChance": "9,180%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/27/27928df175fc90b38e7539e1fc8d8f04.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 1491.4,
+        "price": 1568.2,
         "range": [
           95238,
           97195
@@ -260,13 +243,13 @@
     {
       "skinName": "Autotronic",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "1176,30PLN - 1491,40PLN",
+      "skinPriceRange": "1195,00PLN - 1568,20PLN",
       "skinDisplayChance": "9,180%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/27/27928df175fc90b38e7539e1fc8d8f04.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 1176.3,
+        "price": 1195,
         "range": [
           86465,
           93686
@@ -275,15 +258,32 @@
       }
     },
     {
+      "skinName": "Doppler",
+      "skinWeapon": "Flip Knife",
+      "skinPriceRange": "1528,95PLN",
+      "skinDisplayChance": "0,205%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/76/76d921b4ebe166e6b3ebfc569cc585f6.png",
+      "skinRarity": "gold",
+      "dropDetails": {
+        "quality": "FN",
+        "price": 1528.95,
+        "range": [
+          97196,
+          97400
+        ],
+        "odds": "0,205%"
+      }
+    },
+    {
       "skinName": "Fade",
       "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "825,30PLN - 1400,70PLN",
+      "skinPriceRange": "814,75PLN - 1383,15PLN",
       "skinDisplayChance": "0,511%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": 1400.7,
+        "price": 1383.15,
         "range": [
           94390,
           94542
@@ -294,13 +294,13 @@
     {
       "skinName": "Fade",
       "skinWeapon": "Specialist Gloves",
-      "skinPriceRange": "825,30PLN - 1400,70PLN",
+      "skinPriceRange": "814,75PLN - 1383,15PLN",
       "skinDisplayChance": "0,511%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/c7/c7df1b1c3fb399497be43e1b05bd6bfc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 825.3,
+        "price": 814.75,
         "range": [
           69615,
           69972
@@ -311,13 +311,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Classic Knife",
-      "skinPriceRange": "861,35PLN - 1262,45PLN",
+      "skinPriceRange": "854,80PLN - 1270,75PLN",
       "skinDisplayChance": "10,276%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/34/34875010fb474bd669764e06f8ff9de1.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 1262.45,
+        "price": 1270.75,
         "range": [
           93687,
           94189
@@ -328,13 +328,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Classic Knife",
-      "skinPriceRange": "861,35PLN - 1262,45PLN",
+      "skinPriceRange": "854,80PLN - 1270,75PLN",
       "skinDisplayChance": "10,276%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/34/34875010fb474bd669764e06f8ff9de1.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 954.95,
+        "price": 976,
         "range": [
           69973,
           79501
@@ -345,13 +345,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "Classic Knife",
-      "skinPriceRange": "861,35PLN - 1262,45PLN",
+      "skinPriceRange": "854,80PLN - 1270,75PLN",
       "skinDisplayChance": "10,276%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/34/34875010fb474bd669764e06f8ff9de1.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "WW",
-        "price": 861.35,
+        "price": 854.8,
         "range": [
           69371,
           69614
@@ -362,13 +362,13 @@
     {
       "skinName": "Tiger Tooth",
       "skinWeapon": "Bowie Knife",
-      "skinPriceRange": "966,95PLN",
+      "skinPriceRange": "950,25PLN",
       "skinDisplayChance": "6,963%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/bb/bb302a76b4d5e6232f0e60bdf32633a8.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 966.95,
+        "price": 950.25,
         "range": [
           79502,
           86464
@@ -379,13 +379,13 @@
     {
       "skinName": "Autotronic",
       "skinWeapon": "Gut Knife",
-      "skinPriceRange": "603,55PLN - 801,35PLN",
+      "skinPriceRange": "601,30PLN - 802,45PLN",
       "skinDisplayChance": "11,201%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b4/b4a1832cf10e0c8b43fc32ac7d03dc03.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "MW",
-        "price": 801.35,
+        "price": 802.45,
         "range": [
           69068,
           69370
@@ -396,13 +396,13 @@
     {
       "skinName": "Autotronic",
       "skinWeapon": "Gut Knife",
-      "skinPriceRange": "603,55PLN - 801,35PLN",
+      "skinPriceRange": "601,30PLN - 802,45PLN",
       "skinDisplayChance": "11,201%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b4/b4a1832cf10e0c8b43fc32ac7d03dc03.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 667.55,
+        "price": 669.55,
         "range": [
           60394,
           64646
@@ -413,13 +413,13 @@
     {
       "skinName": "Autotronic",
       "skinWeapon": "Gut Knife",
-      "skinPriceRange": "603,55PLN - 801,35PLN",
+      "skinPriceRange": "601,30PLN - 802,45PLN",
       "skinDisplayChance": "11,201%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/b4/b4a1832cf10e0c8b43fc32ac7d03dc03.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "BS",
-        "price": 603.55,
+        "price": 601.3,
         "range": [
           53749,
           60393
@@ -430,13 +430,13 @@
     {
       "skinName": "Bright Water",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "382,75PLN - 422,15PLN",
+      "skinPriceRange": "383,05PLN - 421,25PLN",
       "skinDisplayChance": "24,928%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cbaac2f54e905aa336cbfe6cd9c195d.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 422.15,
+        "price": 421.25,
         "range": [
           23601,
           24928
@@ -447,13 +447,13 @@
     {
       "skinName": "Bright Water",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "382,75PLN - 422,15PLN",
+      "skinPriceRange": "383,05PLN - 421,25PLN",
       "skinDisplayChance": "24,928%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cbaac2f54e905aa336cbfe6cd9c195d.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 382.75,
+        "price": 383.05,
         "range": [
           1,
           23600
@@ -498,13 +498,13 @@
     {
       "skinName": "Lightning Strike",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2527,70PLN - 2898,15PLN",
+      "skinPriceRange": "2516,30PLN - 2961,60PLN",
       "skinDisplayChance": "0,142%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1a/1a738fb5cc1b0db8b40e263a7ff78e9b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": 2898.15,
+        "price": 2961.6,
         "range": [
           98610,
           98619
@@ -515,13 +515,13 @@
     {
       "skinName": "Lightning Strike",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2527,70PLN - 2898,15PLN",
+      "skinPriceRange": "2516,30PLN - 2961,60PLN",
       "skinDisplayChance": "0,142%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1a/1a738fb5cc1b0db8b40e263a7ff78e9b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FN",
-        "price": 2527.7,
+        "price": 2516.3,
         "range": [
           98340,
           98471
@@ -532,13 +532,13 @@
     {
       "skinName": "Akihabara Accept",
       "skinWeapon": "AUG",
-      "skinPriceRange": "1454,95PLN",
+      "skinPriceRange": "1445,75PLN",
       "skinDisplayChance": "0,200%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/33/3335c7669097deaa40c746aeab835d80.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 1454.95,
+        "price": 1445.75,
         "range": [
           94190,
           94389
@@ -566,13 +566,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "551,55PLN - 794,55PLN",
+      "skinPriceRange": "549,05PLN - 794,75PLN",
       "skinDisplayChance": "13,545%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f8/f8645c53d70bd0f879a017f9ff2ab427.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 794.55,
+        "price": 794.75,
         "range": [
           68905,
           69067
@@ -583,13 +583,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "551,55PLN - 794,55PLN",
+      "skinPriceRange": "549,05PLN - 794,75PLN",
       "skinDisplayChance": "13,545%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f8/f8645c53d70bd0f879a017f9ff2ab427.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "WW",
-        "price": 648.9,
+        "price": 645.95,
         "range": [
           64647,
           68536
@@ -600,13 +600,13 @@
     {
       "skinName": "Case Hardened",
       "skinWeapon": "AK-47",
-      "skinPriceRange": "551,55PLN - 794,55PLN",
+      "skinPriceRange": "549,05PLN - 794,75PLN",
       "skinDisplayChance": "13,545%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f8/f8645c53d70bd0f879a017f9ff2ab427.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 551.55,
+        "price": 549.05,
         "range": [
           24929,
           34420

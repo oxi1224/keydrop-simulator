@@ -27,6 +27,31 @@
     }
   },
   "limited-edition": {
+    "SONIC": {
+      "price": 7.5,
+      "imgName": "SONIC.webp",
+      "href": "/skins/category/sonic"
+    },
+    "DYNAMIC": {
+      "price": 65,
+      "imgName": "DYNAMIC.webp",
+      "href": "/skins/category/dynamic"
+    },
+    "GLOW": {
+      "price": 125,
+      "imgName": "GLOW.webp",
+      "href": "/skins/category/glow"
+    },
+    "STREET": {
+      "price": 30,
+      "imgName": "MATCH.webp",
+      "href": "/skins/category/street"
+    },
+    "BLINK": {
+      "price": 20,
+      "imgName": "BLINK.webp",
+      "href": "/skins/category/blink"
+    },
     "DING": {
       "price": 6,
       "imgName": "DING1.webp",

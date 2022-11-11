@@ -39,13 +39,13 @@
     {
       "skinName": "Lightning Strike",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2898,15PLN",
+      "skinPriceRange": "2961,60PLN",
       "skinDisplayChance": "0,022%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/1a/1a738fb5cc1b0db8b40e263a7ff78e9b.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "MW",
-        "price": 2898.15,
+        "price": 2961.6,
         "range": [
           99967,
           99988
@@ -56,13 +56,13 @@
     {
       "skinName": "Oni Taiji",
       "skinWeapon": "AWP",
-      "skinPriceRange": "1447,50PLN",
+      "skinPriceRange": "1472,65PLN",
       "skinDisplayChance": "0,056%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/5f/5f5c9d9d29b57fb80707925d39519dc9.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 1447.5,
+        "price": 1472.65,
         "range": [
           99911,
           99966
@@ -73,13 +73,13 @@
     {
       "skinName": "Asiimov",
       "skinWeapon": "AWP",
-      "skinPriceRange": "322,45PLN",
+      "skinPriceRange": "323,85PLN",
       "skinDisplayChance": "0,056%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/18/188d1e4b8c1eada48b28aa58944a8fb2.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 322.45,
+        "price": 323.85,
         "range": [
           99605,
           99660
@@ -90,13 +90,13 @@
     {
       "skinName": "Wildfire",
       "skinWeapon": "AWP",
-      "skinPriceRange": "263,55PLN",
+      "skinPriceRange": "267,80PLN",
       "skinDisplayChance": "0,149%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d6/d607971687111038146824ecba50f183.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "FT",
-        "price": 263.55,
+        "price": 267.8,
         "range": [
           99456,
           99604
@@ -107,13 +107,13 @@
     {
       "skinName": "Neo-Noir",
       "skinWeapon": "AWP",
-      "skinPriceRange": "131,05PLN",
+      "skinPriceRange": "131,85PLN",
       "skinDisplayChance": "0,304%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d0/d0ed1c35d8364d8542e62f419c4c9985.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "BS",
-        "price": 131.05,
+        "price": 131.85,
         "range": [
           98976,
           99279
@@ -124,13 +124,13 @@
     {
       "skinName": "Hyper Beast",
       "skinWeapon": "AWP",
-      "skinPriceRange": "126,45PLN",
+      "skinPriceRange": "127,65PLN",
       "skinDisplayChance": "0,183%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/29/2918085b1d0cf19e3f27f2a1586b5c72.png",
       "skinRarity": "red",
       "dropDetails": {
         "quality": "WW",
-        "price": 126.45,
+        "price": 127.65,
         "range": [
           98793,
           98975
@@ -141,13 +141,13 @@
     {
       "skinName": "Graphite",
       "skinWeapon": "AWP",
-      "skinPriceRange": "869,50PLN",
+      "skinPriceRange": "871,15PLN",
       "skinDisplayChance": "0,043%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/65/65767ca0ac37192ec79c589d45c0ec6e.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FN",
-        "price": 869.5,
+        "price": 871.15,
         "range": [
           99868,
           99910
@@ -158,13 +158,13 @@
     {
       "skinName": "BOOM",
       "skinWeapon": "AWP",
-      "skinPriceRange": "334,30PLN",
+      "skinPriceRange": "333,05PLN",
       "skinDisplayChance": "0,141%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ac/aced9bc29d01e6c3ac882fb538329725.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 334.3,
+        "price": 333.05,
         "range": [
           99661,
           99801
@@ -175,13 +175,13 @@
     {
       "skinName": "Redline",
       "skinWeapon": "AWP",
-      "skinPriceRange": "213,20PLN",
+      "skinPriceRange": "215,45PLN",
       "skinDisplayChance": "0,118%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/ca/ca3a973ae8755cab0aa346fe0038cf90.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "WW",
-        "price": 213.2,
+        "price": 215.45,
         "range": [
           99280,
           99397
@@ -192,13 +192,13 @@
     {
       "skinName": "Electric Hive",
       "skinWeapon": "AWP",
-      "skinPriceRange": "207,25PLN",
+      "skinPriceRange": "207,55PLN",
       "skinDisplayChance": "0,058%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3d/3d12a07b10777c7678843fc4b75d3a9a.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 207.25,
+        "price": 207.55,
         "range": [
           99398,
           99455
@@ -209,13 +209,13 @@
     {
       "skinName": "Corticera",
       "skinWeapon": "AWP",
-      "skinPriceRange": "73,65PLN - 77,90PLN",
+      "skinPriceRange": "74,10PLN - 78,50PLN",
       "skinDisplayChance": "0,649%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/26/269a186fe71fd9370082c06169f6d021.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 77.9,
+        "price": 78.5,
         "range": [
           98359,
           98687
@@ -226,13 +226,13 @@
     {
       "skinName": "Corticera",
       "skinWeapon": "AWP",
-      "skinPriceRange": "73,65PLN - 77,90PLN",
+      "skinPriceRange": "74,10PLN - 78,50PLN",
       "skinDisplayChance": "0,649%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/26/269a186fe71fd9370082c06169f6d021.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 73.65,
+        "price": 74.1,
         "range": [
           98012,
           98331
@@ -243,13 +243,13 @@
     {
       "skinName": "Elite Build",
       "skinWeapon": "AWP",
-      "skinPriceRange": "48,30PLN - 54,05PLN",
+      "skinPriceRange": "48,50PLN - 53,30PLN",
       "skinDisplayChance": "0,572%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d1/d110958b892195f45ce2980be0c34a67.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 54.05,
+        "price": 53.3,
         "range": [
           97747,
           97959
@@ -260,13 +260,13 @@
     {
       "skinName": "Elite Build",
       "skinWeapon": "AWP",
-      "skinPriceRange": "48,30PLN - 54,05PLN",
+      "skinPriceRange": "48,50PLN - 53,30PLN",
       "skinDisplayChance": "0,572%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/d1/d110958b892195f45ce2980be0c34a67.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 48.3,
+        "price": 48.5,
         "range": [
           97388,
           97746
@@ -277,13 +277,13 @@
     {
       "skinName": "Fever Dream",
       "skinWeapon": "AWP",
-      "skinPriceRange": "37,05PLN - 46,65PLN",
+      "skinPriceRange": "37,15PLN - 46,35PLN",
       "skinDisplayChance": "4,870%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/11/118a61f01246404eee2e2b30098378e7.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 46.65,
+        "price": 46.35,
         "range": [
           96090,
           97387
@@ -294,13 +294,13 @@
     {
       "skinName": "Fever Dream",
       "skinWeapon": "AWP",
-      "skinPriceRange": "37,05PLN - 46,65PLN",
+      "skinPriceRange": "37,15PLN - 46,35PLN",
       "skinDisplayChance": "4,870%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/11/118a61f01246404eee2e2b30098378e7.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 38.4,
+        "price": 38.85,
         "range": [
           92518,
           94086
@@ -311,13 +311,13 @@
     {
       "skinName": "Fever Dream",
       "skinWeapon": "AWP",
-      "skinPriceRange": "37,05PLN - 46,65PLN",
+      "skinPriceRange": "37,15PLN - 46,35PLN",
       "skinDisplayChance": "4,870%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/11/118a61f01246404eee2e2b30098378e7.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "BS",
-        "price": 37.05,
+        "price": 37.15,
         "range": [
           94087,
           96089
@@ -328,13 +328,13 @@
     {
       "skinName": "Mortis",
       "skinWeapon": "AWP",
-      "skinPriceRange": "8,95PLN - 16,25PLN",
+      "skinPriceRange": "9,15PLN - 16,35PLN",
       "skinDisplayChance": "10,465%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d1b6d9bfe335a47780ef6595c38ad43.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "MW",
-        "price": 16.25,
+        "price": 16.35,
         "range": [
           91240,
           91440
@@ -345,13 +345,13 @@
     {
       "skinName": "Mortis",
       "skinWeapon": "AWP",
-      "skinPriceRange": "8,95PLN - 16,25PLN",
+      "skinPriceRange": "9,15PLN - 16,35PLN",
       "skinDisplayChance": "10,465%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d1b6d9bfe335a47780ef6595c38ad43.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "WW",
-        "price": 13.3,
+        "price": 13.15,
         "range": [
           86024,
           88984
@@ -362,30 +362,13 @@
     {
       "skinName": "Mortis",
       "skinWeapon": "AWP",
-      "skinPriceRange": "8,95PLN - 16,25PLN",
-      "skinDisplayChance": "10,465%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d1b6d9bfe335a47780ef6595c38ad43.png",
-      "skinRarity": "pink",
-      "dropDetails": {
-        "quality": "BS",
-        "price": 9.2,
-        "range": [
-          69160,
-          73237
-        ],
-        "odds": "4,078%"
-      }
-    },
-    {
-      "skinName": "Mortis",
-      "skinWeapon": "AWP",
-      "skinPriceRange": "8,95PLN - 16,25PLN",
+      "skinPriceRange": "9,15PLN - 16,35PLN",
       "skinDisplayChance": "10,465%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d1b6d9bfe335a47780ef6595c38ad43.png",
       "skinRarity": "pink",
       "dropDetails": {
         "quality": "FT",
-        "price": 8.95,
+        "price": 9.25,
         "range": [
           65935,
           69159
@@ -394,15 +377,32 @@
       }
     },
     {
+      "skinName": "Mortis",
+      "skinWeapon": "AWP",
+      "skinPriceRange": "9,15PLN - 16,35PLN",
+      "skinDisplayChance": "10,465%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9d/9d1b6d9bfe335a47780ef6595c38ad43.png",
+      "skinRarity": "pink",
+      "dropDetails": {
+        "quality": "BS",
+        "price": 9.15,
+        "range": [
+          69160,
+          73237
+        ],
+        "odds": "4,078%"
+      }
+    },
+    {
       "skinName": "Pink DDPAT",
       "skinWeapon": "AWP",
-      "skinPriceRange": "110,75PLN",
+      "skinPriceRange": "110,60PLN",
       "skinDisplayChance": "0,105%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/39/39ab24f8b128c66436ae40ae95df610b.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 110.75,
+        "price": 110.6,
         "range": [
           98688,
           98792
@@ -436,7 +436,7 @@
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "BS",
-        "price": 9.4,
+        "price": 9.65,
         "range": [
           58941,
           63207
@@ -464,13 +464,13 @@
     {
       "skinName": "Atheris",
       "skinWeapon": "AWP",
-      "skinPriceRange": "10,40PLN - 15,05PLN",
+      "skinPriceRange": "10,50PLN - 14,65PLN",
       "skinDisplayChance": "11,828%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/69/696a881f394ce542a27b0467e125d2b6.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 15.05,
+        "price": 14.65,
         "range": [
           89291,
           91239
@@ -481,7 +481,7 @@
     {
       "skinName": "Atheris",
       "skinWeapon": "AWP",
-      "skinPriceRange": "10,40PLN - 15,05PLN",
+      "skinPriceRange": "10,50PLN - 14,65PLN",
       "skinDisplayChance": "11,828%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/69/696a881f394ce542a27b0467e125d2b6.png",
       "skinRarity": "violet",
@@ -498,13 +498,13 @@
     {
       "skinName": "Atheris",
       "skinWeapon": "AWP",
-      "skinPriceRange": "10,40PLN - 15,05PLN",
+      "skinPriceRange": "10,50PLN - 14,65PLN",
       "skinDisplayChance": "11,828%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/69/696a881f394ce542a27b0467e125d2b6.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "BS",
-        "price": 10.4,
+        "price": 10.5,
         "range": [
           73238,
           78240
@@ -515,13 +515,13 @@
     {
       "skinName": "Worm God",
       "skinWeapon": "AWP",
-      "skinPriceRange": "7,10PLN - 13,40PLN",
+      "skinPriceRange": "7,25PLN - 13,55PLN",
       "skinDisplayChance": "11,600%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/35/35f3aa852163b8fa6802f13855441005.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 13.4,
+        "price": 13.55,
         "range": [
           83117,
           86023
@@ -532,13 +532,13 @@
     {
       "skinName": "Worm God",
       "skinWeapon": "AWP",
-      "skinPriceRange": "7,10PLN - 13,40PLN",
+      "skinPriceRange": "7,25PLN - 13,55PLN",
       "skinDisplayChance": "11,600%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/35/35f3aa852163b8fa6802f13855441005.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 8.55,
+        "price": 8.65,
         "range": [
           49086,
           51285
@@ -549,13 +549,13 @@
     {
       "skinName": "Worm God",
       "skinWeapon": "AWP",
-      "skinPriceRange": "7,10PLN - 13,40PLN",
+      "skinPriceRange": "7,25PLN - 13,55PLN",
       "skinDisplayChance": "11,600%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/35/35f3aa852163b8fa6802f13855441005.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "WW",
-        "price": 7.35,
+        "price": 7.9,
         "range": [
           45992,
           49085
@@ -566,13 +566,13 @@
     {
       "skinName": "Worm God",
       "skinWeapon": "AWP",
-      "skinPriceRange": "7,10PLN - 13,40PLN",
+      "skinPriceRange": "7,25PLN - 13,55PLN",
       "skinDisplayChance": "11,600%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/35/35f3aa852163b8fa6802f13855441005.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FT",
-        "price": 7.1,
+        "price": 7.25,
         "range": [
           42593,
           45991
@@ -583,13 +583,13 @@
     {
       "skinName": "Phobos",
       "skinWeapon": "AWP",
-      "skinPriceRange": "5,80PLN - 9,40PLN",
+      "skinPriceRange": "5,80PLN - 9,55PLN",
       "skinDisplayChance": "10,979%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48471cbd7fd519b07fc0ddfaa68d1ea2.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "FN",
-        "price": 9.4,
+        "price": 9.55,
         "range": [
           63208,
           65934
@@ -600,13 +600,13 @@
     {
       "skinName": "Phobos",
       "skinWeapon": "AWP",
-      "skinPriceRange": "5,80PLN - 9,40PLN",
+      "skinPriceRange": "5,80PLN - 9,55PLN",
       "skinDisplayChance": "10,979%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48471cbd7fd519b07fc0ddfaa68d1ea2.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 6.1,
+        "price": 6.15,
         "range": [
           38308,
           42592
@@ -617,7 +617,7 @@
     {
       "skinName": "Phobos",
       "skinWeapon": "AWP",
-      "skinPriceRange": "5,80PLN - 9,40PLN",
+      "skinPriceRange": "5,80PLN - 9,55PLN",
       "skinDisplayChance": "10,979%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48471cbd7fd519b07fc0ddfaa68d1ea2.png",
       "skinRarity": "violet",
@@ -634,13 +634,13 @@
     {
       "skinName": "Pit Viper",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2,25PLN - 3,80PLN",
+      "skinPriceRange": "2,25PLN - 4,00PLN",
       "skinDisplayChance": "11,136%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f665d658ac87fb8b883bac43085720e.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "MW",
-        "price": 3.8,
+        "price": 4,
         "range": [
           17885,
           21939
@@ -651,13 +651,13 @@
     {
       "skinName": "Pit Viper",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2,25PLN - 3,80PLN",
+      "skinPriceRange": "2,25PLN - 4,00PLN",
       "skinDisplayChance": "11,136%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f665d658ac87fb8b883bac43085720e.png",
       "skinRarity": "violet",
       "dropDetails": {
         "quality": "BS",
-        "price": 3.65,
+        "price": 3.7,
         "range": [
           21940,
           26097
@@ -668,7 +668,7 @@
     {
       "skinName": "Pit Viper",
       "skinWeapon": "AWP",
-      "skinPriceRange": "2,25PLN - 3,80PLN",
+      "skinPriceRange": "2,25PLN - 4,00PLN",
       "skinDisplayChance": "11,136%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2f/2f665d658ac87fb8b883bac43085720e.png",
       "skinRarity": "violet",
@@ -702,13 +702,13 @@
     {
       "skinName": "Acheron",
       "skinWeapon": "AWP",
-      "skinPriceRange": "4,30PLN - 7,85PLN",
+      "skinPriceRange": "4,45PLN - 8,00PLN",
       "skinDisplayChance": "10,709%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48127b5661f46a2307d6bd2398f6a167.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "WW",
-        "price": 7.85,
+        "price": 8,
         "range": [
           51286,
           53751
@@ -719,30 +719,13 @@
     {
       "skinName": "Acheron",
       "skinWeapon": "AWP",
-      "skinPriceRange": "4,30PLN - 7,85PLN",
-      "skinDisplayChance": "10,709%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48127b5661f46a2307d6bd2398f6a167.png",
-      "skinRarity": "blue",
-      "dropDetails": {
-        "quality": "FT",
-        "price": 4.4,
-        "range": [
-          30909,
-          34340
-        ],
-        "odds": "3,432%"
-      }
-    },
-    {
-      "skinName": "Acheron",
-      "skinWeapon": "AWP",
-      "skinPriceRange": "4,30PLN - 7,85PLN",
+      "skinPriceRange": "4,45PLN - 8,00PLN",
       "skinDisplayChance": "10,709%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48127b5661f46a2307d6bd2398f6a167.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "BS",
-        "price": 4.3,
+        "price": 4.55,
         "range": [
           26098,
           30908
@@ -751,15 +734,32 @@
       }
     },
     {
+      "skinName": "Acheron",
+      "skinWeapon": "AWP",
+      "skinPriceRange": "4,45PLN - 8,00PLN",
+      "skinDisplayChance": "10,709%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/48/48127b5661f46a2307d6bd2398f6a167.png",
+      "skinRarity": "blue",
+      "dropDetails": {
+        "quality": "FT",
+        "price": 4.45,
+        "range": [
+          30909,
+          34340
+        ],
+        "odds": "3,432%"
+      }
+    },
+    {
       "skinName": "Sun in Leo",
       "skinWeapon": "AWP",
-      "skinPriceRange": "67,25PLN - 72,00PLN",
+      "skinPriceRange": "67,15PLN - 71,60PLN",
       "skinDisplayChance": "0,079%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/86/86e631e4e02dac94fc9c9673edc986ff.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "BS",
-        "price": 72,
+        "price": 71.6,
         "range": [
           98332,
           98358
@@ -770,13 +770,13 @@
     {
       "skinName": "Sun in Leo",
       "skinWeapon": "AWP",
-      "skinPriceRange": "67,25PLN - 72,00PLN",
+      "skinPriceRange": "67,15PLN - 71,60PLN",
       "skinDisplayChance": "0,079%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/86/86e631e4e02dac94fc9c9673edc986ff.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "WW",
-        "price": 71.5,
+        "price": 70.8,
         "range": [
           97989,
           98011
@@ -787,13 +787,13 @@
     {
       "skinName": "Sun in Leo",
       "skinWeapon": "AWP",
-      "skinPriceRange": "67,25PLN - 72,00PLN",
+      "skinPriceRange": "67,15PLN - 71,60PLN",
       "skinDisplayChance": "0,079%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/86/86e631e4e02dac94fc9c9673edc986ff.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FT",
-        "price": 67.25,
+        "price": 67.15,
         "range": [
           97960,
           97988
@@ -804,13 +804,13 @@
     {
       "skinName": "Safari Mesh",
       "skinWeapon": "AWP",
-      "skinPriceRange": "0,60PLN - 13,10PLN",
+      "skinPriceRange": "0,60PLN - 13,20PLN",
       "skinDisplayChance": "15,267%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/65/657652af14b833f772b825490cad9bec.png",
       "skinRarity": "blue",
       "dropDetails": {
         "quality": "FN",
-        "price": 13.1,
+        "price": 13.2,
         "range": [
           88985,
           89290
@@ -821,7 +821,7 @@
     {
       "skinName": "Safari Mesh",
       "skinWeapon": "AWP",
-      "skinPriceRange": "0,60PLN - 13,10PLN",
+      "skinPriceRange": "0,60PLN - 13,20PLN",
       "skinDisplayChance": "15,267%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/65/657652af14b833f772b825490cad9bec.png",
       "skinRarity": "blue",
@@ -838,7 +838,7 @@
     {
       "skinName": "Safari Mesh",
       "skinWeapon": "AWP",
-      "skinPriceRange": "0,60PLN - 13,10PLN",
+      "skinPriceRange": "0,60PLN - 13,20PLN",
       "skinDisplayChance": "15,267%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/65/657652af14b833f772b825490cad9bec.png",
       "skinRarity": "blue",
@@ -855,7 +855,7 @@
     {
       "skinName": "Safari Mesh",
       "skinWeapon": "AWP",
-      "skinPriceRange": "0,60PLN - 13,10PLN",
+      "skinPriceRange": "0,60PLN - 13,20PLN",
       "skinDisplayChance": "15,267%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/65/657652af14b833f772b825490cad9bec.png",
       "skinRarity": "blue",
@@ -872,7 +872,7 @@
     {
       "skinName": "Safari Mesh",
       "skinWeapon": "AWP",
-      "skinPriceRange": "0,60PLN - 13,10PLN",
+      "skinPriceRange": "0,60PLN - 13,20PLN",
       "skinDisplayChance": "15,267%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/65/657652af14b833f772b825490cad9bec.png",
       "skinRarity": "blue",

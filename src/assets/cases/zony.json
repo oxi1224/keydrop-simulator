@@ -5,13 +5,13 @@
     {
       "skinName": "Lore",
       "skinWeapon": "Karambit",
-      "skinPriceRange": "4511,95PLN",
+      "skinPriceRange": "4462,55PLN",
       "skinDisplayChance": "0,100%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/fc/fc14e06e4f2df1407f7080b3a18b9091.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 4511.95,
+        "price": 4462.55,
         "range": [
           99901,
           100000
@@ -22,13 +22,13 @@
     {
       "skinName": "Gamma Doppler",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "3075,25PLN",
+      "skinPriceRange": "3032,90PLN",
       "skinDisplayChance": "0,100%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8b/8b6397ae8e60e9999d1e36dd4db5a817.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 3075.25,
+        "price": 3032.9,
         "range": [
           99801,
           99900
@@ -39,13 +39,13 @@
     {
       "skinName": "Autotronic",
       "skinWeapon": "Bayonet",
-      "skinPriceRange": "2569,80PLN",
+      "skinPriceRange": "2653,85PLN",
       "skinDisplayChance": "0,110%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/82/820b8c56fdede3545ceaac68d63f158b.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 2569.8,
+        "price": 2653.85,
         "range": [
           99691,
           99800
@@ -56,13 +56,13 @@
     {
       "skinName": "Bright Water",
       "skinWeapon": "Flip Knife",
-      "skinPriceRange": "834,50PLN",
+      "skinPriceRange": "835,25PLN",
       "skinDisplayChance": "0,120%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/8a/8ae255f0388c01467659a8e4ba531157.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 834.5,
+        "price": 835.25,
         "range": [
           99571,
           99690
@@ -73,13 +73,13 @@
     {
       "skinName": "Tiger Tooth",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "591,25PLN",
+      "skinPriceRange": "588,95PLN",
       "skinDisplayChance": "0,430%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/3e/3e0844548da4f60a027c3451e87d92bc.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 591.25,
+        "price": 588.95,
         "range": [
           99141,
           99570
@@ -90,13 +90,13 @@
     {
       "skinName": "Tiger Tooth",
       "skinWeapon": "Navaja Knife",
-      "skinPriceRange": "493,90PLN",
+      "skinPriceRange": "492,10PLN",
       "skinDisplayChance": "0,430%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/9e/9eaed2539b2569699d26ffbd27e9efc5.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FN",
-        "price": 493.9,
+        "price": 492.1,
         "range": [
           98711,
           99140
@@ -124,13 +124,13 @@
     {
       "skinName": "Freehand",
       "skinWeapon": "Gut Knife",
-      "skinPriceRange": "422,50PLN",
+      "skinPriceRange": "421,05PLN",
       "skinDisplayChance": "0,480%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/4b/4bc5ae3592f38a59ab80aff7250c7b68.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 422.5,
+        "price": 421.05,
         "range": [
           97761,
           98240
@@ -141,13 +141,13 @@
     {
       "skinName": "Boreal Forest",
       "skinWeapon": "Shadow Daggers",
-      "skinPriceRange": "349,05PLN",
+      "skinPriceRange": "348,15PLN",
       "skinDisplayChance": "3,900%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2c/2cc364702cc25423952ade69c76f6e5c.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 349.05,
+        "price": 348.15,
         "range": [
           90001,
           93900
@@ -158,13 +158,13 @@
     {
       "skinName": "Damascus Steel",
       "skinWeapon": "Navaja Knife",
-      "skinPriceRange": "340,95PLN",
+      "skinPriceRange": "337,30PLN",
       "skinDisplayChance": "3,860%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/2d/2dac2a8115713cb8970267076e9203df.png",
       "skinRarity": "gold",
       "dropDetails": {
         "quality": "FT",
-        "price": 340.95,
+        "price": 337.3,
         "range": [
           93901,
           97760
@@ -226,7 +226,7 @@
     {
       "skinName": "Mainframe 001",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "0,45PLN - 0,65PLN",
+      "skinPriceRange": "0,50PLN - 0,65PLN",
       "skinDisplayChance": "40,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f3/f382690e70e36ba8dcd1ce963dc903ce.png",
       "skinRarity": "blue",
@@ -243,7 +243,7 @@
     {
       "skinName": "Mainframe 001",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "0,45PLN - 0,65PLN",
+      "skinPriceRange": "0,50PLN - 0,65PLN",
       "skinDisplayChance": "40,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f3/f382690e70e36ba8dcd1ce963dc903ce.png",
       "skinRarity": "blue",
@@ -260,7 +260,24 @@
     {
       "skinName": "Mainframe 001",
       "skinWeapon": "SSG 08",
-      "skinPriceRange": "0,45PLN - 0,65PLN",
+      "skinPriceRange": "0,50PLN - 0,65PLN",
+      "skinDisplayChance": "40,000%",
+      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f3/f382690e70e36ba8dcd1ce963dc903ce.png",
+      "skinRarity": "blue",
+      "dropDetails": {
+        "quality": "FT",
+        "price": 0.5,
+        "range": [
+          35001,
+          50000
+        ],
+        "odds": "15,000%"
+      }
+    },
+    {
+      "skinName": "Mainframe 001",
+      "skinWeapon": "SSG 08",
+      "skinPriceRange": "0,50PLN - 0,65PLN",
       "skinDisplayChance": "40,000%",
       "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f3/f382690e70e36ba8dcd1ce963dc903ce.png",
       "skinRarity": "blue",
@@ -272,23 +289,6 @@
           60000
         ],
         "odds": "10,000%"
-      }
-    },
-    {
-      "skinName": "Mainframe 001",
-      "skinWeapon": "SSG 08",
-      "skinPriceRange": "0,45PLN - 0,65PLN",
-      "skinDisplayChance": "40,000%",
-      "skinImgSource": "https://cdn.key-drop.com/csgo_icons/f3/f382690e70e36ba8dcd1ce963dc903ce.png",
-      "skinRarity": "blue",
-      "dropDetails": {
-        "quality": "FT",
-        "price": 0.45,
-        "range": [
-          35001,
-          50000
-        ],
-        "odds": "15,000%"
       }
     }
   ]

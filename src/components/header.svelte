@@ -204,7 +204,7 @@
                   PORTFEL:
                 </span>
                 <span class="text-gold font-semibold text-xs">
-                  {$userData?.balance.toFixed(2)}zł
+                  {$userData?.balance.toFixed(2)} PLN
                 </span>
               </div>
             </div>
@@ -501,7 +501,7 @@
               <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
                 PORTFEL:
               </span>
-              <span class="text-gold font-semibold text-xs">{$userData.balance.toFixed(2)}zł</span>
+              <span class="text-gold font-semibold text-xs">{$userData.balance.toFixed(2)} PLN</span>
             </div>
           </div>
         </div>
