@@ -3,8 +3,7 @@
     colors,
     createPopup,
     goldenNames,
-    massSellSkins,
-    sellSkin,
+    sellItems,
     setUserData,
     userData,
     wearConversions,
@@ -124,7 +123,7 @@
     loading = true;
     const res = await fetch('/api/skins/case-open', {
       method: 'POST',
-      body: JSON.stringify({ items: winningItems, cost: casePrice }),
+      body: JSON.stringify({ items: winningItems, cost: casePrice, origin: data.websiteName }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -236,7 +235,7 @@
     const clickedEl = (e.target as Element).closest('.single-sell-btn') as Element;
     const index = sellBtns.indexOf(clickedEl);
     const item = itemsIndb[index];
-    const res = await sellSkin(item);
+    const res = await sellItems([item]);
     clickedEl.setAttribute('disabled', '');
     if (res.ok) {
       soldItems.push(item);
@@ -248,8 +247,9 @@
   async function handleMassSell(skins: Item[]) {
     sellLoading = true;
     const soldIDs = soldItems.map((i) => i.dropId);
-    const IDs = skins.map((obj) => obj.dropId).filter((str) => !soldIDs.includes(str));
-    const res = await massSellSkins(IDs);
+    const itemsToSell = skins.filter((i) => !soldIDs.includes(i.dropId));
+    const IDs = itemsToSell.map((i) => i.dropId);
+    const res = await sellItems(itemsToSell);
     if (res.ok) {
       itemsIndb = itemsIndb.filter((item) => IDs.includes(item.dropId));
       totalAwardPrice = 0;

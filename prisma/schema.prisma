@@ -18,19 +18,22 @@ model User {
 }
 
 model Item {
-  owner         User @relation(fields: [ownerId], references: [id])
-  ownerId       String 
-  dropId        String @id @unique
+  owner         User     @relation(fields: [ownerId], references: [id])
+  ownerId       String
+  dropId        String   @id @unique
   skinName      String
   skinPrice     Float
   skinWeapon    String
   skinImgSource String
   skinRarity    String
   skinQuality   String
-  dropDate      DateTime @default(now()) 
+  origin        String
+  dropDate      DateTime @default(now())
+  sold          Boolean  @default(false)
+  upgraded      Boolean  @default(false)
 }
 
 model Session {
-  id     String    @id @unique
+  id     String @id @unique
   userId String
 }

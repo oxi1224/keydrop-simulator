@@ -1,4 +1,4 @@
-import { db, userFromSessionID } from '$lib/server';
+import { db } from '$lib/server';
 import type { RequestEvent } from '@sveltejs/kit';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
@@ -23,7 +23,7 @@ export async function GET(event: RequestEvent) {
       }
     }
   });
-
+  if (!user) return new Response(JSON.stringify({ data: null }), { status: 404 });
   return new Response(
     JSON.stringify({
       data: {

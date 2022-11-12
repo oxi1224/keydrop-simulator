@@ -1,17 +1,16 @@
 <script lang="ts">
   import Spinner from '$components/spinner.svelte';
   import type { Item } from '@prisma/client';
-  import { massSellSkins, sellSkin, setUserData, userData } from '$lib';
+  import { sellItems, setUserData, userData } from '$lib';
   let totalSkinPrice = 0;
   let sellLoading = false;
-  let inventory = $userData?.inventory.reverse();
-  $: inventory = $userData?.inventory.reverse();
-  $: totalSkinPrice = $userData?.inventory.reduce((n, o) => n + o.skinPrice, 0) ?? 0;
+  let inventory = $userData?.inventory;
+  $: inventory = $userData?.inventory;
+  $: totalSkinPrice = $userData?.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
 
   async function handleMassSell(skins: Item[]) {
     sellLoading = true;
-    const IDs = skins.map((obj) => obj.dropId);
-    const res = await massSellSkins(IDs);
+    const res = await sellItems(skins.filter((obj) => !obj.sold));
     if (res.ok) await setUserData();
     sellLoading = false;
   }
@@ -19,7 +18,7 @@
   async function handleSingleSell(e: MouseEvent, item: Item) {
     sellLoading = true;
     const clickedEl = (e.target as Element).closest('.single-sell-btn') as HTMLButtonElement;
-    const res = await sellSkin(item);
+    const res = await sellItems([item]);
     clickedEl.disabled = true;
     if (res.ok) await setUserData();
     sellLoading = false;
@@ -61,12 +60,23 @@
           >
             <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-200"></div>
             <div class="absolute top-0 left-0 z-10 flex items-center w-full p-2 sm:p-4">
-              <div class="flex items-center font-bold leading-none uppercase text-2xs text-gold">
-                <svg class="w-4 h-4 mr-2 -mt-px" style="transform: scale(0.95);">
-                  <use xlink:href="/icons/icons.svg#rating-star"></use>
-                </svg>
-                New
-              </div>
+              {#if item.sold}
+                <div
+                  class="flex items-center font-bold text-red-500 leading-none uppercase text-2xs"
+                >
+                  <svg class="w-4 h-4 mr-2 -mt-px">
+                    <use xlink:href="/icons/icons.svg#sell"></use>
+                  </svg>
+                  Sprzedany
+                </div>
+              {:else}
+                <div class="flex items-center font-bold leading-none uppercase text-2xs text-gold">
+                  <svg class="w-4 h-4 mr-2 -mt-px" style="transform: scale(0.95);">
+                    <use xlink:href="/icons/icons.svg#rating-star"></use>
+                  </svg>
+                  New
+                </div>
+              {/if}
               <div
                 class="flex items-center p-2 ml-auto text-sm font-bold leading-none rounded-md bg-navy-700 text-gold"
               >
