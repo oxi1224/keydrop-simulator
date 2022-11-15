@@ -1,3 +1,4 @@
+import type { Case } from '$lib/types';
 import { PrismaClient } from '@prisma/client';
 
 let prisma: PrismaClient;
@@ -33,4 +34,13 @@ export async function userFromSessionID(sessionID: string) {
     }
   });
   return user;
+}
+
+export async function getCaseData(caseName: string) {
+  const caseObj = await db.case.findFirst({
+    where: {
+      OR: [{ urlName: caseName }, { websiteName: caseName }]
+    }
+  });
+  return caseObj as Case | null;
 }

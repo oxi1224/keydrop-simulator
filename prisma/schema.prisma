@@ -37,3 +37,11 @@ model Session {
   id     String @id @unique
   userId String
 }
+
+model Case {
+  urlName     String @id @unique
+  websiteName String @unique
+  price       Float
+  expired     Boolean
+  drops       Json[]
+}

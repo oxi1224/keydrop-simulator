@@ -7,13 +7,13 @@
     setUserData,
     userData,
     wearConversions,
-    type CaseData,
+    type Case,
     type CaseDrop
   } from '$lib';
   import Spinner from '$components/spinner.svelte';
   import type { Item } from '@prisma/client';
   export let rouletteItems: CaseDrop[] = [];
-  export let data: CaseData;
+  export let data: Case;
 
   let multipleRoulettesItems: CaseDrop[][] = [];
   let rouletteCount = 1;

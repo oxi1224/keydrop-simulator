@@ -51,34 +51,14 @@
       "price": 20,
       "imgName": "BLINK.webp",
       "href": "/skins/category/blink"
-    },
-    "DING": {
-      "price": 6,
-      "imgName": "DING1.webp",
-      "href": "/skins/category/ding"
-    },
-    "PULSE": {
-      "price": 75,
-      "imgName": "PULSE.webp",
-      "href": "/skins/category/pulse"
-    },
-    "BEAN": {
-      "price": 150,
-      "imgName": "BEAN1.webp",
-      "href": "/skins/category/bean"
-    },
-    "BAR": {
-      "price": 22,
-      "imgName": "BAR1.webp",
-      "href": "/skins/category/bar"
-    },
-    "GRIST": {
-      "price": 15,
-      "imgName": "GRIST2.webp",
-      "href": "/skins/category/grist"
     }
   },
   "legacy": {
+    "TAP": {
+      "price": 25,
+      "imgName": "460.webp",
+      "href": "/skins/category/tap"
+    },
     "HORUS": {
       "price": 7.5,
       "imgName": "352.webp",
@@ -98,11 +78,6 @@
       "price": 40,
       "imgName": "414.webp",
       "href": "/skins/category/diver"
-    },
-    "NINJA": {
-      "price": 100,
-      "imgName": "ninja.webp",
-      "href": "/skins/category/ninja"
     }
   },
   "youtubers-cases": {
@@ -651,6 +626,38 @@
       "price": 19200,
       "imgName": "51.webp",
       "href": "/skins/category/emerald-cut"
+    }
+  },
+  "expired": {
+    "DING": {
+      "price": 6,
+      "imgName": "DING1.webp",
+      "href": "/skins/category/ding"
+    },
+    "PULSE": {
+      "price": 75,
+      "imgName": "PULSE.webp",
+      "href": "/skins/category/pulse"
+    },
+    "BEAN": {
+      "price": 150,
+      "imgName": "BEAN1.webp",
+      "href": "/skins/category/bean"
+    },
+    "BAR": {
+      "price": 22,
+      "imgName": "BAR1.webp",
+      "href": "/skins/category/bar"
+    },
+    "GRIST": {
+      "price": 15,
+      "imgName": "GRIST2.webp",
+      "href": "/skins/category/grist"
+    },
+    "NINJA": {
+      "price": 100,
+      "imgName": "ninja.webp",
+      "href": "/skins/category/ninja"
     }
   }
 }

@@ -1,9 +1,7 @@
-<script>
-  import { page } from '$app/stores';
+<script lang="ts">
   import Case from '$components/case.svelte';
-  export let promise = import(`../../../../assets/cases/${$page.params.slug}.json`);
+  import type { Case as CaseType } from '$lib';
+  export let data: CaseType;
 </script>
 
-{#await promise then data}
-  <Case data="{data}" />
-{/await}
+<Case data="{data}" />

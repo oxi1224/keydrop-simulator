@@ -8,9 +8,10 @@ export interface CaseThumbnailData {
   };
 }
 
-export interface CaseData {
+export interface Case {
   price: number;
   websiteName: string;
+  urlName: string;
   drops: CaseDrop[];
 }
 
