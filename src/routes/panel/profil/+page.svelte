@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Spinner from '$components/spinner.svelte';
+  import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
   import { sellItems, setUserData, userData } from '$lib';
   let totalSkinPrice = 0;

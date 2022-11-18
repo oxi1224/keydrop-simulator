@@ -1,8 +1,8 @@
 <script lang="ts">
-  import CaseThumbnail from '$components/caseThumbnail.svelte';
+  import CaseThumbnail from './CaseThumbnail.svelte';
   import type { CaseThumbnailData } from '$lib';
   export let id: string;
-  export let caseValues: CaseThumbnailData;
+  export let caseValues: { [key: string]: CaseThumbnailData };
 </script>
 
 <section id="{id}" class="relative">

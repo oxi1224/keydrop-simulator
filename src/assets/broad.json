@@ -1,32 +1,31 @@
 {
-  "event": {
-    "PUGSLEY": {
-      "price": 4.75,
-      "imgName": "FESTER.webp",
-      "href": "/skins/category/pugsley"
-    },
-    "GOMEZ": {
-      "price": 43.75,
-      "imgName": "MORTICIA.webp",
-      "href": "/skins/category/gomez"
-    },
-    "THING": {
-      "price": 95,
-      "imgName": "HAND.webp",
-      "href": "/skins/category/thing"
-    },
-    "MORTICIA": {
-      "price": 20,
-      "imgName": "GOMEZ.webp",
-      "href": "/skins/category/morticia"
-    },
-    "WEDNESDAY": {
-      "price": 8,
-      "imgName": "WEDNESDAY.webp",
-      "href": "/skins/category/wednesday"
-    }
-  },
+  "event": {},
   "limited-edition": {
+    "RUNNER": {
+      "price": 4,
+      "imgName": "large-4_(11).webp",
+      "href": "/skins/category/runner"
+    },
+    "HIMERO": {
+      "price": 60,
+      "imgName": "large-3_(12).webp",
+      "href": "/skins/category/himero"
+    },
+    "FINAL": {
+      "price": 200,
+      "imgName": "large-1_(12).webp",
+      "href": "/skins/category/final"
+    },
+    "WIRE": {
+      "price": 30,
+      "imgName": "large-5_(12).webp",
+      "href": "/skins/category/wire"
+    },
+    "MIMAN": {
+      "price": 10,
+      "imgName": "large-2_(10).webp",
+      "href": "/skins/category/miman"
+    },
     "SONIC": {
       "price": 7.5,
       "imgName": "SONIC.webp",
@@ -629,6 +628,31 @@
     }
   },
   "expired": {
+    "PUGSLEY": {
+      "price": 4.75,
+      "imgName": "FESTER.webp",
+      "href": "/skins/category/pugsley"
+    },
+    "GOMEZ": {
+      "price": 43.75,
+      "imgName": "MORTICIA.webp",
+      "href": "/skins/category/gomez"
+    },
+    "THING": {
+      "price": 95,
+      "imgName": "HAND.webp",
+      "href": "/skins/category/thing"
+    },
+    "MORTICIA": {
+      "price": 20,
+      "imgName": "GOMEZ.webp",
+      "href": "/skins/category/morticia"
+    },
+    "WEDNESDAY": {
+      "price": 8,
+      "imgName": "WEDNESDAY.webp",
+      "href": "/skins/category/wednesday"
+    },
     "DING": {
       "price": 6,
       "imgName": "DING1.webp",

@@ -1,11 +1,9 @@
 import type { colors } from './constants';
 
 export interface CaseThumbnailData {
-  [key: string]: {
-    price: number;
-    imgName: string;
-    href: string;
-  };
+  price: number;
+  imgName: string;
+  href: string;
 }
 
 export interface Case {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createPopup } from '$lib';
-  import Spinner from '$components/spinner.svelte';
+  import Spinner from '$components/util/Spinner.svelte';
 
   let loading = false;
   let name: string;

@@ -1,5 +1,5 @@
 <script>
-  import CaseSection from '$components/caseSection.svelte';
+  import CaseSection from '$components/CaseSection.svelte';
   import caseData from '$assets/broad.json';
 </script>
 
@@ -9,7 +9,9 @@
       <div class="min-h-screen text-white">
         <div class="container mx-auto">
           {#each Object.entries(caseData) as [id, caseValues]}
-            <CaseSection id="{id}" caseValues="{caseValues}" />
+            {#if Object.values(caseValues).length > 0}
+              <CaseSection id="{id}" caseValues="{caseValues}" />
+            {/if}
           {/each}
         </div>
       </div>

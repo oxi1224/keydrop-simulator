@@ -1,6 +1,6 @@
 <script>
-  import Login from '$components/login.svelte';
-  import Register from '$components/register.svelte';
+  import Login from '$components/forms/Login.svelte';
+  import Register from '$components/forms/Register.svelte';
   import { onMount } from 'svelte';
 
   onMount(async () => {

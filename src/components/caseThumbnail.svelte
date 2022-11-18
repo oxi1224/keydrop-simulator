@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { goldenNames } from '$lib';
+  import { goldenNames, type CaseThumbnailData } from '$lib';
   export let name: string;
   export let sectionId: string;
-  export let data: { price: number; imgName: string; href: string };
+  export let data: CaseThumbnailData;
 </script>
 
 <div
@@ -33,7 +33,7 @@
       >
         {goldenNames.includes(name) ? data.price : data.price.toFixed(2)}
         {@html goldenNames.includes(name)
-          ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
+          ? '<img src="/icons/gold-coin.png?v48" class="w-3 h-3 ml-1">'
           : 'PLN'}
       </div>
       <div

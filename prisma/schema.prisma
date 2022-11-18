@@ -42,6 +42,6 @@ model Case {
   urlName     String @id @unique
   websiteName String @unique
   price       Float
-  expired     Boolean
+  expired     Boolean @default(false)
   drops       Json[]
 }

@@ -1,7 +1,12 @@
 <script lang="ts">
-  import Case from '$components/case.svelte';
-  import type { Case as CaseType } from '$lib';
-  export let data: CaseType;
+  import { page } from '$app/stores';
+  import Case from '$components/Case.svelte';
+  import type { Case as CaseData } from '$lib';
+  const caseName = $page.params.slug;
+  const promise: Promise<CaseData> = fetch(`/api/get-case?caseName=${caseName}`, {
+    method: 'GET',
+  }).then(async res => (await res.json()).data);
 </script>
-
-<Case data="{data}" />
+{#await promise then data}
+  <Case data="{data}" />
+{/await}

@@ -1,17 +1,12 @@
 <script lang="ts">
-  import CaseRoulette from './Case Subcomponents/caseRoulette.svelte';
-  import CaseContents from './Case Subcomponents/caseContents.svelte';
+  import CaseRoulette from './case components/CaseRoulette.svelte';
+  import CaseContents from './case components/CaseContents.svelte';
   import type { Case, CaseDrop, CaseItemData, DropDetails } from '$lib';
-  import { onMount } from 'svelte';
   export let data: Case;
-  export let caseItems: CaseDrop[] = [];
-  export let itemData: CaseItemData[] = [];
-  let storage: Storage | undefined;
-  onMount(() => {
-    storage = localStorage;
-  });
+  const caseItems: CaseDrop[] = [];
+  const itemData: CaseItemData[] = [];
   let fastOpen = (() => {
-    const str = storage?.getItem('fast-open') ?? 'false';
+    const str = localStorage.getItem('fast-open') ?? 'false';
     if (!str) return false;
     return str === 'true' ? true : false;
   })();
@@ -52,7 +47,7 @@
 
   function setFastOpen(e: MouseEvent) {
     const checked = (e.target as HTMLInputElement).checked;
-    storage?.setItem('fast-open', `${checked}`);
+    localStorage.setItem('fast-open', `${checked}`);
   }
 </script>
 

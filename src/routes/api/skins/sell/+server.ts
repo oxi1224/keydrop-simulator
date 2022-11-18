@@ -28,7 +28,6 @@ export async function POST(event: RequestEvent) {
     );
   const priceSum = items.reduce((n, o) => n + o.skinPrice, 0);
   const queries = items.map((i) => {
-    console.log(i.dropDate);
     return {
       where: { dropId: i.dropId },
       data: { sold: true }

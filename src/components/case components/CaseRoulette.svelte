@@ -10,10 +10,10 @@
     type Case,
     type CaseDrop
   } from '$lib';
-  import Spinner from '$components/spinner.svelte';
+  import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
-  export let rouletteItems: CaseDrop[] = [];
   export let data: Case;
+  export let rouletteItems: CaseDrop[] = [];
 
   let multipleRoulettesItems: CaseDrop[][] = [];
   let rouletteCount = 1;
@@ -597,7 +597,7 @@
               : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
             <div class="flex items-center ml-2">
               {@html goldenNames.includes(data.websiteName)
-                ? '<img src="https://key-drop.com/web/KD/static/images/gold-coin.png?v48" class="w-3 h-3 ml-1">'
+                ? '<img src="/icons/gold-coin.png" class="w-3 h-3 ml-1">'
                 : 'PLN'}
             </div>
           {/if}
