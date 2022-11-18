@@ -4,9 +4,10 @@
   import type { Case as CaseData } from '$lib';
   const caseName = $page.params.slug;
   const promise: Promise<CaseData> = fetch(`/api/get-case?caseName=${caseName}`, {
-    method: 'GET',
-  }).then(async res => (await res.json()).data);
+    method: 'GET'
+  }).then(async (res) => (await res.json()).data);
 </script>
+
 {#await promise then data}
   <Case data="{data}" />
 {/await}

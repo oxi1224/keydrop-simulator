@@ -1,8 +1,8 @@
 <script lang="ts">
-  import FooterStats from "./footer components/FooterStats.svelte";
-  import FooterPaymentsList from "./footer components/FooterPaymentsList.svelte";
-  import FooterNav from "./footer components/FooterNav.svelte";
-  import FooterSocials from "./footer components/FooterSocials.svelte";
+  import FooterStats from './footer components/FooterStats.svelte';
+  import FooterPaymentsList from './footer components/FooterPaymentsList.svelte';
+  import FooterNav from './footer components/FooterNav.svelte';
+  import FooterSocials from './footer components/FooterSocials.svelte';
 </script>
 
 <footer class="bg-navy-600">

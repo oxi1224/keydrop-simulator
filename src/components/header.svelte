@@ -157,7 +157,5 @@
     </div>
   </div>
   <HeaderMobileUserPanel />
-  <div class="hidden overflow-hidden md:block bg-navy-700">
-    <HeaderNav />
-  </div>
+  <HeaderNav />
 </header>
