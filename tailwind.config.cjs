@@ -58,6 +58,9 @@ module.exports = {
         },
         gray: {
           DEFAULT: 'rgb(102, 102, 102)'
+        },
+        green: {
+          DEFAULT: 'rgb(34, 197, 94)'
         }
       },
       translate: {

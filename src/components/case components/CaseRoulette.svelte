@@ -478,7 +478,7 @@
           <span class="md:hidden">Wróć</span>
         </button>
         <button
-          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red-500 text-red-500 bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
+          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red text-red bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
           on:click="{reOpen}"
         >
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
@@ -560,12 +560,12 @@
       </div>
       <button
         target="_blank"
-        class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
+        class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
         {!$userData
-          ? 'border-red-500 text-red-500 glow-red'
+          ? 'border-red text-red glow-red hover:bg-red'
           : $userData.balance >= casePrice
-          ? 'border-green-500 text-green-500 glow-pastelGreen'
-          : 'border-red-500 text-red-500 glow-red'}"
+          ? 'border-green text-green glow-pastelGreen hover:bg-green'
+          : 'border-red text-red glow-red hover:bg-red'}"
         on:click="{handleRoll}"
         disabled="{loading || tooPoor}"
       >
