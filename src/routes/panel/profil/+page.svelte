@@ -1,157 +1,246 @@
 <script lang="ts">
-  import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
   import { sellItems, setUserData, userData } from '$lib';
+  import InventoryItem from '$components/inventory components/InventoryItem.svelte';
+  import InventoryHeader from '$components/inventory components/InventoryHeader.svelte';
+
   let totalSkinPrice = 0;
-  let sellLoading = false;
-  let inventory = $userData?.inventory;
-  $: inventory = $userData?.inventory;
+  let loading = false;
+  let allItemsFilter: boolean;
+  let dropdownWidth: number;
+  let displayFilter: string;
+  let inventory = $userData?.inventory || [];
+  $: {
+    if (allItemsFilter) inventory = $userData?.inventory || [];
+    else inventory = $userData?.inventory.filter((obj) => !obj.sold) || [];
+  }
   $: totalSkinPrice = $userData?.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
 
   async function handleMassSell(skins: Item[]) {
-    sellLoading = true;
-    const res = await sellItems(skins.filter((obj) => !obj.sold));
+    loading = true;
+    const res = await sellItems(skins.filter((obj) => !obj.sold || !obj.upgraded));
     if (res.ok) await setUserData();
-    sellLoading = false;
+    loading = false;
   }
 
-  async function handleSingleSell(e: MouseEvent, item: Item) {
-    sellLoading = true;
-    const clickedEl = (e.target as Element).closest('.single-sell-btn') as HTMLButtonElement;
-    const res = await sellItems([item]);
-    clickedEl.disabled = true;
-    if (res.ok) await setUserData();
-    sellLoading = false;
+  function toggleDropdown() {
+    document.querySelector('.dropdown-items')?.classList.toggle('hidden');
+    document.querySelector('.dropdown-arrow-svg')?.classList.toggle('rotate-180');
+  }
+
+  function sortItems(index: number) {
+    console.log(allItemsFilter);
+    loading = true;
+    const optionElms = document.querySelectorAll('.dropdown-item');
+    const sort = optionElms[index].textContent as string;
+    let tempInv: Item[] | undefined;
+    displayFilter = sort;
+    if (sort === 'najnowsze') tempInv = $userData?.inventory;
+    if (sort === 'najstarsze') tempInv = $userData?.inventory.slice().reverse();
+    if (sort === 'najtańsze')
+      tempInv = $userData?.inventory.slice().sort((a, b) => a.skinPrice - b.skinPrice);
+    if (sort === 'najdroższe')
+      tempInv = $userData?.inventory.slice().sort((a, b) => b.skinPrice - a.skinPrice);
+    if (allItemsFilter) inventory = tempInv || [];
+    else inventory = tempInv?.filter((obj) => !obj.sold) || [];
+    toggleDropdown();
+    loading = false;
   }
 </script>
 
-<div class="container mx-auto">
-  <div class="w-fuill flex align-center justify-center my-3">
-    <button
-      class="mass-sell-btn flex items-center justify-center h-10 px-3 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold disabled:brightness-50 disabled:hover:bg-navy-700"
-      disabled="{sellLoading}"
-      on:click="{() => handleMassSell(inventory ?? [])}"
-    >
-      {#if sellLoading}
-        <Spinner size="1.5em" borderWidth=".25em" />
-      {:else}
-        <svg class="flex-shrink-0 w-3 h-4 mr-2 sm:mr-3 sm:w-5 sm:h-6">
-          <use xlink:href="/icons/icons.svg#sell"></use>
-        </svg>
+<main
+  class="bg-no-repeat"
+  style="
+    background-image: url(/images/bg.png);
+    background-position: center top;
+    background-size: 2570px;
+  "
+>
+  <div class="pt-4 pb-16 text-white">
+    <InventoryHeader />
+    <div class="container mx-auto">
+      <section>
+        <div class="mx-auto xl:px-5 max-w-screen-xxl">
+          <div
+            class="flex flex-wrap xl:flex-nowrap items-center w-full mb-12 xl:rounded-2xl bg-navy-750 overflow-hidden"
+          >
+            <div
+              class="w-1/2 py-4 pl-1.5 pr-3 md:pr-4 xl:w-full duration-200 transition-opacity dropdown-width"
+            >
+              <div
+                class="self-start mb-1 font-medium tracking-wide uppercase xl:self-center text-[8px] text-navy-200"
+              >
+                Sortowanie
+              </div>
+              <div class="relative w-full h-9">
+                <button
+                  id="dropdown"
+                  class="dropdown dropdown-compact uppercase w-full xl:mr-0 h-9 border-navy-500 rounded-lg"
+                  bind:offsetWidth="{dropdownWidth}"
+                  on:click="{toggleDropdown}"
+                >
+                  <div class="px-3 text-[16px] lg:text-2xs">
+                    <span
+                      class="font-semibold uppercase text-[10px] text-navy-300"
+                      contenteditable="true"
+                      bind:textContent="{displayFilter}"
+                    >
+                      Najnowsze
+                    </span>
+                  </div>
+                  <div class="ml-auto dropdown-arrow">
+                    <svg
+                      class="dropdown-arrow-svg icon flex-shrink-0 block transition-transform duration-200 w-2.5 h-2.5"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                    >
+                      <path d="M1 1L5 5L9 1" stroke="currentColor"></path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <div
+                class="hidden dropdown-items absolute z-50 w-full origin-top transform scale-100 opacity-100"
+                style="width: {dropdownWidth}px;"
+              >
+                <div
+                  class="flex flex-col rounded-lg border border-navy-200 border-opacity-30 shadow-lg bg-navy-700 bg-opacity-90"
+                >
+                  <div
+                    on:click="{() => sortItems(0)}"
+                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                  >
+                    najnowsze
+                  </div>
+                  <div
+                    on:click="{() => sortItems(1)}"
+                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                  >
+                    najstarsze
+                  </div>
+                  <div
+                    on:click="{() => sortItems(2)}"
+                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                  >
+                    najtańsze
+                  </div>
+                  <div
+                    on:click="{() => sortItems(3)}"
+                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                  >
+                    najdroższe
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-1/2 pl-1.5 pr-3 md:px-3 py-4 mr-auto lg:w-1/4 xl:w-auto">
+              <div
+                class="self-start mb-1 font-medium tracking-wide uppercase xl:self-center text-[8px] text-navy-200"
+              >
+                Pokaż przedmioty
+              </div>
+              <div class="flex items-center h-9">
+                <div class="flex switch">
+                  <label for="labelid-13" class="flex items-center">
+                    <div
+                      class="mr-3 cursor-pointer py-1.5 text-right {!allItemsFilter
+                        ? 'text-gray'
+                        : 'text-white'} text-[10px] font-semibold uppercase"
+                    >
+                      Wszystkie
+                    </div>
+                    <div class="relative cursor-pointer">
+                      <input
+                        id="labelid-13"
+                        type="checkbox"
+                        class="hidden"
+                        bind:checked="{allItemsFilter}"
+                      />
+                      <div
+                        class="h-6 rounded-full shadow-inner w-[3.25rem] toggle__line bg-navy-500"
+                      ></div>
+                      <div
+                        class="absolute inset-y-0 left-0 w-6 h-4 m-1 transition duration-200 transform translate-x-5  shadow rounded-lg toggle__dot bg-white"
+                      ></div>
+                    </div>
+                    <div
+                      class="ml-3 cursor-pointer py-1.5 {allItemsFilter
+                        ? 'text-gray'
+                        : 'text-white'} text-[10px] font-semibold uppercase"
+                    >
+                      Aktywne
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <a
+              href="/skins/Upgrader"
+              class="px-4 md:px-3 py-4 w-1/2 sm:w-auto {loading
+                ? 'opacity-25 pointer-events-none cursor-none'
+                : ''}"
+            >
+              <div
+                class="flex items-center justify-center font-semibold leading-none uppercase sm:justify-start text-[10px] text-red"
+              >
+                <svg class="w-6 h-6 mr-2">
+                  <use xlink:href="/icons/nav-icons.svg#donut-chart"></use>
+                </svg>
+                Ulepsz&nbsp;wszystko
+              </div>
+            </a>
+            <div
+              class="w-1/2 px-4 py-4 md:px-3 sm:w-auto {loading
+                ? 'opacity-25 pointer-events-none cursor-none'
+                : ''}"
+            >
+              <button
+                class="group flex items-center text-left font-semibold uppercase text-[10px] text-neonGreen mx-auto sm:mx-0"
+                on:click="{() =>
+                  handleMassSell(inventory.filter((obj) => !obj.sold || !obj.upgraded))}"
+              >
+                <svg class="icon w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20 4H4C2.897 4 2 4.897 2 6v2h20V6C22 4.897 21.103 4 20 4zM2 18c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-6H2V18zM5 15h6v2H5V15z"
+                  ></path>
+                </svg>
+                <div class="mt-1 leading-none">
+                  Sprzedaj&nbsp;wszystko
+                  <div
+                    class="text-left transition-colors duration-200 text-[8px] text-navy-200 group-hover:text-white"
+                  >
+                    {totalSkinPrice.toFixed(2)}&nbsp;PLN
+                  </div>
+                </div>
+              </button>
+            </div>
+            <a
+              href="/skin-changer"
+              class="px-4 md:px-3 py-4 w-1/2 sm:w-auto {loading
+                ? 'opacity-25 pointer-events-none cursor-none'
+                : ''}"
+            >
+              <div
+                class="flex items-center justify-center font-semibold uppercase sm:justify-start text-[10px] text-teal-500"
+              >
+                <svg class="w-6 h-6 mr-2">
+                  <use xlink:href="/icons/nav-icons.svg#lightning"></use>
+                </svg>
+                Wymień
+              </div>
+            </a>
+          </div>
+        </div>
         {#if inventory}
-          sprzedaj wszystko za&nbsp;
-          <span class="total-award-price">{totalSkinPrice?.toFixed(2)}</span>
+          <ul class="grid gap-10 my-3 profile-items-template">
+            {#each inventory as item}
+              <InventoryItem itemData="{item}" />
+            {/each}
+          </ul>
         {:else}
           Ładowanie
         {/if}
-      {/if}
-    </button>
+      </section>
+    </div>
   </div>
-  {#if inventory}
-    <ul class="grid gap-10 my-3" style="grid-template-columns: repeat(6, 1fr);">
-      {#each inventory as item}
-        <li
-          class="relative z-0 rounded-lg group transition-transform hover:-translate-y-6 bg-navy-700"
-          style="padding-top: 135%; box-shadow: rgb(8, 10, 13) 0px 0px 35px 0px;"
-        >
-          <div
-            class="absolute top-0 left-0 hidden w-full h-full transition-transform duration-200 border-t border-solid rounded-lg will-change-transform bg-navy-900 group-hover:rounded-b-none border-blue css-cwrogv"
-            style="display: flex;"
-          >
-            <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-200"></div>
-            <div class="absolute top-0 left-0 z-10 flex items-center w-full p-2 sm:p-4">
-              {#if item.sold}
-                <div
-                  class="flex items-center font-bold text-red-500 leading-none uppercase text-2xs"
-                >
-                  <svg class="w-4 h-4 mr-2 -mt-px">
-                    <use xlink:href="/icons/icons.svg#sell"></use>
-                  </svg>
-                  Sprzedany
-                </div>
-              {:else}
-                <div class="flex items-center font-bold leading-none uppercase text-2xs text-gold">
-                  <svg class="w-4 h-4 mr-2 -mt-px" style="transform: scale(0.95);">
-                    <use xlink:href="/icons/icons.svg#rating-star"></use>
-                  </svg>
-                  New
-                </div>
-              {/if}
-              <div
-                class="flex items-center p-2 ml-auto text-sm font-bold leading-none rounded-md bg-navy-700 text-gold"
-              >
-                {item.skinPrice.toFixed(2)} PLN
-              </div>
-            </div>
-            <div
-              class="absolute flex flex-col items-center justify-end w-full h-full pb-4 transition-opacity duration-200 rounded-t-lg bg-navy-600"
-            >
-              <img
-                src="/images/inventory-item.webp"
-                alt=""
-                class="absolute top-0 left-0 object-cover w-full h-full rounded-lg"
-              />
-              <img
-                src="{item.skinImgSource}"
-                alt=""
-                class="relative flex-1 object-contain w-4/5 mt-8"
-              />
-              <div
-                class="flex flex-col items-center transition-opacity duration-200 group-hover:opacity-0"
-              >
-                <div
-                  class="relative px-2 overflow-hidden text-sm font-light leading-none text-center text-navy-100 sm:mb-2 line-clamp"
-                >
-                  {item.skinWeapon}
-                </div>
-                <div
-                  class="relative px-2 overflow-hidden text-sm font-semibold leading-none text-center text-white sm:mb-2 line-clamp"
-                  title="Mainframe "
-                >
-                  {item.skinName}
-                </div>
-                <div
-                  class="relative px-2 overflow-hidden font-light leading-none text-center text-navy-100 text-2xs sm:mb-2 line-clamp"
-                >
-                  ({item.skinQuality})
-                </div>
-              </div>
-            </div>
-            <ul
-              class="absolute bottom-0 left-0 z-10 w-full text-xs font-bold leading-none whitespace-nowrap transition-opacity duration-200 bg-navy-700 text-navy-100 divide-y divide-navy-800 opacity-0 group-hover:opacity-100
-              
-              "
-            >
-              <li class="border-solid">
-                <button
-                  class="single-sell-btn flex items-center justify-center w-full px-2 py-4 font-semibold uppercase transition-colors duration-150 text-[11px] hover:text-white"
-                  on:click="{(e) => handleSingleSell(e, item)}"
-                >
-                  <svg class="w-4 h-4 mr-2">
-                    <use xlink:href="/icons/icons.svg?38#sell"></use>
-                  </svg>
-                  <span>
-                    Sprzedaj za <span class="text-gold">{item.skinPrice.toFixed(2)} PLN</span>
-                  </span>
-                </button>
-              </li>
-            </ul>
-            <div
-              class="absolute bottom-0 flex w-full overflow-hidden transition-transform duration-200 rounded-b-lg will-change-transform h-[50px] -translate-y-[1px]"
-            >
-              <button
-                class="hidden hover-none:flex items-center px-3 transition-colors duration-150 border-t-0 border-b-0 border-l border-r-0 border-solid border-gold-800 "
-              >
-                <svg class="w-6 h-6 text-navy-600">
-                  <use xlink:href="/icons/icons.svg?38#dots-vertical"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </li>
-      {/each}
-    </ul>
-  {:else}
-    Ładowanie
-  {/if}
-</div>
+</main>

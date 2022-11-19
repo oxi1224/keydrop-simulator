@@ -103,7 +103,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/skins/Upgrader"
-          class="flex items-center h-full px-2.5 font-semibold leading-none text-blue-400 uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white whitespace-nowrap"
+          class="flex items-center h-full px-2.5 font-semibold leading-none text-blue uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white whitespace-nowrap"
         >
           <svg class="w-5 h-5 mr-2">
             <use xlink:href="/icons/nav-icons.svg#donut-chart"></use>
@@ -116,7 +116,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/skin-changer"
-          class="flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white text-violet-500 whitespace-nowrap"
+          class="flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white text-violet whitespace-nowrap"
         >
           <svg class="w-5 h-5 mr-1.5">
             <use xlink:href="/icons/nav-icons.svg#lightning"></use>

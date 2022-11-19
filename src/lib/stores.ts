@@ -9,7 +9,9 @@ export const popupProps: Writable<PopupProps> = writable({
   message: ''
 });
 export const setUserData = async () => {
-  const { data } = await (await fetch('/api/get-user', { method: 'get' })).json();
+  const { data } = await (
+    await fetch('/api/get-user', { method: 'get', cache: 'no-cache' })
+  ).json();
   userData.set(data);
   localStorage.setItem('logged_in', `${!!data}`);
 };

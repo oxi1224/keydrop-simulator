@@ -3,7 +3,7 @@
   import HeaderMobileUserPanel from './header components/HeaderMobileUserPanel.svelte';
   import HeaderNav from './header components/HeaderNav.svelte';
 
-  function mobileDropdown() {
+  function toggleMobileDropdown() {
     [...document.querySelectorAll('.nav')].forEach((e) => e.classList.toggle('is-open'));
   }
 </script>
@@ -151,7 +151,7 @@
     </div>
     <HeaderUserPanel />
     <div class="flex items-center justify-center w-auto md:hidden ml-auto nav">
-      <button class="flex items-center ml-4 md:hidden nav" on:click="{mobileDropdown}">
+      <button class="flex items-center ml-4 md:hidden nav" on:click="{toggleMobileDropdown}">
         <div class="nav-hamburger text-navy-100" aria-label="Menu icon"></div>
       </button>
     </div>

@@ -24,7 +24,7 @@ module.exports = {
           650: 'rgb(31 32 35)',
           650: 'rgb(31 32 35)',
           700: 'rgb(25 24 30)',
-          750: 'rgb(23 23 28',
+          750: 'rgb(23 23 28)',
           800: 'rgb(17 17 20)',
           900: 'rgb(8 10 13)'
         },
@@ -41,8 +41,24 @@ module.exports = {
         },
         current: 'currentColor',
         pastelGreen: 'rgb(80, 227, 109)',
+        neonGreen: 'rgb(127, 217, 25)',
         failure: '#ff445d',
-        success: '#588806'
+        success: '#588806',
+        red: {
+          DEFAULT: 'rgb(255, 68, 93)'
+        },
+        pink: {
+          DEFAULT: 'rgb(223, 93, 238)'
+        },
+        violet: {
+          DEFAULT: 'rgb(164, 26, 255)'
+        },
+        blue: {
+          DEFAULT: 'rgb(68, 130, 255)'
+        },
+        gray: {
+          DEFAULT: 'rgb(102, 102, 102)'
+        }
       },
       translate: {
         110: '110%'
