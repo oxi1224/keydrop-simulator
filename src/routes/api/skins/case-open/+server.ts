@@ -23,17 +23,21 @@ export async function POST(event: RequestEvent) {
   const itemsToAdd = [];
   for (const i of items) {
     // This is to avoid the same date
+    const globalItem = await db.globalInventoryItem.findFirst({
+      where: {
+        weaponName: i.weaponName,
+        skinName: i.skinName,
+        skinQuality: i.dropDetails.quality,
+        skinPrice: i.dropDetails.price
+      }
+    });
+    if (!globalItem) continue;
     await new Promise((r) => setTimeout(r, 1));
     itemsToAdd.push({
       dropId: nanoid(),
-      skinName: i.skinName,
-      skinPrice: i.dropDetails.price,
-      skinWeapon: i.skinWeapon,
-      skinImgSource: i.skinImgSource,
-      skinRarity: i.skinRarity,
-      skinQuality: i.dropDetails.quality,
       origin: origin,
-      dropDate: new Date()
+      dropDate: new Date(),
+      ...globalItem
     });
   }
   const updatedUser = await db.user.update({

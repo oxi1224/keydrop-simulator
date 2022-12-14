@@ -146,7 +146,7 @@
       elm.classList.add('flex');
       elm.querySelector('.award-chance')!.textContent = winningItems[i].dropDetails.odds;
       elm.querySelector('.award-skin')!.textContent = winningItems[i].skinName;
-      elm.querySelector('.award-weapon')!.textContent = winningItems[i].skinWeapon;
+      elm.querySelector('.award-weapon')!.textContent = winningItems[i].weaponName;
       elm.querySelector('.award-wear')!.textContent =
         wearConversions[winningItems[i].dropDetails.quality as keyof typeof wearConversions];
       elm.querySelector('.award-price')!.textContent = winningItems[i].dropDetails.price.toFixed(2);
@@ -388,8 +388,8 @@
                 class="absolute bottom-0 left-0 w-full p-2 -mb-1 font-semibold leading-tight uppercase md:p-5"
               >
                 <div class="truncate text-navy-200 css-1vba4yg">{item.skinName}</div>
-                <div class="font-bold text-white truncate" title="{item.skinWeapon} ">
-                  {item.skinWeapon}
+                <div class="font-bold text-white truncate" title="{item.weaponName} ">
+                  {item.weaponName}
                 </div>
               </div>
             </li>

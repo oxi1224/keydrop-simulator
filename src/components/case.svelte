@@ -15,7 +15,7 @@
     for (const drop of data.drops) {
       arr.push({
         name: drop.skinName,
-        weapon: drop.skinWeapon
+        weapon: drop.weaponName
       });
     }
     return arr.filter(
@@ -30,13 +30,13 @@
 
   for (const o of Object.values(skins)) {
     const allItems = data.drops.filter(
-      (obj) => obj.skinName === o.name && obj.skinWeapon === o.weapon
+      (obj) => obj.skinName === o.name && obj.weaponName === o.weapon
     );
     const details: DropDetails[] = [];
     allItems.forEach((obj) => details.push(obj.dropDetails));
     itemData.push({
       skinName: allItems[0].skinName,
-      skinWeapon: allItems[0].skinWeapon,
+      weaponName: allItems[0].weaponName,
       skinPriceRange: allItems[0].skinPriceRange,
       skinDisplayChance: allItems[0].skinDisplayChance,
       skinImgSource: allItems[0].skinImgSource,

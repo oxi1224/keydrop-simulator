@@ -15,7 +15,7 @@ export interface Case {
 
 export interface CaseDrop {
   skinName: string;
-  skinWeapon: string;
+  weaponName: string;
   skinPriceRange: string;
   skinDisplayChance: string;
   skinImgSource: string;

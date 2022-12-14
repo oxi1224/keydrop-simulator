@@ -475,3 +475,7 @@ img {
   border-style: solid;
   padding-left: 0.5rem;
 }
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}

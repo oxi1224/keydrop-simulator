@@ -136,7 +136,7 @@
         <a
           rel="alternate"
           hreflang="pl"
-          href="https://key-drop.com/pl/skins/Upgrader"
+          href="/skins/upgrader"
           class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
         >
           <svg class="flex-shrink-0 w-6 h-6 mr-3">

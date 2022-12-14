@@ -102,7 +102,7 @@
         <a
           rel="alternate"
           hreflang="pl"
-          href="https://key-drop.com/pl/skins/Upgrader"
+          href="/skins/upgrader"
           class="flex items-center h-full px-2.5 font-semibold leading-none text-blue uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white whitespace-nowrap"
         >
           <svg class="w-5 h-5 mr-2">

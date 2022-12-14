@@ -80,7 +80,7 @@
         <div
           class="relative px-2 overflow-hidden text-sm font-light leading-none text-center text-navy-100 sm:mb-2 line-clamp"
         >
-          {itemData.skinWeapon}
+          {itemData.weaponName}
         </div>
         <div
           class="relative px-2 overflow-hidden text-sm font-semibold leading-none text-center text-white sm:mb-2 line-clamp"
