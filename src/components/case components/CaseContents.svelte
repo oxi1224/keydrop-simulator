@@ -1,12 +1,71 @@
 <script lang="ts">
-  import { colors, type CaseItemData } from '$lib';
-  export let itemData: CaseItemData[];
+  import { colors, type CaseDrop } from '$lib';
+  export let caseDrops: CaseDrop[];
+
+  const parsedDisplayDrops = (() => {
+    const uniqueKeys = [];
+    for (const drop of caseDrops) {
+      uniqueKeys.push({
+        name: drop.skinName,
+        weapon: drop.weaponName
+      });
+    }
+    const filtered = uniqueKeys.filter(
+      (
+        (s) => (o) =>
+          ((k) => !s.has(k) && s.add(k))(
+            ['name', 'weapon'].map((k) => o[k as keyof typeof o]).join('|')
+          )
+      )(new Set())
+    );
+    const returnArr = [];
+    for (const obj of filtered) {
+      const allMatchingDrops = caseDrops.filter(item => item.skinName == obj.name && item.weaponName == obj.weapon);
+      const displayDrop: DisplayDrop = {
+        displayChance: allMatchingDrops[0].displayChance,
+        skinRarity: allMatchingDrops[0].skinRarity,
+        skinImgSource: allMatchingDrops[0].skinImgSource,
+        weaponName: allMatchingDrops[0].weaponName,
+        skinName: allMatchingDrops[0].skinName,
+        priceRange: allMatchingDrops[0].priceRange,
+        details: [],
+      };
+      for (const drop of allMatchingDrops) {
+        displayDrop.details.push({
+          quality: drop.skinQuality,
+          price: drop.skinPrice,
+          range: drop.oddsRange,
+          odds: drop.displayOdds
+        });
+      }
+      returnArr.push(displayDrop);
+    }
+    return returnArr;
+  })();
+
   function toggleDetails(
     e: MouseEvent & {
       currentTarget: EventTarget & HTMLButtonElement;
     }
   ) {
     e.currentTarget.offsetParent?.querySelector('.details-page')?.classList.toggle('hidden');
+  }
+
+  interface DisplayDrop {
+    displayChance: string;
+    skinRarity: keyof typeof colors.itemBg;
+    skinImgSource: string;
+    weaponName: string;
+    skinName: string;
+    priceRange: string;
+    details: DisplayDropDetails[];
+  }
+
+  interface DisplayDropDetails {
+    quality: string;
+    price: number;
+    range: number[];
+    odds: string;
   }
 </script>
 
@@ -22,7 +81,7 @@
       </h2>
     </div>
     <ul class="grid mt-8 mb-20 gap-2 css-a27jap">
-      {#each itemData as drop}
+      {#each parsedDisplayDrops as drop}
         <li class="group" style="contain: content;">
           <div
             class="z-0 grid items-center justify-center grid-cols-1 grid-rows-1 bg-center bg-cover border border-dotted rounded group justify-items-center ratio border-navy-400 sm:rounded-lg css-awr5wf"
@@ -58,7 +117,7 @@
             >
               Chance
               <br />
-              <span class="css-ix4kef">{drop.skinDisplayChance}</span>
+              <span class="css-ix4kef">{drop.displayChance}</span>
             </div>
             <img
               alt=""
@@ -74,9 +133,9 @@
               class="z-10 self-end w-full col-start-1 row-start-2 font-semibold leading-tight uppercase md:row-start-1 justify-self-start css-1jurzha"
             >
               <div class="truncate text-navy-200 text-3xs">{drop.skinName}</div>
-              <div class="font-bold text-white truncate css-6plnry">{drop.skinWeapon}­</div>
+              <div class="font-bold text-white truncate css-6plnry">{drop.weaponName}­</div>
               <div class="-mb-1 font-bold truncate text-gold css-6plnry">
-                {drop.skinPriceRange}
+                {drop.priceRange}
               </div>
             </div>
           </div>

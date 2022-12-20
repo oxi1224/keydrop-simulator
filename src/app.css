@@ -479,3 +479,31 @@ img {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
+.border-violet {
+  --tw-border-opacity: 1;
+  border-color: rgb(164 26 255 / var(--tw-border-opacity));
+}
+
+.border-gray {
+  --tw-border-opacity: 1;
+  border-color: rgb(102 102 102 / var(--tw-border-opacity));
+}
+
+.border-blue {
+  --tw-border-opacity: 1;
+  border-color: rgb(68 130 255 / var(--tw-border-opacity));
+}
+
+.border-pink {
+  --tw-border-opacity: 1;
+  border-color: rgb(223 93 238 / var(--tw-border-opacity));
+}
+.border-red {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 68 93 / var(--tw-border-opacity));
+}
+.border-gold {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 174 100 / var(--tw-border-opacity));
+}

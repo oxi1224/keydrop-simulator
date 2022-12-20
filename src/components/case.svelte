@@ -1,49 +1,15 @@
 <script lang="ts">
   import CaseRoulette from './case components/CaseRoulette.svelte';
   import CaseContents from './case components/CaseContents.svelte';
-  import type { Case, CaseDrop, CaseItemData, DropDetails } from '$lib';
-  export let data: Case;
-  const caseItems: CaseDrop[] = [];
-  const itemData: CaseItemData[] = [];
+  import type { CaseWithDrops, CaseDrop } from '$lib';
+  export let caseData: CaseWithDrops;
+  const caseDrops: CaseDrop[] = caseData.drops;
+
   let fastOpen = (() => {
     const str = localStorage.getItem('fast-open') ?? 'false';
     if (!str) return false;
     return str === 'true' ? true : false;
   })();
-  const skins = (() => {
-    const arr = [];
-    for (const drop of data.drops) {
-      arr.push({
-        name: drop.skinName,
-        weapon: drop.weaponName
-      });
-    }
-    return arr.filter(
-      (
-        (s) => (o) =>
-          ((k) => !s.has(k) && s.add(k))(
-            ['name', 'weapon'].map((k) => o[k as keyof typeof o]).join('|')
-          )
-      )(new Set())
-    );
-  })();
-
-  for (const o of Object.values(skins)) {
-    const allItems = data.drops.filter(
-      (obj) => obj.skinName === o.name && obj.weaponName === o.weapon
-    );
-    const details: DropDetails[] = [];
-    allItems.forEach((obj) => details.push(obj.dropDetails));
-    itemData.push({
-      skinName: allItems[0].skinName,
-      weaponName: allItems[0].weaponName,
-      skinPriceRange: allItems[0].skinPriceRange,
-      skinDisplayChance: allItems[0].skinDisplayChance,
-      skinImgSource: allItems[0].skinImgSource,
-      skinRarity: allItems[0].skinRarity,
-      details: details
-    });
-  }
 
   function setFastOpen(e: MouseEvent) {
     const checked = (e.target as HTMLInputElement).checked;
@@ -73,7 +39,7 @@
         </span>
       </a>
       <h2 class="px-6 mx-auto text-xl font-semibold leading-tight text-center text-white uppercase">
-        {data.websiteName}
+        {caseData.websiteName}
       </h2>
       <div class="flex justify-center space-x-1 sm:space-x-2 sm:justify-end">
         <button
@@ -121,8 +87,8 @@
         </label>
       </div>
     </header>
-    <CaseRoulette rouletteItems="{caseItems}" data="{data}" />
-    <CaseContents itemData="{itemData}" />
+    <CaseRoulette rouletteItems="{caseDrops}" data="{caseData}" />
+    <CaseContents caseDrops="{caseDrops}" />
     <div class="container mx-auto"></div>
   </div>
 </main>

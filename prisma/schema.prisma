@@ -29,7 +29,7 @@ model Item {
   skinPrice     Float
   skinRarity    String
   skinImgSource String
-  stattrack     Boolean
+  stattrack     Boolean             @default(false)
   dropDate      DateTime            @default(now())
   sold          Boolean             @default(false)
   upgraded      Boolean             @default(false)
@@ -41,11 +41,30 @@ model Session {
 }
 
 model Case {
-  urlName     String  @id @unique
-  websiteName String  @unique
+  urlName     String     @id @unique
+  websiteName String     @unique
   price       Float
-  expired     Boolean @default(false)
-  drops       Json[]
+  expired     Boolean    @default(false)
+  drops       CaseDrop[]
+}
+
+model CaseDrop {
+  case          Case                @relation(fields: [parentCase], references: [websiteName])
+  globalInvItem GlobalInventoryItem @relation(fields: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], references: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], onUpdate: Cascade)
+  weaponName    String
+  skinName      String
+  skinQuality   String
+  skinPrice     Float
+  skinRarity    String
+  skinImgSource String
+  stattrack     Boolean             @default(false)
+  parentCase    String
+  displayOdds   String
+  oddsRange     Int[]
+  priceRange    String
+  displayChance String
+
+  @@unique([parentCase, weaponName, skinName, skinQuality])
 }
 
 model GlobalInventoryItem {
@@ -55,8 +74,9 @@ model GlobalInventoryItem {
   skinPrice     Float
   skinRarity    String
   skinImgSource String
-  stattrack     Boolean @default(false)
+  stattrack     Boolean    @default(false)
   Item          Item[]
+  CaseDop       CaseDrop[]
 
   @@unique([weaponName, skinName, skinQuality, stattrack])
   @@unique([weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack])

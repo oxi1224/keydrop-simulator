@@ -27,8 +27,8 @@ export async function POST(event: RequestEvent) {
       where: {
         weaponName: i.weaponName,
         skinName: i.skinName,
-        skinQuality: i.dropDetails.quality,
-        skinPrice: i.dropDetails.price
+        skinQuality: i.skinQuality,
+        skinPrice: i.skinPrice
       }
     });
     if (!globalItem) continue;

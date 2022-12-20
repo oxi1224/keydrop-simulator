@@ -7,12 +7,12 @@
     setUserData,
     userData,
     wearConversions,
-    type Case,
-    type CaseDrop
+    type CaseDrop,
+    type CaseWithDrops,
   } from '$lib';
   import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
-  export let data: Case;
+  export let data: CaseWithDrops;
   export let rouletteItems: CaseDrop[] = [];
 
   let multipleRoulettesItems: CaseDrop[][] = [];
@@ -37,7 +37,7 @@
       for (let i = 0; i < 60; i++) {
         const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
         const item = data.drops.find(
-          (obj) => obj.dropDetails.range[0] <= rollNumber && obj.dropDetails.range[1] >= rollNumber
+          (obj) => obj.oddsRange[0] <= rollNumber && obj.oddsRange[1] >= rollNumber
         );
         if (!item) {
           i--;
@@ -53,7 +53,7 @@
           const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
           const item = data.drops.find(
             (obj) =>
-              obj.dropDetails.range[0] <= rollNumber && obj.dropDetails.range[1] >= rollNumber
+              obj.oddsRange[0] <= rollNumber && obj.oddsRange[1] >= rollNumber
           );
           if (!item) continue;
           rollItems.push(item);
@@ -144,23 +144,23 @@
     winElmArr.forEach((elm, i) => {
       elm.classList.remove('hidden');
       elm.classList.add('flex');
-      elm.querySelector('.award-chance')!.textContent = winningItems[i].dropDetails.odds;
+      elm.querySelector('.award-chance')!.textContent = winningItems[i].displayOdds;
       elm.querySelector('.award-skin')!.textContent = winningItems[i].skinName;
       elm.querySelector('.award-weapon')!.textContent = winningItems[i].weaponName;
       elm.querySelector('.award-wear')!.textContent =
-        wearConversions[winningItems[i].dropDetails.quality as keyof typeof wearConversions];
-      elm.querySelector('.award-price')!.textContent = winningItems[i].dropDetails.price.toFixed(2);
+        wearConversions[winningItems[i].skinQuality as keyof typeof wearConversions];
+      elm.querySelector('.award-price')!.textContent = winningItems[i].skinPrice.toFixed(2);
       if (elm.querySelector('.award-img')) {
         (elm.querySelector('.award-img') as HTMLImageElement).src = winningItems[i].skinImgSource;
         (elm.querySelector('.award-bg-img') as HTMLImageElement).src =
-          colors.itemBg[winningItems[i].skinRarity];
+          colors.itemBg[winningItems[i].skinRarity as keyof typeof colors.itemBg];
       }
     });
     createPopup({
       type: 'success',
-      header: `Wygrana: ${winningItems.reduce((n, o) => n + o.dropDetails.price, 0).toFixed(2)}`,
+      header: `Wygrana: ${winningItems.reduce((n, o) => n + o.skinPrice, 0).toFixed(2)}`,
       message: `Zysk: ${(
-        winningItems.reduce((n, o) => n + o.dropDetails.price, 0) - casePrice
+        winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice
       ).toFixed(2)}`
     });
     switchMenus();

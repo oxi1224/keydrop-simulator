@@ -27,6 +27,31 @@
     }
   },
   "limited-edition": {
+    "SPILL": {
+      "price": 4.25,
+      "imgName": "SPILL.webp",
+      "href": "/skins/category/spill"
+    },
+    "SURFACE": {
+      "price": 50,
+      "imgName": "SURFACE.webp",
+      "href": "/skins/category/surface"
+    },
+    "MIST": {
+      "price": 125,
+      "imgName": "MIST.webp",
+      "href": "/skins/category/mist"
+    },
+    "ZAP": {
+      "price": 23.15,
+      "imgName": "ZAP.webp",
+      "href": "/skins/category/zap"
+    },
+    "PICKY": {
+      "price": 9.75,
+      "imgName": "PICKY.webp",
+      "href": "/skins/category/picky"
+    },
     "MESH": {
       "price": 6.5,
       "imgName": "MESH.webp",
@@ -629,31 +654,6 @@
     }
   },
   "expired": {
-    "SHERRY": {
-      "price": 5,
-      "imgName": "SHERRY.webp",
-      "href": "/skins/category/sherry"
-    },
-    "CAVE": {
-      "price": 47.5,
-      "imgName": "CAVE.webp",
-      "href": "/skins/category/cave"
-    },
-    "ELIXIR": {
-      "price": 97.5,
-      "imgName": "ELIXIR.webp",
-      "href": "/skins/category/elixir"
-    },
-    "RIPPLE": {
-      "price": 25,
-      "imgName": "RIPPLE.webp",
-      "href": "/skins/category/ripple"
-    },
-    "NEST": {
-      "price": 10,
-      "imgName": "NEST.webp",
-      "href": "/skins/category/nest"
-    },
     "HORUS": {
       "price": 7.5,
       "imgName": "352.webp",
@@ -663,71 +663,6 @@
       "price": 60,
       "imgName": "1211.webp",
       "href": "/skins/category/titan"
-    },
-    "GATE": {
-      "price": 6.25,
-      "imgName": "GATE2.webp",
-      "href": "/skins/category/gate"
-    },
-    "FLY": {
-      "price": 45,
-      "imgName": "FLY2.webp",
-      "href": "/skins/category/fly"
-    },
-    "BRICK": {
-      "price": 237.5,
-      "imgName": "BRICK2.webp",
-      "href": "/skins/category/brick"
-    },
-    "MATCH": {
-      "price": 20,
-      "imgName": "MATCH2.webp",
-      "href": "/skins/category/match"
-    },
-    "CLOUD": {
-      "price": 3,
-      "imgName": "CLOUD1.webp",
-      "href": "/skins/category/cloud"
-    },
-    "ZIP": {
-      "price": 1375,
-      "imgName": "ZIP2.webp",
-      "href": "/skins/category/zip"
-    },
-    "SKY": {
-      "price": 100,
-      "imgName": "SKY1.webp",
-      "href": "/skins/category/sky"
-    },
-    "JADE": {
-      "price": 500,
-      "imgName": "JADE2.webp",
-      "href": "/skins/category/jade"
-    },
-    "RUNNER": {
-      "price": 4,
-      "imgName": "large-4_(11).webp",
-      "href": "/skins/category/runner"
-    },
-    "HIMERO": {
-      "price": 60,
-      "imgName": "large-3_(12).webp",
-      "href": "/skins/category/himero"
-    },
-    "FINAL": {
-      "price": 200,
-      "imgName": "FINAL.webp",
-      "href": "/skins/category/final"
-    },
-    "WIRE": {
-      "price": 30,
-      "imgName": "large-5_(12).webp",
-      "href": "/skins/category/wire"
-    },
-    "MIMAN": {
-      "price": 10,
-      "imgName": "large-2_(10).webp",
-      "href": "/skins/category/miman"
     },
     "SONIC": {
       "price": 7.5,

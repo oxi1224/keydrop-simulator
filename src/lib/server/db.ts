@@ -40,6 +40,9 @@ export async function getCaseData(caseName: string) {
   const caseObj = await db.case.findFirst({
     where: {
       OR: [{ urlName: caseName }, { websiteName: caseName }]
+    },
+    include: {
+      drops: true
     }
   });
   return caseObj as Case | null;
