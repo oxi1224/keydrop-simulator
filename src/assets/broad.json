@@ -1,162 +1,34 @@
 {
-  "event": {
-    "COOKIE MAN": {
-      "price": 3.5,
-      "imgName": "COOKIE_MAN1.webp",
-      "href": "/skins/category/cookie-man"
-    },
-    "GIFTREE": {
-      "price": 60,
-      "imgName": "GIFTREE11.webp",
-      "href": "/skins/category/giftree"
-    },
-    "SURPRISE": {
-      "price": 150,
-      "imgName": "SURPRISE11.webp",
-      "href": "/skins/category/surprise-2"
-    },
-    "SNOWFLY": {
-      "price": 26,
-      "imgName": "SNOWFLY1.webp",
-      "href": "/skins/category/snowfly"
-    },
-    "TORPEDO": {
-      "price": 9,
-      "imgName": "TORPEDO3.webp",
-      "href": "/skins/category/torpedo"
-    }
-  },
+  "event": {},
   "limited-edition": {
-    "SPILL": {
-      "price": 4.25,
-      "imgName": "SPILL.webp",
-      "href": "/skins/category/spill"
+    "FLUM": {
+      "price": 3.75,
+      "imgName": "FLUM.webp",
+      "href": "/skins/category/flum"
     },
-    "SURFACE": {
-      "price": 50,
-      "imgName": "SURFACE.webp",
-      "href": "/skins/category/surface"
+    "SWIFT": {
+      "price": 55,
+      "imgName": "SWIFT.webp",
+      "href": "/skins/category/swift"
     },
-    "MIST": {
+    "POKUS": {
       "price": 125,
-      "imgName": "MIST.webp",
-      "href": "/skins/category/mist"
+      "imgName": "POKUS.webp",
+      "href": "/skins/category/pokus"
     },
-    "ZAP": {
-      "price": 23.15,
-      "imgName": "ZAP.webp",
-      "href": "/skins/category/zap"
+    "CLAM": {
+      "price": 34.5,
+      "imgName": "CLAM.webp",
+      "href": "/skins/category/clam"
     },
-    "PICKY": {
-      "price": 9.75,
-      "imgName": "PICKY.webp",
-      "href": "/skins/category/picky"
-    },
-    "MESH": {
-      "price": 6.5,
-      "imgName": "MESH.webp",
-      "href": "/skins/category/mesh"
-    },
-    "GOJO": {
-      "price": 75,
-      "imgName": "GOJO.webp",
-      "href": "/skins/category/gojo"
-    },
-    "WAKE": {
-      "price": 125,
-      "imgName": "WAKE.webp",
-      "href": "/skins/category/wake"
-    },
-    "DESOLATION": {
-      "price": 30,
-      "imgName": "DESOLATION.webp",
-      "href": "/skins/category/desolation"
-    },
-    "STAMP": {
-      "price": 12.5,
-      "imgName": "STAMP.webp",
-      "href": "/skins/category/stamp"
+    "LEAF": {
+      "price": 11,
+      "imgName": "LEAF.webp",
+      "href": "/skins/category/leaf"
     }
   },
-  "legacy": {
-    "LOVERS": {
-      "price": 25,
-      "imgName": "LOVERS.webp",
-      "href": "/skins/category/lovers"
-    },
-    "ORBIT": {
-      "price": 60,
-      "imgName": "4GE.webp",
-      "href": "/skins/category/orbit"
-    },
-    "LIGHTS": {
-      "price": 6,
-      "imgName": "2211.webp",
-      "href": "/skins/category/lights"
-    },
-    "CUP": {
-      "price": 120,
-      "imgName": "5_4384322.webp",
-      "href": "/skins/category/cup"
-    },
-    "TAP": {
-      "price": 25,
-      "imgName": "460.webp",
-      "href": "/skins/category/tap"
-    }
-  },
-  "youtubers-cases": {
-    "KACPER RIETZ": {
-      "price": 19.7,
-      "imgName": "kacper1.webp",
-      "href": "/skins/category/kacper-rietz"
-    },
-    "MATEO": {
-      "price": 19.7,
-      "imgName": "mateoo.webp",
-      "href": "/skins/category/mateo"
-    },
-    "ISAMU": {
-      "price": 49.3,
-      "imgName": "isamu.webp",
-      "href": "/skins/category/isamu"
-    },
-    "MEDUSA": {
-      "price": 33.5,
-      "imgName": "medusa1.webp",
-      "href": "/skins/category/medusa"
-    },
-    "INNOCENT": {
-      "price": 27.65,
-      "imgName": "innocent.webp",
-      "href": "/skins/category/innocent"
-    },
-    "DMG": {
-      "price": 99.8,
-      "imgName": "dmg.webp",
-      "href": "/skins/category/dmg"
-    },
-    "GILATHISS": {
-      "price": 49.3,
-      "imgName": "gilathiss.webp",
-      "href": "/skins/category/gilathiss"
-    },
-    "NEXE": {
-      "price": 33.3,
-      "imgName": "nexe2.webp",
-      "href": "/skins/category/nexe"
-    },
-    "FOREVER": {
-      "price": 45,
-      "imgName": "FOREVER.webp",
-      "href": "/skins/category/forever"
-    },
-    "ZONY": {
-      "price": 45,
-      "imgName": "zony.webp",
-      "href": "/skins/category/zony"
-    }
-  },
+  "legacy": {},
+  "youtubers-cases": {},
   "cs-go-kings": {
     "SPARK": {
       "price": 7.65,
@@ -576,6 +448,108 @@
       "href": "/skins/category/covert"
     }
   },
+  "other": {
+    "REFLECT": {
+      "price": 4.5,
+      "imgName": "REFLECT.webp",
+      "href": "/skins/category/reflect"
+    },
+    "MIDNIGHT": {
+      "price": 65,
+      "imgName": "MIDNIGHT.webp",
+      "href": "/skins/category/midnight-2"
+    },
+    "GOAL": {
+      "price": 157,
+      "imgName": "GOAL.webp",
+      "href": "/skins/category/goal"
+    },
+    "CELEBRATION": {
+      "price": 31.5,
+      "imgName": "CELEBRATION.webp",
+      "href": "/skins/category/celebration"
+    },
+    "REFRESH": {
+      "price": 9.25,
+      "imgName": "REFRESH.webp",
+      "href": "/skins/category/refresh"
+    },
+    "SLAM": {
+      "price": 3.75,
+      "imgName": "SLAM2.webp",
+      "href": "/skins/category/slam"
+    },
+    "RAVEN": {
+      "price": 12.5,
+      "imgName": "RAVEN.webp",
+      "href": "/skins/category/raven"
+    },
+    "LOVERS": {
+      "price": 25,
+      "imgName": "LOVERS.webp",
+      "href": "/skins/category/lovers"
+    },
+    "ORBIT": {
+      "price": 60,
+      "imgName": "4GE.webp",
+      "href": "/skins/category/orbit"
+    },
+    "LIGHTS": {
+      "price": 6,
+      "imgName": "2211.webp",
+      "href": "/skins/category/lights"
+    },
+    "KACPER RIETZ": {
+      "price": 19.7,
+      "imgName": "kacper1.webp",
+      "href": "/skins/category/kacper-rietz"
+    },
+    "MATEO": {
+      "price": 19.7,
+      "imgName": "mateoo.webp",
+      "href": "/skins/category/mateo"
+    },
+    "ISAMU": {
+      "price": 49.3,
+      "imgName": "isamu.webp",
+      "href": "/skins/category/isamu"
+    },
+    "MEDUSA": {
+      "price": 33.5,
+      "imgName": "medusa1.webp",
+      "href": "/skins/category/medusa"
+    },
+    "INNOCENT": {
+      "price": 27.65,
+      "imgName": "innocent.webp",
+      "href": "/skins/category/innocent"
+    },
+    "DMG": {
+      "price": 99.8,
+      "imgName": "dmg.webp",
+      "href": "/skins/category/dmg"
+    },
+    "CSR": {
+      "price": 19.7,
+      "imgName": "csr.webp",
+      "href": "/skins/category/csr"
+    },
+    "NEXE": {
+      "price": 33.3,
+      "imgName": "nexe2.webp",
+      "href": "/skins/category/nexe"
+    },
+    "FOREVER": {
+      "price": 45,
+      "imgName": "FOREVER.webp",
+      "href": "/skins/category/forever"
+    },
+    "ZONY": {
+      "price": 45,
+      "imgName": "zony.webp",
+      "href": "/skins/category/zony"
+    }
+  },
   "gold-area": {
     "FOSTER": {
       "price": 610,
@@ -654,6 +628,146 @@
     }
   },
   "expired": {
+    "MUG": {
+      "price": 15,
+      "imgName": "MUG1.webp",
+      "href": "/skins/category/mug"
+    },
+    "BAND": {
+      "price": 250,
+      "imgName": "BAND1.webp",
+      "href": "/skins/category/band"
+    },
+    "DRUM": {
+      "price": 500,
+      "imgName": "DRUM1.webp",
+      "href": "/skins/category/drum"
+    },
+    "BOBBLE": {
+      "price": 100,
+      "imgName": "BOBBLE1.webp",
+      "href": "/skins/category/bobble"
+    },
+    "SOCKS": {
+      "price": 35,
+      "imgName": "SOCKS1.webp",
+      "href": "/skins/category/socks"
+    },
+    "COOKIE MAN": {
+      "price": 3.5,
+      "imgName": "COOKIE_MAN1.webp",
+      "href": "/skins/category/cookie-man"
+    },
+    "GIFTREE": {
+      "price": 60,
+      "imgName": "GIFTREE11.webp",
+      "href": "/skins/category/giftree"
+    },
+    "SURPRISE": {
+      "price": 150,
+      "imgName": "SURPRISE11.webp",
+      "href": "/skins/category/surprise-2"
+    },
+    "SNOWFLY": {
+      "price": 26,
+      "imgName": "SNOWFLY1.webp",
+      "href": "/skins/category/snowfly"
+    },
+    "TORPEDO": {
+      "price": 9,
+      "imgName": "TORPEDO3.webp",
+      "href": "/skins/category/torpedo"
+    },
+    "BLISS": {
+      "price": 3,
+      "imgName": "large-11.webp",
+      "href": "/skins/category/bliss-2"
+    },
+    "VALOR": {
+      "price": 87.5,
+      "imgName": "large-42.webp",
+      "href": "/skins/category/valor"
+    },
+    "DARING": {
+      "price": 132,
+      "imgName": "large-32.webp",
+      "href": "/skins/category/daring"
+    },
+    "BRAVERY": {
+      "price": 29,
+      "imgName": "large-5.webp",
+      "href": "/skins/category/bravery"
+    },
+    "CHARMER": {
+      "price": 10.5,
+      "imgName": "large-21.webp",
+      "href": "/skins/category/charmer"
+    },
+    "SPILL": {
+      "price": 4.25,
+      "imgName": "SPILL.webp",
+      "href": "/skins/category/spill"
+    },
+    "SURFACE": {
+      "price": 50,
+      "imgName": "SURFACE.webp",
+      "href": "/skins/category/surface"
+    },
+    "MIST": {
+      "price": 125,
+      "imgName": "MIST.webp",
+      "href": "/skins/category/mist"
+    },
+    "ZAP": {
+      "price": 23.15,
+      "imgName": "ZAP.webp",
+      "href": "/skins/category/zap"
+    },
+    "PICKY": {
+      "price": 9.75,
+      "imgName": "PICKY.webp",
+      "href": "/skins/category/picky"
+    },
+    "GILATHISS": {
+      "price": 49.3,
+      "imgName": "gilathiss.webp",
+      "href": "/skins/category/gilathiss"
+    },
+    "CUP": {
+      "price": 120,
+      "imgName": "5_4384322.webp",
+      "href": "/skins/category/cup"
+    },
+    "MESH": {
+      "price": 6.5,
+      "imgName": "MESH.webp",
+      "href": "/skins/category/mesh"
+    },
+    "GOJO": {
+      "price": 75,
+      "imgName": "GOJO.webp",
+      "href": "/skins/category/gojo"
+    },
+    "WAKE": {
+      "price": 125,
+      "imgName": "WAKE.webp",
+      "href": "/skins/category/wake"
+    },
+    "DESOLATION": {
+      "price": 30,
+      "imgName": "DESOLATION.webp",
+      "href": "/skins/category/desolation"
+    },
+    "STAMP": {
+      "price": 12.5,
+      "imgName": "STAMP.webp",
+      "href": "/skins/category/stamp"
+    },
+    "TAP": {
+      "price": 25,
+      "imgName": "460.webp",
+      "href": "/skins/category/tap"
+    },
     "HORUS": {
       "price": 7.5,
       "imgName": "352.webp",

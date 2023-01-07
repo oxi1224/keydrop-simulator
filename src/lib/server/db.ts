@@ -1,4 +1,4 @@
-import type { Case } from '$lib/types';
+import type { CaseWithDrops } from '$lib/types';
 import { PrismaClient } from '@prisma/client';
 
 let prisma: PrismaClient;
@@ -45,5 +45,5 @@ export async function getCaseData(caseName: string) {
       drops: true
     }
   });
-  return caseObj as Case | null;
+  return caseObj as CaseWithDrops | null;
 }

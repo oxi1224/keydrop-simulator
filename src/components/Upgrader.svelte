@@ -24,8 +24,28 @@
 </style>
 
 <script lang="ts">
-  import { userData } from '$lib';
-  import type { Item } from '@prisma/client';
+  import { userData, type SkinRarity } from '$lib';
+  import type { GlobalInventoryItem, Item } from '@prisma/client';
+  import { onMount } from 'svelte';
+  let availableItems: GlobalInventoryItem[] = [];
+  let availableItemsCount = 0;
+
+  onMount(async () => {
+    const res = await fetch(
+      '/api/skins/get-items?' +
+        new URLSearchParams({
+          page: '0',
+          order: 'DESC',
+          minPrice: '0',
+          maxPrice: '0'
+        }),
+      { method: 'GET' }
+    );
+    const body = await res.json();
+    availableItems = res.ok ? body.items : [];
+    availableItemsCount = res.ok ? body.itemCount : 0;
+  });
+
   let filteredInv: Item[] =
     $userData?.inventory
       .filter((item) => !item.sold || !item.upgraded)
@@ -40,11 +60,41 @@
   // eslint-disable-next-line prefer-const
   let minPrice = 0;
   // eslint-disable-next-line prefer-const
-  let order = 'DESC';
+  let order: 'ASC' | 'DESC' = 'DESC';
   // eslint-disable-next-line prefer-const
   let rarity = '';
   // eslint-disable-next-line prefer-const
   let searchString = '';
+
+  async function updateItems(
+    page: number,
+    skinOrder: 'ASC' | 'DESC',
+    minSkinPrice: number,
+    maxSkinPrice: number,
+    skinRarity: string,
+    search: string
+  ) {
+    await fetch(
+      '/api/skins/get-items?' +
+        new URLSearchParams({
+          page: page.toString(),
+          order: skinOrder,
+          minPrice: minSkinPrice.toString(),
+          maxPrice: maxSkinPrice.toString(),
+          skinRarity: skinRarity,
+          searchString: search
+        }),
+      { method: 'GET' }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        availableItems = data.items || [];
+        availableItemsCount = data.itemCount || [];
+      });
+  }
+
+  $: updateItems(availableItemsPage, order, minPrice, maxPrice, rarity, searchString);
+
   $: filteredInv =
     $userData?.inventory
       .filter((item) => !item.sold || !item.upgraded)
@@ -489,7 +539,7 @@
                   type="text"
                   class="input flex-1 w-full text-xs text-white bg-transparent border-none focus:outline-none placeholder-navy-200 !pl-0"
                   placeholder="Find skin"
-                  value=""
+                  bind:value="{searchString}"
                 />
               </label>
               <label
@@ -501,7 +551,7 @@
                   type="number"
                   placeholder="0"
                   class="ml-1 text-white bg-transparent border-none outline-none placeholder-navy-300 w-[50px]"
-                  value="0"
+                  bind:value="{minPrice}"
                 />
               </label>
               <button
@@ -605,7 +655,7 @@
             class="grid gap-3 mt-6 transition-opacity duration-300"
             style="grid-template: 1fr / repeat(auto-fill, minmax(110px, 1fr));"
           >
-            <!-- {#await availableItemsPromise then availableItems}
+            {#if availableItems.length != 0}
               {#each availableItems as item}
                 <li>
                   <div
@@ -620,7 +670,7 @@
                       <div
                         class="py-1.5 my-1.5 ml-2 mr-1 font-bold leading-none text-white uppercase text-2xs"
                       >
-                        WW
+                        {item.skinQuality}
                       </div>
                       <div
                         class="p-1.5 m-1.5 ml-auto font-bold leading-none rounded-md whitespace-nowrap text-gold bg-navy-900 min-w-0"
@@ -658,10 +708,13 @@
                   </div>
                 </li>
               {/each}
-            {/await} -->
+            {:else}
+              placeholder
+            {/if}
           </ul>
           <div class="grid grid-cols-3 gap-3 pt-6 mt-auto transition-opacity duration-300">
             <button
+              on:click="{() => (availableItemsPage > 0 ? availableItemsPage-- : null)}"
               class="text-navy-300 flex items-center h-10 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent justify-center px-10 py-2 md:px-4 sm:justify-self-start"
             >
               <svg class="w-4 h-4">
@@ -671,9 +724,13 @@
             <div
               class="flex items-center justify-center p-3 text-sm font-bold leading-none text-center text-white rounded bg-navy-900 sm:justify-self-center"
             >
-              1/263
+              {availableItemsPage + 1}/{Math.ceil(availableItemsCount / 15)}
             </div>
             <button
+              on:click="{() =>
+                availableItemsPage < Math.ceil(availableItemsCount / 15) - 1
+                  ? availableItemsPage++
+                  : null}"
               class="text-navy-300 flex items-center h-10 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent justify-center px-10 py-2 md:px-4 sm:justify-self-end"
             >
               <svg class="w-4 h-4 rotate-180">
