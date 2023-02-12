@@ -8,7 +8,7 @@
     userData,
     wearConversions,
     type CaseDrop,
-    type CaseWithDrops,
+    type CaseWithDrops
   } from '$lib';
   import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
@@ -52,8 +52,7 @@
         for (let itemI = 0; itemI < 60; itemI++) {
           const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
           const item = data.drops.find(
-            (obj) =>
-              obj.oddsRange[0] <= rollNumber && obj.oddsRange[1] >= rollNumber
+            (obj) => obj.oddsRange[0] <= rollNumber && obj.oddsRange[1] >= rollNumber
           );
           if (!item) continue;
           rollItems.push(item);
@@ -159,9 +158,7 @@
     createPopup({
       type: 'success',
       header: `Wygrana: ${winningItems.reduce((n, o) => n + o.skinPrice, 0).toFixed(2)}`,
-      message: `Zysk: ${(
-        winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice
-      ).toFixed(2)}`
+      message: `Zysk: ${(winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice).toFixed(2)}`
     });
     switchMenus();
     loading = false;

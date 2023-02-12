@@ -1,5 +1,6 @@
+/* eslint-disable indent */
 import type { CaseWithDrops } from '$lib/types';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, type Case } from '@prisma/client';
 
 let prisma: PrismaClient;
 
@@ -37,13 +38,27 @@ export async function userFromSessionID(sessionID: string) {
 }
 
 export async function getCaseData(caseName: string) {
-  const caseObj = await db.case.findFirst({
-    where: {
-      OR: [{ urlName: caseName }, { websiteName: caseName }]
-    },
-    include: {
-      drops: true
-    }
-  });
-  return caseObj as CaseWithDrops | null;
+  const caseObj =
+    caseName === 'sections'
+      ? await db.caseSection.findMany({
+          include: {
+            cases: {
+              orderBy: {
+                positionInGrid: 'asc'
+              }
+            }
+          },
+          orderBy: {
+            position: 'asc'
+          }
+        })
+      : await db.case.findFirst({
+          where: {
+            OR: [{ urlName: caseName }, { websiteName: caseName }]
+          },
+          include: {
+            drops: true
+          }
+        });
+  return caseObj as CaseWithDrops | Case[] | null;
 }

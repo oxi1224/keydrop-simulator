@@ -8,7 +8,7 @@ export async function GET(event: RequestEvent) {
   const page = parseInt(event.url.searchParams.get('page') ?? '');
   const minPrice = parseFloat(event.url.searchParams.get('minPrice') ?? '');
   const maxPrice = parseFloat(event.url.searchParams.get('maxPrice') ?? '');
-  
+
   const items = await db.globalInventoryItem.findMany({
     skip: page * 15,
     take: 15,

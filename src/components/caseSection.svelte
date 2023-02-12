@@ -1,24 +1,28 @@
 <script lang="ts">
   import CaseThumbnail from './CaseThumbnail.svelte';
-  import type { CaseThumbnailData } from '$lib';
-  export let id: string;
-  export let caseValues: { [key: string]: CaseThumbnailData };
+  import type { CaseSection } from '$lib';
+  export let data: CaseSection;
+  data.id === 'expired'
+    ? data.cases.sort((a, b) => a.websiteName.localeCompare(b.websiteName))
+    : null;
 </script>
 
-<section id="{id}" class="relative">
+<section id="{data.id}" class="relative">
   <div
-    class="relative flex mb-4 md:mb-0 {id !== 'youtubers-cases' ? 'border-gray-700 border-b' : ''}"
+    class="relative flex mb-4 md:mb-0 {data.id !== 'youtubers-cases'
+      ? 'border-gray-700 border-b'
+      : ''}"
   >
     <div class="flex items-end w-1/6 sm:w-1/3"></div>
     <div class="flex items-center w-4/6 sm:w-1/3">
       <h1
-        class="row-start-1 row-end-1 px-2 pb-5 mt-10 ml-auto mr-auto -mb-px text-base font-semibold text-center text-white uppercase sm:text-lg lg:max-w-xs lg:col-start-2 lg:col-end-2 {id !==
+        class="row-start-1 row-end-1 px-2 pb-5 mt-10 ml-auto mr-auto -mb-px text-base font-semibold text-center text-white uppercase sm:text-lg lg:max-w-xs lg:col-start-2 lg:col-end-2 {data.id !==
         'youtubers-cases'
           ? 'border-b border-gray-100'
           : ''}"
       >
         <div class="flex items-center leading-none h-7 sm:h-8 whitespace-nowrap">
-          {#if id === 'youtubers-cases'}
+          {#if data.id === 'youtubers-cases'}
             <svg class="mr-3 -mt-px fill-current w-9 h-9" viewBox="0 0 24 24">
               <rect fill="#fff" width="10" height="8" x="5" y="7"></rect>
               <path
@@ -27,32 +31,22 @@
               ></path>
             </svg>
           {/if}
-          {id.replace('-', ' ')}
+          {data.name}
         </div>
       </h1>
     </div>
   </div>
   <div
-    class="grid grid-cols-2 gap-6 relative z-0 md:py-7 {id === 'youtubers-cases'
-      ? 'md:px-8'
-      : ''} {[
-      'gold-area',
-      'youtubers-cases',
-      'cs-go-kings',
-      'legacy',
-      'event',
-      'limited-edition'
-    ].includes(id)
-      ? 'md:grid-cols-5'
-      : 'md:grid-cols-payments'}"
+    class="grid grid-cols-{data.colSpan || '6'} grid-rows-{data.rowSpan ||
+      '[auto]'} gap-6 relative z-0 md:py-7 {data.id === 'youtubers-cases' ? 'md:px-8' : ''}"
   >
-    {#if id === 'youtubers-cases'}
+    {#if data.id === 'youtubers-cases'}
       <div class="z-[-1] absolute inset-[-1px] hidden md:flex youtuber-cases-border">
         <div class="absolute bg-navy-600 inset-px" style="border-radius: 1.20rem;"></div>
       </div>
     {/if}
-    {#each Object.entries(caseValues) as [caseName, caseInfo]}
-      <CaseThumbnail sectionId="{id}" name="{caseName}" data="{caseInfo}" />
+    {#each data.cases as caseData}
+      <CaseThumbnail data="{caseData}" ratio="{data.ratio}" />
     {/each}
   </div>
 </section>

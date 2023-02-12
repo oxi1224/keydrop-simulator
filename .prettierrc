@@ -11,5 +11,6 @@
   "bracketSpacing": true,
   "svelteSortOrder": "options-styles-scripts-markup",
   "svelteStrictMode": true,
-  "htmlWhitespaceSensitivity": "ignore"
+  "htmlWhitespaceSensitivity": "ignore",
+  "arrowParens": "always"
 }

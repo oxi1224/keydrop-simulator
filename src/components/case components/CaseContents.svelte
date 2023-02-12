@@ -20,7 +20,9 @@
     );
     const returnArr = [];
     for (const obj of filtered) {
-      const allMatchingDrops = caseDrops.filter(item => item.skinName == obj.name && item.weaponName == obj.weapon);
+      const allMatchingDrops = caseDrops.filter(
+        (item) => item.skinName == obj.name && item.weaponName == obj.weapon
+      );
       const displayDrop: DisplayDrop = {
         displayChance: allMatchingDrops[0].displayChance,
         skinRarity: allMatchingDrops[0].skinRarity,
@@ -28,7 +30,7 @@
         weaponName: allMatchingDrops[0].weaponName,
         skinName: allMatchingDrops[0].skinName,
         priceRange: allMatchingDrops[0].priceRange,
-        details: [],
+        details: []
       };
       for (const drop of allMatchingDrops) {
         displayDrop.details.push({

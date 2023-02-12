@@ -1,6 +1,10 @@
-<script>
+<script lang="ts">
   import CaseSection from '$components/CaseSection.svelte';
-  import caseData from '$assets/broad.json';
+  import type { CaseSection as CaseSectionType } from '$lib';
+
+  const promise: Promise<CaseSectionType[]> = fetch('/api/get-case?caseName=sections', {
+    method: 'GET'
+  }).then(async (res) => (await res.json()).data);
 </script>
 
 <main class="bg-no-repeat" style="background-position: center top; background-size: auto 1400px;">
@@ -8,11 +12,11 @@
     <div id="caseList-root" class="py-10 pb-10">
       <div class="min-h-screen text-white">
         <div class="container mx-auto">
-          {#each Object.entries(caseData) as [id, caseValues]}
-            {#if Object.values(caseValues).length > 0}
-              <CaseSection id="{id}" caseValues="{caseValues}" />
-            {/if}
-          {/each}
+          {#await promise then data}
+            {#each data as sectionData}
+              <CaseSection data="{sectionData}" />
+            {/each}
+          {/await}
         </div>
       </div>
     </div>

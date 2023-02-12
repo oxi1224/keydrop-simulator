@@ -41,11 +41,25 @@ model Session {
 }
 
 model Case {
-  urlName     String     @id @unique
-  websiteName String     @unique
-  price       Float
-  expired     Boolean    @default(false)
-  drops       CaseDrop[]
+  section        CaseSection? @relation(fields: [category], references: [name])
+  urlName        String       @id @unique
+  websiteName    String       @unique
+  price          Float
+  expired        Boolean      @default(false)
+  category       String?
+  imgName        String
+  positionInGrid Int?
+  drops          CaseDrop[]
+}
+
+model CaseSection {
+  id       String @id @unique
+  name     String @unique
+  rowSpan  Int
+  colSpan  Int
+  ratio    String
+  position Int
+  cases    Case[]
 }
 
 model CaseDrop {
