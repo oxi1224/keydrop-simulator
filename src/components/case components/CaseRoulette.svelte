@@ -560,7 +560,7 @@
         class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
         {!$userData
           ? 'border-red text-red glow-red hover:bg-red'
-          : $userData.balance >= casePrice
+          : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] >= casePrice
           ? 'border-green text-green glow-pastelGreen hover:bg-green'
           : 'border-red text-red glow-red hover:bg-red'}"
         on:click="{handleRoll}"
