@@ -8,7 +8,9 @@
     userData,
     wearConversions,
     type CaseDrop,
-    type CaseWithDrops
+    type CaseWithDrops,
+    fastOpen,
+
   } from '$lib';
   import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
@@ -25,7 +27,7 @@
   let sellLoading = false;
   let sellSuccess = false;
   let totalAwardPrice: number;
-  $: tooPoor = !$userData ? true : $userData.balance < casePrice;
+  $: tooPoor = !$userData ? true : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice;
   $: totalAwardPrice = itemsIndb.reduce((n, o) => n + o.skinPrice, 0);
 
   generateRollItems(rouletteCount);
@@ -97,12 +99,13 @@
   }
 
   async function handleRoll() {
+    generateRollItems(rouletteCount);
     sellSuccess = false;
     [...document.querySelectorAll('.single-sell-btn')].forEach((el) => {
       (el as HTMLButtonElement).disabled = false;
     });
     soldItems = [];
-    if (!$userData || $userData.balance < casePrice) {
+    if (!$userData || $userData[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice) {
       createPopup({
         type: 'error',
         header: 'błąd',
@@ -122,7 +125,7 @@
     loading = true;
     const res = await fetch('/api/skins/case-open', {
       method: 'POST',
-      body: JSON.stringify({ items: winningItems, cost: casePrice, origin: data.websiteName }),
+      body: JSON.stringify({ items: winningItems, cost: casePrice, origin: data.websiteName, goldenCase: data.goldenCase }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -148,7 +151,7 @@
       elm.querySelector('.award-weapon')!.textContent = winningItems[i].weaponName;
       elm.querySelector('.award-wear')!.textContent =
         wearConversions[winningItems[i].skinQuality as keyof typeof wearConversions];
-      elm.querySelector('.award-price')!.textContent = winningItems[i].skinPrice.toFixed(2);
+      elm.querySelector('.award-price')!.textContent = winningItems[i].skinPrice.toFixed(2) + 'zł';
       if (elm.querySelector('.award-img')) {
         (elm.querySelector('.award-img') as HTMLImageElement).src = winningItems[i].skinImgSource;
         (elm.querySelector('.award-bg-img') as HTMLImageElement).src =
@@ -166,8 +169,7 @@
   }
 
   async function playRollAnimation() {
-    const fastOpen = localStorage.getItem('fast-open');
-    const duration = fastOpen === 'true' ? 750 : 2500;
+    const duration = $fastOpen ? 750 : 2500;
     if (rouletteCount === 1) {
       const bounds = document.querySelectorAll('li.case-item')[45].getBoundingClientRect();
       const x = Math.floor(
@@ -259,7 +261,6 @@
     sellLoading = false;
   }
 </script>
-
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
   <div class="relative overflow-hidden lg:overflow-visible">
     <svg
@@ -588,7 +589,7 @@
           {:else}
             {!$userData
               ? 'Zaloguj się aby otworzyć'
-              : $userData.balance >= casePrice
+              : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice
               ? `Otwórz za ${casePrice.toFixed(2)}`
               : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
             <div class="flex items-center ml-2">

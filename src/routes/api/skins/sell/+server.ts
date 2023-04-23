@@ -43,6 +43,9 @@ export async function POST(event: RequestEvent) {
       },
       balance: {
         increment: Math.round((priceSum + Number.EPSILON) * 100) / 100
+      },
+      goldBalance: {
+        increment: Math.round((priceSum + Number.EPSILON) * 2.5)
       }
     }
   });

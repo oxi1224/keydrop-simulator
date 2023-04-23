@@ -4,9 +4,13 @@
   import Header from '$components/Header.svelte';
   import Footer from '$components/Footer.svelte';
   import { onMount } from 'svelte';
+
   onMount(async () => {
-    const { setUserData } = await import('$lib');
-    await setUserData();
+    const { setUserData, fastOpen, loggedIn } = await import('$lib');
+    fastOpen.set(localStorage['fast_open'] === 'true');
+    loggedIn.set(localStorage['logged_in'] === 'true');
+
+    await setUserData();   
   });
 </script>
 

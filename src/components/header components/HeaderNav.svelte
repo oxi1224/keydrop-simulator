@@ -1,6 +1,6 @@
 <div class="hidden overflow-hidden md:block bg-navy-700">
   <nav class="container h-full mx-auto">
-    <ul class="flex flex-wrap justify-end h-full xl:flex-nowrap xl:-mx-4 text-3xs lg:text-2xs">
+    <!-- <ul class="flex flex-wrap justify-end h-full xl:flex-nowrap xl:-mx-4 text-3xs lg:text-2xs">
       <li>
         <a
           rel="alternate"
@@ -124,6 +124,6 @@
           <span class="inline-block mt-0.5">Skin Changer</span>
         </a>
       </li>
-    </ul>
+    </ul> -->
   </nav>
 </div>

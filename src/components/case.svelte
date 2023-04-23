@@ -1,19 +1,12 @@
 <script lang="ts">
   import CaseRoulette from './case components/CaseRoulette.svelte';
   import CaseContents from './case components/CaseContents.svelte';
-  import type { CaseWithDrops, CaseDrop } from '$lib';
+  import { type CaseWithDrops, type CaseDrop, fastOpen } from '$lib';
   export let caseData: CaseWithDrops;
   const caseDrops: CaseDrop[] = caseData.drops;
 
-  let fastOpen = (() => {
-    const str = localStorage.getItem('fast-open') ?? 'false';
-    if (!str) return false;
-    return str === 'true' ? true : false;
-  })();
-
   function setFastOpen(e: MouseEvent) {
-    const checked = (e.target as HTMLInputElement).checked;
-    localStorage.setItem('fast-open', `${checked}`);
+    fastOpen.set((e.target as HTMLInputElement).checked);
   }
 </script>
 
@@ -71,7 +64,7 @@
           </svg>
         </button>
         <label
-          class="flex cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {fastOpen
+          class="flex cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {$fastOpen
             ? ''
             : 'brightness-75'}"
         >
@@ -80,7 +73,6 @@
             id="fast-open"
             name="fast-open"
             class="absolute opacity-0 cursor-pointer h-0 w-0"
-            bind:checked="{fastOpen}"
             on:click="{(e) => setFastOpen(e)}"
           />
           <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>

@@ -76,6 +76,7 @@
   <div
     class="fixed inset-0 z-0 transition-opacity duration-300 outline-none opacity-0 bg-navy-600 in-open:opacity-70"
     on:click="{toggleDropdown}"
+    on:keypress="{() => null}"
   ></div>
   <div
     class="z-10 min-w-max bg-navy-900 overflow-hidden border border-solid border-navy-400 rounded-bl-2xl rounded-br-2xl absolute top-0 right-0 opacity-0 transition duration-300 scale-90 origin-top-right in-open:opacity-100 in-open:scale-100"
@@ -116,7 +117,7 @@
               </svg>
               Moje konto
             </a>
-          </li>
+          <!-- </li>
           <li>
             <a
               href="d"
@@ -200,10 +201,8 @@
               Provably Fair
             </a>
           </li>
-          <li>
+          <li> -->
             <button
-              rel="alternate"
-              hreflang="pl"
               on:click="{handleLogout}"
               class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
             >

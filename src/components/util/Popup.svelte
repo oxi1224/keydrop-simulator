@@ -12,6 +12,7 @@
     ? 'is-open'
     : ''}"
   on:click="{closePopup}"
+  on:keypress="{() => null}"
 >
   <div class="mt-2 w-full h-full">
     <div

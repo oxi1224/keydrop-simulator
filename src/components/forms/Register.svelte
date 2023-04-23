@@ -49,7 +49,7 @@
   <div
     class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border relative"
   >
-    <div class="absolute top-5 right-5 cursor-pointer text-lg" on:click="{toggleRegister}">✖</div>
+    <div class="absolute top-5 right-5 cursor-pointer text-lg" on:keypress="{() => null}" on:click="{toggleRegister}">✖</div>
     <div>
       <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">
         Zarejestruj się

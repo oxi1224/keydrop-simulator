@@ -47,6 +47,7 @@ model Case {
   price          Float
   expired        Boolean      @default(false)
   category       String?
+  goldenCase     Boolean?     @default(false)
   imgName        String
   positionInGrid Int?
   drops          CaseDrop[]
@@ -82,6 +83,7 @@ model CaseDrop {
 }
 
 model GlobalInventoryItem {
+  id            String     @id @unique
   weaponName    String
   skinName      String
   skinQuality   String

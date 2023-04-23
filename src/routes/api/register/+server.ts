@@ -26,8 +26,8 @@ export async function POST(event: RequestEvent) {
       id: nanoid(),
       username: name,
       passwordHash: hash,
-      balance: 50,
-      sandboxMode: sandboxMode || false
+      balance: sandboxMode ? 999999999 : 50,
+      sandboxMode: sandboxMode ?? false
     }
   });
   const session = await db.session.create({

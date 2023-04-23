@@ -20,7 +20,7 @@
           Moje konto
         </a>
       </li>
-      <li class="w-1/2">
+      <!-- <li class="w-1/2">
         <button
           class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white open-promo-code-modal"
         >
@@ -144,7 +144,7 @@
           </svg>
           UPGRADER
         </a>
-      </li>
+      </li> -->
       <li class="w-1/2">
         <a
           rel="alternate"

@@ -7,12 +7,13 @@ interface RequestBody {
   items: CaseDrop[];
   cost: number;
   origin: string;
+  goldenCase: boolean;
 }
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST(event: RequestEvent) {
   const sessionId = event.cookies.get('session_id');
-  const { items, cost, origin }: RequestBody = await event.request.json();
+  const { items, cost, origin, goldenCase }: RequestBody = await event.request.json();
   if (!sessionId)
     return new Response(JSON.stringify({ message: 'Brak ID sesji' }), { status: 404 });
   const session = await db.session.findUnique({ where: { id: sessionId } });
@@ -33,13 +34,16 @@ export async function POST(event: RequestEvent) {
     });
     if (!globalItem) continue;
     await new Promise((r) => setTimeout(r, 1));
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id: _, ...globalItemData } = globalItem; 
     itemsToAdd.push({
       dropId: nanoid(),
       origin: origin,
       dropDate: new Date(),
-      ...globalItem
+      ...globalItemData
     });
   }
+  
   const updatedUser = await db.user.update({
     where: {
       id: session.userId
@@ -48,7 +52,8 @@ export async function POST(event: RequestEvent) {
       inventory: {
         create: itemsToAdd
       },
-      balance: Math.round((user.balance - cost + Number.EPSILON) * 100) / 100
+      balance: goldenCase ? undefined : Math.round((user.balance - cost + Number.EPSILON) * 100) / 100,
+      goldBalance: !goldenCase ? undefined : Math.round((user.goldBalance - cost + Number.EPSILON) * 100) / 100
     },
     include: {
       inventory: true
