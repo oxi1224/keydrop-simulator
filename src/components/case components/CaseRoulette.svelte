@@ -589,7 +589,7 @@
           {:else}
             {!$userData
               ? 'Zaloguj się aby otworzyć'
-              : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice
+              : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] > casePrice
               ? `Otwórz za ${casePrice.toFixed(2)}`
               : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
             <div class="flex items-center ml-2">
