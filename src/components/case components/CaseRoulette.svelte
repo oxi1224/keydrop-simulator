@@ -17,6 +17,13 @@
   export let data: CaseWithDrops;
   export let rouletteItems: CaseDrop[] = [];
 
+  const allCaseSessionDrops: CaseDrop[] = [];
+  let totalWinnings = 0;
+  let totalSpendings = 0;
+  let netDifference = 0;
+
+  $: netDifference = totalWinnings - totalSpendings;
+
   let multipleRoulettesItems: CaseDrop[][] = [];
   let rouletteCount = 1;
   let casePrice = data.price;
@@ -164,6 +171,9 @@
       message: `Zysk: ${(winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice).toFixed(2)}`
     });
     switchMenus();
+    allCaseSessionDrops.push(...winningItems);
+    totalSpendings += casePrice;
+    totalWinnings = allCaseSessionDrops.reduce((sum, obj) => sum + obj.skinPrice, 0);
     loading = false;
     return;
   }
@@ -261,6 +271,11 @@
     sellLoading = false;
   }
 </script>
+<div class="m-2 p-5 fixed bottom-0 left-0 bg-navy-700 bg-opacity-75 text-navy-200 text-base z-50 rounded-xl glow-gold">
+  <p>Wydane: {totalSpendings.toFixed(2)}zł</p>
+  <p>Wygrane: {totalWinnings.toFixed(2)}zł</p>
+  <p>Profit: {netDifference.toFixed(2)}zł</p>
+</div>
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
   <div class="relative overflow-hidden lg:overflow-visible">
     <svg
