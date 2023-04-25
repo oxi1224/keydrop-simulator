@@ -809,6 +809,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/analytics@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@vercel/analytics@npm:1.0.0"
+  peerDependencies:
+    react: ^16.8||^17||^18
+  checksum: e9badd995ac67ef971250a93f6e03c5628923337a1ea5be821becb3afa3f4ceda13e9cc989b4a5432039851c82bd0695fd7e690c0373e31eb555ee30ce0384a7
+  languageName: node
+  linkType: hard
+
 "@vercel/nft@npm:^0.22.1":
   version: 0.22.6
   resolution: "@vercel/nft@npm:0.22.6"
@@ -2338,6 +2347,7 @@ __metadata:
     "@types/lodash": ^4.14.194
     "@typescript-eslint/eslint-plugin": ^5.59.0
     "@typescript-eslint/parser": ^5.59.0
+    "@vercel/analytics": ^1.0.0
     autoprefixer: ^10.4.14
     bcrypt: ^5.1.0
     buffer: ^6.0.3
