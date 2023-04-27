@@ -1,28 +1,28 @@
 <script lang="ts">
-  import { closePopup, popupOpen, popupProps, type PopupProps } from '$lib';
+  import { closetoast, toastOpen, toastProps, type ToastProps } from '$lib';
   let open: boolean;
-  let popupData: PopupProps;
-  popupOpen.subscribe((bool) => (open = bool));
-  popupProps.subscribe((props) => (popupData = props));
+  let toastData: ToastProps;
+  toastOpen.subscribe((bool) => (open = bool));
+  toastProps.subscribe((props) => (toastData = props));
 </script>
 
 <div
-  id="popup-container"
+  id="toast-container"
   class="z-50 fixed right-0 bottom-0 max-w-full md:right-5 md:bottom-5 md:w-96 transition-transform duration-500 translate-x-110 is-open:-translate-x-0 {open
     ? 'is-open'
     : ''}"
-  on:click="{closePopup}"
+  on:click="{closetoast}"
   on:keypress="{() => null}"
 >
   <div class="mt-2 w-full h-full">
     <div
-      class="flex items-center w-full relative z-0 text-white cursor-pointer md:rounded-xl bg-opacity-95 {popupData.type ===
+      class="flex items-center w-full relative z-0 text-white cursor-pointer md:rounded-xl bg-opacity-95 {toastData.type ===
       'error'
         ? 'bg-failure'
         : 'bg-success'}"
     >
       <div
-        class="self-stretch shrink-0 flex justify-center items-center w-16 p-2 mb-3 ml-5 bg-white rounded-bl-xl rounded-rl-xl {popupData.type ===
+        class="self-stretch shrink-0 flex justify-center items-center w-16 p-2 mb-3 ml-5 bg-white rounded-bl-xl rounded-rl-xl {toastData.type ===
         'error'
           ? 'text-failure'
           : 'text-success'}"
@@ -42,10 +42,10 @@
         </svg>
       </div>
       <div class="p-5">
-        <p class="font-semibold text-base leading-none uppercase">{popupData.header}</p>
-        <p class="mt-2 font-extralight text-xs leading-snug">{popupData.message}</p>
+        <p class="font-semibold text-base leading-none uppercase">{toastData.header}</p>
+        <p class="mt-2 font-extralight text-xs leading-snug">{toastData.message}</p>
       </div>
-      <div class="popup-close-btn"></div>
+      <div class="toast-close-btn"></div>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Item } from '@prisma/client';
-  import { sellItems, setUserData, userData } from '$lib';
+  import { createtoast, setUserData, userData } from '$lib';
   import InventoryItem from '$components/inventory components/InventoryItem.svelte';
   import InventoryHeader from '$components/inventory components/InventoryHeader.svelte';
 
@@ -16,10 +16,31 @@
   }
   $: totalSkinPrice = $userData?.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
 
-  async function handleMassSell(skins: Item[]) {
+  async function handleInventorySell() {
+    const filterdItems = $userData?.inventory.filter((obj) => !obj.sold && !obj.upgraded);
+    if (!filterdItems) return createtoast({
+      header: "error",
+      message: "Wystąpił bład podczas sprzedawania.",
+      type: 'error'
+    });
+
     loading = true;
-    const res = await sellItems(skins.filter((obj) => !obj.sold && !obj.upgraded));
-    if (res.ok) await setUserData();
+    const res = await fetch('/api/skins/sell-inventory/', {
+      method: 'POST',
+      body: JSON.stringify({ itemIDs: filterdItems.map(item => item.dropId), prices: filterdItems.map(item => item.skinPrice) }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (res.ok) {
+      createtoast({
+        header: 'sukces',
+        message: 'Pomyślnie sprzedano',
+        type: 'success'
+      });
+      await setUserData();
+    }
     loading = false;
   }
 
@@ -164,7 +185,7 @@
                         class="h-6 rounded-full shadow-inner w-[3.25rem] toggle__line bg-navy-500"
                       ></div>
                       <div
-                        class="absolute inset-y-0 left-0 w-6 h-4 m-1 transition duration-200 transform translate-x-5  shadow rounded-lg toggle__dot bg-white"
+                        class="absolute inset-y-0 left-0 w-6 h-4 m-1 transition duration-200 transform translate-x-5 shadow rounded-lg toggle__dot bg-white"
                       ></div>
                     </div>
                     <div
@@ -200,8 +221,7 @@
             >
               <button
                 class="group flex items-center text-left font-semibold uppercase text-[10px] text-neonGreen mx-auto sm:mx-0"
-                on:click="{() =>
-                  handleMassSell(inventory.filter((obj) => !obj.sold || !obj.upgraded))}"
+                on:click="{handleInventorySell}"
               >
                 <svg class="icon w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
                   <path

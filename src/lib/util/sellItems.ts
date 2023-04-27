@@ -1,5 +1,5 @@
 import type { Item } from '@prisma/client';
-import { createPopup } from '../popup';
+import { createtoast } from '../toast';
 import { setUserData } from '../stores';
 
 export async function sellItems(items: Item[]) {
@@ -11,7 +11,7 @@ export async function sellItems(items: Item[]) {
       'Content-Type': 'application/json'
     }
   });
-  createPopup({
+  createtoast({
     type: res.ok ? 'success' : 'error',
     header: res.ok ? 'sukces' : 'błąd',
     message: (await res.json()).message

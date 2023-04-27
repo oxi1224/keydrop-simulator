@@ -3,7 +3,7 @@ import type { colors } from './constants';
 
 export type SkinRarity = keyof typeof colors.itemBg | keyof typeof colors.gradient;
 
-export interface PopupProps {
+export interface ToastProps {
   type: 'error' | 'success';
   header: string;
   message: string;

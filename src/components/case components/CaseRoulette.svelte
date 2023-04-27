@@ -1,7 +1,7 @@
 <script lang="ts">
   import {
     colors,
-    createPopup,
+    createtoast,
     goldenNames,
     sellItems,
     setUserData,
@@ -113,7 +113,7 @@
     });
     soldItems = [];
     if (!$userData || $userData[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice) {
-      createPopup({
+      createtoast({
         type: 'error',
         header: 'błąd',
         message: 'Niewystarczające saldo'
@@ -138,7 +138,7 @@
       }
     });
     if (!res.ok) {
-      createPopup({
+      createtoast({
         type: 'error',
         header: 'błąd',
         message: (await res.json()).message
@@ -165,7 +165,7 @@
           colors.itemBg[winningItems[i].skinRarity as keyof typeof colors.itemBg];
       }
     });
-    createPopup({
+    createtoast({
       type: 'success',
       header: `Wygrana: ${winningItems.reduce((n, o) => n + o.skinPrice, 0).toFixed(2)}`,
       message: `Zysk: ${(winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice).toFixed(2)}`

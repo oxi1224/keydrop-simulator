@@ -1,10 +1,10 @@
 import type { Item, User } from '@prisma/client';
 import { writable, type Writable } from 'svelte/store';
-import type { PopupProps } from './types';
+import type { toastProps as ToastPropsType } from './types';
 import { browser } from '$app/environment';
 
-export const popupOpen = writable(false);
-export const popupProps: Writable<PopupProps> = writable({
+export const toastOpen = writable(false);
+export const toastProps: Writable<toastProps> = writable({
   type: 'error',
   header: '',
   message: ''

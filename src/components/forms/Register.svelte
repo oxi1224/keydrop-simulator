@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createPopup } from '$lib';
+  import { createtoast } from '$lib';
   import Spinner from '$components/util/Spinner.svelte';
 
   let loading = false;
@@ -10,7 +10,7 @@
 
   async function handleRegister() {
     if (password !== passwordConfirm) {
-      createPopup({
+      createtoast({
         type: 'error',
         header: 'błąd',
         message: 'Hasła się nie zgadzają.'
@@ -26,7 +26,7 @@
       }
     });
 
-    createPopup({
+    createtoast({
       type: res.ok ? 'success' : 'error',
       header: res.ok ? 'sukces' : 'błąd',
       message: (await res.json()).message

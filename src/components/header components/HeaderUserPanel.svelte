@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createPopup, userData } from '$lib';
+  import { createtoast, userData } from '$lib';
 
   function toggleDropdown() {
     document.getElementById('user-dropdown')!.classList.toggle('is-open');
@@ -7,7 +7,7 @@
 
   async function handleLogout() {
     const res = await fetch('/api/logout');
-    createPopup({
+    createtoast({
       type: 'success',
       header: 'sukces',
       message: (await res.json()).message

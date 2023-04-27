@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { createPopup, userData } from '$lib';
+  import { createtoast, userData } from '$lib';
 
   async function handleLogout() {
     const res = await fetch('/api/logout');
-    createPopup({
+    createtoast({
       type: 'success',
       header: 'sukces',
       message: (await res.json()).message
