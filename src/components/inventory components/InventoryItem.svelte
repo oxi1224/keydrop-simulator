@@ -1,13 +1,12 @@
 <script lang="ts">
-  import { sellItems, setUserData } from '$lib';
+  import { sellItems } from '$lib';
   import type { Item } from '@prisma/client';
   export let itemData: Item;
 
   async function handleSingleSell(e: MouseEvent, item: Item) {
     const clickedEl = (e.target as Element).closest('.single-sell-btn') as HTMLButtonElement;
-    const res = await sellItems([item]);
+    await sellItems([item]);
     clickedEl.disabled = true;
-    if (res.ok) await setUserData();
   }
 </script>
 

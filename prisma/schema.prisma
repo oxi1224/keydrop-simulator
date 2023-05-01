@@ -66,6 +66,7 @@ model CaseSection {
 model CaseDrop {
   case          Case                @relation(fields: [parentCase], references: [websiteName])
   globalInvItem GlobalInventoryItem @relation(fields: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], references: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], onUpdate: Cascade)
+  id            String @id @unique
   weaponName    String
   skinName      String
   skinQuality   String

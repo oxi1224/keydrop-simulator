@@ -1,6 +1,6 @@
 import type { Item } from '@prisma/client';
-import { createtoast } from '../toast';
-import { setUserData } from '../stores';
+import { createToast } from '../toast';
+import { invalidateAll } from '$app/navigation';
 
 export async function sellItems(items: Item[]) {
   const IDs = items.map((i) => i.dropId);
@@ -11,11 +11,11 @@ export async function sellItems(items: Item[]) {
       'Content-Type': 'application/json'
     }
   });
-  createtoast({
+  await invalidateAll();
+  createToast({
     type: res.ok ? 'success' : 'error',
     header: res.ok ? 'sukces' : 'błąd',
     message: (await res.json()).message
   });
-  if (res.ok) setUserData();
   return res;
 }

@@ -1,15 +1,14 @@
 <script lang="ts">
-  import { createtoast, userData } from '$lib';
+  import { applyAction, enhance } from '$app/forms';
+  import { invalidateAll } from '$app/navigation';
+  import { page } from '$app/stores';
+  import { createToast } from '$lib';
 
-  async function handleLogout() {
-    const res = await fetch('/api/logout');
-    createtoast({
-      type: 'success',
-      header: 'sukces',
-      message: (await res.json()).message
-    });
-    window.location.reload();
-  }
+  $: $page.form ? createToast({
+    header: $page.form.success ? "Sukces" : "Błąd",
+    message: $page.form.message,
+    type: $page.form.success ? "success" : "error"
+  }) : null;
 </script>
 
 <header class="container mt-6 mx-auto">
@@ -28,15 +27,27 @@
       </svg>
       <span class="text-2xs">Przejdź do strony głównej</span>
     </a>
-    <button
-      class="button items-center h-10 px-5 font-medium rounded-md w-36 md:w-48 bg-navy-800 text-2xs text-navy-100 hover:text-white"
-      on:click="{handleLogout}"
+    <form
+      action="/login?/logout"
+      method="POST"
+      use:enhance="{() => {
+        return async ({ result }) => {
+          invalidateAll();
+          await applyAction(result);
+          window.location.reload();
+        };
+      }}"
     >
-      <svg class="icon w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18 6H20V18H18zM10 18L10 13 16 13 16 11 10 11 10 6 4 12z"></path>
-      </svg>
-      <span class="text-2xs">Wyloguj się</span>
-    </button>
+      <button
+        type="submit"
+        class="button items-center h-10 px-5 font-medium rounded-md w-36 md:w-48 bg-navy-800 text-2xs text-navy-100 hover:text-white"
+      >
+        <svg class="icon w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 6H20V18H18zM10 18L10 13 16 13 16 11 10 11 10 6 4 12z"></path>
+        </svg>
+        <span class="text-2xs">Wyloguj się</span>
+      </button>
+    </form>
   </div>
   <div class="flex flex-col items-center justify-between">
     <div class="flex flex-col items-center order-1 mx-6 mt-4 mb-2 lg:order-2 lg:w-1/3">
@@ -52,18 +63,8 @@
         <span
           class="inline-block max-w-xs overflow-hidden text-xl font-semibold leading-none text-center truncate"
         >
-          {$userData?.username}
+          {$page.data.user.username}
         </span>
-        <a
-          href="https://steamcommunity.com/profiles/76561199066122856"
-          target="_blank"
-          rel="noreferrer"
-          class="flex-shrink-0 inline-block ml-2 -mt-0.5 hover:text-gold-400 duration-200 transition-colors"
-        >
-          <svg class="inline-block w-5 h-5">
-            <use xlink:href="/icons/icons.svg#steam-circle"></use>
-          </svg>
-        </a>
       </div>
       <!-- <a
         /// TODO add this
@@ -85,11 +86,11 @@
             class="flex items-center mx-auto justify-center w-1/2 text-xs border border-solid rounded-lg bg-navy-700 border-navy-500 h-11"
           >
             <div class="flex items-center ml-4 text-xs font-semibold text-white">
-              <span class="text-gold">{$userData?.balance.toFixed(2)}&nbsp;PLN</span>
+              <span class="text-gold">{$page.data.user.balance.toFixed(2)}&nbsp;PLN</span>
             </div>
             <div class="flex items-center ml-4 text-xs font-semibold text-gold">
               <img src="/icons/gold-coin.png" alt="" class="object-contain w-4 h-4 mr-1" />
-              <span>{$userData?.goldBalance}</span>
+              <span>{$page.data.user.goldBalance}</span>
             </div>
           </div>
         </div>

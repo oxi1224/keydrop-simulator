@@ -1,19 +1,17 @@
-import type { CaseDrop } from '$lib';
+import type { CaseDrop, CaseWithDrops } from '$lib';
 import { db, userFromSessionID } from '$lib/server';
 import type { RequestEvent } from '@sveltejs/kit';
 import { nanoid } from 'nanoid';
 
 interface RequestBody {
-  items: CaseDrop[];
-  cost: number;
-  origin: string;
-  goldenCase: boolean;
+  awardIDs: CaseDrop["id"][];
+  caseData: CaseWithDrops;
 }
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST(event: RequestEvent) {
   const sessionId = event.cookies.get('session_id');
-  const { items, cost, origin, goldenCase }: RequestBody = await event.request.json();
+  const { awardIDs, caseData }: RequestBody = await event.request.json();
   if (!sessionId)
     return new Response(JSON.stringify({ message: 'Brak ID sesji' }), { status: 404 });
   const session = await db.session.findUnique({ where: { id: sessionId } });
@@ -22,28 +20,38 @@ export async function POST(event: RequestEvent) {
   if (!user)
     return new Response(JSON.stringify({ message: 'Użytkownik nie istnieje' }), { status: 404 });
   const itemsToAdd = [];
-  for (const i of items) {
-    // This is to avoid the same date
+  for (const id of awardIDs) {
+    await new Promise((r) => setTimeout(r, 1));
+    const caseDrop = await db.caseDrop.findFirst({
+      where: {
+        id: id
+      }
+    });
+    if (!caseDrop) continue;
     const globalItem = await db.globalInventoryItem.findFirst({
       where: {
-        weaponName: i.weaponName,
-        skinName: i.skinName,
-        skinQuality: i.skinQuality,
-        skinPrice: i.skinPrice
+        weaponName: caseDrop.weaponName,
+        skinName: caseDrop.skinName,
+        skinQuality: caseDrop.skinQuality,
+        skinPrice: caseDrop.skinPrice
       }
     });
     if (!globalItem) continue;
-    await new Promise((r) => setTimeout(r, 1));
+    
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id: _, ...globalItemData } = globalItem; 
     itemsToAdd.push({
       dropId: nanoid(),
-      origin: origin,
+      origin: caseData.websiteName,
       dropDate: new Date(),
       ...globalItemData
     });
   }
   
+  if (itemsToAdd.length !== awardIDs.length) return new Response(JSON.stringify({ message: 'Wystąpił problem podczas dodawania przedmiotów, prosze skontakutj się z oxi#6219' }), {
+    status: 404
+  });
+
   const updatedUser = await db.user.update({
     where: {
       id: session.userId
@@ -52,8 +60,8 @@ export async function POST(event: RequestEvent) {
       inventory: {
         create: itemsToAdd
       },
-      balance: goldenCase ? undefined : Math.round((user.balance - cost + Number.EPSILON) * 100) / 100,
-      goldBalance: !goldenCase ? undefined : Math.round((user.goldBalance - cost + Number.EPSILON) * 100) / 100
+      balance: caseData.goldenCase ? undefined : Math.round((user.balance - caseData.price + Number.EPSILON) * 100) / 100,
+      goldBalance: !caseData.goldenCase ? undefined : Math.round((user.goldBalance - caseData.price + Number.EPSILON) * 100) / 100
     },
     include: {
       inventory: true

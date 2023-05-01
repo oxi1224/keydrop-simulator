@@ -1,9 +1,18 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-// and what to do when importing types
-declare namespace App {
-  // interface Locals {}
-  // interface PageData {}
-  // interface Error {}
-  // interface Platform {}
+
+import type { UserData } from "$lib";
+
+declare global {
+  declare namespace App {
+  
+    interface Locals {
+      user: UserData
+    }
+    interface PageData {
+      user: UserData
+    }
+    // interface Error {}
+    // interface Platform {}
+  }
 }

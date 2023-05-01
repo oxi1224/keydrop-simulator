@@ -1,29 +1,30 @@
 <script lang="ts">
-  import { createtoast } from '$lib';
+  import { createToast } from '$lib';
   import Spinner from '$components/util/Spinner.svelte';
+  import { invalidateAll } from '$app/navigation';
+  import { applyAction, enhance, type SubmitFunction } from '$app/forms';
+  import { page } from '$app/stores';
 
   let loading = false;
-  let name: string;
-  let password: string;
 
-  async function handleLogin() {
+  $: $page.form && !$page.form?.success ? createToast({
+    header: 'Błąd',
+    message: $page.form?.message,
+    type: 'error'
+  }) : null;
+
+  function handleSubmit() {
     loading = true;
-    const res = await fetch('/api/login', {
-      method: 'POST',
-      body: JSON.stringify({ name, password }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-
-    createtoast({
-      type: res.ok ? 'success' : 'error',
-      header: res.ok ? 'sukces' : 'błąd',
-      message: (await res.json()).message
-    });
-    loading = false;
-    return;
   }
+
+  const login: SubmitFunction = () => {
+    return async ({ result }) => {
+      if (result) loading = false;
+      invalidateAll();
+      await applyAction(result);
+      window.location.reload();
+    };
+  };
 
   function toggleLogin() {
     const loginPage = document.getElementById('loginPage');
@@ -43,15 +44,21 @@
     <div>
       <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">Zaloguj się</h2>
     </div>
-    <form class="mt-8 space-y-6" on:submit|preventDefault="{handleLogin}">
+    <form
+      class="mt-8 space-y-6"
+      action="/login?/login"
+      method="POST"
+      use:enhance="{login}"
+      on:submit|preventDefault="{handleSubmit}"
+    >
       <input type="hidden" name="remember" value="true" />
       <div class="-space-y-px rounded-md shadow-sm">
         <div>
           <label for="accountName" class="sr-only">Nazwa konta</label>
           <input
             id="accountName"
-            required
-            bind:value="{name}"
+            name="accountName"
+            required="{true}"
             class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             placeholder="Nazwa Konta"
           />
@@ -62,9 +69,8 @@
             id="password"
             name="password"
             type="password"
-            bind:value="{password}"
             autocomplete="current-password"
-            required
+            required="{true}"
             class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             placeholder="Hasło"
           />

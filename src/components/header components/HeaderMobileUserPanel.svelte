@@ -1,5 +1,5 @@
 <script>
-  import { userData } from '$lib';
+  import { page } from '$app/stores';
 </script>
 
 <div
@@ -161,7 +161,7 @@
     </ul>
   </nav>
   <div class="bg-navy-700 px-3 py-5 flex flex-row">
-    {#if $userData}
+    {#if $page.data.user}
       <div class="flex flex-col items-center w-fit">
         <div class="flex flex-row items-center">
           <a href="/panel/profil">
@@ -173,12 +173,12 @@
             />
           </a>
           <div class="ml-5">
-            <span class="font-semibold text-sm text-white h-min">{$userData.username}</span>
+            <span class="font-semibold text-sm text-white h-min">{$page.data.user.username}</span>
             <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
               PORTFEL:
             </span>
             <span class="text-gold font-semibold text-xs">
-              {$userData.balance.toFixed(2)} PLN
+              {$page.data.user.balance.toFixed(2)} PLN
             </span>
           </div>
         </div>
@@ -186,7 +186,7 @@
       <div class="flex flex-row items-center ml-auto">
         <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
         <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">
-          {$userData.goldBalance}
+          {$page.data.user.goldBalance}
         </span>
       </div>
     {:else}

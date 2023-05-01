@@ -1,39 +1,30 @@
 <script lang="ts">
-  import { createtoast } from '$lib';
+  import { createToast } from '$lib';
   import Spinner from '$components/util/Spinner.svelte';
+  import { invalidateAll } from '$app/navigation';
+  import { applyAction, enhance, type SubmitFunction } from '$app/forms';
+  import { page } from '$app/stores';
 
   let loading = false;
-  let name: string;
-  let password: string;
-  let passwordConfirm: string;
-  let sandboxMode: boolean;
 
-  async function handleRegister() {
-    if (password !== passwordConfirm) {
-      createtoast({
-        type: 'error',
-        header: 'błąd',
-        message: 'Hasła się nie zgadzają.'
-      });
-      return;
-    }
+  $: $page.form && !$page.form?.success ? createToast({
+    header: 'Błąd',
+    message: $page.form?.message,
+    type: 'error'
+  }) : null;
+  
+  function handleSubmit() {
     loading = true;
-    const res = await fetch('/api/register', {
-      method: 'POST',
-      body: JSON.stringify({ name, password, sandboxMode }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-
-    createtoast({
-      type: res.ok ? 'success' : 'error',
-      header: res.ok ? 'sukces' : 'błąd',
-      message: (await res.json()).message
-    });
-    loading = false;
-    return;
   }
+
+  const register: SubmitFunction = () => {
+    return async ({ result }) => {
+      if (result) loading = false;
+      invalidateAll();
+      await applyAction(result);
+      window.location.reload();
+    };
+  };
 
   function toggleRegister() {
     const registerPage = document.getElementById('registerPage');
@@ -55,51 +46,56 @@
         Zarejestruj się
       </h2>
     </div>
-    <form class="mt-8 space-y-6" on:submit|preventDefault="{handleRegister}">
+    <form
+      class="mt-8 space-y-6"
+      action="/login?/register"
+      method="POST"
+      use:enhance="{register}"
+      on:submit|preventDefault="{handleSubmit}"
+    >
       <input type="hidden" name="remember" value="true" />
       <div class="-space-y-px rounded-md shadow-sm">
         <div>
           <label for="accountName" class="sr-only">Nazwa konta</label>
           <input
             id="accountName"
+            name="accountName"
             required
             class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             placeholder="Nazwa Konta"
-            bind:value="{name}"
           />
         </div>
         <div>
           <label for="password" class="sr-only">Hasło</label>
           <input
             id="password"
+            name="password"
             type="password"
             autocomplete="current-password"
             required
             class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             placeholder="Hasło"
-            bind:value="{password}"
           />
         </div>
         <div>
           <label for="password" class="sr-only">Potwierdź hasło</label>
           <input
             id="passwordConfirm"
+            name="passwordConfirm"
             type="password"
             autocomplete="current-password"
             required
             class="relative block w-full appearance-none border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             placeholder="Potwierdź hasło"
-            bind:value="{passwordConfirm}"
           />
         </div>
         <div class="bg-white rounded-b-md border border-gray-300 px-3 py-2 sm:text-sm">
           <input
-            id="sandboxToggle"
-            name="sandboxToggle"
+            id="sandboxMode"
+            name="sandboxMode"
             type="checkbox"
-            bind:checked="{sandboxMode}"
           />
-          <label for="sandboxToggle" class="text-navy-300 w-full">
+          <label for="sandboxMode" class="text-navy-300 w-full">
             Tryb sandbox (nielimitowany balans)
           </label>
         </div>

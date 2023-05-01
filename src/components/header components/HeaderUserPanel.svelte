@@ -1,23 +1,23 @@
 <script lang="ts">
-  import { createtoast, userData } from '$lib';
-
+  import { applyAction, enhance } from '$app/forms';
+  import { invalidateAll } from '$app/navigation';
+  import { page } from '$app/stores';
+  import { createToast } from '$lib';
+  
   function toggleDropdown() {
     document.getElementById('user-dropdown')!.classList.toggle('is-open');
   }
+  
+  $: $page.form ? createToast({
+    header: $page.form.success ? "Sukces" : "Błąd",
+    message: $page.form.message,
+    type: $page.form.success ? "success" : "error"
+  }) : null;
 
-  async function handleLogout() {
-    const res = await fetch('/api/logout');
-    createtoast({
-      type: 'success',
-      header: 'sukces',
-      message: (await res.json()).message
-    });
-    window.location.reload();
-  }
 </script>
 
 <div class="h-full hidden items-center ml-auto md:flex">
-  {#if $userData}
+  {#if $page.data.user}
     <div class="h-16 flex items-center">
       <div class="flex items-center bg-navy-700 rounded-md p-3">
         <div class="flex items-center">
@@ -26,7 +26,7 @@
               <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
               PORTFEL:
               <span class="text-gold font-semibold text-sm md:text-xs">
-                {$userData.balance.toFixed(2)} PLN
+                {$page.data.user.balance.toFixed(2)} PLN
               </span>
             </span>
           </div>
@@ -34,11 +34,11 @@
       </div>
       <div class="flex ml-9 h-16">
         <div class="flex flex-col justify-evenly">
-          <span class="font-semibold text-sm text-navy-200 h-min">{$userData.username}</span>
+          <span class="font-semibold text-sm text-navy-200 h-min">{$page.data.user.username}</span>
           <div class="flex flex-row items-center">
             <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
             <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">
-              {$userData.goldBalance}
+              {$page.data.user.goldBalance}
             </span>
           </div>
         </div>
@@ -93,12 +93,12 @@
             />
           </a>
           <div class="ml-5">
-            <span class="font-semibold text-sm text-white h-min">{$userData?.username}</span>
+            <span class="font-semibold text-sm text-white h-min">{$page.data.user.username}</span>
             <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
               PORTFEL:
             </span>
             <span class="text-gold font-semibold text-xs">
-              {$userData?.balance.toFixed(2)} PLN
+              {$page.data.user.balance.toFixed(2)} PLN
             </span>
           </div>
         </div>
@@ -117,7 +117,7 @@
               </svg>
               Moje konto
             </a>
-          <!-- </li>
+            <!-- </li>
           <li>
             <a
               href="d"
@@ -202,15 +202,27 @@
             </a>
           </li>
           <li> -->
-            <button
-              on:click="{handleLogout}"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
+            <form
+              action="/login?/logout"
+              method="POST"
+              use:enhance="{() => {
+                return async ({ result }) => {
+                  invalidateAll();
+                  await applyAction(result);
+                  window.location.reload();
+                };
+              }}"
             >
-              <svg class="w-6 h-6 mr-3">
-                <use xlink:href="/icons/nav-icons.svg#logout"></use>
-              </svg>
-              Wyloguj się
-            </button>
+              <button
+                type="submit"
+                class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
+              >
+                <svg class="w-6 h-6 mr-3">
+                  <use xlink:href="/icons/nav-icons.svg#logout"></use>
+                </svg>
+                Wyloguj się
+              </button>
+            </form>
           </li>
         </ul>
       </nav>

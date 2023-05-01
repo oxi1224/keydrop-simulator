@@ -7,6 +7,14 @@
     : null;
 </script>
 
+<style>
+  @media (max-width: 768px) {
+  .cols-payments-md {
+    grid-template-columns: repeat(auto-fill,minmax(10rem,1fr));
+  }
+}
+</style>
+
 <section id="{data.id}" class="relative">
   <div
     class="relative flex mb-4 md:mb-0 {data.id !== 'youtubers-cases'
@@ -37,7 +45,7 @@
     </div>
   </div>
   <div
-    class="grid grid-cols-{data.colSpan || '6'} grid-rows-{data.rowSpan ||
+    class="grid cols-payments-md grid-cols-{data.colSpan || '6'} grid-rows-{data.rowSpan ||
       '[auto]'} gap-6 relative z-0 md:py-7 {data.id === 'youtubers-cases' ? 'md:px-8' : ''}"
   >
     {#if data.id === 'youtubers-cases'}

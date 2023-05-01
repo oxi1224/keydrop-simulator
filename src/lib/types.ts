@@ -1,5 +1,9 @@
-import type { Case, CaseDrop as DbCaseDrop, CaseSection as DbCaseSection } from '@prisma/client';
+import type { Case, CaseDrop as DbCaseDrop, CaseSection as DbCaseSection, Item, User } from '@prisma/client';
 import type { colors } from './constants';
+
+export interface UserData extends Omit<User, 'passwordHash'> {
+  inventory: Item[];
+}
 
 export type SkinRarity = keyof typeof colors.itemBg | keyof typeof colors.gradient;
 

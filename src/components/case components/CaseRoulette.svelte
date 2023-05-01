@@ -1,22 +1,21 @@
 <script lang="ts">
   import {
     colors,
-    createtoast,
+    createToast,
     goldenNames,
     sellItems,
-    setUserData,
-    userData,
     wearConversions,
     type CaseDrop,
     type CaseWithDrops,
     fastOpen,
 
   } from '$lib';
+  import { invalidateAll } from '$app/navigation';
   import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
+  import { page } from '$app/stores';
   export let data: CaseWithDrops;
   export let rouletteItems: CaseDrop[] = [];
-
   const allCaseSessionDrops: CaseDrop[] = [];
   let totalWinnings = 0;
   let totalSpendings = 0;
@@ -34,7 +33,7 @@
   let sellLoading = false;
   let sellSuccess = false;
   let totalAwardPrice: number;
-  $: tooPoor = !$userData ? true : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice;
+  $: tooPoor = !$page.data.user ? true : $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice;
   $: totalAwardPrice = itemsIndb.reduce((n, o) => n + o.skinPrice, 0);
 
   generateRollItems(rouletteCount);
@@ -105,15 +104,15 @@
     generateRollItems(rouletteCount);
   }
 
-  async function handleRoll() {
+  async function handleRoll() {    
     generateRollItems(rouletteCount);
     sellSuccess = false;
     [...document.querySelectorAll('.single-sell-btn')].forEach((el) => {
       (el as HTMLButtonElement).disabled = false;
     });
     soldItems = [];
-    if (!$userData || $userData[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice) {
-      createtoast({
+    if (!$page.data.user || $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice) {
+      createToast({
         type: 'error',
         header: 'błąd',
         message: 'Niewystarczające saldo'
@@ -132,13 +131,13 @@
     loading = true;
     const res = await fetch('/api/skins/case-open', {
       method: 'POST',
-      body: JSON.stringify({ items: winningItems, cost: casePrice, origin: data.websiteName, goldenCase: data.goldenCase }),
+      body: JSON.stringify({ awardIDs: winningItems.map(i => i.id), caseData: data }),
       headers: {
         'Content-Type': 'application/json'
       }
     });
     if (!res.ok) {
-      createtoast({
+      createToast({
         type: 'error',
         header: 'błąd',
         message: (await res.json()).message
@@ -146,7 +145,7 @@
       loading = false;
       return;
     } else {
-      await setUserData();
+      await invalidateAll();
       itemsIndb = (await res.json()).items;
     }
     await playRollAnimation();
@@ -165,7 +164,7 @@
           colors.itemBg[winningItems[i].skinRarity as keyof typeof colors.itemBg];
       }
     });
-    createtoast({
+    createToast({
       type: 'success',
       header: `Wygrana: ${winningItems.reduce((n, o) => n + o.skinPrice, 0).toFixed(2)}`,
       message: `Zysk: ${(winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice).toFixed(2)}`
@@ -175,6 +174,7 @@
     totalSpendings += casePrice;
     totalWinnings = allCaseSessionDrops.reduce((sum, obj) => sum + obj.skinPrice, 0);
     loading = false;
+    await invalidateAll();
     return;
   }
 
@@ -224,6 +224,13 @@
   }
 
   function reOpen() {
+    if (rouletteCount === 1) {
+      (document.querySelector('ul.CaseRolls-row') as HTMLElement)!
+        .getAnimations().forEach(anim => anim.cancel());
+    } else {
+      const roulettes = [...document.querySelectorAll('div.CaseRolls-roll')] as HTMLElement[];
+      for (const roulette of roulettes) roulette.getAnimations().forEach(anim => anim.cancel());
+    }
     generateRollItems(rouletteCount);
     switchMenus();
     const winElmArr = [
@@ -235,6 +242,7 @@
       elm.classList.add('hidden');
       elm.classList.remove('flex');
     });
+    
     handleRoll();
   }
 
@@ -266,7 +274,7 @@
         (el as HTMLButtonElement).disabled = true;
       });
       sellSuccess = true;
-      await setUserData();
+      await invalidateAll();
     }
     sellLoading = false;
   }
@@ -573,9 +581,9 @@
       </div>
       <button
         class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
-        {!$userData
+        {!$page.data.user
           ? 'border-red text-red glow-red hover:bg-red'
-          : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] >= casePrice
+          : $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] >= casePrice
           ? 'border-green text-green glow-pastelGreen hover:bg-green'
           : 'border-red text-red glow-red hover:bg-red'}"
         on:click="{handleRoll}"
@@ -602,16 +610,18 @@
           {#if loading}
             <Spinner size="1.5em" borderWidth=".25em" />
           {:else}
-            {!$userData
+            {!$page.data.user
               ? 'Zaloguj się aby otworzyć'
-              : $userData[(data.goldenCase ? 'goldBalance' : 'balance')] > casePrice
+              : $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] > casePrice
               ? `Otwórz za ${casePrice.toFixed(2)}`
               : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
-            <div class="flex items-center ml-2">
-              {@html goldenNames.includes(data.websiteName)
-                ? '<img src="/icons/gold-coin.png" class="w-3 h-3 ml-1">'
-                : 'PLN'}
-            </div>
+            {#if $page.data.user}
+              <div class="flex items-center ml-2">
+                {@html goldenNames.includes(data.websiteName)
+                  ? '<img src="/icons/gold-coin.png" class="w-3 h-3 ml-1">'
+                  : 'PLN'}
+              </div>
+            {/if}
           {/if}
         </span>
       </button>

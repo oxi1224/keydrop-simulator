@@ -1,24 +1,28 @@
 <script lang="ts">
   import type { Item } from '@prisma/client';
-  import { createtoast, setUserData, userData } from '$lib';
+  import { createToast } from '$lib';
   import InventoryItem from '$components/inventory components/InventoryItem.svelte';
   import InventoryHeader from '$components/inventory components/InventoryHeader.svelte';
+  import { page } from '$app/stores';
+  import { invalidateAll } from '$app/navigation';
 
   let totalSkinPrice = 0;
   let loading = false;
   let allItemsFilter: boolean;
   let dropdownWidth: number;
   let displayFilter: string;
-  let inventory = $userData?.inventory || [];
+  // eslint-disable-next-line
+  // @ts-ignore
+  let inventory: Item[] = $page.data.user.inventory.sort((a, b) => new Date(b.dropDate) - new Date(a.dropDate));
   $: {
-    if (allItemsFilter) inventory = $userData?.inventory || [];
-    else inventory = $userData?.inventory.filter((obj) => !obj.sold) || [];
+    if (allItemsFilter) inventory = $page.data.user.inventory || [];
+    else inventory = $page.data.user.inventory.filter((obj) => !obj.sold) || [];
   }
-  $: totalSkinPrice = $userData?.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
+  $: totalSkinPrice = $page.data.user.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
 
   async function handleInventorySell() {
-    const filterdItems = $userData?.inventory.filter((obj) => !obj.sold && !obj.upgraded);
-    if (!filterdItems) return createtoast({
+    const filterdItems = $page.data.user.inventory.filter((obj) => !obj.sold && !obj.upgraded);
+    if (!filterdItems) return createToast({
       header: "error",
       message: "Wystąpił bład podczas sprzedawania.",
       type: 'error'
@@ -32,14 +36,13 @@
         'Content-Type': 'application/json'
       }
     });
-
+    await invalidateAll();
     if (res.ok) {
-      createtoast({
+      createToast({
         header: 'sukces',
         message: 'Pomyślnie sprzedano',
         type: 'success'
       });
-      await setUserData();
     }
     loading = false;
   }
@@ -56,12 +59,12 @@
     const sort = optionElms[index].textContent as string;
     let tempInv: Item[] | undefined;
     displayFilter = sort;
-    if (sort === 'najnowsze') tempInv = $userData?.inventory;
-    if (sort === 'najstarsze') tempInv = $userData?.inventory.slice().reverse();
+    if (sort === 'najnowsze') tempInv = $page.data.user.inventory;
+    if (sort === 'najstarsze') tempInv = $page.data.user.inventory.slice().reverse();
     if (sort === 'najtańsze')
-      tempInv = $userData?.inventory.slice().sort((a, b) => a.skinPrice - b.skinPrice);
+      tempInv = $page.data.user.inventory.slice().sort((a, b) => a.skinPrice - b.skinPrice);
     if (sort === 'najdroższe')
-      tempInv = $userData?.inventory.slice().sort((a, b) => b.skinPrice - a.skinPrice);
+      tempInv = $page.data.user.inventory.slice().sort((a, b) => b.skinPrice - a.skinPrice);
     if (allItemsFilter) inventory = tempInv || [];
     else inventory = tempInv?.filter((obj) => !obj.sold) || [];
     toggleDropdown();
