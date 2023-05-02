@@ -482,7 +482,7 @@
                   class="single-sell-btn events px-2 py-1 mt-1 h-3/4 font-bold text-xs uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate disabled:brightness-50"
                   on:click="{(e) => handleSingleSell(e)}"
                 >
-                  Sprzedaj <br class="md:hidden" />
+                  {$_('case.winScreen.sell')} <br class="md:hidden" />
                   <span class="award-price"></span>
                 </button>
               </div>
