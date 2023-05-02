@@ -1,3 +1,4 @@
+import { TimeInMs } from '$lib';
 import { db } from '$lib/server';
 import type { Handle } from '@sveltejs/kit';
 import { locale } from 'svelte-i18n';
@@ -7,6 +8,14 @@ export const handle: Handle = async ({ event, resolve }) => {
   if (lang) {
     locale.set(lang);
     event.locals.lang = lang as 'pl' | 'en';
+  } else {
+    event.cookies.set('lang', 'en', {
+      path: '/',
+      httpOnly: false,
+      sameSite: 'strict',
+      secure: false,
+      maxAge: TimeInMs.Month / 1000
+    });
   }
 
   const sessionID = event.cookies.get('session_id');
@@ -39,20 +48,3 @@ export const handle: Handle = async ({ event, resolve }) => {
   }
   return await resolve(event);
 };
-
-// /** @type {import('@sveltejs/kit').Handle} */
-// export async function handle({ event, resolve }: { event: any; resolve: any }) {
-//   const cookies = parse(event.headers.cookie || '');
-//   if (cookies.session_id) {
-//     const user = await event.fetch('/api/get-user', { method: 'get', cache: 'no-cache' });
-//     event.locals.user = user;
-//     return resolve(event);
-//   }
-//   event.locals.user = null;
-//   return resolve(event);
-// }
-
-// /** @type {import('@sveltejs/kit').GetSession} */
-// export function getSession(event: any) {
-//   return event?.locals?.user ? { user: event?.locals?.user } : {};
-// }

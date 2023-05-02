@@ -6,5 +6,5 @@ export function localisePrice(
   number: number
 ) {
   const pageData = get(pageStore);
-  return (pageData.data.currency === 'eur' ? number / 5 : number).toFixed(2);
+  return (pageData.data.currency === 'eur' ? number / 5 : number)?.toFixed(2) ?? NaN;
 }

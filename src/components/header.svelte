@@ -148,7 +148,7 @@
           on:change="{(e) => (selectedLang = languages[e.detail])}"
           class="bg-navy-700 text-navy-100 text-xs text-center rounded-md relative w-36"
         >
-          <ListboxButton class="py-2 px-4 cursor-pointer">{selectedLang.language}</ListboxButton>
+          <ListboxButton class="py-2 px-4 cursor-pointer">{selectedLang?.language}</ListboxButton>
           <ListboxOptions
             class="top-8 w-36 absolute bg-navy-650 outline-navy-300 outline-1 outline whitespace-nowrap"
           >
@@ -159,7 +159,7 @@
                 disabled="{loading}"
                 class="py-2 px-4 cursor-pointer"
               >
-                {lang.language}
+                {lang?.language}
               </ListboxOption>
             {/each}
           </ListboxOptions>

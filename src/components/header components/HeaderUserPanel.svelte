@@ -30,7 +30,7 @@
               <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
               {$_('header.wallet')}:
               <span class="text-gold font-semibold text-sm md:text-xs">
-                {localisePrice(page, $page.data.user.balance)}
+                {localisePrice(page, $page.data.user?.balance)}
                 {$page.data.currency.toUpperCase()}
               </span>
             </span>
@@ -103,7 +103,7 @@
               {$_('header.wallet')}:
             </span>
             <span class="text-gold font-semibold text-xs">
-              {localisePrice(page, $page.data.user.balance)}
+              {localisePrice(page, $page.data.user?.balance)}
               {$page.data.currency.toUpperCase()}
             </span>
           </div>

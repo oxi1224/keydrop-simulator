@@ -121,5 +121,10 @@
         "message": "Earnings"
       }
     }
-  }
+  },
+  "menu-icon": "Menu icon",
+  "polish-polski": "Polish (Polski)",
+  "header-components-headernav-svelte": "./header components/HeaderNav.svelte",
+  "header-components-headermobileuserpanel-svelte": "./header components/HeaderMobileUserPanel.svelte",
+  "header-components-headeruserpanel-svelte": "./header components/HeaderUserPanel.svelte"
 }
