@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { page } from '$app/stores';
   import { colors, type CaseDrop } from '$lib';
+  import { localisePrice } from '$lib';
+  import { _ } from 'svelte-i18n';
   export let caseDrops: CaseDrop[];
 
   const parsedDisplayDrops = (() => {
@@ -53,6 +56,20 @@
     e.currentTarget.offsetParent?.querySelector('.details-page')?.classList.toggle('hidden');
   }
 
+  function parsePriceRange(priceRange: string) {
+    const ranges = priceRange
+      .replaceAll(',', '.')
+      .split(' ')
+      .map((str) => parseFloat(str))
+      .filter((num) => !isNaN(num));
+
+    const strings = ranges.map(
+      (num) => localisePrice(page, num).toString() + $page.data.currency.toUpperCase()
+    );
+
+    return strings.join(' - ');
+  }
+
   interface DisplayDrop {
     displayChance: string;
     skinRarity: keyof typeof colors.itemBg;
@@ -79,7 +96,7 @@
       <h2
         class="order-3 inline-block px-10 py-5 mx-auto -mb-px text-xl font-semibold leading-tight text-center text-white uppercase border-b border-solid md:order-2 border-gold"
       >
-        Zawartość skrzyni
+        {$_('case.caseContents')}
       </h2>
     </div>
     <ul class="grid mt-8 mb-20 gap-2 css-a27jap">
@@ -97,7 +114,10 @@
                 <div class="font-bold text-white uppercase">Odds</div>
                 {#each drop.details as details}
                   <div class="text-navy-100">{details.quality}</div>
-                  <div class="text-gold">{details.price.toFixed(2)} PLN</div>
+                  <div class="text-gold">
+                    {localisePrice(page, details.price)}
+                    {$page.data.currency.toUpperCase()}
+                  </div>
                   <div class="text-navy-100">{details.range[0]} - {details.range[0]}</div>
                   <div class="text-navy-100">{details.odds}</div>
                 {/each}
@@ -137,7 +157,7 @@
               <div class="truncate text-navy-200 text-3xs">{drop.skinName}</div>
               <div class="font-bold text-white truncate css-6plnry">{drop.weaponName}­</div>
               <div class="-mb-1 font-bold truncate text-gold css-6plnry">
-                {drop.priceRange}
+                {parsePriceRange(drop.priceRange)}
               </div>
             </div>
           </div>

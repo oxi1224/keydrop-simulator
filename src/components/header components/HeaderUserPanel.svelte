@@ -2,18 +2,22 @@
   import { applyAction, enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
-  import { createToast } from '$lib';
-  
+  import { createToast, localisePrice } from '$lib';
+  import { _ } from 'svelte-i18n';
+
   function toggleDropdown() {
     document.getElementById('user-dropdown')!.classList.toggle('is-open');
   }
-  
-  $: $page.form ? createToast({
-    header: $page.form.success ? "Sukces" : "Błąd",
-    message: $page.form.message,
-    type: $page.form.success ? "success" : "error"
-  }) : null;
 
+  $: $page.form
+    ? /* eslint-disable indent */
+      createToast({
+        header: $page.form.success ? $_('success') : $_('error'),
+        message: $page.form.message,
+        type: $page.form.success ? 'success' : 'error'
+      })
+    : null;
+  /* eslint-disable indent */
 </script>
 
 <div class="h-full hidden items-center ml-auto md:flex">
@@ -24,9 +28,10 @@
           <div>
             <span class="flex flex-row text-navy-200 text-2xs items-center font-bold space-x-1.5">
               <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
-              PORTFEL:
+              {$_('header.wallet')}:
               <span class="text-gold font-semibold text-sm md:text-xs">
-                {$page.data.user.balance.toFixed(2)} PLN
+                {localisePrice(page, $page.data.user.balance)}
+                {$page.data.currency.toUpperCase()}
               </span>
             </span>
           </div>
@@ -65,7 +70,7 @@
     </div>
   {:else}
     <a class="hidden ml-5 md:flex button button-primary h-13 uppercase" href="/login">
-      zaloguj się
+      {$_('header.login')}
     </a>
   {/if}
 </div>
@@ -93,12 +98,13 @@
             />
           </a>
           <div class="ml-5">
-            <span class="font-semibold text-sm text-white h-min">{$page.data.user.username}</span>
+            <span class="font-semibold text-sm text-white h-min">{$page.data.user?.username}</span>
             <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
-              PORTFEL:
+              {$_('header.wallet')}:
             </span>
             <span class="text-gold font-semibold text-xs">
-              {$page.data.user.balance.toFixed(2)} PLN
+              {localisePrice(page, $page.data.user.balance)}
+              {$page.data.currency.toUpperCase()}
             </span>
           </div>
         </div>
@@ -115,7 +121,7 @@
               <svg class="w-6 h-6 mr-3">
                 <use xlink:href="/icons/nav-icons.svg#person"></use>
               </svg>
-              Moje konto
+              {$_('header.nav.myAccount')}
             </a>
             <!-- </li>
           <li>
@@ -220,7 +226,7 @@
                 <svg class="w-6 h-6 mr-3">
                   <use xlink:href="/icons/nav-icons.svg#logout"></use>
                 </svg>
-                Wyloguj się
+                {$_('header.nav.logout')}
               </button>
             </form>
           </li>

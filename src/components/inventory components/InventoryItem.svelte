@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { sellItems } from '$lib';
+  import { page } from '$app/stores';
+  import { localisePrice, sellItems } from '$lib';
   import type { Item } from '@prisma/client';
+  import { _ } from 'svelte-i18n';
   export let itemData: Item;
 
   async function handleSingleSell(e: MouseEvent, item: Item) {
@@ -23,7 +25,9 @@
       class="absolute top-0 left-0 z-10 flex w-full p-2 mt-10 transition-opacity duration-200 opacity-0 sm:p-4 group-hover:opacity-100"
     >
       <div>
-        <div class="font-bold leading-none uppercase text-2xs css-rgj8xp">Zdobyto ze skrzyni</div>
+        <div class="font-bold leading-none uppercase text-2xs css-rgj8xp">
+          {$_('profile.item.origin')}
+        </div>
         <a href="/" class="block mt-1 text-xs font-bold leading-none text-white uppercase">
           {itemData.origin}
         </a>
@@ -46,7 +50,7 @@
           <svg class="w-4 h-4 mr-2 -mt-px">
             <use xlink:href="/icons/icons.svg#sell"></use>
           </svg>
-          Sprzedany
+          {$_('profile.item.sold')}
         </div>
       {:else}
         <div class="flex items-center font-bold leading-none uppercase text-2xs text-gold">
@@ -59,7 +63,8 @@
       <div
         class="flex items-center p-2 ml-auto text-sm font-bold leading-none rounded-md bg-navy-700 text-gold"
       >
-        {itemData.skinPrice.toFixed(2)}&nbsp;PLN
+        {localisePrice(page, itemData.skinPrice)}
+        {$page.data.currency.toUpperCase()}
       </div>
     </div>
     <div
@@ -106,7 +111,11 @@
             <use xlink:href="/icons/icons.svg?38#sell"></use>
           </svg>
           <span>
-            Sprzedaj za <span class="text-gold">{itemData.skinPrice.toFixed(2)} PLN</span>
+            {$_('profile.item.sell')}
+            <span class="text-gold">
+              {localisePrice(page, itemData.skinPrice)}
+              {$page.data.currency.toUpperCase()}
+            </span>
           </span>
         </button>
       </li>
@@ -115,7 +124,7 @@
       class="absolute bottom-0 flex w-full overflow-hidden transition-transform duration-200 rounded-b-lg will-change-transform h-[50px] -translate-y-[1px]"
     >
       <button
-        class="hidden hover-none:flex items-center px-3 transition-colors duration-150 border-t-0 border-b-0 border-l border-r-0 border-solid border-gold-800 "
+        class="hidden hover-none:flex items-center px-3 transition-colors duration-150 border-t-0 border-b-0 border-l border-r-0 border-solid border-gold-800"
       >
         <svg class="w-6 h-6 text-navy-600">
           <use xlink:href="/icons/icons.svg?38#dots-vertical"></use>

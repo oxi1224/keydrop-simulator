@@ -1,0 +1,125 @@
+{
+  "success": "Success",
+  "error": "Error",
+  "loading": "Loading",
+  "header": {
+    "displayedLang": "English (English)",
+    "searchboxText": "Search",
+    "wallet": "Wallet",
+    "login": "Login",
+    "nav": {
+      "myAccount": "My account",
+      "logout": "logout"
+    }
+  },
+  "footer": {
+    "stats": {
+      "openedCases": "Opened cases",
+      "battles": "Battles",
+      "upgrades": "Upgrade",
+      "users": "Users",
+      "online": "Online"
+    },
+    "socials": {
+      "follow": "Follow us"
+    }
+  },
+  "case": {
+    "back": "Back",
+    "goBack": "Return to home page",
+    "balanceCheck": "Checking balance...",
+    "tooPoor": "Not enough balance to open",
+    "notLoggedIn": "Login to open",
+    "open": "Open for",
+    "sellSuccess": "Successfully sold",
+    "caseContents": "Case contents",
+    "winScreen": {
+      "reOpen": "Open again",
+      "sell": "Sell for",
+      "upgrade": "Upgrade all",
+      "spendings": "Spent",
+      "winnings": "Won",
+      "profit": "Profit"
+    }
+  },
+  "profile": {
+    "mainPage": "Back to main page",
+    "logout": "Logout",
+    "balance": "Your balance",
+    "sort": {
+      "title": "Sorting",
+      "newest": "Latest",
+      "oldest": "Oldest",
+      "cheapest": "Cheapest",
+      "mostExpensive": "Most Expensive"
+    },
+    "showItems": {
+      "title": "Show items",
+      "all": "All",
+      "active": "Active"
+    },
+    "upgrade": "Upgrade all",
+    "sellAll": "Sell all",
+    "exchange": "Exchange",
+    "item": {
+      "sold": "Sold",
+      "origin": "Has been drawn",
+      "sell": "Sell for"
+    }
+  },
+  "loginPage": {
+    "title": "You're not logged in",
+    "text": "You have to log in to see this page.",
+    "login": "Login",
+    "register": "Register"
+  },
+  "loginForm": {
+    "header": "Login",
+    "accountNamePlaceholder": "Account Name",
+    "passwordPlaceholder": "Password",
+    "buttonText": "Login"
+  },
+  "registerForm": {
+    "header": "Register",
+    "accountNamePlaceholder": "Account Name",
+    "passwordPlaceholder": "Password",
+    "passwordConfirmPlaceholder": "Confirm Password",
+    "sandboxModeLabel": "Sandbox mode (unlimited balance)",
+    "selectLanguageHeader": "Select language",
+    "buttonText": "Create account"
+  },
+  "toasts": {
+    "error": {
+      "header": "Error",
+      "messages": {
+        "notEnoughBalance": "Not enough balance",
+        "noPasswordUsername": "No password or username",
+        "loggedIn": "User is already logged in",
+        "notLoggedIn": "User is not logged in",
+        "invalidPasswordUsername": "Invalid username or password",
+        "invalidRegisterValue": "One of provided values is invalid",
+        "usernameTaken": "Username already taken",
+        "noSessionID": "No session ID found",
+        "noSession": "No session found",
+        "userNotExists": "User doesn't exist",
+        "notOwnItem": "User doesn't own one or more of the provided items",
+        "errorDuringSell": "An error has occured during selling"
+      }
+    },
+    "success": {
+      "header": "Success",
+      "messages": {
+        "sell": "Successfully sold",
+        "loginSuccess": "Successfully logged in",
+        "registerSuccess": "Successfully registered",
+        "logoutSuccess": "Successfully logged out"
+      }
+    },
+    "special": {
+      "caseOpen": {
+        "header": "Winnings",
+        "message": "Earnings"
+      }
+    }
+  }
+}

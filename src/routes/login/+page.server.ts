@@ -3,16 +3,23 @@ import type { PageServerLoad } from './$types';
 import { db } from '$lib/server';
 import bcrypt from 'bcrypt';
 import { nanoid } from 'nanoid';
-import { TimeInMs } from '$lib';
+import { TimeInMs, i18n } from '$lib';
+import { get } from 'svelte/store';
 
 export const load: PageServerLoad = async ({ locals }) => {
   if (locals.user) {
     throw redirect(302, '/');
   }
+  return {
+    currency: locals.lang === 'pl' ? 'pln' : 'eur',
+    ...locals
+  };
 };
 
 export const actions: Actions = {
   login: async (event) => {
+    const lang = event.cookies.get('lang') as 'pl' | 'en';
+    const langData = get(i18n)[lang];
     const data = await event.request.formData();
     const password = data.get('password')?.toString();
     const username = data.get('accountName')?.toString();
@@ -20,13 +27,13 @@ export const actions: Actions = {
     if (!password || !username)
       return {
         success: false,
-        message: 'Brak hasła lub nazwy'
+        message: langData.toasts.error.messages.noPasswordUsername
       };
 
     if (event.cookies.get('session_id'))
       return {
         success: false,
-        message: 'Użytkownik jest już zalogowany'
+        message: langData.toasts.error.messages.loggedIn
       };
 
     const user = await db.user.findUnique({
@@ -38,7 +45,7 @@ export const actions: Actions = {
     if (!user || !bcrypt.compareSync(password, user.passwordHash))
       return {
         success: false,
-        message: 'Nieprawidłowy użytkownik lub hasło'
+        message: langData.toasts.error.messages.invalidPasswordUsername
       };
 
     const session = await db.session.create({
@@ -53,31 +60,36 @@ export const actions: Actions = {
       httpOnly: true,
       sameSite: 'strict',
       secure: false,
-      maxAge: TimeInMs.Week
+      maxAge: TimeInMs.Week / 1000
     });
 
     return {
       success: true,
-      message: 'Pomyślnie zalogowano'
+      message: langData.toasts.success.messages.loginSuccess
     };
   },
   register: async (event) => {
+    const lang = event.cookies.get('lang') as 'pl' | 'en';
+    const langData = get(i18n)[lang];
+
     const data = await event.request.formData();
     const password = data.get('password')?.toString();
     const passwordConfirm = data.get('passwordConfirm')?.toString();
     const username = data.get('accountName')?.toString();
     const sandboxMode = data.get('sandboxMode') === 'on';
+    const selectedLang = data.get('lang');
 
-    if (!password || !passwordConfirm || !username || !sandboxMode)
+    if (!password || !passwordConfirm || !username || !selectedLang)
       return {
         success: false,
-        message: 'Jedna z podanych wartości jest nieprawidłowa'
+        message: langData.toasts.error.messages.invalidRegisterValue
       };
 
-    if (event.cookies.get('session_id')) return {
-      success: false,
-      message: 'Użytkownik jest już zalogowany'
-    };
+    if (event.cookies.get('session_id'))
+      return {
+        success: false,
+        message: langData.toasts.error.messages.loggedIn
+      };
 
     const isTaken = await db.user.findUnique({
       where: {
@@ -85,11 +97,12 @@ export const actions: Actions = {
       }
     });
 
-    if (isTaken) return {
-      success: false,
-      message: 'Nazwa użytkownika jest już zajęta'
-    };
-      
+    if (isTaken)
+      return {
+        success: false,
+        message: langData.toasts.error.messages.usernameTaken
+      };
+
     const hash = await bcrypt.hash(password, 15);
     const user = await db.user.create({
       data: {
@@ -113,32 +126,45 @@ export const actions: Actions = {
       httpOnly: true,
       sameSite: 'strict',
       secure: false,
-      maxAge: TimeInMs.Week
+      maxAge: TimeInMs.Week / 1000
+    });
+
+    event.cookies.set('lang', selectedLang.toString(), {
+      path: '/',
+      httpOnly: false,
+      sameSite: 'strict',
+      secure: false,
+      maxAge: TimeInMs.Month / 1000
     });
 
     return {
       success: true,
-      message: 'Pomyślnie zarejestrowano'
+      message: langData.toasts.success.messages.registerSuccess
     };
   },
   logout: async (event) => {
-    const sessionID = event.cookies.get('session_id');
-    if (!sessionID) return {
-      success: false,
-      message: "Użytkownik nie jest zalogowany"
-    };
+    const lang = event.cookies.get('lang') as 'pl' | 'en';
+    const langData = get(i18n)[lang];
 
-    
-    await db.session.delete({
-      where: {
-        id: sessionID
-      }
-    }).catch(() => null);
+    const sessionID = event.cookies.get('session_id');
+    if (!sessionID)
+      return {
+        success: false,
+        message: langData.toasts.error.messages.notLoggedIn
+      };
+
+    await db.session
+      .delete({
+        where: {
+          id: sessionID
+        }
+      })
+      .catch(() => null);
     event.cookies.delete('session_id');
-    
+
     return {
       success: true,
-      message: "Pomyślnie wylogowano"
+      message: langData.toasts.success.messages.logoutSuccess
     };
   }
 };

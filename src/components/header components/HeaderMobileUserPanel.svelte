@@ -1,9 +1,11 @@
 <script>
   import { page } from '$app/stores';
+  import { localisePrice } from '$lib';
+  import { _ } from 'svelte-i18n';
 </script>
 
 <div
-  class="nav mobile-nav transition-all ease-in-out duration-200 absolute top-0 right-0 z-20 w-screen h-screen pb-20 mt-20 "
+  class="nav mobile-nav transition-all ease-in-out duration-200 absolute top-0 right-0 z-20 w-screen h-screen pb-20 mt-20"
 >
   <nav class="bg-navy-900 py-5">
     <ul class="flex flex-wrap text-navy-100">
@@ -17,7 +19,7 @@
           <svg class="flex-shrink-0 w-6 h-6 mr-3">
             <use xlink:href="/icons/nav-icons.svg#person"></use>
           </svg>
-          Moje konto
+          {$_('header.nav.myAccount')}
         </a>
       </li>
       <!-- <li class="w-1/2">
@@ -155,7 +157,7 @@
           <svg class="flex-shrink-0 w-6 h-6 mr-3">
             <use xlink:href="/icons/nav-icons.svg#logout"></use>
           </svg>
-          Wyloguj się
+          {$_('header.nav.logout')}
         </a>
       </li>
     </ul>
@@ -175,10 +177,11 @@
           <div class="ml-5">
             <span class="font-semibold text-sm text-white h-min">{$page.data.user.username}</span>
             <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
-              PORTFEL:
+              {$_('header.wallet')}:
             </span>
             <span class="text-gold font-semibold text-xs">
-              {$page.data.user.balance.toFixed(2)} PLN
+              {localisePrice(page, $page.data.user.balance)}
+              {$page.data.currency.toUpperCase()}
             </span>
           </div>
         </div>
@@ -191,7 +194,7 @@
       </div>
     {:else}
       <a class="hidden ml-5 md:flex button button-primary h-13 uppercase w-full" href="/login">
-        zaloguj się
+        {$_('header.login')}
       </a>
     {/if}
   </div>

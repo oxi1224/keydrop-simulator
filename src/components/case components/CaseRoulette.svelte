@@ -7,13 +7,14 @@
     wearConversions,
     type CaseDrop,
     type CaseWithDrops,
-    fastOpen,
-
+    settings
   } from '$lib';
   import { invalidateAll } from '$app/navigation';
+  import { _ } from 'svelte-i18n';
   import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
   import { page } from '$app/stores';
+  import { localisePrice } from '$lib';
   export let data: CaseWithDrops;
   export let rouletteItems: CaseDrop[] = [];
   const allCaseSessionDrops: CaseDrop[] = [];
@@ -33,7 +34,9 @@
   let sellLoading = false;
   let sellSuccess = false;
   let totalAwardPrice: number;
-  $: tooPoor = !$page.data.user ? true : $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice;
+  $: tooPoor = !$page.data.user
+    ? true
+    : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] < casePrice;
   $: totalAwardPrice = itemsIndb.reduce((n, o) => n + o.skinPrice, 0);
 
   generateRollItems(rouletteCount);
@@ -104,18 +107,21 @@
     generateRollItems(rouletteCount);
   }
 
-  async function handleRoll() {    
+  async function handleRoll() {
     generateRollItems(rouletteCount);
     sellSuccess = false;
     [...document.querySelectorAll('.single-sell-btn')].forEach((el) => {
       (el as HTMLButtonElement).disabled = false;
     });
     soldItems = [];
-    if (!$page.data.user || $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] < casePrice) {
+    if (
+      !$page.data.user ||
+      $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] < casePrice
+    ) {
       createToast({
         type: 'error',
-        header: 'błąd',
-        message: 'Niewystarczające saldo'
+        header: $_('error'),
+        message: $_('toasts.error.messages.notEnoughBalance')
       });
       return;
     }
@@ -131,7 +137,7 @@
     loading = true;
     const res = await fetch('/api/skins/case-open', {
       method: 'POST',
-      body: JSON.stringify({ awardIDs: winningItems.map(i => i.id), caseData: data }),
+      body: JSON.stringify({ awardIDs: winningItems.map((i) => i.id), caseData: data }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -139,7 +145,7 @@
     if (!res.ok) {
       createToast({
         type: 'error',
-        header: 'błąd',
+        header: $_('error'),
         message: (await res.json()).message
       });
       loading = false;
@@ -157,7 +163,9 @@
       elm.querySelector('.award-weapon')!.textContent = winningItems[i].weaponName;
       elm.querySelector('.award-wear')!.textContent =
         wearConversions[winningItems[i].skinQuality as keyof typeof wearConversions];
-      elm.querySelector('.award-price')!.textContent = winningItems[i].skinPrice.toFixed(2) + 'zł';
+      elm.querySelector('.award-price')!.textContent =
+        localisePrice(page, winningItems[i].skinPrice).toString() +
+        $page.data.currency.toUpperCase();
       if (elm.querySelector('.award-img')) {
         (elm.querySelector('.award-img') as HTMLImageElement).src = winningItems[i].skinImgSource;
         (elm.querySelector('.award-bg-img') as HTMLImageElement).src =
@@ -166,8 +174,12 @@
     });
     createToast({
       type: 'success',
-      header: `Wygrana: ${winningItems.reduce((n, o) => n + o.skinPrice, 0).toFixed(2)}`,
-      message: `Zysk: ${(winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice).toFixed(2)}`
+      header: `${$_('toasts.special.caseOpen.header')}: ${winningItems
+        .reduce((n, o) => n + o.skinPrice, 0)
+        .toFixed(2)}`,
+      message: `${$_('toasts.special.caseOpen.message')}: ${(
+        winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice
+      ).toFixed(2)}`
     });
     switchMenus();
     allCaseSessionDrops.push(...winningItems);
@@ -179,7 +191,7 @@
   }
 
   async function playRollAnimation() {
-    const duration = $fastOpen ? 750 : 2500;
+    const duration = $settings.fastOpen ? 750 : 2500;
     if (rouletteCount === 1) {
       const bounds = document.querySelectorAll('li.case-item')[45].getBoundingClientRect();
       const x = Math.floor(
@@ -226,10 +238,11 @@
   function reOpen() {
     if (rouletteCount === 1) {
       (document.querySelector('ul.CaseRolls-row') as HTMLElement)!
-        .getAnimations().forEach(anim => anim.cancel());
+        .getAnimations()
+        .forEach((anim) => anim.cancel());
     } else {
       const roulettes = [...document.querySelectorAll('div.CaseRolls-roll')] as HTMLElement[];
-      for (const roulette of roulettes) roulette.getAnimations().forEach(anim => anim.cancel());
+      for (const roulette of roulettes) roulette.getAnimations().forEach((anim) => anim.cancel());
     }
     generateRollItems(rouletteCount);
     switchMenus();
@@ -242,7 +255,7 @@
       elm.classList.add('hidden');
       elm.classList.remove('flex');
     });
-    
+
     handleRoll();
   }
 
@@ -279,10 +292,28 @@
     sellLoading = false;
   }
 </script>
-<div class="m-2 p-5 fixed bottom-0 left-0 bg-navy-700 bg-opacity-75 text-navy-200 text-base z-50 rounded-xl glow-gold">
-  <p>Wydane: {totalSpendings.toFixed(2)}zł</p>
-  <p>Wygrane: {totalWinnings.toFixed(2)}zł</p>
-  <p>Profit: {netDifference.toFixed(2)}zł</p>
+
+<div
+  class="m-2 p-5 fixed bottom-0 left-0 bg-navy-700 bg-opacity-75 text-navy-200 text-base z-50 rounded-xl glow-gold"
+>
+  <p>
+    {$_('case.winScreen.spendings')}: {localisePrice(
+      page,
+      totalSpendings
+    )}{$page.data.currency.toUpperCase()}
+  </p>
+  <p>
+    {$_('case.winScreen.winnings')}: {localisePrice(
+      page,
+      totalWinnings
+    )}{$page.data.currency.toUpperCase()}
+  </p>
+  <p>
+    {$_('case.winScreen.profit')}: {localisePrice(
+      page,
+      netDifference
+    )}{$page.data.currency.toUpperCase()}
+  </p>
 </div>
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
   <div class="relative overflow-hidden lg:overflow-visible">
@@ -355,7 +386,7 @@
         style="width: 1480px; left: calc(50% - 740px);"
       >
         <div
-          class="z-40 single-roll-winScreen hidden absolute left-1/2 w-full -translate-x-1/2 overflow-hidden sm:rounded-lg bg-navy-800 bg-opacity-50 "
+          class="z-40 single-roll-winScreen hidden absolute left-1/2 w-full -translate-x-1/2 overflow-hidden sm:rounded-lg bg-navy-800 bg-opacity-50"
           style="height: 300px; box-shadow: rgba(66, 66, 84, 0.2) 0px 0px 0px 5px;"
         >
           <div
@@ -496,7 +527,7 @@
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 md:mr-0 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg#arrow-left"></use>
           </svg>
-          <span class="md:hidden">Wróć</span>
+          <span class="md:hidden">{$_('case.goBack')}</span>
         </button>
         <button
           class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red text-red bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
@@ -505,7 +536,7 @@
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg#try-again"></use>
           </svg>
-          Otwórz ponownie
+          {$_('case.winScreen.reOpen')}
         </button>
         <button
           class="mass-sell-btn flex items-center justify-center h-10 px-3 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold disabled:brightness-50 disabled:hover:bg-navy-700"
@@ -515,13 +546,13 @@
           {#if sellLoading}
             <Spinner size="1.5em" borderWidth=".25em" />
           {:else if sellSuccess}
-            Pomyślnie sprzedano
+            {$_('case.sellSuccess')}
           {:else}
             <svg class="flex-shrink-0 w-3 h-4 mr-2 sm:mr-3 sm:w-5 sm:h-6">
               <use xlink:href="/icons/icons.svg#sell"></use>
             </svg>
-            sprzedaj&nbsp;za&nbsp;
-            <span class="total-award-price">{totalAwardPrice.toFixed(2)}</span>
+            {$_('case.winScreen.sell')}&nbsp;
+            <span class="total-award-price">{localisePrice(page, totalAwardPrice)}</span>
           {/if}
         </button>
         <a
@@ -531,7 +562,7 @@
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg?38#upgrader"></use>
           </svg>
-          Ulepsz Wszystko
+          {$_('case.winScreen.upgrade')}
         </a>
       </div>
     </div>
@@ -583,7 +614,7 @@
         class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
         {!$page.data.user
           ? 'border-red text-red glow-red hover:bg-red'
-          : $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] >= casePrice
+          : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] >= casePrice
           ? 'border-green text-green glow-pastelGreen hover:bg-green'
           : 'border-red text-red glow-red hover:bg-red'}"
         on:click="{handleRoll}"
@@ -610,16 +641,18 @@
           {#if loading}
             <Spinner size="1.5em" borderWidth=".25em" />
           {:else}
-            {!$page.data.user
-              ? 'Zaloguj się aby otworzyć'
-              : $page.data.user[(data.goldenCase ? 'goldBalance' : 'balance')] > casePrice
-              ? `Otwórz za ${casePrice.toFixed(2)}`
-              : `Brak wystarczającego salda ${casePrice.toFixed(2)}`}
+            {#if !$page.data.user}
+              {$_('case.notLoggedIn')}
+            {:else}
+              {$page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] >= casePrice
+                ? `${$_('case.open')} ${localisePrice(page, casePrice)}`
+                : `${$_('case.tooPoor')} ${casePrice.toFixed(2)}`}
+            {/if}
             {#if $page.data.user}
               <div class="flex items-center ml-2">
                 {@html goldenNames.includes(data.websiteName)
                   ? '<img src="/icons/gold-coin.png" class="w-3 h-3 ml-1">'
-                  : 'PLN'}
+                  : $page.data.currency.toUpperCase()}
               </div>
             {/if}
           {/if}

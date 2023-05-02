@@ -4,15 +4,20 @@
   import { invalidateAll } from '$app/navigation';
   import { applyAction, enhance, type SubmitFunction } from '$app/forms';
   import { page } from '$app/stores';
+  import { _ } from 'svelte-i18n';
 
   let loading = false;
 
-  $: $page.form && !$page.form?.success ? createToast({
-    header: 'Błąd',
-    message: $page.form?.message,
-    type: 'error'
-  }) : null;
-  
+  $: $page.form && !$page.form?.success
+    ? /* eslint-disable indent */
+      createToast({
+        header: $_('error'),
+        message: $page.form?.message,
+        type: 'error'
+      })
+    : null;
+  /* eslint-disable indent */
+
   function handleSubmit() {
     loading = true;
   }
@@ -22,7 +27,6 @@
       if (result) loading = false;
       invalidateAll();
       await applyAction(result);
-      window.location.reload();
     };
   };
 
@@ -40,10 +44,16 @@
   <div
     class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border relative"
   >
-    <div class="absolute top-5 right-5 cursor-pointer text-lg" on:keypress="{() => null}" on:click="{toggleRegister}">✖</div>
+    <div
+      class="absolute top-5 right-5 cursor-pointer text-lg"
+      on:keypress="{() => null}"
+      on:click="{toggleRegister}"
+    >
+      ✖
+    </div>
     <div>
       <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">
-        Zarejestruj się
+        {$_('registerForm.header')}
       </h2>
     </div>
     <form
@@ -56,17 +66,19 @@
       <input type="hidden" name="remember" value="true" />
       <div class="-space-y-px rounded-md shadow-sm">
         <div>
-          <label for="accountName" class="sr-only">Nazwa konta</label>
+          <label for="accountName" class="sr-only">
+            {$_('registerForm.accountNamePlaceholder')}
+          </label>
           <input
             id="accountName"
             name="accountName"
             required
             class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-            placeholder="Nazwa Konta"
+            placeholder="{$_('registerForm.accountNamePlaceholder')}"
           />
         </div>
         <div>
-          <label for="password" class="sr-only">Hasło</label>
+          <label for="password" class="sr-only">{$_('registerForm.passwordPlaceholder')}</label>
           <input
             id="password"
             name="password"
@@ -74,11 +86,13 @@
             autocomplete="current-password"
             required
             class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-            placeholder="Hasło"
+            placeholder="{$_('registerForm.passwordPlaceholder')}"
           />
         </div>
         <div>
-          <label for="password" class="sr-only">Potwierdź hasło</label>
+          <label for="password" class="sr-only">
+            {$_('registerForm.passwordConfirmPlaceholder')}
+          </label>
           <input
             id="passwordConfirm"
             name="passwordConfirm"
@@ -86,18 +100,23 @@
             autocomplete="current-password"
             required
             class="relative block w-full appearance-none border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-            placeholder="Potwierdź hasło"
+            placeholder="{$_('registerForm.passwordConfirmPlaceholder')}"
           />
         </div>
-        <div class="bg-white rounded-b-md border border-gray-300 px-3 py-2 sm:text-sm">
-          <input
-            id="sandboxMode"
-            name="sandboxMode"
-            type="checkbox"
-          />
+        <div class="bg-white border border-gray-300 px-3 py-2 sm:text-sm">
+          <input id="sandboxMode" name="sandboxMode" type="checkbox" />
           <label for="sandboxMode" class="text-navy-300 w-full">
-            Tryb sandbox (nielimitowany balans)
+            {$_('registerForm.sandboxModeLabel')}
           </label>
+        </div>
+        <div class="bg-white rounded-b-md border border-gray-300 px-3 py-2 sm:text-sm">
+          <p>{$_('registerForm.selectLanguageHeader')}</p>
+          <input type="radio" id="language-en" name="lang" value="en" checked />
+          <label for="language-en">English (English)</label>
+          <br />
+          <input type="radio" id="language-pl" name="lang" value="pl" />
+          <label for="language-pl">Polish (Polski)</label>
+          <br />
         </div>
       </div>
 
@@ -130,7 +149,7 @@
               ></path>
             </svg>
           </span>
-          Stwórz konto
+          {$_('registerForm.buttonText')}
         </button>
       </div>
     </form>

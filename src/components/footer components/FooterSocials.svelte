@@ -1,5 +1,9 @@
+<script>
+  import { _ } from 'svelte-i18n';
+</script>
+
 <div>
-  <div class="mb-3 ml-3 text-xs text-white uppercase">obserwuj nas</div>
+  <div class="mb-3 ml-3 text-xs text-white uppercase">{$_('footer.socials.follow')}</div>
   <ul class="flex ml-1">
     <li>
       <a
@@ -74,7 +78,7 @@
         aria-label="Join the Key-Drop.com Telegram Channel!"
         class="block p-2 transition-colors duration-200 hover:text-white"
       >
-        <svg class="block w-6 h-6 ">
+        <svg class="block w-6 h-6">
           <use xlink:href="/icons/icons.svg#telegram"></use>
         </svg>
       </a>

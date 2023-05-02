@@ -56,6 +56,7 @@
   "packageManager": "yarn@3.2.4",
   "dependencies": {
     "@prisma/client": "^4.13.0",
+    "@rgossiaux/svelte-headlessui": "^1.0.2",
     "@sveltejs/adapter-vercel": "^2.4.2",
     "@vercel/analytics": "^1.0.0",
     "bcrypt": "^5.1.0",
@@ -66,6 +67,8 @@
     "nanoid": "^4.0.2",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
+    "svelte-i18n": "^3.6.0",
+    "svelte-local-storage-store": "^0.4.0",
     "vite-plugin-vercel": "^0.1.7"
   }
 }

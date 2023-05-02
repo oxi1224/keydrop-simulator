@@ -4,14 +4,17 @@
   import { invalidateAll } from '$app/navigation';
   import { applyAction, enhance, type SubmitFunction } from '$app/forms';
   import { page } from '$app/stores';
+  import { _ } from 'svelte-i18n';
 
   let loading = false;
 
-  $: $page.form && !$page.form?.success ? createToast({
-    header: 'Błąd',
-    message: $page.form?.message,
-    type: 'error'
-  }) : null;
+  $: $page.form && !$page.form?.success
+    ? createToast({
+        header: $_('error'),
+        message: $page.form?.message,
+        type: 'error'
+      })
+    : null;
 
   function handleSubmit() {
     loading = true;
@@ -22,7 +25,6 @@
       if (result) loading = false;
       invalidateAll();
       await applyAction(result);
-      window.location.reload();
     };
   };
 
@@ -40,9 +42,17 @@
   <div
     class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border relative"
   >
-    <div class="absolute top-5 right-5 cursor-pointer text-lg" on:keypress="{() => null}" on:click="{toggleLogin}">✖</div>
+    <div
+      class="absolute top-5 right-5 cursor-pointer text-lg"
+      on:keypress="{() => null}"
+      on:click="{toggleLogin}"
+    >
+      ✖
+    </div>
     <div>
-      <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">Zaloguj się</h2>
+      <h2 class="mt-6 text-center text-3xl font-semibold tracking-tight text-white">
+        {$_('loginPage.title')}
+      </h2>
     </div>
     <form
       class="mt-8 space-y-6"
@@ -54,17 +64,17 @@
       <input type="hidden" name="remember" value="true" />
       <div class="-space-y-px rounded-md shadow-sm">
         <div>
-          <label for="accountName" class="sr-only">Nazwa konta</label>
+          <label for="accountName" class="sr-only">{$_('loginForm.accountNamePlaceholder')}</label>
           <input
             id="accountName"
             name="accountName"
             required="{true}"
             class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-            placeholder="Nazwa Konta"
+            placeholder="{$_('loginForm.accountNamePlaceholder')}"
           />
         </div>
         <div>
-          <label for="password" class="sr-only">Password</label>
+          <label for="password" class="sr-only">{$_('loginForm.passwordPlaceholder')}</label>
           <input
             id="password"
             name="password"
@@ -72,7 +82,7 @@
             autocomplete="current-password"
             required="{true}"
             class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-            placeholder="Hasło"
+            placeholder="{$_('loginForm.passwordPlaceholder')}"
           />
         </div>
       </div>
@@ -105,7 +115,7 @@
               ></path>
             </svg>
           </span>
-          Login
+          {$_('loginForm.buttonText')}
         </button>
       </div>
     </form>

@@ -1,0 +1,125 @@
+{
+  "success": "Sukces",
+  "error": "Błąd",
+  "loading": "Ładowanie",
+  "header": {
+    "displayedLang": "Polish (Polski)",
+    "searchboxText": "Wyszukaj",
+    "wallet": "Portfel",
+    "login": "Zaloguj się",
+    "nav": {
+      "myAccount": "Moje konto",
+      "logout": "Wyloguj się"
+    }
+  },
+  "footer": {
+    "stats": {
+      "openedCases": "Otwartych skrzyń",
+      "battles": "Rozegranych bitew",
+      "upgrades": "Ulepszenia",
+      "users": "Użytkowników",
+      "online": "Online"
+    },
+    "socials": {
+      "follow": "Obserwuj nas"
+    }
+  },
+  "case": {
+    "back": "Wróć",
+    "goBack": "Wróc do strony głównej",
+    "balanceCheck": "Sprawdzianie balansu...",
+    "tooPoor": "Brak wystarczającego salda",
+    "notLoggedIn": "Zaloguj się aby otworzyć",
+    "open": "Otwórz za",
+    "sellSuccess": "Pomyślnie sprzedano",
+    "caseContents": "Zawartość skrzyni",
+    "winScreen": {
+      "reOpen": "Otwórz ponownie",
+      "sell": "Sprzedaj za",
+      "upgrade": "Ulepsz wszystko",
+      "spendings": "Wydane",
+      "winnings": "Wygrane",
+      "profit": "Profit"
+    }
+  },
+  "profile": {
+    "mainPage": "Przejdź do strony głównej",
+    "logout": "Wyloguj się",
+    "balance": "Twój balans",
+    "sort": {
+      "title": "Sortowanie",
+      "newest": "Najnowsze",
+      "oldest": "Najstarsze",
+      "cheapest": "Najtańsze",
+      "mostExpensive": "Najdroższe"
+    },
+    "showItems": {
+      "title": "Pokaż przedmioty",
+      "all": "Wszystkie",
+      "active": "Aktywne"
+    },
+    "upgrade": "Ulepsz wszystko",
+    "sellAll": "Sprzedaj wszystko",
+    "exchange": "Wymień",
+    "item": {
+      "sold": "Sprzedany",
+      "origin": "Zdobyto ze skrzyni",
+      "sell": "Sprzedaj za"
+    }
+  },
+  "loginPage": {
+    "title": "Nie jesteś zalogowany",
+    "text": "Musisz być zalogowany aby zobaczyć tę stronę.",
+    "login": "Zaloguj się",
+    "register": "Zarejestruj się"
+  },
+  "loginForm": {
+    "header": "Zaloguj się",
+    "accountNamePlaceholder": "Nazwa Konta",
+    "passwordPlaceholder": "Hasło",
+    "buttonText": "Login"
+  },
+  "registerForm": {
+    "header": "Zarejestruj się",
+    "accountNamePlaceholder": "Nazwa Konta",
+    "passwordPlaceholder": "Hasło",
+    "passwordConfirmPlaceholder": "Potwierdź Hasło",
+    "sandboxModeLabel": "Tryb sandbox (nielimitowany balans)",
+    "selectLanguageHeader": "Wybierz język",
+    "buttonText": "Stwórz konto"
+  },
+  "toasts": {
+    "error": {
+      "header": "Błąd",
+      "messages": {
+        "notEnoughBalance": "Niewystarczające saldo",
+        "noPasswordUsername": "Brak hasła lub nazwy",
+        "loggedIn": "Użytkownik jest już zalogowany",
+        "notLoggedIn": "Użytkownik nie jest zalogowany",
+        "invalidPasswordUsername": "Nieprawidłowy użytkownik lub hasło",
+        "invalidRegisterValue": "Jedna z podanych wartości jest nieprawidłowa",
+        "usernameTaken": "Nazwa użytkownika jest już zajęta",
+        "noSessionID": "Brak ID sesji",
+        "noSession": "Brak sesji",
+        "userNotExists": "Użytkownik nie istnieje",
+        "notOwnItem": "Użytkownik nie posiada jednego lub paru przedmiotów z listy",
+        "errorDuringSell": "Wystąpił bład podczas sprzedawania"
+      }
+    },
+    "success": {
+      "header": "Sukces",
+      "messages": {
+        "sell": "Pomyślnie sprzedano",
+        "loginSuccess": "Pomyślnie zalogowano",
+        "registerSuccess": "Pomyślnie zarejestrowano",
+        "logoutSuccess": "Pomyślnie wylogowano"
+      }
+    },
+    "special": {
+      "caseOpen": {
+        "header": "Wygrana",
+        "message": "Zysk"
+      }
+    }
+  }
+}

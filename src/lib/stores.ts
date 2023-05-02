@@ -1,6 +1,10 @@
 import { writable, type Writable } from 'svelte/store';
 import type { ToastProps } from './types';
-import { browser } from '$app/environment';
+import { persisted } from 'svelte-local-storage-store';
+
+export const settings = persisted('settings', {
+  fastOpen: false
+});
 
 export const toastOpen = writable(false);
 export const toastProps: Writable<ToastProps> = writable({
@@ -8,11 +12,3 @@ export const toastProps: Writable<ToastProps> = writable({
   header: '',
   message: ''
 });
-
-export const fastOpen = writable<boolean>(false);
-export const loggedIn = writable<boolean>(false);
-
-if (browser) {
-  fastOpen.subscribe((value) => localStorage['fast_open'] = String(value));
-  loggedIn.subscribe((value) => localStorage['logged_in'] = String(value));
-}

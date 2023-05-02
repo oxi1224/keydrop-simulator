@@ -1,3 +1,11 @@
+<style>
+  @media (max-width: 768px) {
+    .cols-payments-md {
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    }
+  }
+</style>
+
 <script lang="ts">
   import CaseThumbnail from './CaseThumbnail.svelte';
   import type { CaseSection } from '$lib';
@@ -6,14 +14,6 @@
     ? data.cases.sort((a, b) => a.websiteName.localeCompare(b.websiteName))
     : null;
 </script>
-
-<style>
-  @media (max-width: 768px) {
-  .cols-payments-md {
-    grid-template-columns: repeat(auto-fill,minmax(10rem,1fr));
-  }
-}
-</style>
 
 <section id="{data.id}" class="relative">
   <div

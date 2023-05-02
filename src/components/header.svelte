@@ -2,9 +2,38 @@
   import HeaderUserPanel from './header components/HeaderUserPanel.svelte';
   import HeaderMobileUserPanel from './header components/HeaderMobileUserPanel.svelte';
   import HeaderNav from './header components/HeaderNav.svelte';
+  import { _ } from 'svelte-i18n';
+  import { page } from '$app/stores';
+  import {
+    Listbox,
+    ListboxButton,
+    ListboxOptions,
+    ListboxOption
+  } from '@rgossiaux/svelte-headlessui';
+
+  const languages = [
+    { id: 0, shorthand: 'en', language: 'English (English)' },
+    { id: 1, shorthand: 'pl', language: 'Polish (Polski)' }
+  ];
+
+  let loading = false;
+  let selectedLang = languages.find((obj) => obj.shorthand === $page.data.lang)!;
 
   function toggleMobileDropdown() {
     [...document.querySelectorAll('.nav')].forEach((e) => e.classList.toggle('is-open'));
+  }
+
+  async function changeLanguage(lang: (typeof languages)[number]['shorthand']) {
+    loading = true;
+    await fetch('/api/change-lang', {
+      method: 'POST',
+      body: JSON.stringify({ lang }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    loading = false;
+    window.location.reload();
   }
 </script>
 
@@ -108,24 +137,38 @@
           </g>
         </svg>
       </a>
-      <div class="relative sm:mr-2 ml-5 sm:ml-10">
-        <button
-          class="flex items-center justify-center font-light transition-colors duration-200 text-2xs text-navy-100 hover:text-white"
+      <div class="relative sm:mr-2 ml-5 sm:ml-10 flex justify-start items-center">
+        <img
+          src="/icons/{$page.data?.lang}.svg"
+          class="flex-shrink-0 w-4 h-4 mr-3 sm:mr-2 md:w-5 md:h-5"
+          alt="{$page.data?.lang}"
+        />
+        <Listbox
+          value="{selectedLang}"
+          on:change="{(e) => (selectedLang = languages[e.detail])}"
+          class="bg-navy-700 text-navy-100 text-xs text-center rounded-md relative w-36"
         >
-          <img
-            src="/icons/pl.svg"
-            class="flex-shrink-0 w-4 h-4 mr-3 sm:mr-2 md:w-5 md:h-5"
-            alt="pl"
-          />
-          <span class="font-light whitespace-nowrap md:text-3xs">
-            Polish (Polski) <span class="font-bold">| PLN</span>
-          </span>
-        </button>
+          <ListboxButton class="py-2 px-4 cursor-pointer">{selectedLang.language}</ListboxButton>
+          <ListboxOptions
+            class="top-8 w-36 absolute bg-navy-650 outline-navy-300 outline-1 outline whitespace-nowrap"
+          >
+            {#each languages as lang}
+              <ListboxOption
+                value="{lang.id}"
+                on:click="{() => changeLanguage(lang.shorthand)}"
+                disabled="{loading}"
+                class="py-2 px-4 cursor-pointer"
+              >
+                {lang.language}
+              </ListboxOption>
+            {/each}
+          </ListboxOptions>
+        </Listbox>
       </div>
       <div class="xl:flex justify-center items-center h-10 ml-2 sm:ml-10 hidden">
         <input
           id="search"
-          placeholder="Wyszukaj"
+          placeholder="{$_('header.searchboxText')}"
           class="h-full pl-4 pr-12 text-xs font-medium text-white transition-colors duration-200 rounded-md outline-none w-36 md:w-56 bg-navy-700 focus:bg-navy-800 search-input placeholder-navy-300 md:text-xs md:pl-3 md:pr-0"
         />
         <svg viewBox="0 0 21.28 21.28" class="relative w-4 h-4 -ml-8 stroke-navy-200 fill-navy-200">

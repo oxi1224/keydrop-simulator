@@ -1,9 +1,14 @@
 import { db } from '$lib/server';
 import type { Handle } from '@sveltejs/kit';
-
-// TODO rework backend based off https://joyofcode.xyz/sveltekit-authentication-using-cookies#passing-user-data-to-pages
+import { locale } from 'svelte-i18n';
 
 export const handle: Handle = async ({ event, resolve }) => {
+  const lang = event.cookies.get('lang');
+  if (lang) {
+    locale.set(lang);
+    event.locals.lang = lang as 'pl' | 'en';
+  }
+
   const sessionID = event.cookies.get('session_id');
   if (!sessionID) return await resolve(event);
   const session = await db.session.findUnique({

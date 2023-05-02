@@ -1,4 +1,10 @@
-import type { Case, CaseDrop as DbCaseDrop, CaseSection as DbCaseSection, Item, User } from '@prisma/client';
+import type {
+  Case,
+  CaseDrop as DbCaseDrop,
+  CaseSection as DbCaseSection,
+  Item,
+  User
+} from '@prisma/client';
 import type { colors } from './constants';
 
 export interface UserData extends Omit<User, 'passwordHash'> {

@@ -1,3 +1,7 @@
+<script>
+  import { _ } from 'svelte-i18n';
+</script>
+
 <div class="bg-navy-700">
   <div
     class="container flex flex-col justify-between space-y-5 py-9 xl:py-14 xl:flex-row xl:space-y-5 mx-auto tabular-nums"
@@ -22,7 +26,9 @@
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">otwartych skrzyń</p>
+        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+          {$_('footer.stats.openedCases')}
+        </p>
       </div>
     </div>
     <div
@@ -41,7 +47,9 @@
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">rozegranych bitew</p>
+        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+          {$_('footer.stats.battles')}
+        </p>
       </div>
     </div>
     <div
@@ -60,7 +68,9 @@
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">ulepszenia</p>
+        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+          {$_('footer.stats.upgrades')}
+        </p>
       </div>
     </div>
     <div
@@ -84,7 +94,9 @@
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">użytkowników</p>
+        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+          {$_('footer.stats.users')}
+        </p>
       </div>
     </div>
     <div
@@ -111,7 +123,9 @@
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">online</p>
+        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+          {$_('footer.stats.online')}
+        </p>
       </div>
     </div>
   </div>

@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { page } from '$app/stores';
   import { goldenNames } from '$lib';
+  import { localisePrice } from '$lib';
   import type { Case } from '@prisma/client';
   export let ratio: string;
   export let data: Case;
@@ -25,10 +27,10 @@
       <div
         class="flex flex-row items-center absolute py-1.5 px-3 font-semibold bg-navy-900 rounded text-gold-500 top-3 right-3 text-xs"
       >
-        {goldenNames.includes(data.websiteName) ? data.price : data.price.toFixed(2)}
+        {goldenNames.includes(data.websiteName) ? data.price : localisePrice(page, data.price)}
         {@html goldenNames.includes(data.websiteName)
           ? '<img src="/icons/gold-coin.png?v48" class="w-3 h-3 ml-1">'
-          : 'PLN'}
+          : $page.data?.currency.toUpperCase()}
       </div>
       <div
         class="z-10 max-w-full p-2 mx-auto mt-auto mb-4 text-sm font-normal leading-none text-center text-white uppercase rounded-lg bg-navy-700 min-w-[8rem]"

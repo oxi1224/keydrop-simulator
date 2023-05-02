@@ -1,37 +1,45 @@
 <script lang="ts">
   import type { Item } from '@prisma/client';
-  import { createToast } from '$lib';
+  import { createToast, localisePrice } from '$lib';
   import InventoryItem from '$components/inventory components/InventoryItem.svelte';
   import InventoryHeader from '$components/inventory components/InventoryHeader.svelte';
   import { page } from '$app/stores';
   import { invalidateAll } from '$app/navigation';
+  import { _ } from 'svelte-i18n';
 
   let totalSkinPrice = 0;
   let loading = false;
   let allItemsFilter: boolean;
   let dropdownWidth: number;
   let displayFilter: string;
-  // eslint-disable-next-line
-  // @ts-ignore
-  let inventory: Item[] = $page.data.user.inventory.sort((a, b) => new Date(b.dropDate) - new Date(a.dropDate));
+  let inventory: Item[] = $page.data.user.inventory.sort(
+    // eslint-disable-next-line
+    // @ts-ignore
+    (a, b) => new Date(b.dropDate) - new Date(a.dropDate)
+  );
   $: {
     if (allItemsFilter) inventory = $page.data.user.inventory || [];
     else inventory = $page.data.user.inventory.filter((obj) => !obj.sold) || [];
   }
-  $: totalSkinPrice = $page.data.user.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
+  $: totalSkinPrice =
+    $page.data.user.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
 
   async function handleInventorySell() {
     const filterdItems = $page.data.user.inventory.filter((obj) => !obj.sold && !obj.upgraded);
-    if (!filterdItems) return createToast({
-      header: "error",
-      message: "Wystąpił bład podczas sprzedawania.",
-      type: 'error'
-    });
+    if (!filterdItems)
+      return createToast({
+        header: $_('error'),
+        message: $_('toasts.error.messages.errorDuringSell'),
+        type: 'error'
+      });
 
     loading = true;
     const res = await fetch('/api/skins/sell-inventory/', {
       method: 'POST',
-      body: JSON.stringify({ itemIDs: filterdItems.map(item => item.dropId), prices: filterdItems.map(item => item.skinPrice) }),
+      body: JSON.stringify({
+        itemIDs: filterdItems.map((item) => item.dropId),
+        prices: filterdItems.map((item) => item.skinPrice)
+      }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -39,8 +47,8 @@
     await invalidateAll();
     if (res.ok) {
       createToast({
-        header: 'sukces',
-        message: 'Pomyślnie sprzedano',
+        header: $_('success'),
+        message: $_('toasts.success.messages.sell'),
         type: 'success'
       });
     }
@@ -53,17 +61,16 @@
   }
 
   function sortItems(index: number) {
-    console.log(allItemsFilter);
     loading = true;
     const optionElms = document.querySelectorAll('.dropdown-item');
     const sort = optionElms[index].textContent as string;
     let tempInv: Item[] | undefined;
     displayFilter = sort;
-    if (sort === 'najnowsze') tempInv = $page.data.user.inventory;
-    if (sort === 'najstarsze') tempInv = $page.data.user.inventory.slice().reverse();
-    if (sort === 'najtańsze')
+    if (sort === $_('profile.sort.newest')) tempInv = $page.data.user.inventory;
+    if (sort === $_('profile.sort.oldest')) tempInv = $page.data.user.inventory.slice().reverse();
+    if (sort === $_('profile.sort.cheapest'))
       tempInv = $page.data.user.inventory.slice().sort((a, b) => a.skinPrice - b.skinPrice);
-    if (sort === 'najdroższe')
+    if (sort === $_('profile.sort.mostExpensive'))
       tempInv = $page.data.user.inventory.slice().sort((a, b) => b.skinPrice - a.skinPrice);
     if (allItemsFilter) inventory = tempInv || [];
     else inventory = tempInv?.filter((obj) => !obj.sold) || [];
@@ -94,7 +101,7 @@
               <div
                 class="self-start mb-1 font-medium tracking-wide uppercase xl:self-center text-[8px] text-navy-200"
               >
-                Sortowanie
+                {$_('profile.sort.title')}
               </div>
               <div class="relative w-full h-9">
                 <button
@@ -109,7 +116,7 @@
                       contenteditable="true"
                       bind:textContent="{displayFilter}"
                     >
-                      Najnowsze
+                      {$_('profile.sort.newest')}
                     </span>
                   </div>
                   <div class="ml-auto dropdown-arrow">
@@ -135,28 +142,28 @@
                     on:keydown="{() => null}"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
-                    najnowsze
+                    {$_('profile.sort.newest')}
                   </div>
                   <div
                     on:click="{() => sortItems(1)}"
                     on:keydown="{() => null}"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
-                    najstarsze
+                    {$_('profile.sort.oldest')}
                   </div>
                   <div
                     on:click="{() => sortItems(2)}"
                     on:keydown="{() => null}"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
-                    najtańsze
+                    {$_('profile.sort.cheapest')}
                   </div>
                   <div
                     on:click="{() => sortItems(3)}"
                     on:keydown="{() => null}"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
-                    najdroższe
+                    {$_('profile.sort.mostExpensive')}
                   </div>
                 </div>
               </div>
@@ -165,7 +172,7 @@
               <div
                 class="self-start mb-1 font-medium tracking-wide uppercase xl:self-center text-[8px] text-navy-200"
               >
-                Pokaż przedmioty
+                {$_('profile.showItems.title')}
               </div>
               <div class="flex items-center h-9">
                 <div class="flex switch">
@@ -175,7 +182,7 @@
                         ? 'text-gray'
                         : 'text-white'} text-[10px] font-semibold uppercase"
                     >
-                      Wszystkie
+                      {$_('profile.showItems.all')}
                     </div>
                     <div class="relative cursor-pointer">
                       <input
@@ -196,7 +203,7 @@
                         ? 'text-gray'
                         : 'text-white'} text-[10px] font-semibold uppercase"
                     >
-                      Aktywne
+                      {$_('profile.showItems.active')}
                     </div>
                   </label>
                 </div>
@@ -214,7 +221,7 @@
                 <svg class="w-6 h-6 mr-2">
                   <use xlink:href="/icons/nav-icons.svg#donut-chart"></use>
                 </svg>
-                Ulepsz&nbsp;wszystko
+                {$_('profile.upgrade')}
               </div>
             </a>
             <div
@@ -232,11 +239,12 @@
                   ></path>
                 </svg>
                 <div class="mt-1 leading-none">
-                  Sprzedaj&nbsp;wszystko
+                  {$_('profile.sellAll')}
                   <div
                     class="text-left transition-colors duration-200 text-[8px] text-navy-200 group-hover:text-white"
                   >
-                    {totalSkinPrice.toFixed(2)}&nbsp;PLN
+                    {localisePrice(page, totalSkinPrice)}
+                    {$page.data.currency.toUpperCase()}
                   </div>
                 </div>
               </button>
@@ -253,7 +261,7 @@
                 <svg class="w-6 h-6 mr-2">
                   <use xlink:href="/icons/nav-icons.svg#lightning"></use>
                 </svg>
-                Wymień
+                {$_('profile.exchange')}
               </div>
             </a>
           </div>
@@ -265,7 +273,7 @@
             {/each}
           </ul>
         {:else}
-          Ładowanie
+          {$_('loading')}
         {/if}
       </section>
     </div>

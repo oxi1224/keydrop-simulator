@@ -2,13 +2,18 @@
   import { applyAction, enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
-  import { createToast } from '$lib';
+  import { createToast, localisePrice } from '$lib';
+  import { _ } from 'svelte-i18n';
 
-  $: $page.form ? createToast({
-    header: $page.form.success ? "Sukces" : "Błąd",
-    message: $page.form.message,
-    type: $page.form.success ? "success" : "error"
-  }) : null;
+  $: $page.form
+    ? /* eslint-disable indent */
+      createToast({
+        header: $page.form.success ? $_('success') : $_('error'),
+        message: $page.form.message,
+        type: $page.form.success ? 'success' : 'error'
+      })
+    : null;
+  /* eslint-disable indent */
 </script>
 
 <header class="container mt-6 mx-auto">
@@ -25,7 +30,7 @@
           stroke-width="2"
         ></path>
       </svg>
-      <span class="text-2xs">Przejdź do strony głównej</span>
+      <span class="text-2xs">{$_('profile.mainPage')}</span>
     </a>
     <form
       action="/login?/logout"
@@ -45,7 +50,7 @@
         <svg class="icon w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18 6H20V18H18zM10 18L10 13 16 13 16 11 10 11 10 6 4 12z"></path>
         </svg>
-        <span class="text-2xs">Wyloguj się</span>
+        <span class="text-2xs">{$_('profile.logout')}</span>
       </button>
     </form>
   </div>
@@ -63,7 +68,7 @@
         <span
           class="inline-block max-w-xs overflow-hidden text-xl font-semibold leading-none text-center truncate"
         >
-          {$page.data.user.username}
+          {$page.data.user?.username}
         </span>
       </div>
       <!-- <a
@@ -79,18 +84,21 @@
         <p
           class="flex items-center justify-center mb-1 text-xs font-semibold uppercase text-navy-100"
         >
-          TWÓJ BALANS
+          {$_('profile.balance')}
         </p>
         <div class="flex flex-col mb-4 md:flex-row">
           <div
             class="flex items-center mx-auto justify-center w-1/2 text-xs border border-solid rounded-lg bg-navy-700 border-navy-500 h-11"
           >
             <div class="flex items-center ml-4 text-xs font-semibold text-white">
-              <span class="text-gold">{$page.data.user.balance.toFixed(2)}&nbsp;PLN</span>
+              <span class="text-gold">
+                {localisePrice(page, $page.data.user.balance)}
+                {$page.data.currency.toUpperCase()}
+              </span>
             </div>
             <div class="flex items-center ml-4 text-xs font-semibold text-gold">
               <img src="/icons/gold-coin.png" alt="" class="object-contain w-4 h-4 mr-1" />
-              <span>{$page.data.user.goldBalance}</span>
+              <span>{$page.data.user?.goldBalance}</span>
             </div>
           </div>
         </div>

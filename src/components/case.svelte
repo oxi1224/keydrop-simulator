@@ -1,12 +1,17 @@
 <script lang="ts">
   import CaseRoulette from './case components/CaseRoulette.svelte';
   import CaseContents from './case components/CaseContents.svelte';
-  import { type CaseWithDrops, type CaseDrop, fastOpen } from '$lib';
+  import { type CaseWithDrops, type CaseDrop, settings } from '$lib';
+  import { _ } from 'svelte-i18n';
   export let caseData: CaseWithDrops;
   const caseDrops: CaseDrop[] = caseData.drops;
 
   function setFastOpen(e: MouseEvent) {
-    fastOpen.set((e.target as HTMLInputElement).checked);
+    settings.update((o) => {
+      const checked = (e.target as HTMLInputElement).checked;
+      o.fastOpen = checked;
+      return o;
+    });
   }
 </script>
 
@@ -27,8 +32,8 @@
           <use xlink:href="/icons/icons.svg#arrow-left"></use>
         </svg>
         <span class="pt-px leading-none">
-          <span class="md:hidden">Wróć</span>
-          <span class="hidden md:inline">Wróć do strony głównej</span>
+          <span class="md:hidden">{$_('case.back')}</span>
+          <span class="hidden md:inline">{$_('case.goBack')}</span>
         </span>
       </a>
       <h2 class="px-6 mx-auto text-xl font-semibold leading-tight text-center text-white uppercase">
@@ -64,7 +69,7 @@
           </svg>
         </button>
         <label
-          class="flex cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {$fastOpen
+          class="flex cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {$settings.fastOpen
             ? ''
             : 'brightness-75'}"
         >
