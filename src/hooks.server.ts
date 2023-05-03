@@ -1,40 +1,13 @@
-import { TimeInMs } from '$lib';
-import { db } from '$lib/server';
+import { userFromSessionID } from '$lib/server';
 import type { Handle } from '@sveltejs/kit';
+import { parse } from 'cookie';
 import { locale } from 'svelte-i18n';
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const lang = event.cookies.get('lang');
-  if (lang) {
-    locale.set(lang);
-    event.locals.lang = lang as 'pl' | 'en';
-  } else {
-    event.cookies.set('lang', 'en', {
-      path: '/',
-      httpOnly: false,
-      sameSite: 'strict',
-      secure: false,
-      maxAge: TimeInMs.Month / 1000
-    });
-  }
-
   const sessionID = event.cookies.get('session_id');
   if (!sessionID) return await resolve(event);
-  const session = await db.session.findUnique({
-    where: {
-      id: sessionID
-    }
-  });
-  if (!session) return await resolve(event);
 
-  const user = await db.user.findUnique({
-    where: {
-      id: session.userId
-    },
-    include: {
-      inventory: true
-    }
-  });
+  const user = await userFromSessionID(sessionID);
 
   if (user) {
     event.locals.user = {
@@ -43,8 +16,28 @@ export const handle: Handle = async ({ event, resolve }) => {
       inventory: user.inventory,
       balance: user.balance,
       goldBalance: user.goldBalance,
-      sandboxMode: user.sandboxMode
+      sandboxMode: user.sandboxMode,
+      language: user.language
     };
   }
   return await resolve(event);
 };
+
+// event.locals.lang = 'en';
+// locale.set('en');
+
+// const session = await db.session.findUnique({
+//   where: {
+//     id: sessionID
+//   }
+// });
+// if (!session) return await resolve(event);
+
+// const user = await db.user.findUnique({
+//   where: {
+//     id: session.userId
+//   },
+//   include: {
+//     inventory: true
+//   }
+// });

@@ -3,8 +3,7 @@ import type { PageServerLoad } from './$types';
 import { db } from '$lib/server';
 import bcrypt from 'bcrypt';
 import { nanoid } from 'nanoid';
-import { TimeInMs, i18n } from '$lib';
-import { get } from 'svelte/store';
+import { TimeInMs } from '$lib';
 
 export const load: PageServerLoad = async ({ locals }) => {
   if (locals.user) {
@@ -18,8 +17,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 export const actions: Actions = {
   login: async (event) => {
-    const lang = event.cookies.get('lang') as 'pl' | 'en';
-    const langData = get(i18n)[lang];
     const data = await event.request.formData();
     const password = data.get('password')?.toString();
     const username = data.get('accountName')?.toString();
@@ -27,13 +24,13 @@ export const actions: Actions = {
     if (!password || !username)
       return {
         success: false,
-        message: langData.toasts.error.messages.noPasswordUsername
+        messageKey: 'toasts.error.messages.noPasswordUsername'
       };
 
     if (event.cookies.get('session_id'))
       return {
         success: false,
-        message: langData.toasts.error.messages.loggedIn
+        messageKey: 'toasts.error.messages.loggedIn'
       };
 
     const user = await db.user.findUnique({
@@ -45,7 +42,7 @@ export const actions: Actions = {
     if (!user || !bcrypt.compareSync(password, user.passwordHash))
       return {
         success: false,
-        message: langData.toasts.error.messages.invalidPasswordUsername
+        messageKey: 'toasts.error.messages.invalidPasswordUsername'
       };
 
     const session = await db.session.create({
@@ -65,13 +62,10 @@ export const actions: Actions = {
 
     return {
       success: true,
-      message: langData.toasts.success.messages.loginSuccess
+      messageKey: 'toasts.success.messages.loginSuccess'
     };
   },
   register: async (event) => {
-    const lang = event.cookies.get('lang') as 'pl' | 'en';
-    const langData = get(i18n)[lang];
-
     const data = await event.request.formData();
     const password = data.get('password')?.toString();
     const passwordConfirm = data.get('passwordConfirm')?.toString();
@@ -82,13 +76,13 @@ export const actions: Actions = {
     if (!password || !passwordConfirm || !username || !selectedLang)
       return {
         success: false,
-        message: langData.toasts.error.messages.invalidRegisterValue
+        messageKey: 'toasts.error.messages.invalidRegisterValue'
       };
 
     if (event.cookies.get('session_id'))
       return {
         success: false,
-        message: langData.toasts.error.messages.loggedIn
+        messageKey: 'toasts.error.messages.loggedIn'
       };
 
     const isTaken = await db.user.findUnique({
@@ -100,7 +94,7 @@ export const actions: Actions = {
     if (isTaken)
       return {
         success: false,
-        message: langData.toasts.error.messages.usernameTaken
+        messageKey: 'toasts.error.messages.usernameTaken'
       };
 
     const hash = await bcrypt.hash(password, 15);
@@ -110,7 +104,8 @@ export const actions: Actions = {
         username: username,
         passwordHash: hash,
         balance: sandboxMode ? 999999999 : 50,
-        sandboxMode: sandboxMode ?? false
+        sandboxMode: sandboxMode ?? false,
+        language: selectedLang.toString()
       }
     });
 
@@ -129,28 +124,17 @@ export const actions: Actions = {
       maxAge: TimeInMs.Week / 1000
     });
 
-    event.cookies.set('lang', selectedLang.toString(), {
-      path: '/',
-      httpOnly: false,
-      sameSite: 'strict',
-      secure: false,
-      maxAge: TimeInMs.Month / 1000
-    });
-
     return {
       success: true,
-      message: langData.toasts.success.messages.registerSuccess
+      messageKey: 'toasts.success.messages.registerSuccess'
     };
   },
   logout: async (event) => {
-    const lang = event.cookies.get('lang') as 'pl' | 'en';
-    const langData = get(i18n)[lang];
-
     const sessionID = event.cookies.get('session_id');
     if (!sessionID)
       return {
         success: false,
-        message: langData.toasts.error.messages.notLoggedIn
+        messageKey: 'toasts.error.messages.notLoggedIn'
       };
 
     await db.session
@@ -164,7 +148,7 @@ export const actions: Actions = {
 
     return {
       success: true,
-      message: langData.toasts.success.messages.logoutSuccess
+      messageKey: 'toasts.success.messages.logoutSuccess'
     };
   }
 };

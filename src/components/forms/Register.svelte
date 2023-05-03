@@ -12,7 +12,7 @@
     ? /* eslint-disable indent */
       createToast({
         header: $_('error'),
-        message: $page.form?.message,
+        message: $_($page.form?.messageKey),
         type: 'error'
       })
     : null;

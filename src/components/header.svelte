@@ -10,6 +10,7 @@
     ListboxOptions,
     ListboxOption
   } from '@rgossiaux/svelte-headlessui';
+  import { createToast } from '$lib';
 
   const languages = [
     { id: 0, shorthand: 'en', language: 'English (English)' },
@@ -25,15 +26,21 @@
 
   async function changeLanguage(lang: (typeof languages)[number]['shorthand']) {
     loading = true;
-    await fetch('/api/change-lang', {
+    const res = await fetch('/api/change-lang', {
       method: 'POST',
       body: JSON.stringify({ lang }),
       headers: {
         'Content-Type': 'application/json'
       }
     });
+    const data = await res.json();
     loading = false;
-    window.location.reload();
+    createToast({
+      header: res.ok ? $_('success') : $_('error'),
+      message: data.message ?? $_(data.messageKey),
+      type: res.ok ? 'success' : 'error'
+    });
+    if (res.ok) window.location.reload();
   }
 </script>
 

@@ -15,6 +15,7 @@ model User {
   balance      Float   @default(50)
   goldBalance  Int     @default(0)
   sandboxMode  Boolean @default(false)
+  language     String  @default("en")
 }
 
 model Item {

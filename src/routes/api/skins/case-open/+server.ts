@@ -1,8 +1,7 @@
-import { i18n, type CaseDrop, type CaseWithDrops } from '$lib';
+import type { CaseDrop, CaseWithDrops } from '$lib';
 import { db, userFromSessionID } from '$lib/server';
 import type { RequestEvent } from '@sveltejs/kit';
 import { nanoid } from 'nanoid';
-import { get } from 'svelte/store';
 
 interface RequestBody {
   awardIDs: CaseDrop['id'][];
@@ -11,23 +10,20 @@ interface RequestBody {
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST(event: RequestEvent) {
-  const lang = event.cookies.get('lang') as 'pl' | 'en';
-  const langData = get(i18n)[lang];
-
   const sessionId = event.cookies.get('session_id');
   const { awardIDs, caseData }: RequestBody = await event.request.json();
   if (!sessionId)
-    return new Response(JSON.stringify({ message: langData.toasts.error.messages.noSessionID }), {
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.noSessionID' }), {
       status: 404
     });
   const session = await db.session.findUnique({ where: { id: sessionId } });
   if (!session)
-    return new Response(JSON.stringify({ message: langData.toasts.error.messages.noSession }), {
+    return new Response(JSON.stringify({ message: 'toasts.error.messages.noSession' }), {
       status: 404
     });
   const user = await userFromSessionID(sessionId);
   if (!user)
-    return new Response(JSON.stringify({ message: langData.toasts.error.messages.userNotExists }), {
+    return new Response(JSON.stringify({ message: 'toasts.error.messages.userNotExists' }), {
       status: 404
     });
   const itemsToAdd = [];
@@ -62,7 +58,7 @@ export async function POST(event: RequestEvent) {
   if (itemsToAdd.length !== awardIDs.length)
     return new Response(
       JSON.stringify({
-        message: 'Wystąpił problem podczas dodawania przedmiotów, prosze skontakutj się z oxi#6219'
+        messageKey: 'toasts.error.messages.errorDuringItemAdd'
       }),
       {
         status: 404
@@ -91,7 +87,7 @@ export async function POST(event: RequestEvent) {
     }
   });
   return new Response(
-    JSON.stringify({ message: langData.success, data: updatedUser, items: itemsToAdd }),
+    JSON.stringify({ messageKey: 'success', data: updatedUser, items: itemsToAdd }),
     {
       status: 200
     }

@@ -1,5 +1,4 @@
 import type { Item } from '@prisma/client';
-import { createToast } from '../toast';
 import { invalidateAll } from '$app/navigation';
 
 export async function sellItems(items: Item[]) {
@@ -12,10 +11,9 @@ export async function sellItems(items: Item[]) {
     }
   });
   await invalidateAll();
-  createToast({
-    type: res.ok ? 'success' : 'error',
-    header: res.ok ? 'sukces' : 'błąd',
-    message: (await res.json()).message
-  });
-  return res;
+
+  return {
+    res: res,
+    messageKey: (await res.json()).messageKey
+  };
 }

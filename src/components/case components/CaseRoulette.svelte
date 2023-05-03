@@ -7,14 +7,15 @@
     wearConversions,
     type CaseDrop,
     type CaseWithDrops,
-    settings
+    settings,
+    localisePrice
   } from '$lib';
   import { invalidateAll } from '$app/navigation';
   import { _ } from 'svelte-i18n';
   import Spinner from '$components/util/Spinner.svelte';
   import type { Item } from '@prisma/client';
   import { page } from '$app/stores';
-  import { localisePrice } from '$lib';
+
   export let data: CaseWithDrops;
   export let rouletteItems: CaseDrop[] = [];
   const allCaseSessionDrops: CaseDrop[] = [];
@@ -146,7 +147,7 @@
       createToast({
         type: 'error',
         header: $_('error'),
-        message: (await res.json()).message
+        message: (await res.json()).messageKey
       });
       loading = false;
       return;
@@ -174,12 +175,14 @@
     });
     createToast({
       type: 'success',
-      header: `${$_('toasts.special.caseOpen.header')}: ${winningItems
-        .reduce((n, o) => n + o.skinPrice, 0)
-        .toFixed(2)}`,
-      message: `${$_('toasts.special.caseOpen.message')}: ${(
+      header: `${$_('toasts.special.caseOpen.header')}: ${localisePrice(
+        page,
+        winningItems.reduce((n, o) => n + o.skinPrice, 0)
+      )}`,
+      message: `${$_('toasts.special.caseOpen.message')}: ${localisePrice(
+        page,
         winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice
-      ).toFixed(2)}`
+      )}`
     });
     switchMenus();
     allCaseSessionDrops.push(...winningItems);
@@ -265,9 +268,16 @@
     const clickedEl = (e.target as Element).closest('.single-sell-btn') as Element;
     const index = sellBtns.indexOf(clickedEl);
     const item = itemsIndb[index];
-    const res = await sellItems([item]);
+    const sellData = await sellItems([item]);
     clickedEl.setAttribute('disabled', '');
-    if (res.ok) {
+
+    createToast({
+      type: sellData.res.ok ? 'success' : 'error',
+      header: sellData.res.ok ? 'sukces' : 'błąd',
+      message: $_(sellData.messageKey)
+    });
+
+    if (sellData.res.ok) {
       soldItems.push(item);
       totalAwardPrice -= item.skinPrice;
     }
@@ -279,8 +289,13 @@
     const soldIDs = soldItems.map((i) => i.dropId);
     const itemsToSell = skins.filter((i) => !soldIDs.includes(i.dropId));
     const IDs = itemsToSell.map((i) => i.dropId);
-    const res = await sellItems(itemsToSell);
-    if (res.ok) {
+    const sellData = await sellItems(itemsToSell);
+    createToast({
+      type: sellData.res.ok ? 'success' : 'error',
+      header: sellData.res.ok ? 'sukces' : 'błąd',
+      message: $_(sellData.messageKey)
+    });
+    if (sellData.res.ok) {
       itemsIndb = itemsIndb.filter((item) => IDs.includes(item.dropId));
       totalAwardPrice = 0;
       [...document.querySelectorAll('.single-sell-btn')].forEach((el) => {
@@ -482,7 +497,8 @@
                   class="single-sell-btn events px-2 py-1 mt-1 h-3/4 font-bold text-xs uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate disabled:brightness-50"
                   on:click="{(e) => handleSingleSell(e)}"
                 >
-                  {$_('case.winScreen.sell')} <br class="md:hidden" />
+                  {$_('case.winScreen.sell')}
+                  <br class="md:hidden" />
                   <span class="award-price"></span>
                 </button>
               </div>

@@ -103,7 +103,8 @@
         "noSession": "Brak sesji",
         "userNotExists": "Użytkownik nie istnieje",
         "notOwnItem": "Użytkownik nie posiada jednego lub paru przedmiotów z listy",
-        "errorDuringSell": "Wystąpił bład podczas sprzedawania"
+        "errorDuringSell": "Wystąpił bład podczas sprzedawania",
+        "errorDuringItemAdd": "Wystąpił problem podczas dodawania przedmiotów, prosze skontakutj się z oxi#6219"
       }
     },
     "success": {

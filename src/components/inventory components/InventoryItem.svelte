@@ -1,13 +1,18 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { localisePrice, sellItems } from '$lib';
+  import { createToast, localisePrice, sellItems } from '$lib';
   import type { Item } from '@prisma/client';
   import { _ } from 'svelte-i18n';
   export let itemData: Item;
 
   async function handleSingleSell(e: MouseEvent, item: Item) {
     const clickedEl = (e.target as Element).closest('.single-sell-btn') as HTMLButtonElement;
-    await sellItems([item]);
+    const sellData = await sellItems([item]);
+    createToast({
+      type: sellData.res.ok ? 'success' : 'error',
+      header: sellData.res.ok ? 'sukces' : 'błąd',
+      message: $_(sellData.messageKey)
+    });
     clickedEl.disabled = true;
   }
 </script>

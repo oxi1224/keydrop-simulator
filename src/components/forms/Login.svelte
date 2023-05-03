@@ -9,12 +9,14 @@
   let loading = false;
 
   $: $page.form && !$page.form?.success
-    ? createToast({
+    ? /* eslint-disable indent */
+      createToast({
         header: $_('error'),
-        message: $page.form?.message,
+        message: $_($page.form?.messageKey),
         type: 'error'
       })
     : null;
+  /* eslint-disable indent */
 
   function handleSubmit() {
     loading = true;
