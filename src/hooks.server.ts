@@ -1,9 +1,24 @@
+import { TimeInMs } from '$lib';
 import { userFromSessionID } from '$lib/server';
 import type { Handle } from '@sveltejs/kit';
-import { parse } from 'cookie';
 import { locale } from 'svelte-i18n';
 
 export const handle: Handle = async ({ event, resolve }) => {
+  const lang = event.cookies.get('lang');
+
+  if (lang) {
+    locale.set(lang);
+    event.locals.lang = lang as 'pl' | 'en';
+  } else {
+    event.cookies.set('lang', 'en', {
+      path: '/',
+      httpOnly: false,
+      sameSite: 'strict',
+      secure: true,
+      maxAge: TimeInMs.Month / 1000
+    });
+  }
+
   const sessionID = event.cookies.get('session_id');
   if (!sessionID) return await resolve(event);
 

@@ -1,12 +1,7 @@
 <script>
   import Login from '$components/forms/Login.svelte';
   import Register from '$components/forms/Register.svelte';
-  import { onMount } from 'svelte';
   import { _ } from 'svelte-i18n';
-
-  onMount(async () => {
-    if (localStorage.getItem('logged_in') === 'true') window.location.href = '/';
-  });
 
   function toggleLogin() {
     const loginPage = document.getElementById('loginPage');
