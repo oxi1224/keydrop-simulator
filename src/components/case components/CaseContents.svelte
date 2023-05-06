@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { colors, type CaseDrop } from '$lib';
+  import { colors, type CaseDrop, type SkinRarity, type SkinWear } from '$lib';
   import { localisePrice } from '$lib';
   import { _ } from 'svelte-i18n';
   export let caseDrops: CaseDrop[];
@@ -37,15 +37,32 @@
       };
       for (const drop of allMatchingDrops) {
         displayDrop.details.push({
-          quality: drop.skinQuality,
+          quality: drop.skinQuality as SkinWear,
           price: drop.skinPrice,
           range: drop.oddsRange,
           odds: drop.displayOdds
         });
       }
+
+      // Order by skin wear
+      const wearOrdering: { [key in SkinWear]?: number } = {};
+      const wearSortOrder: SkinWear[] = ['FN', 'MW', 'FT', 'WW', 'BS'];
+      for (let i = 0; i < wearSortOrder.length; i++) wearOrdering[wearSortOrder[i]] = i;
+      displayDrop.details.sort((a, b) => wearOrdering[a.quality]! - wearOrdering[b.quality]!);
+
       returnArr.push(displayDrop);
     }
-    return returnArr;
+
+    // Order by skin rarity and max skin price
+    const ordering: { [key in SkinRarity]?: number } = {};
+    const sortOrder: SkinRarity[] = ['gold', 'red', 'pink', 'violet', 'blue', 'gray'];
+    for (let i = 0; i < sortOrder.length; i++) ordering[sortOrder[i]] = i;
+
+    return returnArr.sort(
+      (a, b) =>
+        ordering[a.skinRarity]! - ordering[b.skinRarity]! ||
+        Math.max(...b.details.map((d) => d.price)) - Math.max(...a.details.map((d) => d.price))
+    );
   })();
 
   function toggleDetails(
@@ -56,23 +73,23 @@
     e.currentTarget.offsetParent?.querySelector('.details-page')?.classList.toggle('hidden');
   }
 
-  function parsePriceRange(priceRange: string) {
-    const ranges = priceRange
-      .replaceAll(',', '.')
-      .split(' ')
-      .map((str) => parseFloat(str))
-      .filter((num) => !isNaN(num));
+  function parsePriceRange(dropDetails: DisplayDropDetails[]) {
+    const prices = dropDetails.map((d) => d.price);
+    const min = Math.min(...prices);
+    const max = Math.max(...prices);
 
-    const strings = ranges.map(
-      (num) => localisePrice(page, num).toString() + $page.data.currency.toUpperCase()
-    );
-
-    return strings.join(' - ');
+    /* eslint-disable indent */
+    return min === max
+      ? localisePrice(page, min) + $page.data.currency
+      : `${localisePrice(page, min) + $page.data.currency} - ${
+          localisePrice(page, max) + $page.data.currency
+        }`;
+    /* eslint-disable indent */
   }
 
   interface DisplayDrop {
     displayChance: string;
-    skinRarity: keyof typeof colors.itemBg;
+    skinRarity: SkinRarity;
     skinImgSource: string;
     weaponName: string;
     skinName: string;
@@ -81,7 +98,7 @@
   }
 
   interface DisplayDropDetails {
-    quality: string;
+    quality: SkinWear;
     price: number;
     range: number[];
     odds: string;
@@ -157,7 +174,7 @@
               <div class="truncate text-navy-200 text-3xs">{drop.skinName}</div>
               <div class="font-bold text-white truncate css-6plnry">{drop.weaponName}­</div>
               <div class="-mb-1 font-bold truncate text-gold css-6plnry">
-                {parsePriceRange(drop.priceRange)}
+                {parsePriceRange(drop.details)}
               </div>
             </div>
           </div>

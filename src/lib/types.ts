@@ -13,6 +13,8 @@ export interface UserData extends Omit<User, 'passwordHash'> {
 
 export type SkinRarity = keyof typeof colors.itemBg | keyof typeof colors.gradient;
 
+export type SkinWear = "FN" | "MW" | "FT" | "WW" | "BS";
+
 export interface ToastProps {
   type: 'error' | 'success';
   header: string;

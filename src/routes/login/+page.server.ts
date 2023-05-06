@@ -6,7 +6,6 @@ import { nanoid } from 'nanoid';
 import { TimeInMs } from '$lib';
 
 export const load: PageServerLoad = async ({ locals }) => {
-  console.log(locals.user);
   if (locals.user) {
     throw redirect(302, '/');
   }

@@ -1,10 +1,11 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { goldenNames } from '$lib';
+  import { goldenNames, lazyLoad } from '$lib';
   import { localisePrice } from '$lib';
   import type { Case } from '@prisma/client';
   export let ratio: string;
   export let data: Case;
+
 </script>
 
 <div
@@ -18,10 +19,9 @@
     class="z-20 w-full h-full col-start-1 row-start-1 row-end-3"
   >
     <img
-      src="/cases/{data.imgName}"
+      use:lazyLoad={`/cases/${data.imgName}`}
       alt=""
       class="absolute top-0 right-0 object-cover w-full h-full rounded-lg"
-      loading="lazy"
     />
     <div class="z-10 flex flex-col w-full h-full">
       <div
