@@ -99,6 +99,7 @@
         "invalidPasswordUsername": "Invalid username or password",
         "invalidRegisterValue": "One of provided values is invalid",
         "usernameTaken": "Username already taken",
+        "passwordNotMatch": "The passwords don't match",
         "noSessionID": "No session ID found",
         "noSession": "No session found",
         "userNotExists": "User doesn't exist",

@@ -18,7 +18,7 @@
   ];
 
   let loading = false;
-  let selectedLang = languages.find((obj) => obj.shorthand === $page.data.lang)!;
+  let selectedLang = languages.find((obj) => obj.shorthand === ($page.data?.lang ?? 'en'));
   
   function toggleMobileDropdown() {
     [...document.querySelectorAll('.nav')].forEach((e) => e.classList.toggle('is-open'));
@@ -146,9 +146,9 @@
       </a>
       <div class="relative sm:mr-2 ml-5 sm:ml-10 flex justify-start items-center">
         <img
-          src="/icons/{$page.data?.lang}.svg"
+          src="/icons/{$page.data?.lang ?? 'en'}.svg"
           class="flex-shrink-0 w-4 h-4 mr-3 sm:mr-2 md:w-5 md:h-5"
-          alt="{$page.data?.lang}"
+          alt="{$page.data?.lang ?? 'en'}"
         />
         <Listbox
           value="{selectedLang}"

@@ -99,6 +99,7 @@
         "invalidPasswordUsername": "Nieprawidłowy użytkownik lub hasło",
         "invalidRegisterValue": "Jedna z podanych wartości jest nieprawidłowa",
         "usernameTaken": "Nazwa użytkownika jest już zajęta",
+        "passwordNotMatch": "Hasła się nie zgadzają",
         "noSessionID": "Brak ID sesji",
         "noSession": "Brak sesji",
         "userNotExists": "Użytkownik nie istnieje",

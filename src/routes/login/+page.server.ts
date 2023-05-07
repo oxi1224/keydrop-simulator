@@ -85,6 +85,11 @@ export const actions: Actions = {
         messageKey: 'toasts.error.messages.loggedIn'
       };
 
+    if (password !== passwordConfirm) return {
+      success: false,
+      messageKey: 'toasts.error.messages.passwordNotMatch'
+    };
+
     const isTaken = await db.user.findUnique({
       where: {
         username: username
