@@ -11,6 +11,7 @@ export const load: PageServerLoad = async ({ locals }) => {
   }
   return {
     currency: locals.lang === 'pl' ? 'pln' : 'eur',
+    userInventory: [],
     ...locals
   };
 };
@@ -85,10 +86,11 @@ export const actions: Actions = {
         messageKey: 'toasts.error.messages.loggedIn'
       };
 
-    if (password !== passwordConfirm) return {
-      success: false,
-      messageKey: 'toasts.error.messages.passwordNotMatch'
-    };
+    if (password !== passwordConfirm)
+      return {
+        success: false,
+        messageKey: 'toasts.error.messages.passwordNotMatch'
+      };
 
     const isTaken = await db.user.findUnique({
       where: {

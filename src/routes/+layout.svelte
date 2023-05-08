@@ -8,7 +8,6 @@
   import { navigating } from '$app/stores';
   import Spinner from '$components/util/Spinner.svelte';
 
-
   inject({ mode: dev ? 'development' : 'production' });
 </script>
 

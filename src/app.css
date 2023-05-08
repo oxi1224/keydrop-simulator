@@ -531,3 +531,7 @@ input[type='number'] {
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
+
+img.loaded ~ div.loader-container {
+  display: none;
+}

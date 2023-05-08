@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { createToast, localisePrice, sellItems } from '$lib';
+  import Spinner from '$components/util/Spinner.svelte';
+  import { createToast, lazyLoad, localisePrice, sellItems } from '$lib';
   import type { Item } from '@prisma/client';
   import { _ } from 'svelte-i18n';
   export let itemData: Item;
@@ -81,10 +82,13 @@
         class="absolute top-0 left-0 object-cover w-full h-full rounded-lg"
       />
       <img
-        src="{itemData.skinImgSource}"
+        use:lazyLoad="{itemData.skinImgSource}"
         alt=""
         class="relative flex-1 object-contain w-4/5 mt-8"
       />
+      <div class="loader-container absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <Spinner />
+      </div>
       <div class="flex flex-col items-center transition-opacity duration-200 group-hover:opacity-0">
         <div
           class="relative px-2 overflow-hidden text-sm font-light leading-none text-center text-navy-100 sm:mb-2 line-clamp"

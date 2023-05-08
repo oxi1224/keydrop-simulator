@@ -1,5 +1,4 @@
 import { db, userFromSessionID } from '$lib/server';
-import type { Item } from '@prisma/client';
 import type { RequestEvent } from '@sveltejs/kit';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
@@ -21,18 +20,18 @@ export async function POST(event: RequestEvent) {
     return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.userNotExists' }), {
       status: 404
     });
-  const items: Item[] = [];
-  itemIDs.forEach((ID) => {
-    const item = user.inventory.find((obj) => obj.dropId === ID && !obj.sold);
-    if (item) items.push(item);
+
+  const items = await db.item.findMany({
+    where: {
+      dropId: { in: itemIDs },
+      ownerId: user.id
+    }
   });
-  if (items.length !== itemIDs.length)
-    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.notOwnItem' }), {
-      status: 404
-    });
+
   const priceSum = items.reduce((n, o) => n + o.skinPrice, 0);
   const balanceToAdd = Math.round((priceSum + Number.EPSILON) * 100) / 100;
-  const updatedUser = await db.user.update({
+
+  await db.user.update({
     where: {
       id: session.userId
     },
@@ -40,7 +39,7 @@ export async function POST(event: RequestEvent) {
       inventory: {
         updateMany: {
           where: {
-            dropId: { in: itemIDs }
+            dropId: { in: items.map((i) => i.dropId) }
           },
           data: { sold: true }
         }
@@ -53,10 +52,7 @@ export async function POST(event: RequestEvent) {
       }
     }
   });
-  return new Response(
-    JSON.stringify({ messageKey: 'toasts.success.messages.sell', data: updatedUser }),
-    {
-      status: 200
-    }
-  );
+  return new Response(JSON.stringify({ messageKey: 'toasts.success.messages.sell' }), {
+    status: 200
+  });
 }

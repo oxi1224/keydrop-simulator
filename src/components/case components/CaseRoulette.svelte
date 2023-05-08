@@ -147,7 +147,7 @@
       createToast({
         type: 'error',
         header: $_('error'),
-        message: (await res.json()).messageKey
+        message: $_((await res.json()).messageKey)
       });
       loading = false;
       return;

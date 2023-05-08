@@ -26,46 +26,39 @@ export async function POST(event: RequestEvent) {
     return new Response(JSON.stringify({ message: 'toasts.error.messages.userNotExists' }), {
       status: 404
     });
-  const itemsToAdd = [];
+
+  const caseDrops = [];
   for (const id of awardIDs) {
-    await new Promise((r) => setTimeout(r, 1));
-    const caseDrop = await db.caseDrop.findFirst({
+    const dropData = await db.caseDrop.findUnique({
       where: {
         id: id
+      },
+      include: {
+        globalInvItem: true
       }
     });
-    if (!caseDrop) continue;
-    const globalItem = await db.globalInventoryItem.findFirst({
-      where: {
-        weaponName: caseDrop.weaponName,
-        skinName: caseDrop.skinName,
-        skinQuality: caseDrop.skinQuality,
-        skinPrice: caseDrop.skinPrice
-      }
-    });
-    if (!globalItem) continue;
+    if (!dropData) continue;
+    caseDrops.push(dropData);
+  }
 
+  const itemsToAdd = caseDrops.map((drop) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { id: _, ...globalItemData } = globalItem;
-    itemsToAdd.push({
+    const { id: _, ...globalItemData } = drop.globalInvItem;
+    return {
       dropId: nanoid(),
       origin: caseData.websiteName,
       dropDate: new Date(),
       ...globalItemData
-    });
-  }
+    };
+  });
 
+  // prettier-ignore
   if (itemsToAdd.length !== awardIDs.length)
-    return new Response(
-      JSON.stringify({
-        messageKey: 'toasts.error.messages.errorDuringItemAdd'
-      }),
-      {
-        status: 404
-      }
-    );
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.errorDuringItemAdd' }), {
+      status: 404 
+    });
 
-  const updatedUser = await db.user.update({
+  await db.user.update({
     where: {
       id: session.userId
     },
@@ -86,10 +79,7 @@ export async function POST(event: RequestEvent) {
       inventory: true
     }
   });
-  return new Response(
-    JSON.stringify({ messageKey: 'success', data: updatedUser, items: itemsToAdd }),
-    {
-      status: 200
-    }
-  );
+  return new Response(JSON.stringify({ messageKey: 'success', items: itemsToAdd }), {
+    status: 200
+  });
 }

@@ -19,7 +19,7 @@ if (typeof window === 'undefined') {
 // @ts-ignore
 export const db = prisma;
 
-export async function userFromSessionID(sessionID: string) {
+export async function userFromSessionID(sessionID: string, includeInventory = false) {
   const session = await db.session.findUnique({
     where: {
       id: sessionID
@@ -31,7 +31,7 @@ export async function userFromSessionID(sessionID: string) {
       id: session?.userId
     },
     include: {
-      inventory: true
+      inventory: includeInventory
     }
   });
   return user;

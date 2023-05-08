@@ -19,7 +19,7 @@
 
   let loading = false;
   let selectedLang = languages.find((obj) => obj.shorthand === ($page.data?.lang ?? 'en'));
-  
+
   function toggleMobileDropdown() {
     [...document.querySelectorAll('.nav')].forEach((e) => e.classList.toggle('is-open'));
   }

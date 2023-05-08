@@ -2,6 +2,7 @@
 // for information about these interfaces
 
 import type { UserData } from '$lib';
+import type { Item } from '@prisma/client';
 
 declare global {
   declare namespace App {
@@ -11,6 +12,7 @@ declare global {
     }
     interface PageData {
       user: UserData;
+      userInventory: Item[];
       lang: 'pl' | 'en';
       currency: 'pln' | 'eur';
     }

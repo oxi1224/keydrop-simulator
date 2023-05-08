@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Item } from '@prisma/client';
-  import { createToast, localisePrice } from '$lib';
+  import { createToast, localisePrice, sellItems } from '$lib';
   import InventoryItem from '$components/inventory components/InventoryItem.svelte';
   import InventoryHeader from '$components/inventory components/InventoryHeader.svelte';
   import { page } from '$app/stores';
@@ -12,20 +12,20 @@
   let allItemsFilter: boolean;
   let dropdownWidth: number;
   let displayFilter: string;
-  let inventory: Item[] = $page.data.user.inventory.sort(
+  let inventory: Item[] = $page.data.userInventory.sort(
     // eslint-disable-next-line
     // @ts-ignore
     (a, b) => new Date(b.dropDate) - new Date(a.dropDate)
   );
   $: {
-    if (allItemsFilter) inventory = $page.data.user.inventory || [];
-    else inventory = $page.data.user.inventory.filter((obj) => !obj.sold) || [];
+    if (allItemsFilter) inventory = $page.data.userInventory || [];
+    else inventory = $page.data.userInventory.filter((obj) => !obj.sold) || [];
   }
   $: totalSkinPrice =
-    $page.data.user.inventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
+    $page.data.userInventory.reduce((n, o) => n + (o.sold ? 0 : o.skinPrice), 0) ?? 0;
 
   async function handleInventorySell() {
-    const filterdItems = $page.data.user.inventory.filter((obj) => !obj.sold && !obj.upgraded);
+    const filterdItems = $page.data.userInventory.filter((obj) => !obj.sold && !obj.upgraded);
     if (!filterdItems)
       return createToast({
         header: $_('error'),
@@ -34,24 +34,15 @@
       });
 
     loading = true;
-    const res = await fetch('/api/skins/sell-inventory/', {
-      method: 'POST',
-      body: JSON.stringify({
-        itemIDs: filterdItems.map((item) => item.dropId),
-        prices: filterdItems.map((item) => item.skinPrice)
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    const sellData = await sellItems(filterdItems);
+
+    createToast({
+      header: sellData.res.ok ? $_('success') : $_('error'),
+      type: sellData.res.ok ? 'success' : 'error',
+      message: $_(sellData.messageKey)
     });
-    await invalidateAll();
-    if (res.ok) {
-      createToast({
-        header: $_('success'),
-        message: $_('toasts.success.messages.sell'),
-        type: 'success'
-      });
-    }
+
+    if (sellData.res.ok) await invalidateAll();
     loading = false;
   }
 
@@ -66,12 +57,12 @@
     const sort = optionElms[index].textContent as string;
     let tempInv: Item[] | undefined;
     displayFilter = sort;
-    if (sort === $_('profile.sort.newest')) tempInv = $page.data.user.inventory;
-    if (sort === $_('profile.sort.oldest')) tempInv = $page.data.user.inventory.slice().reverse();
+    if (sort === $_('profile.sort.newest')) tempInv = $page.data.userInventory;
+    if (sort === $_('profile.sort.oldest')) tempInv = $page.data.userInventory.slice().reverse();
     if (sort === $_('profile.sort.cheapest'))
-      tempInv = $page.data.user.inventory.slice().sort((a, b) => a.skinPrice - b.skinPrice);
+      tempInv = $page.data.userInventory.slice().sort((a, b) => a.skinPrice - b.skinPrice);
     if (sort === $_('profile.sort.mostExpensive'))
-      tempInv = $page.data.user.inventory.slice().sort((a, b) => b.skinPrice - a.skinPrice);
+      tempInv = $page.data.userInventory.slice().sort((a, b) => b.skinPrice - a.skinPrice);
     if (allItemsFilter) inventory = tempInv || [];
     else inventory = tempInv?.filter((obj) => !obj.sold) || [];
     toggleDropdown();

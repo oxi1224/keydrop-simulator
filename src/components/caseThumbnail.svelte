@@ -3,9 +3,9 @@
   import { goldenNames, lazyLoad } from '$lib';
   import { localisePrice } from '$lib';
   import type { Case } from '@prisma/client';
+  import Spinner from './util/Spinner.svelte';
   export let ratio: string;
   export let data: Case;
-
 </script>
 
 <div
@@ -19,10 +19,13 @@
     class="z-20 w-full h-full col-start-1 row-start-1 row-end-3"
   >
     <img
-      use:lazyLoad={`/cases/${data.imgName}`}
+      use:lazyLoad="{`/cases/${data.imgName}`}"
       alt=""
       class="absolute top-0 right-0 object-cover w-full h-full rounded-lg"
     />
+    <div class="loader-container absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <Spinner />
+    </div>
     <div class="z-10 flex flex-col w-full h-full">
       <div
         class="flex flex-row items-center absolute py-1.5 px-3 font-semibold bg-navy-900 rounded text-gold-500 top-3 right-3 text-xs"

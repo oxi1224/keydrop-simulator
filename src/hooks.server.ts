@@ -21,14 +21,12 @@ export const handle: Handle = async ({ event, resolve }) => {
 
   const sessionID = event.cookies.get('session_id');
   if (!sessionID) return await resolve(event);
-
   const user = await userFromSessionID(sessionID);
 
   if (user) {
     event.locals.user = {
       id: user.id,
       username: user.username,
-      inventory: user.inventory,
       balance: user.balance,
       goldBalance: user.goldBalance,
       sandboxMode: user.sandboxMode,
