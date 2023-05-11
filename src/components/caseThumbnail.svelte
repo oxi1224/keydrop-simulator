@@ -20,7 +20,7 @@
     class="z-20 w-full h-full col-start-1 row-start-1 row-end-3"
   >
     <img
-      use:lazyLoad="{`/cases/${data.imgName}`}"
+      use:lazyLoad="{`https://raw.githubusercontent.com/oxi1224/images/main/${data.imgName}`}"
       alt=""
       class="absolute top-0 right-0 object-cover w-full h-full rounded-lg"
     />
@@ -31,15 +31,11 @@
       <div
         class="flex flex-row items-center absolute py-1.5 px-3 font-semibold bg-navy-900 rounded text-gold-500 top-3 right-3 text-xs"
       >
-        {
-          goldenNames.includes(data.websiteName)
-            ? data.price
-            : localisePrice(page, data.price)
-        }&nbsp;{
-          @html goldenNames.includes(data.websiteName)
-            ? '<img src="/icons/gold-coin.webp" alt="coin" class="w-3 h-3 ml-1">'
-            : $page.data?.currency.toUpperCase()
-        }
+        {goldenNames.includes(data.websiteName)
+          ? data.price
+          : localisePrice(page, data.price)}&nbsp;{@html goldenNames.includes(data.websiteName)
+          ? '<img src="/icons/gold-coin.webp" alt="coin" class="w-3 h-3 ml-1">'
+          : $page.data?.currency.toUpperCase()}
       </div>
       <div
         class="z-10 max-w-[90%] whitespace-nowrap py-2 px-0 lg:px-2 mx-auto mt-auto mb-4 text-xs lg:text-sm font-normal leading-none text-center text-white uppercase rounded-lg bg-navy-700 w-32"

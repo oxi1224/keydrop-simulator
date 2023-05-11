@@ -39,7 +39,7 @@ const i18n: Handle = async ({ event, resolve }) => {
   }
 
   return resolve(event, {
-    transformPageChunk: ({ html }) => html.replace('%lang%', lang ?? 'en'),
+    transformPageChunk: ({ html }) => html.replace('%lang%', lang ?? 'en')
   });
 };
 

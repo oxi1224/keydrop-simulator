@@ -15,10 +15,10 @@
   }
 
   @media (min-width: 640px) {
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
-}
 </style>
 
 <script lang="ts">
@@ -60,7 +60,11 @@
     </div>
   </div>
   <div
-    class="grid gap-6 grid-cols-2 grid-cols-{data.colSpan || '6' } px-3 grid-cols-3 grid-rows-{data.rowSpan || '[auto]'} relative z-0 md:py-7 {data.id === 'youtubers-cases' ? 'md:px-8' : ''}"
+    class="grid gap-6 grid-cols-2 grid-cols-{data.colSpan ||
+      '6'} px-3 grid-cols-3 grid-rows-{data.rowSpan || '[auto]'} relative z-0 md:py-7 {data.id ===
+    'youtubers-cases'
+      ? 'md:px-8'
+      : ''}"
   >
     {#if data.id === 'youtubers-cases'}
       <div class="z-[-1] absolute inset-[-1px] hidden md:flex youtuber-cases-border">

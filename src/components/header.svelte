@@ -201,7 +201,11 @@
     </div>
     <HeaderUserPanel />
     <div class="flex items-center justify-center w-auto md:hidden ml-auto nav">
-      <button class="flex items-center ml-4 md:hidden nav" aria-label="Menu Toggle" on:click="{toggleMobileDropdown}">
+      <button
+        class="flex items-center ml-4 md:hidden nav"
+        aria-label="Menu Toggle"
+        on:click="{toggleMobileDropdown}"
+      >
         <div class="nav-hamburger text-navy-100"></div>
       </button>
     </div>
