@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { colors, type CaseDrop, type SkinRarity, type SkinWear } from '$lib';
+  import { colors, type CaseDrop, type SkinRarity, type SkinWear, lazyLoad } from '$lib';
   import { localisePrice } from '$lib';
   import { _ } from 'svelte-i18n';
   export let caseDrops: CaseDrop[];
@@ -161,10 +161,10 @@
             <img
               alt=""
               class="object-contain col-start-1 mt-6 md:mt-0 row-start-1 duration-300 transform group-hover:scale-110 ease-in-out css-96c4l3"
-              src="{colors.itemBg[drop.skinRarity]}"
+              use:lazyLoad="{colors.itemBg[drop.skinRarity]}"
             />
             <img
-              src="{drop.skinImgSource}"
+              use:lazyLoad="{drop.skinImgSource}"
               alt=""
               class="object-contain w-3/4 col-start-1 row-start-1 mt-6 duration-300 ease-in-out transform pointer-events-none sm:mt-0 group-hover:scale-75 group-hover:rotate-12 css-1w1pcrf"
             />

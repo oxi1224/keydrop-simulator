@@ -47,7 +47,7 @@
 <header class="sticky top-0 z-40 md:relative bg-navy-600">
   <div class="container relative flex w-auto h-20 mx-auto md:h-24">
     <div class="relative flex items-center h-full navbar-left">
-      <a href="/" class="w-32 mb-1 md:w-40">
+      <a href="/" class="w-24 mb-1 md:w-40" aria-label="Go to front page">
         <svg
           version="1.1"
           id="Warstwa_1"
@@ -144,20 +144,20 @@
           </g>
         </svg>
       </a>
-      <div class="relative sm:mr-2 ml-5 sm:ml-10 flex justify-start items-center">
+      <div class="relative sm:mr-2 ml-3 sm:ml-10 flex justify-start items-center">
         <img
           src="/icons/{$page.data?.lang ?? 'en'}.svg"
-          class="flex-shrink-0 w-4 h-4 mr-3 sm:mr-2 md:w-5 md:h-5"
+          class="flex-shrink-0 w-4 h-4 mr-2 md:w-5 md:h-5"
           alt="{$page.data?.lang ?? 'en'}"
         />
         <Listbox
           value="{selectedLang}"
           on:change="{(e) => (selectedLang = languages[e.detail])}"
-          class="bg-navy-700 text-navy-100 text-xs text-center rounded-md relative w-36"
+          class="bg-navy-700 text-navy-100 text-3xs md:text-xs text-center rounded-md relative w-24 md:w-36"
         >
           <ListboxButton class="py-2 px-4 cursor-pointer">{selectedLang?.language}</ListboxButton>
           <ListboxOptions
-            class="top-8 w-36 absolute bg-navy-650 outline-navy-300 outline-1 outline whitespace-nowrap"
+            class="top-8 w-24 md:w-36 absolute bg-navy-650 outline-navy-300 outline-1 outline whitespace-nowrap"
           >
             {#each languages as lang}
               <ListboxOption
@@ -201,8 +201,8 @@
     </div>
     <HeaderUserPanel />
     <div class="flex items-center justify-center w-auto md:hidden ml-auto nav">
-      <button class="flex items-center ml-4 md:hidden nav" on:click="{toggleMobileDropdown}">
-        <div class="nav-hamburger text-navy-100" aria-label="Menu icon"></div>
+      <button class="flex items-center ml-4 md:hidden nav" aria-label="Menu Toggle" on:click="{toggleMobileDropdown}">
+        <div class="nav-hamburger text-navy-100"></div>
       </button>
     </div>
   </div>

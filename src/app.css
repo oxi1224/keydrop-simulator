@@ -14,7 +14,7 @@
       format('woff'),
     url('https://use.typekit.net/af/d69d3b/00000000000000007735c098/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n7&v=3')
       format('opentype');
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
   font-weight: 700;
   font-stretch: normal;
@@ -28,7 +28,7 @@
       format('woff'),
     url('https://use.typekit.net/af/6b9548/00000000000000007735c09d/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n6&v=3')
       format('opentype');
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
   font-weight: 600;
   font-stretch: normal;
@@ -42,7 +42,7 @@
       format('woff'),
     url('https://use.typekit.net/af/254f88/00000000000000007735c0a7/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n3&v=3')
       format('opentype');
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
   font-weight: 300;
   font-stretch: normal;
@@ -56,7 +56,7 @@
       format('woff'),
     url('https://use.typekit.net/af/decad5/00000000000000007735c0a9/30/a?primer=e6066692ab328d1a92bb155659ed6609b693e1e352f0e8982e4224719b13bdfb&fvd=n5&v=3')
       format('opentype');
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
   font-weight: 500;
   font-stretch: normal;
@@ -190,6 +190,10 @@ button {
   grid-column-start: 1;
 }
 
+.ratio-1 {
+  --ratio: 1;
+}
+
 .ratio-1\.5 {
   --ratio: 1.5;
 }
@@ -207,7 +211,7 @@ button {
 
 .css-awr5wf {
   --ratio: 0.7;
-  background-image: url('/images/case-item-bg.png');
+  background-image: url('/images/case-item-bg.webp');
   font-size: 13px;
 }
 
@@ -396,7 +400,7 @@ img {
 
 .css-dap7rg {
   --ratio: 0.7;
-  background-image: url('/images/case-item-bg.png');
+  background-image: url('/images/case-item-bg.webp');
 }
 
 .profile-items-template {
@@ -506,18 +510,6 @@ input[type='number'] {
 .border-gold {
   --tw-border-opacity: 1;
   border-color: rgb(220 174 100 / var(--tw-border-opacity));
-}
-
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .grid-rows-1 {

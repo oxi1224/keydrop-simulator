@@ -1,9 +1,24 @@
 <style>
-  @media (max-width: 768px) {
-    .cols-payments-md {
-      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  @media (min-width: 768px) {
+    .grid-cols-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    }
+    .grid-cols-6 {
+      grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
     }
   }
+
+  @media (max-width: 640px) {
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (min-width: 640px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 </style>
 
 <script lang="ts">
@@ -45,8 +60,7 @@
     </div>
   </div>
   <div
-    class="grid cols-payments-md grid-cols-{data.colSpan || '6'} grid-rows-{data.rowSpan ||
-      '[auto]'} gap-6 relative z-0 md:py-7 {data.id === 'youtubers-cases' ? 'md:px-8' : ''}"
+    class="grid gap-6 grid-cols-2 grid-cols-{data.colSpan || '6' } px-3 grid-cols-3 grid-rows-{data.rowSpan || '[auto]'} relative z-0 md:py-7 {data.id === 'youtubers-cases' ? 'md:px-8' : ''}"
   >
     {#if data.id === 'youtubers-cases'}
       <div class="z-[-1] absolute inset-[-1px] hidden md:flex youtuber-cases-border">

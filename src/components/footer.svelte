@@ -12,7 +12,7 @@
     <div class="container text-navy-300 mx-auto">
       <div class="flex flex-col py-16 sm:items-center sm:flex-row">
         <div>
-          <a rel="alternate" hreflang="pl" href="/" class="block w-48 ml-3">
+          <a rel="alternate" href="/" class="block w-48 ml-3" aria-label="Go back to front page">
             <svg viewBox="0 0 269.2 67.4" class="block">
               <path
                 class="fill-white text-white"

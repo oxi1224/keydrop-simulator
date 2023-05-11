@@ -1,4 +1,4 @@
-<div class="bg-opacity-75 bg-navy-800">
+<div class="bg-opacity-75 bg-navy-800 overflow-hidden">
   <div class="container py-9 md:py-16 mx-auto">
     <div
       class="grid flex-wrap items-center justify-between w-full grid-cols-3 gap-x-3 gap-y-6 md:gap-y-0 justify-items-center md:flex"

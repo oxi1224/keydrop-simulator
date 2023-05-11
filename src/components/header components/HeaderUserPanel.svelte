@@ -30,8 +30,7 @@
               <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
               {$_('header.wallet')}:
               <span class="text-gold font-semibold text-sm md:text-xs">
-                {localisePrice(page, $page.data.user?.balance)}
-                {$page.data.currency.toUpperCase()}
+                {localisePrice(page, $page.data.user?.balance)}&nbsp;{$page.data.currency.toUpperCase()}
               </span>
             </span>
           </div>
@@ -41,7 +40,7 @@
         <div class="flex flex-col justify-evenly">
           <span class="font-semibold text-sm text-navy-200 h-min">{$page.data.user.username}</span>
           <div class="flex flex-row items-center">
-            <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
+            <img src="/icons/gold-coin.webp" alt="coin" class="object-contain w-4 h-4 mr-1" />
             <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">
               {$page.data.user.goldBalance}
             </span>

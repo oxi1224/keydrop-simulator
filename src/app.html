@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="%lang%">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%sveltekit.assets%/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="A recreation of https://key-drop.com/
+              created by oxi#6219 on https://dicord.com/
+              which provides infinite balance to try out 
+              what keydrop has to offer without risking anything."
+    />
+    <title>Keydrop Simulator</title>
     %sveltekit.head%
   </head>
   <body>
     <div style="display: contents">%sveltekit.body%</div>
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "cf6f57c000674b8fa8d5039f8ece5b8d"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
   </body>
 </html>

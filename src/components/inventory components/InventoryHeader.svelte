@@ -88,16 +88,16 @@
         </p>
         <div class="flex flex-col mb-4 md:flex-row">
           <div
-            class="flex items-center mx-auto justify-center w-1/2 text-xs border border-solid rounded-lg bg-navy-700 border-navy-500 h-11"
+            class="flex items-center px-4 mx-auto justify-center min-w-fit w-1/2 text-xs border border-solid rounded-lg bg-navy-700 border-navy-500 h-11"
           >
-            <div class="flex items-center ml-4 text-xs font-semibold text-white">
+            <div class="flex items-center text-xs font-semibold text-white">
               <span class="text-gold">
                 {localisePrice(page, $page.data.user.balance)}
                 {$page.data.currency.toUpperCase()}
               </span>
             </div>
             <div class="flex items-center ml-4 text-xs font-semibold text-gold">
-              <img src="/icons/gold-coin.png" alt="" class="object-contain w-4 h-4 mr-1" />
+              <img src="/icons/gold-coin.webp" alt="" class="object-contain w-4 h-4 mr-1" />
               <span>{$page.data.user?.goldBalance}</span>
             </div>
           </div>

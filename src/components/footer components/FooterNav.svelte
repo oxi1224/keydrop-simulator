@@ -1,6 +1,6 @@
 <nav class="flex w-auto mt-8 space-x-5 md:space-x-16 sm:ml-auto sm:mt-8">
   <div>
-    <h4 class="uppercase text-white text-xs mb-3">Customer service</h4>
+    <h6 class="uppercase text-white text-xs mb-3">Customer service</h6>
     <ul class="text-xs font-light text-navy-100">
       <li>
         <a
@@ -45,7 +45,7 @@
     </ul>
   </div>
   <div>
-    <h4 class="uppercase text-white text-xs mb-3">my account</h4>
+    <h6 class="uppercase text-white text-xs mb-3">my account</h6>
     <ul class="text-xs font-light text-navy-100">
       <li>
         <a
@@ -90,7 +90,7 @@
     </ul>
   </div>
   <div>
-    <h4 class="uppercase text-white text-xs mb-3">Key-drop</h4>
+    <h6 class="uppercase text-white text-xs mb-3">Key-drop</h6>
     <ul class="text-xs font-light text-navy-100">
       <li>
         <a

@@ -79,6 +79,7 @@ export async function POST(event: RequestEvent) {
       inventory: true
     }
   });
+  
   return new Response(JSON.stringify({ messageKey: 'success', items: itemsToAdd }), {
     status: 200
   });

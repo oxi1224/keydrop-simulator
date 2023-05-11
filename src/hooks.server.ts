@@ -1,9 +1,28 @@
 import { TimeInMs } from '$lib';
 import { userFromSessionID } from '$lib/server';
 import type { Handle } from '@sveltejs/kit';
+import { sequence } from '@sveltejs/kit/hooks';
 import { locale } from 'svelte-i18n';
 
-export const handle: Handle = async ({ event, resolve }) => {
+const auth: Handle = async ({ event, resolve }) => {
+  const sessionID = event.cookies.get('session_id');
+  if (!sessionID) return await resolve(event);
+  const user = await userFromSessionID(sessionID);
+
+  if (user) {
+    event.locals.user = {
+      id: user.id,
+      username: user.username,
+      balance: user.balance,
+      goldBalance: user.goldBalance,
+      sandboxMode: user.sandboxMode,
+      language: user.language
+    };
+  }
+  return resolve(event);
+};
+
+const i18n: Handle = async ({ event, resolve }) => {
   const lang = event.cookies.get('lang');
 
   if (lang) {
@@ -19,19 +38,9 @@ export const handle: Handle = async ({ event, resolve }) => {
     });
   }
 
-  const sessionID = event.cookies.get('session_id');
-  if (!sessionID) return await resolve(event);
-  const user = await userFromSessionID(sessionID);
-
-  if (user) {
-    event.locals.user = {
-      id: user.id,
-      username: user.username,
-      balance: user.balance,
-      goldBalance: user.goldBalance,
-      sandboxMode: user.sandboxMode,
-      language: user.language
-    };
-  }
-  return await resolve(event);
+  return resolve(event, {
+    transformPageChunk: ({ html }) => html.replace('%lang%', lang ?? 'en'),
+  });
 };
+
+export const handle = sequence(auth, i18n);

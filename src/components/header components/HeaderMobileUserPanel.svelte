@@ -1,4 +1,6 @@
 <script>
+  import { applyAction, enhance } from '$app/forms';
+  import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
   import { localisePrice } from '$lib';
   import { _ } from 'svelte-i18n';
@@ -148,17 +150,27 @@
         </a>
       </li> -->
       <li class="w-1/2">
-        <a
-          rel="alternate"
-          hreflang="pl"
-          href="/logout"
-          class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
+        <form
+          action="/login?/logout"
+          method="POST"
+          use:enhance="{() => {
+            return async ({ result }) => {
+              invalidateAll();
+              await applyAction(result);
+              window.location.reload();
+            };
+          }}"
         >
-          <svg class="flex-shrink-0 w-6 h-6 mr-3">
-            <use xlink:href="/icons/nav-icons.svg#logout"></use>
-          </svg>
-          {$_('header.nav.logout')}
-        </a>
+          <button
+            type="submit"
+            class="flex items-center px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
+          >
+            <svg class="flex-shrink-0 w-6 h-6 mr-3">
+              <use xlink:href="/icons/nav-icons.svg#logout"></use>
+            </svg>
+            {$_('header.nav.logout')}
+          </button>
+        </form>
       </li>
     </ul>
   </nav>
@@ -187,7 +199,7 @@
         </div>
       </div>
       <div class="flex flex-row items-center ml-auto">
-        <img src="/icons/gold-coin.png" alt="coin" class="object-contain w-4 h-4 mr-1" />
+        <img src="/icons/gold-coin.webp" alt="coin" class="object-contain w-4 h-4 mr-1" />
         <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">
           {$page.data.user.goldBalance}
         </span>

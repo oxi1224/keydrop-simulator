@@ -21,14 +21,14 @@
 <main
   class="bg-no-repeat"
   style="
-          background-image: url(images/bg.png);
+          background-image: url(images/bg.webp);
           background-position: center top;
           background-size: 2570px;
           "
 >
   <main class="mx-auto container py-16 overflow-hidden relative">
     <div class="aboslute z-10 flex flex-col justify-center items-center">
-      <img src="images/website.png" alt="" class="w-3/4 sm:w-1/3" />
+      <img src="images/website.webp" alt="" class="w-3/4 sm:w-1/3" />
       <h2 class="mt-12 e404-subtitle leading-none text-gold font-bold uppercase">
         {$_('loginPage.title')}
       </h2>

@@ -73,7 +73,7 @@
 <main
   class="bg-no-repeat"
   style="
-    background-image: url(/images/bg.png);
+    background-image: url(/images/bg.webp);
     background-position: center top;
     background-size: 2570px;
   "

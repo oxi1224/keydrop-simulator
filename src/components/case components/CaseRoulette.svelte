@@ -397,7 +397,7 @@
       style="height: 300px; box-shadow: rgba(66, 66, 84, 0.2) 0px 0px 0px 5px;"
     >
       <div
-        class="absolute top-0 left-0 w-full h-full grid grid-stack single-roll"
+        class="absolute top-0 left-0 h-full grid grid-stack single-roll"
         style="width: 1480px; left: calc(50% - 740px);"
       >
         <div
@@ -412,7 +412,7 @@
               class="z-0 grid items-center justify-center grid-cols-1 grid-rows-1 bg-center bg-cover border border-solid rounded bg-navy-700 glow-gold group justify-items-center ratio border-gold sm:rounded-lg css-dap7rg"
             >
               <div
-                class="z-10 flex items-center justify-end w-full col-start-1 row-start-1 p-3 mb-auto font-semibold leading-none text-right uppercase md:p-5 text-navy-200 text-3xs"
+                class="z-10 flex items-center justify-end w-full col-start-1 row-start-1 py-2 px-11 sm:px-2 mb-auto font-semibold leading-none text-right uppercase md:p-5 text-navy-200 text-3xs"
               >
                 <div class="ml-2">
                   Chance
@@ -433,7 +433,7 @@
                 class="award-img object-contain w-2/3 col-start-1 row-start-1 mt-6 duration-300 ease-in-out transform pointer-events-none group-hover:scale-75 group-hover:rotate-10"
               />
               <div
-                class="z-10 self-end w-full col-start-1 row-start-2 p-3 font-semibold leading-tight uppercase md:p-5 md:row-start-1 justify-self-start"
+                class="z-10 self-end w-full col-start-1 row-start-2 py-3 px-11 sm:px-3 font-semibold leading-tight uppercase md:p-5 md:row-start-1 justify-self-start"
               >
                 <!-- skin, weapon, wear, price -->
                 <div class="truncate text-navy-200 award-skin text-2xs"></div>
@@ -485,7 +485,7 @@
               <div
                 class="absolute bottom-0 p-2 md:p-5 flex flex-col items-center lg:flex-row w-full font-semibold leading-tight justify-between uppercase min-w-0 opacity-100 md:text-xl"
               >
-                <div class="flex-1 md:max-w-1/2">
+                <div class="flex-1 w-full flex justify-start flex-col">
                   <!-- skin -->
                   <div class="truncate text-navy-200 text-2xs award-skin"></div>
                   <!-- weapon -->
@@ -494,7 +494,7 @@
                   <div class="truncate text-navy-200 text-2xs award-wear"></div>
                 </div>
                 <button
-                  class="single-sell-btn events px-2 py-1 mt-1 h-3/4 font-bold text-xs uppercase transition duration-200 border border-solid rounded-md sm:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate disabled:brightness-50"
+                  class="single-sell-btn events px-2 py-1 mt-1 h-3/4 font-bold text-3xs md:text-xs uppercase transition duration-200 border border-solid rounded-md lg:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate disabled:brightness-50"
                   on:click="{(e) => handleSingleSell(e)}"
                 >
                   {$_('case.winScreen.sell')}
@@ -540,14 +540,14 @@
           on:click="{switchMenus}"
           class="flex items-center justify-center h-10 font-extrabold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:rounded-lg text-2xs sm:text-sm md:w-15 sm:h-15 border-navy-400 aspect-square text-navy-400 bg-navy-700 hover:bg-gray hover:bg-opacity-5 active:bg-opacity-15 active:duration-0"
         >
-          <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 md:mr-0 sm:w-5 sm:h-5">
+          <svg class="flex-shrink-0 w-3 h-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg#arrow-left"></use>
           </svg>
-          <span class="md:hidden">{$_('case.goBack')}</span>
         </button>
         <button
-          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red text-red bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
+          class="flex items-center justify-center h-10 px-1 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red text-red bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
           on:click="{reOpen}"
+          disabled="{loading}"
         >
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg#try-again"></use>
@@ -555,7 +555,7 @@
           {$_('case.winScreen.reOpen')}
         </button>
         <button
-          class="mass-sell-btn flex items-center justify-center h-10 px-3 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold disabled:brightness-50 disabled:hover:bg-navy-700"
+          class="mass-sell-btn flex items-center justify-center h-10 px-1 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold disabled:brightness-50 disabled:hover:bg-navy-700"
           on:click="{() => handleMassSell(itemsIndb)}"
           disabled="{sellLoading || sellSuccess}"
         >
@@ -573,7 +573,7 @@
         </button>
         <a
           href="/skins/Upgrader?"
-          class="flex items-center justify-center h-10 px-3 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-teal-500 text-teal-500 bg-navy-700 hover:bg-teal-500 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-teal"
+          class="flex items-center justify-center h-10 px-1 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-teal-500 text-teal-500 bg-navy-700 hover:bg-teal-500 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-teal"
         >
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg?38#upgrader"></use>
@@ -593,7 +593,7 @@
         <button
           on:click="{() => changeRouletteCount(1)}"
           disabled="{loading}"
-          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 rounded-l text-navy-200 sm:rounded-l-lg ml-0 case-count-selected-btn hover:text-white hover:bg-navy-600"
+          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-2xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 rounded-l text-navy-200 sm:rounded-l-lg ml-0 case-count-selected-btn hover:text-white hover:bg-navy-600"
         >
           1
         </button>
@@ -627,7 +627,7 @@
         </button>
       </div>
       <button
-        class="grid items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
+        class="grid w-auto items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-2xs md:text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
         {!$page.data.user
           ? 'border-red text-red glow-red hover:bg-red'
           : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] >= casePrice
@@ -665,9 +665,9 @@
                 : `${$_('case.tooPoor')} ${casePrice.toFixed(2)}`}
             {/if}
             {#if $page.data.user}
-              <div class="flex items-center ml-2">
+              <div class="flex items-center ml-1">
                 {@html goldenNames.includes(data.websiteName)
-                  ? '<img src="/icons/gold-coin.png" class="w-3 h-3 ml-1">'
+                  ? '<img src="/icons/gold-coin.webp" class="w-3 h-3 ml-1">'
                   : $page.data.currency.toUpperCase()}
               </div>
             {/if}

@@ -17,11 +17,11 @@
 
 <main
   class="bg-no-repeat"
-  style="background-image: url(/images/bg.png); background-position: center top; background-size: 2570px;"
+  style="background-image: url(/images/bg.webp); background-position: center top; background-size: 2570px;"
 >
   <div
     id="case-root"
-    style="background: url(/images/loser-bg.jpg) center top / 100% auto no-repeat"
+    style="background: url(/images/loser-bg.webp) center top / 100% auto no-repeat"
   >
     <header class="container flex items-center grid-cols-3 py-8 sm:grid mx-auto">
       <a
