@@ -84,7 +84,7 @@
         </label>
       </div>
     </header>
-    <CaseRoulette rouletteItems="{caseDrops}" data="{caseData}" />
+    <CaseRoulette data="{caseData}" />
     <CaseContents caseDrops="{caseDrops}" />
     <div class="container mx-auto"></div>
   </div>

@@ -1,44 +1,59 @@
-import type { CaseDrop, CaseWithDrops } from '$lib';
 import { db, userFromSessionID } from '$lib/server';
 import type { RequestEvent } from '@sveltejs/kit';
 import { nanoid } from 'nanoid';
+import { randomInt } from 'crypto';
 
 interface RequestBody {
-  awardIDs: CaseDrop['id'][];
-  caseData: CaseWithDrops;
+  count: number;
+  websiteName: string;
 }
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST(event: RequestEvent) {
   const sessionId = event.cookies.get('session_id');
-  const { awardIDs, caseData }: RequestBody = await event.request.json();
+  const { count, websiteName }: RequestBody = await event.request.json();
   if (!sessionId)
     return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.noSessionID' }), {
       status: 404
     });
   const session = await db.session.findUnique({ where: { id: sessionId } });
   if (!session)
-    return new Response(JSON.stringify({ message: 'toasts.error.messages.noSession' }), {
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.noSession' }), {
       status: 404
     });
   const user = await userFromSessionID(sessionId);
   if (!user)
-    return new Response(JSON.stringify({ message: 'toasts.error.messages.userNotExists' }), {
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.userNotExists' }), {
+      status: 404
+    });
+
+  const caseData = await db.case.findUnique({
+    where: { websiteName: websiteName },
+    include: {
+      drops: {
+        include: {
+          globalInvItem: true
+        }
+      }
+    }
+  });
+
+  if (!caseData)
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.caseNotExists' }), {
       status: 404
     });
 
   const caseDrops = [];
-  for (const id of awardIDs) {
-    const dropData = await db.caseDrop.findUnique({
-      where: {
-        id: id
-      },
-      include: {
-        globalInvItem: true
-      }
-    });
-    if (!dropData) continue;
-    caseDrops.push(dropData);
+  for (let i = 0; i < count; i++) {
+    const rollNumber = randomInt(1, 100000);
+    const drop = caseData?.drops.find(
+      (obj) => obj.oddsRange[0] <= rollNumber && obj.oddsRange[1] >= rollNumber
+    );
+    if (!drop) {
+      i--;
+      continue;
+    }
+    caseDrops.push(drop);
   }
 
   const itemsToAdd = caseDrops.map((drop) => {
@@ -53,7 +68,7 @@ export async function POST(event: RequestEvent) {
   });
 
   // prettier-ignore
-  if (itemsToAdd.length !== awardIDs.length)
+  if (itemsToAdd.length !== count)
     return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.errorDuringItemAdd' }), {
       status: 404 
     });
@@ -68,19 +83,20 @@ export async function POST(event: RequestEvent) {
       },
       balance: caseData.goldenCase
         ? undefined
-        : Math.round((user.balance - caseData.price * awardIDs.length + Number.EPSILON) * 100) /
-          100,
+        : Math.round((user.balance - caseData.price * count + Number.EPSILON) * 100) / 100,
       goldBalance: !caseData.goldenCase
         ? undefined
-        : Math.round((user.goldBalance - caseData.price * awardIDs.length + Number.EPSILON) * 100) /
-          100
+        : Math.round((user.goldBalance - caseData.price * count + Number.EPSILON) * 100) / 100
     },
     include: {
       inventory: true
     }
   });
 
-  return new Response(JSON.stringify({ messageKey: 'success', items: itemsToAdd }), {
-    status: 200
-  });
+  return new Response(
+    JSON.stringify({ messageKey: 'success', items: itemsToAdd, caseDrops: caseDrops }),
+    {
+      status: 200
+    }
+  );
 }

@@ -17,34 +17,35 @@
   import { page } from '$app/stores';
 
   export let data: CaseWithDrops;
-  export let rouletteItems: CaseDrop[] = [];
-  const allCaseSessionDrops: CaseDrop[] = [];
+  let rouletteItems: CaseDrop[] = [];
+  let multipleRoulettesItems: CaseDrop[][] = [];
+  let casePrice = data.price;
+  let rouletteCount = 1;
+
   let totalWinnings = 0;
   let totalSpendings = 0;
-  let netDifference = 0;
+  let totalProfit = 0;
 
-  $: netDifference = totalWinnings - totalSpendings;
-
-  let multipleRoulettesItems: CaseDrop[][] = [];
-  let rouletteCount = 1;
-  let casePrice = data.price;
-  let winningItems: CaseDrop[] = [];
-  let itemsIndb: Item[] = [];
+  const allSessionDrops: CaseDrop[] = [];
+  let wonItems: Item[] = [];
   let soldItems: Item[] = [];
+  let wonItemsPrice: number;
+
   let loading = false;
   let sellLoading = false;
   let sellSuccess = false;
-  let totalAwardPrice: number;
-  $: tooPoor = !$page.data.user
-    ? true
-    : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] < casePrice;
-  $: totalAwardPrice = itemsIndb.reduce((n, o) => n + o.skinPrice, 0);
+  let menuState: 0 | 1 = 0;
+
+  // prettier-ignore
+  $: tooPoor = !$page.data.user ? true : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] < casePrice;
+  $: wonItemsPrice = wonItems.reduce((n, o) => n + o.skinPrice, 0);
+  $: totalProfit = totalWinnings - totalSpendings;
 
   generateRollItems(rouletteCount);
   function generateRollItems(count: number) {
     rouletteItems = [];
     multipleRoulettesItems = [];
-    winningItems = [];
+
     if (count === 1) {
       for (let i = 0; i < 60; i++) {
         const rollNumber = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
@@ -57,7 +58,6 @@
         }
         rouletteItems.push(item);
       }
-      winningItems = [rouletteItems[45]];
     } else {
       for (let i = 0; i < count; i++) {
         const rollItems: CaseDrop[] = [];
@@ -71,7 +71,6 @@
         }
         multipleRoulettesItems.push(rollItems);
       }
-      multipleRoulettesItems.forEach((rI) => winningItems.push(rI[45]));
     }
   }
 
@@ -138,56 +137,64 @@
     loading = true;
     const res = await fetch('/api/skins/case-open', {
       method: 'POST',
-      body: JSON.stringify({ awardIDs: winningItems.map((i) => i.id), caseData: data }),
+      body: JSON.stringify({ count: rouletteCount, websiteName: data.websiteName }),
       headers: {
         'Content-Type': 'application/json'
       }
     });
+    const resBody = await res.json();
     if (!res.ok) {
       createToast({
         type: 'error',
         header: $_('error'),
-        message: $_((await res.json()).messageKey)
+        message: $_(resBody.messageKey)
       });
       loading = false;
       return;
     } else {
       await invalidateAll();
-      itemsIndb = (await res.json()).items;
     }
+    const winningCaseDrops: CaseDrop[] = resBody.caseDrops;
+    wonItems = resBody.items;
+
+    if (rouletteCount === 1) rouletteItems[45] = winningCaseDrops[0];
+    else winningCaseDrops.forEach((item, i) => (multipleRoulettesItems[i][45] = item));
+
     await playRollAnimation();
     winElmArr.forEach((elm, i) => {
       elm.classList.remove('hidden');
       elm.classList.add('flex');
-      elm.querySelector('.award-chance')!.textContent = winningItems[i].displayOdds;
-      elm.querySelector('.award-skin')!.textContent = winningItems[i].skinName;
-      elm.querySelector('.award-weapon')!.textContent = winningItems[i].weaponName;
+      elm.querySelector('.award-chance')!.textContent = winningCaseDrops[i].displayOdds;
+      elm.querySelector('.award-skin')!.textContent = winningCaseDrops[i].skinName;
+      elm.querySelector('.award-weapon')!.textContent = winningCaseDrops[i].weaponName;
       elm.querySelector('.award-wear')!.textContent =
-        wearConversions[winningItems[i].skinQuality as keyof typeof wearConversions];
+        wearConversions[winningCaseDrops[i].skinQuality as keyof typeof wearConversions];
       elm.querySelector('.award-price')!.textContent =
-        localisePrice(page, winningItems[i].skinPrice).toString() +
+        localisePrice(page, winningCaseDrops[i].skinPrice).toString() +
         $page.data.currency.toUpperCase();
       if (elm.querySelector('.award-img')) {
-        (elm.querySelector('.award-img') as HTMLImageElement).src = winningItems[i].skinImgSource;
+        (elm.querySelector('.award-img') as HTMLImageElement).src =
+          winningCaseDrops[i].skinImgSource;
         (elm.querySelector('.award-bg-img') as HTMLImageElement).src =
-          colors.itemBg[winningItems[i].skinRarity as keyof typeof colors.itemBg];
+          colors.itemBg[winningCaseDrops[i].skinRarity as keyof typeof colors.itemBg];
       }
     });
+
     createToast({
       type: 'success',
       header: `${$_('toasts.special.caseOpen.header')}: ${localisePrice(
         page,
-        winningItems.reduce((n, o) => n + o.skinPrice, 0)
+        winningCaseDrops.reduce((n, o) => n + o.skinPrice, 0)
       )}`,
       message: `${$_('toasts.special.caseOpen.message')}: ${localisePrice(
         page,
-        winningItems.reduce((n, o) => n + o.skinPrice, 0) - casePrice
+        winningCaseDrops.reduce((n, o) => n + o.skinPrice, 0) - casePrice
       )}`
     });
     switchMenus();
-    allCaseSessionDrops.push(...winningItems);
+    allSessionDrops.push(...winningCaseDrops);
     totalSpendings += casePrice;
-    totalWinnings = allCaseSessionDrops.reduce((sum, obj) => sum + obj.skinPrice, 0);
+    totalWinnings = allSessionDrops.reduce((sum, obj) => sum + obj.skinPrice, 0);
     loading = false;
     await invalidateAll();
     return;
@@ -234,6 +241,7 @@
   }
 
   async function switchMenus() {
+    menuState = menuState === 0 ? 1 : 0;
     document.querySelector('div.Case-MainUI')?.classList.toggle('is-open');
     document.querySelector('div.Case-AfterOpen')?.classList.toggle('is-open');
   }
@@ -247,7 +255,6 @@
       const roulettes = [...document.querySelectorAll('div.CaseRolls-roll')] as HTMLElement[];
       for (const roulette of roulettes) roulette.getAnimations().forEach((anim) => anim.cancel());
     }
-    generateRollItems(rouletteCount);
     switchMenus();
     const winElmArr = [
       ...document.querySelectorAll(
@@ -267,7 +274,7 @@
     const sellBtns = [...document.querySelectorAll('.single-sell-btn')];
     const clickedEl = (e.target as Element).closest('.single-sell-btn') as Element;
     const index = sellBtns.indexOf(clickedEl);
-    const item = itemsIndb[index];
+    const item = wonItems[index];
     const sellData = await sellItems([item]);
     clickedEl.setAttribute('disabled', '');
 
@@ -279,7 +286,7 @@
 
     if (sellData.res.ok) {
       soldItems.push(item);
-      totalAwardPrice -= item.skinPrice;
+      wonItemsPrice -= item.skinPrice;
     }
     sellLoading = false;
   }
@@ -295,9 +302,10 @@
       header: sellData.res.ok ? 'sukces' : 'błąd',
       message: $_(sellData.messageKey)
     });
+
     if (sellData.res.ok) {
-      itemsIndb = itemsIndb.filter((item) => IDs.includes(item.dropId));
-      totalAwardPrice = 0;
+      wonItems = wonItems.filter((item) => IDs.includes(item.dropId));
+      wonItemsPrice = 0;
       [...document.querySelectorAll('.single-sell-btn')].forEach((el) => {
         (el as HTMLButtonElement).disabled = true;
       });
@@ -326,7 +334,7 @@
   <p>
     {$_('case.winScreen.profit')}: {localisePrice(
       page,
-      netDifference
+      totalProfit
     )}{$page.data.currency.toUpperCase()}
   </p>
 </div>
@@ -538,6 +546,7 @@
       >
         <button
           on:click="{switchMenus}"
+          disabled="{menuState === 0}"
           class="flex items-center justify-center h-10 font-extrabold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:rounded-lg text-2xs sm:text-sm md:w-15 sm:h-15 border-navy-400 aspect-square text-navy-400 bg-navy-700 hover:bg-gray hover:bg-opacity-5 active:bg-opacity-15 active:duration-0"
         >
           <svg class="flex-shrink-0 w-3 h-3 sm:w-5 sm:h-5">
@@ -547,7 +556,7 @@
         <button
           class="flex items-center justify-center h-10 px-1 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red text-red bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
           on:click="{reOpen}"
-          disabled="{loading}"
+          disabled="{loading || menuState === 0}"
         >
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg#try-again"></use>
@@ -556,8 +565,8 @@
         </button>
         <button
           class="mass-sell-btn flex items-center justify-center h-10 px-1 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold disabled:brightness-50 disabled:hover:bg-navy-700"
-          on:click="{() => handleMassSell(itemsIndb)}"
-          disabled="{sellLoading || sellSuccess}"
+          on:click="{() => handleMassSell(wonItems)}"
+          disabled="{sellLoading || sellSuccess || menuState === 0}"
         >
           {#if sellLoading}
             <Spinner size="1.5em" borderWidth=".25em" />
@@ -568,12 +577,13 @@
               <use xlink:href="/icons/icons.svg#sell"></use>
             </svg>
             {$_('case.winScreen.sell')}&nbsp;
-            <span class="total-award-price">{localisePrice(page, totalAwardPrice)}</span>
+            <span class="total-award-price">{localisePrice(page, wonItemsPrice)}</span>
           {/if}
         </button>
         <a
           href="/skins/Upgrader?"
           class="flex items-center justify-center h-10 px-1 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-teal-500 text-teal-500 bg-navy-700 hover:bg-teal-500 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-teal"
+          style="{menuState === 0 ? 'pointer-events: none;' : ''}"
         >
           <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
             <use xlink:href="/icons/icons.svg?38#upgrader"></use>
@@ -592,35 +602,35 @@
         ></div>
         <button
           on:click="{() => changeRouletteCount(1)}"
-          disabled="{loading}"
+          disabled="{loading || menuState === 1}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-2xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 rounded-l text-navy-200 sm:rounded-l-lg ml-0 case-count-selected-btn hover:text-white hover:bg-navy-600"
         >
           1
         </button>
         <button
           on:click="{() => changeRouletteCount(2)}"
-          disabled="{loading}"
+          disabled="{loading || menuState === 1}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           2
         </button>
         <button
           on:click="{() => changeRouletteCount(3)}"
-          disabled="{loading}"
+          disabled="{loading || menuState === 1}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           3
         </button>
         <button
           on:click="{() => changeRouletteCount(4)}"
-          disabled="{loading}"
+          disabled="{loading || menuState === 1}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
         >
           4
         </button>
         <button
           on:click="{() => changeRouletteCount(5)}"
-          disabled="{loading}"
+          disabled="{loading || menuState === 1}"
           class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px rounded-r sm:rounded-r-lg text-navy-200 hover:text-white hover:bg-navy-600"
         >
           5
@@ -634,7 +644,7 @@
           ? 'border-green text-green glow-pastelGreen hover:bg-green'
           : 'border-red text-red glow-red hover:bg-red'}"
         on:click="{handleRoll}"
-        disabled="{loading || tooPoor}"
+        disabled="{loading || tooPoor || menuState === 1}"
       >
         <span
           class="row-start-1 col-start-1 flex items-center justify-center transition duration-300 transform scale-50 opacity-0"
