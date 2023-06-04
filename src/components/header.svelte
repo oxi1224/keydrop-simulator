@@ -50,10 +50,12 @@
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
-      <span class="text-red-500 font-bold uppercase text-lg">IMPORTANT WAŻNE</span><br>
-      <span class="text-white text-sm">
-        Aktualny hosting nie działa najlepiej na przeglądarce firefox, zalecane jest użycie przeglądarki bazowanej na chromium (np. chrome, opera). W przypadku problemów z logowaniem zmień przeglądarke.<br>
-        Current hosting does not cooperate with firefox the best, it is advised to use a chromium based browser (eg. chrome, opera). In case of problems with logging in, please change your browser.
+      <span class="text-red-500 font-bold uppercase text-lg">WAŻNE</span><br>
+      <span class="text-red-400">
+        Strona w przeciągu ostanich 2 dni zużyła 77% miesięcznych limitów ustawionych przez hosta.<br>
+        Nie jestem w stanie płacić za lepszy próg limitów więc najprawdopodoniej za parę dni strona przestanie działać.<br>
+        Postaram się zrobić co mogę aby strona dalej działała lecz na tą chwile nie mam żadnych pomysłów.<br>
+        Kontakt discord: oxi#6219 (wiadomości otwarte)
       </span>
     </h1>
   </button>
