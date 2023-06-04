@@ -12,6 +12,11 @@ const config: UserConfig = {
     },
     preserveSymlinks: true
   },
+  server: {
+    fs: {
+      allow: ['..']
+    }
+  }
 };
 
 export default config;
