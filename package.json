@@ -75,7 +75,6 @@
     "vite-plugin-vercel": "^0.2.0"
   },
   "engines": {
-    "node": "16.x",
-    "yarn": "2.x"
+    "node": "16.x"
   }
 }
