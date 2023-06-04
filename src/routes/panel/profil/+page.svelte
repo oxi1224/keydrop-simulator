@@ -43,7 +43,7 @@
       message: $_(sellData.messageKey)
     });
 
-    if (sellData.res.ok) await invalidateAll();
+    await invalidateAll();
     loading = false;
   }
 

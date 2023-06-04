@@ -105,7 +105,8 @@
         "userNotExists": "User doesn't exist",
         "notOwnItem": "User doesn't own one or more of the provided items",
         "errorDuringSell": "An error has occured during selling",
-        "errorDuringItemAdd": "An error has occured while adding the items, please contact oxi#6219"
+        "errorDuringItemAdd": "An error has occured while adding the items, please contact oxi#6219",
+        "itemNotFound": "No items found"
       }
     },
     "success": {

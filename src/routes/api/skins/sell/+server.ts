@@ -24,12 +24,19 @@ export async function POST(event: RequestEvent) {
   const items = await db.item.findMany({
     where: {
       dropId: { in: itemIDs },
-      ownerId: user.id
+      ownerId: user.id,
+      sold: false,
+      upgraded: false
     },
     include: {
       globalInvItem: true
     }
   });
+
+  if (!items.length)
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.itemNotFound' }), {
+      status: 404
+    });
 
   const priceSum = items.reduce((n, o) => n + o.globalInvItem.skinPrice, 0);
   const balanceToAdd = Math.round((priceSum + Number.EPSILON) * 100) / 100;

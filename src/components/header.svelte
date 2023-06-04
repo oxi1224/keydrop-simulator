@@ -50,12 +50,8 @@
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
-      <span class="text-red-500 font-bold uppercase text-lg">WAŻNE</span><br>
       <span class="text-red-400">
-        Strona w przeciągu ostanich 2 dni zużyła 77% miesięcznych limitów ustawionych przez hosta.<br>
-        Nie jestem w stanie płacić za lepszy próg limitów więc najprawdopodoniej za parę dni strona przestanie działać.<br>
-        Postaram się zrobić co mogę aby strona dalej działała lecz na tą chwile nie mam żadnych pomysłów.<br>
-        Kontakt discord: oxi#6219 (wiadomości otwarte)
+        DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA
       </span>
     </h1>
   </button>
