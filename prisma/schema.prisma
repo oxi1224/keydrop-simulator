@@ -20,17 +20,19 @@ model User {
 
 model Item {
   owner         User                @relation(fields: [ownerId], references: [id])
-  globalInvItem GlobalInventoryItem @relation(fields: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], references: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], onUpdate: Cascade)
+  globalInvItem GlobalInventoryItem @relation(fields: [globalInvID], references: [id], onUpdate: Cascade)
   dropId        String              @id @unique
   ownerId       String
   origin        String
-  weaponName    String
-  skinName      String
-  skinQuality   String
-  skinPrice     Float
-  skinRarity    String
-  skinImgSource String
-  stattrack     Boolean             @default(false)
+  globalInvID   String
+  // weaponName    String
+  // weaponName    String
+  // skinName      String
+  // skinQuality   String
+  // skinPrice     Float
+  // skinRarity    String
+  // skinImgSource String
+  // stattrack     Boolean             @default(false)
   dropDate      DateTime            @default(now())
   sold          Boolean             @default(false)
   upgraded      Boolean             @default(false)

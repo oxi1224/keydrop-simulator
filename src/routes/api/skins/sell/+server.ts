@@ -25,10 +25,13 @@ export async function POST(event: RequestEvent) {
     where: {
       dropId: { in: itemIDs },
       ownerId: user.id
+    },
+    include: {
+      globalInvItem: true
     }
   });
 
-  const priceSum = items.reduce((n, o) => n + o.skinPrice, 0);
+  const priceSum = items.reduce((n, o) => n + o.globalInvItem.skinPrice, 0);
   const balanceToAdd = Math.round((priceSum + Number.EPSILON) * 100) / 100;
 
   await db.user.update({

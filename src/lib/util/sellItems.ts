@@ -1,7 +1,8 @@
 import type { Item } from '@prisma/client';
 import { invalidateAll } from '$app/navigation';
+import type { ItemWithGlobal } from '$lib/types';
 
-export async function sellItems(items: Item[]) {
+export async function sellItems(items: (Item | ItemWithGlobal)[]) {
   const IDs = items.map((i) => i.dropId);
   const res = await fetch('/api/skins/sell/', {
     method: 'POST',

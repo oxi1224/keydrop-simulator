@@ -8,7 +8,9 @@
     type CaseDrop,
     type CaseWithDrops,
     settings,
-    localisePrice
+    localisePrice,
+    type ItemWithGlobal
+
   } from '$lib';
   import { invalidateAll } from '$app/navigation';
   import { _ } from 'svelte-i18n';
@@ -27,7 +29,7 @@
   let totalProfit = 0;
 
   const allSessionDrops: CaseDrop[] = [];
-  let wonItems: Item[] = [];
+  let wonItems: ItemWithGlobal[] = [];
   let soldItems: Item[] = [];
   let wonItemsPrice: number;
 
@@ -38,7 +40,7 @@
 
   // prettier-ignore
   $: tooPoor = !$page.data.user ? true : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] < casePrice;
-  $: wonItemsPrice = wonItems.reduce((n, o) => n + o.skinPrice, 0);
+  $: wonItemsPrice = wonItems.reduce((n, o) => n + o.globalInvItem.skinPrice, 0);
   $: totalProfit = totalWinnings - totalSpendings;
 
   generateRollItems(rouletteCount);
@@ -286,7 +288,7 @@
 
     if (sellData.res.ok) {
       soldItems.push(item);
-      wonItemsPrice -= item.skinPrice;
+      wonItemsPrice -= item.globalInvItem.skinPrice;
     }
     sellLoading = false;
   }

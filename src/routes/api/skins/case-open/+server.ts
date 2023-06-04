@@ -55,15 +55,31 @@ export async function POST(event: RequestEvent) {
     }
     caseDrops.push(drop);
   }
-
+  
   const itemsToAdd = caseDrops.map((drop) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { id: _, ...globalItemData } = drop.globalInvItem;
+    const globalItem = drop.globalInvItem;
     return {
       dropId: nanoid(),
       origin: caseData.websiteName,
       dropDate: new Date(),
-      ...globalItemData
+      globalInvItem: {
+        connect: {
+          id: globalItem.id
+        }
+      }
+    };
+  });
+
+  const addedItemsData = caseDrops.map((drop, i) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const globalItem = drop.globalInvItem;
+    return {
+      dropId: itemsToAdd[i].dropId,
+      origin: caseData.websiteName,
+      dropDate: itemsToAdd[i].dropDate,
+      globalInvItem: globalItem,
+      globalInvID: globalItem.id
     };
   });
 
@@ -94,7 +110,7 @@ export async function POST(event: RequestEvent) {
   });
 
   return new Response(
-    JSON.stringify({ messageKey: 'success', items: itemsToAdd, caseDrops: caseDrops }),
+    JSON.stringify({ messageKey: 'success', items: addedItemsData, caseDrops: caseDrops }),
     {
       status: 200
     }

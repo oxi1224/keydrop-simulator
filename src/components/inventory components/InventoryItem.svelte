@@ -1,12 +1,11 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import Spinner from '$components/util/Spinner.svelte';
-  import { createToast, lazyLoad, localisePrice, sellItems } from '$lib';
-  import type { Item } from '@prisma/client';
+  import { createToast, lazyLoad, localisePrice, sellItems, type ItemWithGlobal } from '$lib';
   import { _ } from 'svelte-i18n';
-  export let itemData: Item;
+  export let itemData: ItemWithGlobal;
 
-  async function handleSingleSell(e: MouseEvent, item: Item) {
+  async function handleSingleSell(e: MouseEvent, item: ItemWithGlobal) {
     const clickedEl = (e.target as Element).closest('.single-sell-btn') as HTMLButtonElement;
     const sellData = await sellItems([item]);
     createToast({
@@ -23,7 +22,7 @@
   style="padding-top: 135%; box-shadow: rgb(8, 10, 13) 0px 0px 35px 0px;"
 >
   <div
-    class="absolute top-0 left-0 hidden w-full h-full transition-transform duration-200 border-t border-solid rounded-lg will-change-transform bg-navy-900 group-hover:rounded-b-none border-{itemData.skinRarity} css-cwrogv"
+    class="absolute top-0 left-0 hidden w-full h-full transition-transform duration-200 border-t border-solid rounded-lg will-change-transform bg-navy-900 group-hover:rounded-b-none border-{itemData.globalInvItem.skinRarity} css-cwrogv"
     style="display: flex;"
   >
     <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-200"></div>
@@ -69,7 +68,7 @@
       <div
         class="flex items-center p-2 ml-auto text-sm font-bold leading-none rounded-md bg-navy-700 text-gold"
       >
-        {localisePrice(page, itemData.skinPrice)}
+        {localisePrice(page, itemData.globalInvItem.skinPrice)}
         {$page.data.currency.toUpperCase()}
       </div>
     </div>
@@ -82,7 +81,7 @@
         class="absolute top-0 left-0 object-cover w-full h-full rounded-lg"
       />
       <img
-        use:lazyLoad="{itemData.skinImgSource}"
+        use:lazyLoad="{itemData.globalInvItem.skinImgSource}"
         alt=""
         class="relative flex-1 object-contain w-4/5 mt-8"
       />
@@ -93,18 +92,18 @@
         <div
           class="relative px-2 overflow-hidden text-sm font-light leading-none text-center text-navy-100 sm:mb-2 line-clamp"
         >
-          {itemData.weaponName}
+          {itemData.globalInvItem.weaponName}
         </div>
         <div
           class="relative px-2 overflow-hidden text-sm font-semibold leading-none text-center text-white sm:mb-2 line-clamp"
           title="Mainframe "
         >
-          {itemData.skinName}
+          {itemData.globalInvItem.skinName}
         </div>
         <div
           class="relative px-2 overflow-hidden font-light leading-none text-center text-navy-100 text-2xs sm:mb-2 line-clamp"
         >
-          ({itemData.skinQuality})
+          ({itemData.globalInvItem.skinQuality})
         </div>
       </div>
     </div>
@@ -122,7 +121,7 @@
           <span>
             {$_('profile.item.sell')}
             <span class="text-gold">
-              {localisePrice(page, itemData.skinPrice)}
+              {localisePrice(page, itemData.globalInvItem.skinPrice)}
               {$page.data.currency.toUpperCase()}
             </span>
           </span>

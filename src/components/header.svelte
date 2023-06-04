@@ -44,7 +44,19 @@
   }
 </script>
 
-<header class="sticky top-0 z-40 md:relative bg-navy-600">
+<header class="sticky top-0 z-40 md:relative bg-navy-600 select-none cursor-pointer">
+  <button 
+    class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block"
+    on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
+  >
+    <h1>
+      <span class="text-red-500 font-bold uppercase text-lg">IMPORTANT WAŻNE</span><br>
+      <span class="text-white text-sm">
+        Aktualny hosting nie działa najlepiej na przeglądarce firefox, zalecane jest użycie przeglądarki bazowanej na chromium (np. chrome, opera). W przypadku problemów z logowaniem zmień przeglądarke.<br>
+        Current hosting does not cooperate with firefox the best, it is advised to use a chromium based browser (eg. chrome, opera). In case of problems with logging in, please change your browser.
+      </span>
+    </h1>
+  </button>
   <div class="container relative flex w-auto h-20 mx-auto md:h-24">
     <div class="relative flex items-center h-full navbar-left">
       <a href="/" class="w-24 mb-1 md:w-40" aria-label="Go to front page">

@@ -2,6 +2,8 @@ import type {
   Case,
   CaseDrop as DbCaseDrop,
   CaseSection as DbCaseSection,
+  GlobalInventoryItem,
+  Item,
   User
 } from '@prisma/client';
 import type { colors } from './constants';
@@ -28,4 +30,8 @@ export interface CaseDrop extends Omit<DbCaseDrop, 'skinRarity'> {
 
 export interface CaseSection extends DbCaseSection {
   cases: Case[];
+}
+
+export interface ItemWithGlobal extends Item {
+  globalInvItem: GlobalInventoryItem
 }

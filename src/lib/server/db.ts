@@ -1,6 +1,6 @@
 /* eslint-disable indent */
-import type { CaseWithDrops } from '$lib/types';
-import { PrismaClient, type Case } from '@prisma/client';
+import type { CaseWithDrops, ItemWithGlobal } from '$lib/types';
+import { PrismaClient, type Case, type User } from '@prisma/client';
 
 let prisma: PrismaClient;
 
@@ -32,9 +32,15 @@ export async function userFromSessionID(sessionID: string, includeInventory = fa
     },
     include: {
       inventory: includeInventory
+        ? {
+            include: {
+              globalInvItem: true
+            }
+          }
+        : false
     }
   });
-  return user;
+  return user as User & { inventory?: ItemWithGlobal[] };
 }
 
 export async function getCaseData(caseName: string) {
