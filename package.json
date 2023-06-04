@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.0",
+    "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "^1.20.1",
     "@types/bcrypt": "^5.0.0",
     "@types/lodash": "^4.14.195",
@@ -73,8 +74,5 @@
     "svelte-i18n": "^3.6.0",
     "svelte-local-storage-store": "^0.4.0",
     "vite-plugin-vercel": "^0.2.0"
-  },
-  "engines": {
-    "node": "16.x"
   }
 }
