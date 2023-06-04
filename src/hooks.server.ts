@@ -8,7 +8,6 @@ const auth: Handle = async ({ event, resolve }) => {
   const sessionID = event.cookies.get('session_id');
   if (!sessionID) return await resolve(event);
   const user = await userFromSessionID(sessionID);
-
   if (user) {
     event.locals.user = {
       id: user.id,

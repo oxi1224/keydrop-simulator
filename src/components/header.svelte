@@ -51,7 +51,8 @@
   >
     <h1>
       <span class="text-red-400">
-        DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA
+        DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA<br>
+        Strona stworzona przez oxi6219 na discordzie
       </span>
     </h1>
   </button>
