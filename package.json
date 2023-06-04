@@ -76,6 +76,6 @@
   },
   "engines": {
     "node": "16.x",
-    "yarn": "3.x"
+    "yarn": "2.x"
   }
 }
