@@ -11,7 +11,7 @@ declare global {
     }
     interface PageData {
       user: UserData;
-      userInventory: ItemWithGlobal[];
+      userInventory?: ItemWithGlobal[];
       lang: 'pl' | 'en';
       currency: 'pln' | 'eur';
     }
