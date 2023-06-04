@@ -5,12 +5,12 @@ const config: UserConfig = {
   plugins: [sveltekit()],
   resolve: {
     alias: {
-      src: '/src',
-      $components: '/src/components/',
+      $components: './src/components/',
       $static: './static/',
       $assets: './src/assets/',
       '$lib/server': './src/lib/server/'
-    }
+    },
+    preserveSymlinks: true
   },
   server: {
     fs: {
