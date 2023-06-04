@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
+    "build": "vite build",
+    "build:digitalocean": "yarn install && yarn run build && rm -rf node_modules && yarn workspaces focus",
     "preview": "vite preview",
     "start": "node build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
