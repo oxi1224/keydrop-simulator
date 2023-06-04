@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite dev",
     "preview": "vite preview",
+    "build": "yarn install && rm -rf node_modules && yarn install --production --frozen-lockfile",
     "start": "node build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
