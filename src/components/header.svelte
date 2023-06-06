@@ -52,7 +52,8 @@
     <h1>
       <span class="text-red-400">
         DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA<br>
-        Strona stworzona przez oxi6219 na discordzie
+        Strona stworzona przez oxi#6219 na discordzie<br>
+        Wszelkie tiktoki podające się za mnie są fake'ami, nie postuje żadnych tiktoków ani nie ma konta związanego z tą stroną.
       </span>
     </h1>
   </button>

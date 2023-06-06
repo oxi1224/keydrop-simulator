@@ -10,13 +10,13 @@
     <div id="caseList-root" class="py-10 pb-10">
       <div class="min-h-screen text-white">
         <div class="container mx-auto">
-          <!-- {#await promise then data} -->
           {#each data.sections as sectionData}
             {#if sectionData.cases.length > 0}
               <CaseSection data="{sectionData}" />
+            {:else}
+              <div class="text-red text-lg text-center">SKRZYNKI SĄ AKTUALIZOWANE, PROSZE CZEKAĆ...</div>
             {/if}
           {/each}
-          <!-- {/await} -->
         </div>
       </div>
     </div>
