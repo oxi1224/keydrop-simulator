@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import Spinner from '$components/util/Spinner.svelte';
-  import { createToast, lazyLoad, localisePrice, sellItems, type ItemWithGlobal } from '$lib';
+  import { createToast, localisePrice, sellItems, type ItemWithGlobal } from '$lib';
   import { _ } from 'svelte-i18n';
   export let itemData: ItemWithGlobal;
 
@@ -81,13 +80,10 @@
         class="absolute top-0 left-0 object-cover w-full h-full rounded-lg"
       />
       <img
-        use:lazyLoad="{itemData.globalInvItem.skinImgSource}"
+        src="{itemData.globalInvItem.skinImgSource}"
         alt=""
         class="relative flex-1 object-contain w-4/5 mt-8"
       />
-      <div class="loader-container absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <Spinner />
-      </div>
       <div class="flex flex-col items-center transition-opacity duration-200 group-hover:opacity-0">
         <div
           class="relative px-2 overflow-hidden text-sm font-light leading-none text-center text-navy-100 sm:mb-2 line-clamp"

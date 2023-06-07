@@ -52,8 +52,9 @@
     <h1>
       <span class="text-red-400">
         DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA<br>
-        Strona stworzona przez oxi#6219 na discordzie<br>
-        Wszelkie tiktoki podające się za mnie są fake'ami, nie postuje żadnych tiktoków ani nie ma konta związanego z tą stroną.
+        <span class="font-bold">Nie istnieją żadne oficjalne tiktoki o stronie.</span><br>
+        <span class="text-navy-300 text-xs">SERWER DISCORD: <a href="https://discord.gg/hY2kwdSZzR" class="underline hover:text-navy-200">https://discord.gg/hY2kwdSZzR</a></span><br>
+        <span class="text-navy-300 text-xs">Link do donate: <a href="https://ko-fi.com/oxi1224" class="underline hover:text-navy-200">ko-fi</a> <a href="https://tipply.pl/u/oxi1224" class="underline hover:text-navy-200">tipply</a></span>
       </span>
     </h1>
   </button>

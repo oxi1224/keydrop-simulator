@@ -11,7 +11,7 @@
   inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-{#if $page.data.connectionCount > 180}
+{#if $page.data.connectionCount > 100}
   <div class="w-full h-full fixed flex justify-center items-center">
     <h1>
       <span class="text-red-400">

@@ -38,8 +38,14 @@ export async function POST(event: RequestEvent) {
     }
   });
 
+
   if (!caseData)
     return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.caseNotExists' }), {
+      status: 404
+    });
+
+  if (user[caseData.goldenCase ? 'goldBalance' : 'balance'] < caseData.price * count)
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.tooPoor' }), {
       status: 404
     });
 

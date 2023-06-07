@@ -6,6 +6,9 @@
     .grid-cols-6 {
       grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
     }
+    .grid-cols-7 {
+      grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    }
   }
 
   @media (max-width: 640px) {
