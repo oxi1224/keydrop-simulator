@@ -2,9 +2,10 @@
   import { createToast } from '$lib';
   import Spinner from '$components/util/Spinner.svelte';
   import { invalidateAll } from '$app/navigation';
-  import { applyAction, enhance, type SubmitFunction } from '$app/forms';
+  import { applyAction, enhance } from '$app/forms';
   import { page } from '$app/stores';
   import { _ } from 'svelte-i18n';
+  import type { SubmitFunction } from '@sveltejs/kit';
 
   let loading = false;
 

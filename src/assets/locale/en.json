@@ -2,6 +2,8 @@
   "success": "Success",
   "error": "Error",
   "loading": "Loading",
+  "gold": "Gold",
+  "money": "Money",
   "header": {
     "displayedLang": "English (English)",
     "searchboxText": "Search",
@@ -88,6 +90,11 @@
     "selectLanguageHeader": "Select language",
     "buttonText": "Create account"
   },
+  "balanceForm": {
+    "balancePlaceholder": "Balance",
+    "setBalance": "Set Balance",
+    "selectBalanceType": "Select balance type"
+  },
   "toasts": {
     "error": {
       "header": "Error",
@@ -106,7 +113,9 @@
         "notOwnItem": "User doesn't own one or more of the provided items",
         "errorDuringSell": "An error has occured during selling",
         "errorDuringItemAdd": "An error has occured while adding the items, please contact oxi#6219",
-        "itemNotFound": "No items found"
+        "itemNotFound": "No items found",
+        "invalidBalance": "Invalid balance",
+        "invalidBalanceType": "Invalid balance type"
       }
     },
     "success": {

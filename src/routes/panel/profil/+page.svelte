@@ -5,9 +5,10 @@
   import { page } from '$app/stores';
   import { invalidateAll } from '$app/navigation';
   import { _ } from 'svelte-i18n';
+  import SetBalance from '$components/forms/SetBalance.svelte';
 
   const pageInventory: ItemWithGlobal[] = $page.data.userInventory!;
-  
+
   let totalSkinPrice = 0;
   let loading = false;
   let allItemsFilter: boolean;
@@ -25,6 +26,7 @@
   $: totalSkinPrice =
     pageInventory.reduce((n, o) => n + (o.sold ? 0 : o.globalInvItem.skinPrice), 0) ?? 0;
 
+  
   async function handleInventorySell() {
     const filterdItems = pageInventory.filter((obj) => !obj.sold && !obj.upgraded);
     if (!filterdItems)
@@ -61,9 +63,13 @@
     if (sort === $_('profile.sort.newest')) tempInv = pageInventory;
     if (sort === $_('profile.sort.oldest')) tempInv = pageInventory.slice().reverse();
     if (sort === $_('profile.sort.cheapest'))
-      tempInv = pageInventory.slice().sort((a, b) => a.globalInvItem.skinPrice - b.globalInvItem.skinPrice);
+      tempInv = pageInventory
+        .slice()
+        .sort((a, b) => a.globalInvItem.skinPrice - b.globalInvItem.skinPrice);
     if (sort === $_('profile.sort.mostExpensive'))
-      tempInv = pageInventory.slice().sort((a, b) => b.globalInvItem.skinPrice - a.globalInvItem.skinPrice);
+      tempInv = pageInventory
+        .slice()
+        .sort((a, b) => b.globalInvItem.skinPrice - a.globalInvItem.skinPrice);
     if (allItemsFilter) inventory = tempInv || [];
     else inventory = tempInv?.filter((obj) => !obj.sold) || [];
     toggleDropdown();
@@ -82,6 +88,9 @@
   <div class="pt-4 pb-16 text-white">
     <InventoryHeader />
     <div class="container mx-auto">
+      <div class="flex justify-center mb-4">
+        <SetBalance />
+      </div>
       <section>
         <div class="mx-auto xl:px-5 max-w-screen-xxl">
           <div

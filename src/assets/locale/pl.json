@@ -2,6 +2,8 @@
   "success": "Sukces",
   "error": "Błąd",
   "loading": "Ładowanie",
+  "gold": "Złoto",
+  "money": "Pieniądze",
   "header": {
     "displayedLang": "Polish (Polski)",
     "searchboxText": "Wyszukaj",
@@ -88,6 +90,11 @@
     "selectLanguageHeader": "Wybierz język",
     "buttonText": "Stwórz konto"
   },
+  "balanceForm": {
+    "balancePlaceholder": "Balans",
+    "setBalance": "Ustaw Balans",
+    "selectBalanceType": "Wybierz typ balansu"
+  },
   "toasts": {
     "error": {
       "header": "Błąd",
@@ -106,7 +113,9 @@
         "notOwnItem": "Użytkownik nie posiada jednego lub paru przedmiotów z listy",
         "errorDuringSell": "Wystąpił bład podczas sprzedawania",
         "errorDuringItemAdd": "Wystąpił problem podczas dodawania przedmiotów, prosze skontakutj się z oxi#6219",
-        "itemNotFound": "Brak znalezionych przedmiotów"
+        "itemNotFound": "Brak znalezionych przedmiotów",
+        "invalidBalance": "Nieprawidłowy balans",
+        "invalidBalanceType": "Nieprawidłowy typ balansu"
       }
     },
     "success": {
