@@ -1,20 +1,24 @@
 export const goldenNames = [
+  'FOSTER',
+  'PREDATOR',
+  'OPTIMAL',
+  'SOLAR',
+  'WIND',
   'RUBY',
   'SHARK',
   'WRAP',
   'SAMURAI',
   'ATUM',
   'GOLD DIGGER',
-  'RTUBIN RAIN',
+  'RUBIN RAIN',
   'AMETHYST LIGHT',
   'DIAMOND SKY',
   'EMERALD CUT',
-  'FOSTER',
-  'PREDATOR',
-  'OPTIMAL',
-  'SOLAR',
-  'WIND',
-  'RUBIN RAIN'
+  'TOPAZ',
+  'BONY',
+  'MAGENT',
+  'ASSAULT',
+  'RECON'
 ];
 
 export const colors = {

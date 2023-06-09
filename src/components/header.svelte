@@ -44,9 +44,9 @@
   }
 </script>
 
-<header class="sticky top-0 z-40 md:relative bg-navy-600 select-none cursor-pointer">
+<header class="sticky top-0 z-40 md:relative bg-navy-600 select-none">
   <button 
-    class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block"
+    class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block cursor-pointer"
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
@@ -54,7 +54,7 @@
         DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA<br>
         <span class="font-bold">Nie istnieją żadne oficjalne tiktoki o stronie.</span><br>
         <span class="text-navy-300 text-xs">SERWER DISCORD: <a href="https://discord.gg/hY2kwdSZzR" class="underline hover:text-navy-200">https://discord.gg/hY2kwdSZzR</a></span><br>
-        <span class="text-navy-300 text-xs">Link do donate: <a href="https://ko-fi.com/oxi1224" class="underline hover:text-navy-200">ko-fi</a> | <a href="https://tipply.pl/u/oxi1224" class="underline hover:text-navy-200">tipply</a></span>
+        <span class="text-navy-300 text-xs">Link do donate: <a href="https://ko-fi.com/oxi1224" class="underline hover:text-navy-200">ko-fi</a> | <a href="https://tipply.pl/u/oxi_" class="underline hover:text-navy-200">tipply</a></span>
       </span>
     </h1>
   </button>

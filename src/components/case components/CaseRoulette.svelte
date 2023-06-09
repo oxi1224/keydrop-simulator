@@ -674,7 +674,7 @@
             {:else}
               {$page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] >= casePrice
                 ? `${$_('case.open')} ${localisePrice(page, casePrice)}`
-                : `${$_('case.tooPoor')} ${casePrice.toFixed(2)}`}
+                : `${$_('case.tooPoor')} ${localisePrice(page, casePrice)}`}
             {/if}
             {#if $page.data.user}
               <div class="flex items-center ml-1">
