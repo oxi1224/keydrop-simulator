@@ -1,6 +1,6 @@
 <script lang="ts">
   import '../app.css';
-  import Toast from '$components/util/toast.svelte';
+  import Toast from '$components/util/Toast.svelte';
   import Header from '$components/header.svelte';
   import Footer from '$components/footer.svelte';
   import { dev } from '$app/environment';
