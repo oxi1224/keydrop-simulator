@@ -5,13 +5,11 @@ const config: UserConfig = {
   plugins: [sveltekit()],
   resolve: {
     alias: {
-      src: '/src',
-      $components: path.resolve('./src/components'),
-      $static: path.resolve('./static'),
-      $assets: path.resolve('./src/assets'),
-      '$lib/server': path.resolve('./src/lib/server')
-    },
-    preserveSymlinks: false
+      $components: path.resolve('src/components'),
+      $static: path.resolve('static'),
+      $assets: path.resolve('src/assets'),
+      '$lib/server': path.resolve('src/lib/server')
+    }
   },
   server: {
     fs: {
