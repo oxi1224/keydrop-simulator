@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CaseSection from '$components/CaseSection.svelte';
+  import CaseSection from '$components/caseSection.svelte';
   import type { CaseSection as CaseSectionType } from '$lib';
   export let data: { sections: CaseSectionType[] };
 
