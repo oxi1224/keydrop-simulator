@@ -5,6 +5,7 @@ const config: UserConfig = {
   plugins: [sveltekit()],
   resolve: {
     alias: {
+      src: '/src',
       $components: path.resolve('./src/components'),
       $static: path.resolve('./static'),
       $assets: path.resolve('./src/assets'),
@@ -14,7 +15,7 @@ const config: UserConfig = {
   },
   server: {
     fs: {
-      allow: ['../..']
+      allow: ['..']
     }
   }
 };
