@@ -6,7 +6,7 @@
   import { dev } from '$app/environment';
   import { inject } from '@vercel/analytics';
   import { navigating, page } from '$app/stores';
-  import Spinner from '$components/util/spinner.svelte';
+  import Spinner from '$components/util/Spinner.svelte';
 
   inject({ mode: dev ? 'development' : 'production' });
 </script>
