@@ -10,7 +10,7 @@ const config: UserConfig = {
       $assets: path.resolve('./src/assets'),
       '$lib/server': path.resolve('./src/lib/server')
     },
-    preserveSymlinks: true
+    preserveSymlinks: false
   },
   server: {
     fs: {
