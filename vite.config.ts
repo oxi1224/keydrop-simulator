@@ -14,7 +14,7 @@ const config: UserConfig = {
   },
   server: {
     fs: {
-      allow: ['..']
+      allow: ['../..']
     }
   }
 };
