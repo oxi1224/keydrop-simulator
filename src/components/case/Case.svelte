@@ -1,6 +1,6 @@
 <script lang="ts">
-  import CaseRoulette from './case components/CaseRoulette.svelte';
-  import CaseContents from './case components/CaseContents.svelte';
+  import CaseRoulette from './components/CaseRoulette.svelte';
+  import CaseContents from './components/CaseContents.svelte';
   import { type CaseWithDrops, type CaseDrop, settings } from '$lib';
   import { _ } from 'svelte-i18n';
   export let caseData: CaseWithDrops;

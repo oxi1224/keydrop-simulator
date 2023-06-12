@@ -1,7 +1,7 @@
 <script lang="ts">
-  import HeaderUserPanel from './header components/HeaderUserPanel.svelte';
-  import HeaderMobileUserPanel from './header components/HeaderMobileUserPanel.svelte';
-  import HeaderNav from './header components/HeaderNav.svelte';
+  import HeaderUserPanel from './components/HeaderUserPanel.svelte';
+  import HeaderMobileUserPanel from './components/HeaderMobileUserPanel.svelte';
+  import HeaderNav from './components/HeaderNav.svelte';
   import { _ } from 'svelte-i18n';
   import { page } from '$app/stores';
   import {

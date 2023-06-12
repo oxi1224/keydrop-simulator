@@ -33,5 +33,5 @@ export interface CaseSection extends DbCaseSection {
 }
 
 export interface ItemWithGlobal extends Item {
-  globalInvItem: GlobalInventoryItem
+  globalInvItem: GlobalInventoryItem;
 }

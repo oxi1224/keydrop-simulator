@@ -1,14 +1,10 @@
 <script lang="ts">
   import '../app.css';
   import Toast from '$components/util/Toast.svelte';
-  import Header from '$components/header.svelte';
-  import Footer from '$components/footer.svelte';
-  import { dev } from '$app/environment';
-  import { inject } from '@vercel/analytics';
+  import Header from '$components/header/Header.svelte';
+  import Footer from '$components/footer/Footer.svelte';
   import { navigating, page } from '$app/stores';
   import Spinner from '$components/util/Spinner.svelte';
-
-  inject({ mode: dev ? 'development' : 'production' });
 </script>
 
 {#if $page.data.connectionCount > 100}

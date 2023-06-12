@@ -1,34 +1,32 @@
 <script lang="ts">
   import { createToast, localisePrice, sellItems, type ItemWithGlobal } from '$lib';
-  import InventoryItem from '$components/inventory components/InventoryItem.svelte';
-  import InventoryHeader from '$components/inventory components/InventoryHeader.svelte';
+  import InventoryItem from '$components/inventory/InventoryItem.svelte';
+  import InventoryHeader from '$components/inventory/InventoryHeader.svelte';
   import { page } from '$app/stores';
   import { invalidateAll } from '$app/navigation';
   import { _ } from 'svelte-i18n';
   import SetBalance from '$components/forms/SetBalance.svelte';
-
-  const pageInventory: ItemWithGlobal[] = $page.data.userInventory!;
 
   let totalSkinPrice = 0;
   let loading = false;
   let allItemsFilter: boolean;
   let dropdownWidth: number;
   let displayFilter: string;
-  let inventory: ItemWithGlobal[] = pageInventory.sort(
+  let inventory: ItemWithGlobal[] = $page.data.userInventory!.sort(
     // eslint-disable-next-line
     // @ts-ignore
     (a, b) => new Date(b.dropDate) - new Date(a.dropDate)
   );
   $: {
-    if (allItemsFilter) inventory = pageInventory || [];
-    else inventory = pageInventory.filter((obj) => !obj.sold) || [];
+    if (allItemsFilter) inventory = $page.data.userInventory || [];
+    else inventory = $page.data.userInventory!.filter((obj) => !obj.sold) || [];
   }
   $: totalSkinPrice =
-    pageInventory.reduce((n, o) => n + (o.sold ? 0 : o.globalInvItem.skinPrice), 0) ?? 0;
+    $page.data.userInventory!.reduce((n, o) => n + (o.sold ? 0 : o.globalInvItem.skinPrice), 0) ?? 0;
 
   
   async function handleInventorySell() {
-    const filterdItems = pageInventory.filter((obj) => !obj.sold && !obj.upgraded);
+    const filterdItems = $page.data.userInventory!.filter((obj) => !obj.sold && !obj.upgraded);
     if (!filterdItems)
       return createToast({
         header: $_('error'),
@@ -60,14 +58,14 @@
     const sort = optionElms[index].textContent as string;
     let tempInv: ItemWithGlobal[] | undefined;
     displayFilter = sort;
-    if (sort === $_('profile.sort.newest')) tempInv = pageInventory;
-    if (sort === $_('profile.sort.oldest')) tempInv = pageInventory.slice().reverse();
+    if (sort === $_('profile.sort.newest')) tempInv = $page.data.userInventory!;
+    if (sort === $_('profile.sort.oldest')) tempInv = $page.data.userInventory!.slice().reverse();
     if (sort === $_('profile.sort.cheapest'))
-      tempInv = pageInventory
+      tempInv = $page.data.userInventory!
         .slice()
         .sort((a, b) => a.globalInvItem.skinPrice - b.globalInvItem.skinPrice);
     if (sort === $_('profile.sort.mostExpensive'))
-      tempInv = pageInventory
+      tempInv = $page.data.userInventory!
         .slice()
         .sort((a, b) => b.globalInvItem.skinPrice - a.globalInvItem.skinPrice);
     if (allItemsFilter) inventory = tempInv || [];
