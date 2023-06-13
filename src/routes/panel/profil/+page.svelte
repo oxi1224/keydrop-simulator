@@ -243,7 +243,6 @@
                     class="text-left transition-colors duration-200 text-[8px] text-navy-200 group-hover:text-white"
                   >
                     {convertPrice($page.data.currency, totalSkinPrice)}
-                    {$page.data.currency.toUpperCase()}
                   </div>
                 </div>
               </button>

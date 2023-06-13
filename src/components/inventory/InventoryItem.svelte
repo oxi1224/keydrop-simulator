@@ -68,7 +68,6 @@
         class="flex items-center p-2 ml-auto text-sm font-bold leading-none rounded-md bg-navy-700 text-gold"
       >
         {convertPrice($page.data.currency, itemData.globalInvItem.skinPrice)}
-        {$page.data.currency.toUpperCase()}
       </div>
     </div>
     <div
@@ -118,7 +117,6 @@
             {$_('profile.item.sell')}
             <span class="text-gold">
               {convertPrice($page.data.currency, itemData.globalInvItem.skinPrice)}
-              {$page.data.currency.toUpperCase()}
             </span>
           </span>
         </button>

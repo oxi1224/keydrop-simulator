@@ -10,7 +10,6 @@
     settings,
     convertPrice,
     type ItemWithGlobal
-
   } from '$lib';
   import { invalidateAll } from '$app/navigation';
   import { _ } from 'svelte-i18n';
@@ -171,9 +170,10 @@
       elm.querySelector('.award-weapon')!.textContent = winningCaseDrops[i].weaponName;
       elm.querySelector('.award-wear')!.textContent =
         wearConversions[winningCaseDrops[i].skinQuality as keyof typeof wearConversions];
-      elm.querySelector('.award-price')!.textContent =
-        convertPrice($page.data.currency, winningCaseDrops[i].skinPrice).toString() +
-        $page.data.currency.toUpperCase();
+      elm.querySelector('.award-price')!.textContent = convertPrice(
+        $page.data.currency,
+        winningCaseDrops[i].skinPrice
+      );
       if (elm.querySelector('.award-img')) {
         (elm.querySelector('.award-img') as HTMLImageElement).src =
           winningCaseDrops[i].skinImgSource;
@@ -322,22 +322,13 @@
   class="m-2 p-5 fixed bottom-0 left-0 bg-navy-700 bg-opacity-75 text-navy-200 text-base z-50 rounded-xl glow-gold"
 >
   <p>
-    {$_('case.winScreen.spendings')}: {convertPrice(
-      $page.data.currency,
-      totalSpendings
-    )}
+    {$_('case.winScreen.spendings')}: {convertPrice($page.data.currency, totalSpendings)}
   </p>
   <p>
-    {$_('case.winScreen.winnings')}: {convertPrice(
-      $page.data.currency,
-      totalWinnings
-    )}
+    {$_('case.winScreen.winnings')}: {convertPrice($page.data.currency, totalWinnings)}
   </p>
   <p>
-    {$_('case.winScreen.profit')}: {convertPrice(
-      $page.data.currency,
-      totalProfit
-    )}
+    {$_('case.winScreen.profit')}: {convertPrice($page.data.currency, totalProfit)}
   </p>
 </div>
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
@@ -579,7 +570,9 @@
               <use xlink:href="/icons/icons.svg#sell"></use>
             </svg>
             {$_('case.winScreen.sell')}&nbsp;
-            <span class="total-award-price">{convertPrice($page.data.currency, wonItemsPrice)}</span>
+            <span class="total-award-price">
+              {convertPrice($page.data.currency, wonItemsPrice)}
+            </span>
           {/if}
         </button>
         <a
@@ -680,7 +673,7 @@
               <div class="flex items-center ml-1">
                 {@html goldenNames.includes(data.websiteName)
                   ? '<img src="/icons/gold-coin.webp" class="w-3 h-3 ml-1">'
-                  : $page.data.currency.toUpperCase()}
+                  : ''}
               </div>
             {/if}
           {/if}
