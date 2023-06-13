@@ -8,7 +8,7 @@
     type CaseDrop,
     type CaseWithDrops,
     settings,
-    localisePrice,
+    convertPrice,
     type ItemWithGlobal
 
   } from '$lib';
@@ -172,7 +172,7 @@
       elm.querySelector('.award-wear')!.textContent =
         wearConversions[winningCaseDrops[i].skinQuality as keyof typeof wearConversions];
       elm.querySelector('.award-price')!.textContent =
-        localisePrice(page, winningCaseDrops[i].skinPrice).toString() +
+        convertPrice($page.data.currency, winningCaseDrops[i].skinPrice).toString() +
         $page.data.currency.toUpperCase();
       if (elm.querySelector('.award-img')) {
         (elm.querySelector('.award-img') as HTMLImageElement).src =
@@ -184,12 +184,12 @@
 
     createToast({
       type: 'success',
-      header: `${$_('toasts.special.caseOpen.header')}: ${localisePrice(
-        page,
+      header: `${$_('toasts.special.caseOpen.header')}: ${convertPrice(
+        $page.data.currency,
         winningCaseDrops.reduce((n, o) => n + o.skinPrice, 0)
       )}`,
-      message: `${$_('toasts.special.caseOpen.message')}: ${localisePrice(
-        page,
+      message: `${$_('toasts.special.caseOpen.message')}: ${convertPrice(
+        $page.data.currency,
         winningCaseDrops.reduce((n, o) => n + o.skinPrice, 0) - casePrice
       )}`
     });
@@ -322,22 +322,22 @@
   class="m-2 p-5 fixed bottom-0 left-0 bg-navy-700 bg-opacity-75 text-navy-200 text-base z-50 rounded-xl glow-gold"
 >
   <p>
-    {$_('case.winScreen.spendings')}: {localisePrice(
-      page,
+    {$_('case.winScreen.spendings')}: {convertPrice(
+      $page.data.currency,
       totalSpendings
-    )}{$page.data.currency.toUpperCase()}
+    )}
   </p>
   <p>
-    {$_('case.winScreen.winnings')}: {localisePrice(
-      page,
+    {$_('case.winScreen.winnings')}: {convertPrice(
+      $page.data.currency,
       totalWinnings
-    )}{$page.data.currency.toUpperCase()}
+    )}
   </p>
   <p>
-    {$_('case.winScreen.profit')}: {localisePrice(
-      page,
+    {$_('case.winScreen.profit')}: {convertPrice(
+      $page.data.currency,
       totalProfit
-    )}{$page.data.currency.toUpperCase()}
+    )}
   </p>
 </div>
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
@@ -579,7 +579,7 @@
               <use xlink:href="/icons/icons.svg#sell"></use>
             </svg>
             {$_('case.winScreen.sell')}&nbsp;
-            <span class="total-award-price">{localisePrice(page, wonItemsPrice)}</span>
+            <span class="total-award-price">{convertPrice($page.data.currency, wonItemsPrice)}</span>
           {/if}
         </button>
         <a
@@ -673,8 +673,8 @@
               {$_('case.notLoggedIn')}
             {:else}
               {$page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] >= casePrice
-                ? `${$_('case.open')} ${localisePrice(page, casePrice)}`
-                : `${$_('case.tooPoor')} ${localisePrice(page, casePrice)}`}
+                ? `${$_('case.open')} ${convertPrice($page.data.currency, casePrice)}`
+                : `${$_('case.tooPoor')} ${convertPrice($page.data.currency, casePrice)}`}
             {/if}
             {#if $page.data.user}
               <div class="flex items-center ml-1">

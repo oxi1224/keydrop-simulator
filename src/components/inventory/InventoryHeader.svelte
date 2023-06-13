@@ -2,7 +2,7 @@
   import { applyAction, enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
-  import { createToast, localisePrice } from '$lib';
+  import { createToast, convertPrice } from '$lib';
   import { _ } from 'svelte-i18n';
 
   $: $page.form
@@ -92,8 +92,7 @@
           >
             <div class="flex items-center text-xs font-semibold text-white">
               <span class="text-gold">
-                {localisePrice(page, $page.data.user.balance)}
-                {$page.data.currency.toUpperCase()}
+                {convertPrice($page.data.currency, $page.data.user.balance)}
               </span>
             </div>
             <div class="flex items-center ml-4 text-xs font-semibold text-gold">

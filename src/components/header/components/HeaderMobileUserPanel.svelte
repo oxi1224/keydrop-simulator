@@ -2,7 +2,7 @@
   import { applyAction, enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
-  import { localisePrice } from '$lib';
+  import { convertPrice } from '$lib';
   import { _ } from 'svelte-i18n';
 </script>
 
@@ -192,8 +192,7 @@
               {$_('header.wallet')}:
             </span>
             <span class="text-gold font-semibold text-xs">
-              {localisePrice(page, $page.data.user.balance)}
-              {$page.data.currency.toUpperCase()}
+              {convertPrice($page.data.currency, $page.data.user.balance)}
             </span>
           </div>
         </div>

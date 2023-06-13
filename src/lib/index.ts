@@ -4,5 +4,5 @@ export * from './stores.js';
 export * from './toast.js';
 export * from './util/sellItems.js';
 export * from './i18n.js';
-export * from './util/localisePrice.js';
+export * from './util/convertPrice.js';
 export * from './lazyLoad.js';

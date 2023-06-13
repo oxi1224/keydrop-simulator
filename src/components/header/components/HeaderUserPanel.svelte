@@ -2,7 +2,7 @@
   import { applyAction, enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
-  import { createToast, localisePrice } from '$lib';
+  import { createToast, convertPrice } from '$lib';
   import { _ } from 'svelte-i18n';
 
   function toggleDropdown() {
@@ -30,10 +30,7 @@
               <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
               {$_('header.wallet')}:
               <span class="text-gold font-semibold text-sm md:text-xs">
-                {localisePrice(
-                  page,
-                  $page.data.user?.balance
-                )}&nbsp;{$page.data.currency.toUpperCase()}
+                {convertPrice($page.data.currency, $page.data.user?.balance)}
               </span>
             </span>
           </div>
@@ -105,8 +102,7 @@
               {$_('header.wallet')}:
             </span>
             <span class="text-gold font-semibold text-xs">
-              {localisePrice(page, $page.data.user?.balance)}
-              {$page.data.currency.toUpperCase()}
+              {convertPrice($page.data.currency, $page.data.user?.balance)}
             </span>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { colors, type CaseDrop, type SkinRarity, type SkinWear, lazyLoad } from '$lib';
-  import { localisePrice } from '$lib';
+  import { convertPrice } from '$lib';
   import { _ } from 'svelte-i18n';
   export let caseDrops: CaseDrop[];
 
@@ -78,13 +78,9 @@
     const min = Math.min(...prices);
     const max = Math.max(...prices);
 
-    /* eslint-disable indent */
     return min === max
-      ? localisePrice(page, min) + $page.data.currency
-      : `${localisePrice(page, min) + $page.data.currency} - ${
-          localisePrice(page, max) + $page.data.currency
-        }`;
-    /* eslint-disable indent */
+      ? convertPrice($page.data.currency, min)
+      : `${convertPrice($page.data.currency, min)} - ${convertPrice($page.data.currency, max)}`;
   }
 
   interface DisplayDrop {
@@ -132,8 +128,7 @@
                 {#each drop.details as details}
                   <div class="text-navy-100">{details.quality}</div>
                   <div class="text-gold">
-                    {localisePrice(page, details.price)}
-                    {$page.data.currency.toUpperCase()}
+                    {convertPrice($page.data.currency, details.price)}
                   </div>
                   <div class="text-navy-100">{details.range[0]} - {details.range[0]}</div>
                   <div class="text-navy-100">{details.odds}</div>

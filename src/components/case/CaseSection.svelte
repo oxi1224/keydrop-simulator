@@ -25,7 +25,7 @@
 </style>
 
 <script lang="ts">
-  import { goldenNames, lazyLoad, localisePrice, type CaseSection } from '$lib';
+  import { goldenNames, lazyLoad, convertPrice, type CaseSection } from '$lib';
   import Spinner from '../util/Spinner.svelte';
   import { page } from '$app/stores';
 
@@ -102,11 +102,10 @@
             >
               {goldenNames.includes(caseData.websiteName)
                 ? caseData.price
-                : localisePrice(page, caseData.price)}&nbsp;{@html goldenNames.includes(
-                  caseData.websiteName
-              )
+                : convertPrice($page.data.currency, caseData.price)}
+              {@html goldenNames.includes(caseData.websiteName)
                 ? '<img src="/icons/gold-coin.webp" alt="coin" class="w-3 h-3 ml-1">'
-                : $page.data?.currency.toUpperCase()}
+                : ''}
             </div>
             <div
               class="z-10 max-w-[90%] whitespace-nowrap py-2 px-0 lg:px-2 mx-auto mt-auto mb-4 text-xs lg:text-sm font-normal leading-none text-center text-white uppercase rounded-lg bg-navy-700 w-32"

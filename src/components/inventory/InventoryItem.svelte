@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { createToast, localisePrice, sellItems, type ItemWithGlobal } from '$lib';
+  import { createToast, convertPrice, sellItems, type ItemWithGlobal } from '$lib';
   import { _ } from 'svelte-i18n';
   export let itemData: ItemWithGlobal;
 
@@ -67,7 +67,7 @@
       <div
         class="flex items-center p-2 ml-auto text-sm font-bold leading-none rounded-md bg-navy-700 text-gold"
       >
-        {localisePrice(page, itemData.globalInvItem.skinPrice)}
+        {convertPrice($page.data.currency, itemData.globalInvItem.skinPrice)}
         {$page.data.currency.toUpperCase()}
       </div>
     </div>
@@ -117,7 +117,7 @@
           <span>
             {$_('profile.item.sell')}
             <span class="text-gold">
-              {localisePrice(page, itemData.globalInvItem.skinPrice)}
+              {convertPrice($page.data.currency, itemData.globalInvItem.skinPrice)}
               {$page.data.currency.toUpperCase()}
             </span>
           </span>
