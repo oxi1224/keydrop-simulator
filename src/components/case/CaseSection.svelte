@@ -1,5 +1,8 @@
 <style>
   @media (min-width: 768px) {
+    .grid-cols-4 {
+      grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    }
     .grid-cols-5 {
       grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
     }
