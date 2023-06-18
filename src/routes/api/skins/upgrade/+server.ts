@@ -94,7 +94,7 @@ export async function POST(event: RequestEvent) {
   const rotationOffset = randomInt(0, 360);
   const rotation = 360 * 5 + rotationOffset;
 
-  const success = rotationOffset - 180 >= min && rotationOffset <= max - 180;
+  const success = rotationOffset >= min && rotationOffset <= max;
   // console.log(offsetMin, offsetMax, rotationOffset, min, max);
   // if (mode === 'CIRCLE') {
   //   const fullCircle = 360;
