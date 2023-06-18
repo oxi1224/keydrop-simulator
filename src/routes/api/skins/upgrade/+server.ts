@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid';
 import { randomInt } from 'crypto';
 import type { ItemWithGlobal } from '$lib';
 import type { GlobalInventoryItem } from '@prisma/client';
-import { isNumber } from 'lodash';
 
 interface RequestBody {
   selectedItems: ItemWithGlobal[];
@@ -45,7 +44,7 @@ export async function POST(event: RequestEvent) {
       });
   }
 
-  if (!selectedItems || !goalItems || !isNumber(addedBalance) || mode === 'CIRCLE')
+  if (!selectedItems || !goalItems || !addedBalance || mode === 'CIRCLE')
     return new Response(
       JSON.stringify({ messageKey: 'toasts.error.messages.upgraderInvalidValues' }),
       {

@@ -209,7 +209,7 @@
               </div>
             </div>
             <a
-              href="/skins/Upgrader"
+              href="/skins/upgrader"
               class="px-4 md:px-3 py-4 w-1/2 sm:w-auto {loading
                 ? 'opacity-25 pointer-events-none cursor-none'
                 : ''}"

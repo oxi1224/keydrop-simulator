@@ -576,7 +576,7 @@
           {/if}
         </button>
         <a
-          href="/skins/Upgrader?"
+          href="/skins/upgrader"
           class="flex items-center justify-center h-10 px-1 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-teal-500 text-teal-500 bg-navy-700 hover:bg-teal-500 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-teal"
           style="{menuState === 0 ? 'pointer-events: none;' : ''}"
         >

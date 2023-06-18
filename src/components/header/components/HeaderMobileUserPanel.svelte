@@ -134,8 +134,8 @@
             <use xlink:href="/icons/nav-icons.svg#box"></use>
           </svg>
           Codzienna skrzynia
-        </a>
-      </li>
+        </a> 
+      </li>-->
       <li class="w-1/2">
         <a
           rel="alternate"
@@ -148,7 +148,7 @@
           </svg>
           UPGRADER
         </a>
-      </li> -->
+      </li>
       <li class="w-1/2">
         <form
           action="/login?/logout"
