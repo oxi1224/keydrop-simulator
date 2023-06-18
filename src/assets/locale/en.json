@@ -115,7 +115,10 @@
         "errorDuringItemAdd": "An error has occured while adding the items, please contact oxi#6219",
         "itemNotFound": "No items found",
         "invalidBalance": "Invalid balance",
-        "invalidBalanceType": "Invalid balance type"
+        "invalidBalanceType": "Invalid balance type",
+        "maxItemsSelected": "You can select 15 items at max",
+        "upgraderInvalidValues": "Some values are invalid",
+        "upgraderInvalidChance": "invalid chance"
       }
     },
     "success": {
@@ -133,6 +136,16 @@
         "message": "Earnings"
       }
     }
+  },
+  "upgrader": {
+    "return": "Return",
+    "goToHomePage": "Back to home page",
+    "chooseItem": "Choose item",
+    "upgradeItem": "Item, that you want to upgrade",
+    "receiveItem": "Item, that you want to receive",
+    "yourItems": "Your items",
+    "findSkin": "Find skin",
+    "price": "Price"
   },
   "menu-icon": "Menu icon",
   "polish-polski": "Polish (Polski)",

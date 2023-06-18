@@ -14,7 +14,6 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
   };
 };
 
-
 export const actions: Actions = {
   setBalance: async (event) => {
     const data = await event.request.formData();
@@ -26,7 +25,7 @@ export const actions: Actions = {
         success: false,
         messageKey: 'toasts.error.messages.invalidBalance'
       };
-    
+
     if (!balanceType || !['gold', 'money'].includes(balanceType))
       return {
         success: false,
@@ -47,7 +46,7 @@ export const actions: Actions = {
       },
       data: {
         balance: balanceType === 'money' ? { set: balance } : undefined,
-        goldBalance: balanceType === 'gold' ? { set: balance } : undefined,
+        goldBalance: balanceType === 'gold' ? { set: balance } : undefined
       }
     });
 

@@ -22,9 +22,9 @@
     else inventory = $page.data.userInventory!.filter((obj) => !obj.sold) || [];
   }
   $: totalSkinPrice =
-    $page.data.userInventory!.reduce((n, o) => n + (o.sold ? 0 : o.globalInvItem.skinPrice), 0) ?? 0;
+    $page.data.userInventory!.reduce((n, o) => n + (o.sold ? 0 : o.globalInvItem.skinPrice), 0) ??
+    0;
 
-  
   async function handleInventorySell() {
     const filterdItems = $page.data.userInventory!.filter((obj) => !obj.sold && !obj.upgraded);
     if (!filterdItems)
@@ -61,12 +61,12 @@
     if (sort === $_('profile.sort.newest')) tempInv = $page.data.userInventory!;
     if (sort === $_('profile.sort.oldest')) tempInv = $page.data.userInventory!.slice().reverse();
     if (sort === $_('profile.sort.cheapest'))
-      tempInv = $page.data.userInventory!
-        .slice()
+      tempInv = $page.data
+        .userInventory!.slice()
         .sort((a, b) => a.globalInvItem.skinPrice - b.globalInvItem.skinPrice);
     if (sort === $_('profile.sort.mostExpensive'))
-      tempInv = $page.data.userInventory!
-        .slice()
+      tempInv = $page.data
+        .userInventory!.slice()
         .sort((a, b) => b.globalInvItem.skinPrice - a.globalInvItem.skinPrice);
     if (allItemsFilter) inventory = tempInv || [];
     else inventory = tempInv?.filter((obj) => !obj.sold) || [];

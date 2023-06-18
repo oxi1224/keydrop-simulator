@@ -10,20 +10,18 @@
 {#if $page.data.connectionCount > 100}
   <div class="w-full h-full fixed flex justify-center items-center">
     <h1>
-      <span class="text-red-400">
-        LIMIT POŁĄCZEŃ OSIĄGNIĘTY, PROSZE WRÓCIĆ PÓŹNIEJ
-      </span>
+      <span class="text-red-400">LIMIT POŁĄCZEŃ OSIĄGNIĘTY, PROSZE WRÓCIĆ PÓŹNIEJ</span>
     </h1>
   </div>
 {:else}
-<Header />
-{#if $navigating}
-  <div class="container flex justify-center items-center my-10 mx-auto">
-    <Spinner />
-  </div>
-{:else}
-  <slot />
-{/if}
-<Footer />
-<Toast />
+  <Header />
+  {#if $navigating}
+    <div class="container flex justify-center items-center my-10 mx-auto">
+      <Spinner />
+    </div>
+  {:else}
+    <slot />
+  {/if}
+  <Footer />
+  <Toast />
 {/if}

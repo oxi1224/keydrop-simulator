@@ -8,6 +8,5 @@ node_modules
 .yarn/install-state.gz
 yarn-error.log
 
-*/**/upgrader*
 .vercel
 .unlighthouse

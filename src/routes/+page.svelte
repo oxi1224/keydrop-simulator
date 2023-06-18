@@ -28,7 +28,8 @@
               <CaseSection data="{sectionData}" />
             {:else}
               <div class="text-red text-lg text-center">
-                SKRZYNKI SĄ AKTUALIZOWANE, PROSZE CZEKAĆ...<br>
+                SKRZYNKI SĄ AKTUALIZOWANE, PROSZE CZEKAĆ...
+                <br />
                 <!-- Oczekiwany czas: {time} -->
               </div>
             {/if}

@@ -21,7 +21,8 @@
   style="padding-top: 135%; box-shadow: rgb(8, 10, 13) 0px 0px 35px 0px;"
 >
   <div
-    class="absolute top-0 left-0 hidden w-full h-full transition-transform duration-200 border-t border-solid rounded-lg will-change-transform bg-navy-900 group-hover:rounded-b-none border-{itemData.globalInvItem.skinRarity} css-cwrogv"
+    class="absolute top-0 left-0 hidden w-full h-full transition-transform duration-200 border-t border-solid rounded-lg will-change-transform bg-navy-900 group-hover:rounded-b-none border-{itemData
+      .globalInvItem.skinRarity} css-cwrogv"
     style="display: flex;"
   >
     <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-200"></div>

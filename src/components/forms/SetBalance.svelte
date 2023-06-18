@@ -6,7 +6,7 @@
   import { invalidateAll } from '$app/navigation';
   import { createToast } from '$lib';
   import { _ } from 'svelte-i18n';
-  
+
   let loading = false;
 
   const setBalance: SubmitFunction = () => {

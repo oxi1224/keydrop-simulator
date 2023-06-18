@@ -115,7 +115,10 @@
         "errorDuringItemAdd": "Wystąpił problem podczas dodawania przedmiotów, prosze skontakutj się z oxi#6219",
         "itemNotFound": "Brak znalezionych przedmiotów",
         "invalidBalance": "Nieprawidłowy balans",
-        "invalidBalanceType": "Nieprawidłowy typ balansu"
+        "invalidBalanceType": "Nieprawidłowy typ balansu",
+        "maxItemsSelected": "Możesz maksymalnie wybrać 15 przedmiotów",
+        "upgraderInvalidValues": "Niektóre podane dane są nieprawidłowe",
+        "upgraderInvalidChance": "Niepoprawna szansa"
       }
     },
     "success": {
@@ -133,5 +136,15 @@
         "message": "Zysk"
       }
     }
+  },
+  "upgrader": {
+    "return": "Wróć",
+    "goToHomePage": "Wróć na stron główną",
+    "chooseItem": "Wybierz przedmiot",
+    "upgradeItem": "Wybierz przedmiot, który chcesz ulepszyć",
+    "receiveItem": "Wybierz przedmiot, który chcesz dostać",
+    "yourItems": "Twoje przedmioty",
+    "findSkin": "Znajdź przedmiot",
+    "price": "Cena"
   }
 }

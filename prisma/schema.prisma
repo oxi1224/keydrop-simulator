@@ -25,14 +25,6 @@ model Item {
   ownerId       String
   origin        String
   globalInvID   String
-  // weaponName    String
-  // weaponName    String
-  // skinName      String
-  // skinQuality   String
-  // skinPrice     Float
-  // skinRarity    String
-  // skinImgSource String
-  // stattrack     Boolean             @default(false)
   dropDate      DateTime            @default(now())
   sold          Boolean             @default(false)
   upgraded      Boolean             @default(false)

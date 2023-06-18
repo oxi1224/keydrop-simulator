@@ -45,15 +45,25 @@
 </script>
 
 <header class="sticky top-0 z-40 md:relative bg-navy-600 select-none">
-  <button 
+  <button
     class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block cursor-pointer"
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
       <span class="text-red-400">
-        DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA<br>
-        <span class="font-bold">Nie istnieją żadne oficjalne tiktoki o stronie.</span><br>
-        <span class="text-navy-300 text-xs">SERWER DISCORD: <a href="https://discord.gg/hY2kwdSZzR" class="underline hover:text-navy-200">https://discord.gg/hY2kwdSZzR</a></span><br>
+        DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA
+        <br />
+        <span class="font-bold">Nie istnieją żadne oficjalne tiktoki o stronie.</span>
+        <br />
+        <span class="text-navy-300 text-xs">
+          SERWER DISCORD: <a
+            href="https://discord.gg/hY2kwdSZzR"
+            class="underline hover:text-navy-200"
+          >
+            https://discord.gg/hY2kwdSZzR
+          </a>
+        </span>
+        <br />
       </span>
     </h1>
   </button>

@@ -27,6 +27,11 @@ export async function POST(event: RequestEvent) {
       status: 404
     });
 
+  if (count > 10)
+    return new Response(JSON.stringify({ messageKey: '' }), {
+      status: 404
+    });
+
   const caseData = await db.case.findUnique({
     where: { websiteName: websiteName },
     include: {
@@ -37,7 +42,6 @@ export async function POST(event: RequestEvent) {
       }
     }
   });
-
 
   if (!caseData)
     return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.caseNotExists' }), {
@@ -61,7 +65,7 @@ export async function POST(event: RequestEvent) {
     }
     caseDrops.push(drop);
   }
-  
+
   const itemsToAdd = caseDrops.map((drop) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const globalItem = drop.globalInvItem;
