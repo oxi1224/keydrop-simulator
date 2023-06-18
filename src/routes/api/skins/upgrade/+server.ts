@@ -44,7 +44,15 @@ export async function POST(event: RequestEvent) {
       });
   }
 
-  if (!selectedItems || !goalItems || addedBalance < 0 || !isFinite(addedBalance) || isNaN(addedBalance) || mode === 'CIRCLE')
+  if (
+    !selectedItems ||
+    !goalItems ||
+    addedBalance < 0 ||
+    !isFinite(addedBalance) ||
+    isNaN(addedBalance) ||
+    mode === 'CIRCLE' ||
+    position === 'BOT'
+  )
     return new Response(
       JSON.stringify({ messageKey: 'toasts.error.messages.upgraderInvalidValues' }),
       {
@@ -67,14 +75,27 @@ export async function POST(event: RequestEvent) {
       }
     );
 
-  const offsetMin = position === 'TOP' ? 0 : -360;
-  const offsetMax = position === 'TOP' ? 360 : 0;
+  // const arr = new Uint32Array(1);
+  // crypto.getRandomValues(arr);
+  // const mantissa = arr[0] * Math.pow(2, 20) + (arr[1] >>> 12);
+  // const randomNumber = mantissa * Math.pow(2, -52);
+
+  // const areaStartDegree = position === 'TOP' ? 0 : 180;
+  // const successDecimal = successChance / 100;
+  // const success = randomNumber < successDecimal;
+  // let rotationOffset = areaStartDegree + (randomNumber * (360 - areaStartDegree));
+  // rotationOffset %= 360;
+
+  // const rotation = 360 * 5 + rotationOffset;
+  // const offsetMin = position === 'TOP' ? 0 : -360;
+  // const offsetMax = position === 'TOP' ? 360 : 0;
   const min = 0;
   const max = Math.round(360 * successChance);
-  const rotationOffset = randomInt(offsetMin, offsetMax);
+  const rotationOffset = randomInt(0, 360);
   const rotation = 360 * 5 + rotationOffset;
 
-  const success = rotationOffset >= min && rotationOffset <= max;
+  const success = rotationOffset - 180 >= min && rotationOffset <= max - 180;
+  // console.log(offsetMin, offsetMax, rotationOffset, min, max);
   // if (mode === 'CIRCLE') {
   //   const fullCircle = 360;
 

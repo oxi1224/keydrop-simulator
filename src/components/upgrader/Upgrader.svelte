@@ -599,7 +599,7 @@
           </button>
           <button
             class="col-span-2 h-10 text-navy-200 focus:outline-none disabled:pointer-events-none disabled:opacity-25"
-            disabled="{!successChance || successChance <= 0 || loading}"
+            disabled="{true}"
             on:click="{() =>
               (selectedUpgraderPosition = selectedUpgraderPosition === 'TOP' ? 'BOT' : 'TOP')}"
           >
