@@ -19,10 +19,10 @@
   );
   $: {
     if (allItemsFilter) inventory = $page.data.userInventory || [];
-    else inventory = $page.data.userInventory!.filter((obj) => !obj.sold) || [];
+    else inventory = $page.data.userInventory!.filter((obj) => !obj.sold && !obj.upgraded) || [];
   }
   $: totalSkinPrice =
-    $page.data.userInventory!.reduce((n, o) => n + (o.sold ? 0 : o.globalInvItem.skinPrice), 0) ??
+    $page.data.userInventory!.reduce((n, o) => n + (o.sold || o.upgraded ? 0 : o.globalInvItem.skinPrice), 0) ??
     0;
 
   async function handleInventorySell() {
