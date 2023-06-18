@@ -44,7 +44,7 @@ export async function POST(event: RequestEvent) {
       });
   }
 
-  if (!selectedItems || !goalItems || !addedBalance || mode === 'CIRCLE')
+  if (!selectedItems || !goalItems || addedBalance < 0 || !isFinite(addedBalance) || isNaN(addedBalance) || mode === 'CIRCLE')
     return new Response(
       JSON.stringify({ messageKey: 'toasts.error.messages.upgraderInvalidValues' }),
       {
