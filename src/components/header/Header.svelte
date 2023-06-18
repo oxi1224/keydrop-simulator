@@ -64,6 +64,7 @@
           </a>
         </span>
         <br />
+        <span class="text-navy-300 text-xs">Link do donate: <a href="https://ko-fi.com/oxi1224" class="underline hover:text-navy-200">ko-fi</a> | <a href="https://tipply.pl/u/oxi_" class="underline hover:text-navy-200">tipply</a></span>
       </span>
     </h1>
   </button>
