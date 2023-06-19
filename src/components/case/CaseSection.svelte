@@ -92,7 +92,7 @@
           class="z-20 w-full h-full col-start-1 row-start-1 row-end-3"
         >
           <img
-            use:lazyLoad="{`https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}`}"
+            use:lazyLoad="{data.id === 'expired' ? `https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}` : caseData.imgName}"
             alt=""
             class="absolute top-0 right-0 object-cover w-full h-full rounded-lg"
           />
