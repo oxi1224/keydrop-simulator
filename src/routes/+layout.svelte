@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import '../app.css';
   import Toast from '$components/util/Toast.svelte';
   import Header from '$components/header/Header.svelte';
