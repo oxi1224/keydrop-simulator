@@ -55,7 +55,7 @@
   // Upgrader animation values
   let selectedUpgraderMode: 'TRIANGLE' | 'CIRCLE' = 'TRIANGLE';
   let selectedUpgraderPosition: 'TOP' | 'BOT' = 'TOP';
-  let upgraderRotation = -450;
+  let upgraderRotation = 270;
   let upgraderArrowRotation = 0;
   const upgraderSvgColors = {
     base: '#dcae64',
@@ -94,7 +94,7 @@
       upgraderSvgRGBcolor = upgraderSvgColors['baseRGB'];
       document.getElementById('success-chance-display-wrapper')!.style.transform = 'rotateY(0deg)';
       document.getElementById('status-display-wrapper')!.style.transform = 'rotateY(180deg)';
-      upgraderRotation = selectedUpgraderPosition === 'TOP' ? -450 : 90;
+      upgraderRotation = selectedUpgraderPosition === 'TOP' ? 270 : 90;
       upgraderArrowRotation = 0;
     }
   }
@@ -162,10 +162,8 @@
     document.querySelector('.status-display')!.textContent = resBody.success ? 'WIN' : 'LOSS';
     document.getElementById('success-chance-display-wrapper')!.style.transform = 'rotateY(180deg)';
     document.getElementById('status-display-wrapper')!.style.transform = 'rotateY(0deg)';
-    if (!resBody.success) {
-      selectedGoalItems.forEach((i) => deselectGoalItem(i));
-      selectedUpgradeItems.forEach((i) => deselectUpgradeItem(i));
-    }
+    selectedUpgradeItems.forEach((i) => deselectUpgradeItem(i));
+    if (!resBody.success) selectedGoalItems.forEach((i) => deselectGoalItem(i));
     upgradeFinished = true;
     await invalidateAll();
     loading = false;
@@ -193,7 +191,8 @@
   $: successChance > 80 && isFinite(successChance) && successChance
     ? (displaySuccessChance = 80)
     : null;
-  $: upgraderRotation = selectedUpgraderPosition === 'TOP' ? -450 : 90;
+  $: upgraderRotation = selectedUpgraderPosition === 'TOP' ? 270 : 90;
+  $: totalGoalValue < 0 ? totalGoalValue = 0 : null;
 
   // Misc
   $: minPrice = (totalSelectedValue - addedBalance) * selectedMultiplier;
@@ -599,7 +598,7 @@
           </button>
           <button
             class="col-span-2 h-10 text-navy-200 focus:outline-none disabled:pointer-events-none disabled:opacity-25"
-            disabled="{true}"
+            disabled="{!successChance || successChance <= 0 || loading}"
             on:click="{() =>
               (selectedUpgraderPosition = selectedUpgraderPosition === 'TOP' ? 'BOT' : 'TOP')}"
           >

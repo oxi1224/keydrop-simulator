@@ -50,8 +50,7 @@ export async function POST(event: RequestEvent) {
     addedBalance < 0 ||
     !isFinite(addedBalance) ||
     isNaN(addedBalance) ||
-    mode === 'CIRCLE' ||
-    position === 'BOT'
+    mode === 'CIRCLE'
   )
     return new Response(
       JSON.stringify({ messageKey: 'toasts.error.messages.upgraderInvalidValues' }),
@@ -89,12 +88,32 @@ export async function POST(event: RequestEvent) {
   // const rotation = 360 * 5 + rotationOffset;
   // const offsetMin = position === 'TOP' ? 0 : -360;
   // const offsetMax = position === 'TOP' ? 360 : 0;
+
+  const zeroOffset = position === 'TOP' ? 0 : 180;
   const min = 0;
   const max = Math.round(360 * successChance);
+  // const min = 0;
+  // const max = Math.round(360 * successChance);
   const rotationOffset = randomInt(0, 360);
   const rotation = 360 * 5 + rotationOffset;
 
-  const success = rotationOffset >= min && rotationOffset <= max;
+  let success: boolean;
+
+  // chat gpt wrote this and it works idk
+  const circleDegrees = 360;
+  const normalizedPointer = ((rotationOffset + zeroOffset) % circleDegrees + circleDegrees) % circleDegrees;
+  const normalizedAreaStart = (min % circleDegrees + circleDegrees) % circleDegrees;
+  const normalizedAreaEnd = (max % circleDegrees + circleDegrees) % circleDegrees;
+
+  if (normalizedAreaStart <= normalizedAreaEnd) {
+    success = normalizedPointer >= normalizedAreaStart && normalizedPointer <= normalizedAreaEnd;
+  } else {
+    success = (
+      normalizedPointer >= normalizedAreaStart ||
+      normalizedPointer <= normalizedAreaEnd
+    );
+  }
+  // const success = rotationOffset >= min && rotationOffset <= max;
   // console.log(offsetMin, offsetMax, rotationOffset, min, max);
   // if (mode === 'CIRCLE') {
   //   const fullCircle = 360;
@@ -141,6 +160,9 @@ export async function POST(event: RequestEvent) {
       inventory: {
         create: itemsToAdd,
         update: itemsToUpdate
+      },
+      balance: {
+        decrement: addedBalance > 0 && addedBalance ? addedBalance : 0
       }
     },
     include: {
