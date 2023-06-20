@@ -98,21 +98,25 @@
       upgraderArrowRotation = 0;
     }
   }
-  function deselectUpgradeItem(item: ItemWithGlobal) {
+  function deselectUpgradeItem(...items: ItemWithGlobal[]) {
     resetUpgrader();
-    const selectedIndex = selectedUpgradeItems.findIndex((i) => i.dropId == item.dropId);
-    selectedUpgradeItems.splice(selectedIndex, 1);
-    selectedUpgradeItems = selectedUpgradeItems;
-    totalSelectedValue -= item.globalInvItem.skinPrice;
+    for (const item of items) {
+      const selectedIndex = selectedUpgradeItems.findIndex((i) => i.dropId == item.dropId);
+      selectedUpgradeItems.splice(selectedIndex, 1);
+      selectedUpgradeItems = selectedUpgradeItems;
+      totalSelectedValue -= item.globalInvItem.skinPrice;
+    }
   }
 
-  function deselectGoalItem(item: GlobalInventoryItem) {
+  function deselectGoalItem(...items: GlobalInventoryItem[]) {
     resetUpgrader();
-    const selectedIndex = selectedGoalItems.findIndex((i) => i.id == item.id);
-    selectedGoalItems.splice(selectedIndex, 1);
-    selectedGoalItems = selectedGoalItems;
-    availableItems = availableItems;
-    totalGoalValue -= item.skinPrice;
+    for (const item of items) {
+      const selectedIndex = selectedGoalItems.findIndex((i) => i.id == item.id);
+      selectedGoalItems.splice(selectedIndex, 1);
+      selectedGoalItems = selectedGoalItems;
+      availableItems = availableItems;
+      totalGoalValue -= item.skinPrice;
+    }
   }
 
   async function upgrade() {
@@ -162,8 +166,8 @@
     document.querySelector('.status-display')!.textContent = resBody.success ? 'WIN' : 'LOSS';
     document.getElementById('success-chance-display-wrapper')!.style.transform = 'rotateY(180deg)';
     document.getElementById('status-display-wrapper')!.style.transform = 'rotateY(0deg)';
-    selectedUpgradeItems.forEach((i) => deselectUpgradeItem(i));
-    if (!resBody.success) selectedGoalItems.forEach((i) => deselectGoalItem(i));
+    deselectUpgradeItem(...selectedUpgradeItems);
+    if (!resBody.success) deselectGoalItem(...selectedGoalItems);
     upgradeFinished = true;
     await invalidateAll();
     loading = false;
@@ -563,7 +567,7 @@
           </button>
           <button
             class="col-span-2 h-10 text-navy-200 focus:outline-none disabled:pointer-events-none disabled:opacity-25"
-            disabled="{true}"
+            disabled="{!successChance || successChance <= 0 || loading}"
             on:click="{() =>
               (selectedUpgraderMode = selectedUpgraderMode === 'TRIANGLE' ? 'CIRCLE' : 'TRIANGLE')}"
           >

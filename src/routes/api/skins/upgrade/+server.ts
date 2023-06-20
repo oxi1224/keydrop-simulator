@@ -49,8 +49,7 @@ export async function POST(event: RequestEvent) {
     !goalItems ||
     addedBalance < 0 ||
     !isFinite(addedBalance) ||
-    isNaN(addedBalance) ||
-    mode === 'CIRCLE'
+    isNaN(addedBalance)
   )
     return new Response(
       JSON.stringify({ messageKey: 'toasts.error.messages.upgraderInvalidValues' }),
@@ -74,57 +73,31 @@ export async function POST(event: RequestEvent) {
       }
     );
 
-  // const arr = new Uint32Array(1);
-  // crypto.getRandomValues(arr);
-  // const mantissa = arr[0] * Math.pow(2, 20) + (arr[1] >>> 12);
-  // const randomNumber = mantissa * Math.pow(2, -52);
-
-  // const areaStartDegree = position === 'TOP' ? 0 : 180;
-  // const successDecimal = successChance / 100;
-  // const success = randomNumber < successDecimal;
-  // let rotationOffset = areaStartDegree + (randomNumber * (360 - areaStartDegree));
-  // rotationOffset %= 360;
-
-  // const rotation = 360 * 5 + rotationOffset;
-  // const offsetMin = position === 'TOP' ? 0 : -360;
-  // const offsetMax = position === 'TOP' ? 360 : 0;
-
   const zeroOffset = position === 'TOP' ? 0 : 180;
-  const min = 0;
-  const max = Math.round(360 * successChance);
-  // const min = 0;
-  // const max = Math.round(360 * successChance);
-  const rotationOffset = randomInt(0, 360);
-  const rotation = 360 * 5 + rotationOffset;
-
+  const randomDegree = randomInt(0, 360);
+  const start = 0;
+  let end = Math.round(360 * successChance);
+  let rotation = 360 * 5 + randomDegree;
+  const rotationOffset = randomDegree + zeroOffset;
   let success: boolean;
 
-  // chat gpt wrote this and it works idk
-  const circleDegrees = 360;
-  const normalizedPointer = ((rotationOffset + zeroOffset) % circleDegrees + circleDegrees) % circleDegrees;
-  const normalizedAreaStart = (min % circleDegrees + circleDegrees) % circleDegrees;
-  const normalizedAreaEnd = (max % circleDegrees + circleDegrees) % circleDegrees;
+  if (mode === 'TRIANGLE') {
+    const normalizedPointer = ((rotationOffset % 360) + 360) % 360;
+    const normalizedAreaStart = ((start % 360) + 360) % 360;
+    const normalizedAreaEnd = ((end % 360) + 360) % 360;
 
-  if (normalizedAreaStart <= normalizedAreaEnd) {
-    success = normalizedPointer >= normalizedAreaStart && normalizedPointer <= normalizedAreaEnd;
+    if (normalizedAreaStart <= normalizedAreaEnd) {
+      success = normalizedPointer >= normalizedAreaStart && normalizedPointer <= normalizedAreaEnd;
+    } else {
+      success = normalizedPointer >= normalizedAreaStart || normalizedPointer <= normalizedAreaEnd;
+    }
   } else {
-    success = (
-      normalizedPointer >= normalizedAreaStart ||
-      normalizedPointer <= normalizedAreaEnd
-    );
+    const totalRotations = ((start + rotationOffset) / 360) | 0;
+    end += totalRotations * 360;
+    success = end + rotationOffset >= 360;
+    rotation += position === 'TOP' ? -90 : 90;
   }
-  // const success = rotationOffset >= min && rotationOffset <= max;
-  // console.log(offsetMin, offsetMax, rotationOffset, min, max);
-  // if (mode === 'CIRCLE') {
-  //   const fullCircle = 360;
 
-  //   const startDegree = (min + rotationOffset) % fullCircle;
-  //   const endDegree = (max + rotationOffset) % fullCircle;
-
-  //   if (startDegree <= endDegree) success = startDegree <= 0 && endDegree >= 0;
-  //   else success = startDegree <= 0 || endDegree >= 0 || endDegree - startDegree >= fullCircle;
-  // }
-  // else success = rotationOffset >= min && rotationOffset <= max;
   const itemsToAdd = [];
   if (success) {
     for (const globalItem of goalItems) {
