@@ -1,9 +1,13 @@
-<script>
+<script lang="ts">
   import { applyAction, enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
   import { convertPrice } from '$lib';
   import { _ } from 'svelte-i18n';
+
+  function togglePayment() {
+    document.querySelector('.setBalanceForm')!.classList.toggle('is-open');
+  }
 </script>
 
 <div
@@ -208,5 +212,13 @@
         {$_('header.login')}
       </a>
     {/if}
+  </div>
+  <div class="px-5 py-5 bg-navy-900">
+    <button
+      class="w-full button button-primary h-13"
+      on:click="{togglePayment}"
+    >
+      {$_('header.addBalance')}
+    </button>
   </div>
 </div>

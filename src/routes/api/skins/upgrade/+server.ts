@@ -49,7 +49,8 @@ export async function POST(event: RequestEvent) {
     !goalItems ||
     addedBalance < 0 ||
     !isFinite(addedBalance) ||
-    isNaN(addedBalance)
+    isNaN(addedBalance) || 
+    mode === 'CIRCLE'
   )
     return new Response(
       JSON.stringify({ messageKey: 'toasts.error.messages.upgraderInvalidValues' }),
@@ -76,27 +77,27 @@ export async function POST(event: RequestEvent) {
   const zeroOffset = position === 'TOP' ? 0 : 180;
   const randomDegree = randomInt(0, 360);
   const start = 0;
-  let end = Math.round(360 * successChance);
-  let rotation = 360 * 5 + randomDegree;
+  const end = Math.round(360 * successChance);
+  const rotation = 360 * 5 + randomDegree;
   const rotationOffset = randomDegree + zeroOffset;
   let success: boolean;
 
-  if (mode === 'TRIANGLE') {
-    const normalizedPointer = ((rotationOffset % 360) + 360) % 360;
-    const normalizedAreaStart = ((start % 360) + 360) % 360;
-    const normalizedAreaEnd = ((end % 360) + 360) % 360;
+  // if (mode === 'TRIANGLE') {
+  const normalizedPointer = ((rotationOffset % 360) + 360) % 360;
+  const normalizedAreaStart = ((start % 360) + 360) % 360;
+  const normalizedAreaEnd = ((end % 360) + 360) % 360;
 
-    if (normalizedAreaStart <= normalizedAreaEnd) {
-      success = normalizedPointer >= normalizedAreaStart && normalizedPointer <= normalizedAreaEnd;
-    } else {
-      success = normalizedPointer >= normalizedAreaStart || normalizedPointer <= normalizedAreaEnd;
-    }
+  if (normalizedAreaStart <= normalizedAreaEnd) {
+    success = normalizedPointer >= normalizedAreaStart && normalizedPointer <= normalizedAreaEnd;
   } else {
-    const totalRotations = ((start + rotationOffset) / 360) | 0;
-    end += totalRotations * 360;
-    success = end + rotationOffset >= 360;
-    rotation += position === 'TOP' ? -90 : 90;
+    success = normalizedPointer >= normalizedAreaStart || normalizedPointer <= normalizedAreaEnd;
   }
+  // } else {
+  //   const totalRotations = ((start + rotationOffset) / 360);
+  //   end += totalRotations * 360;
+  //   success = end + rotationOffset >= 360;
+  //   rotation += position === 'TOP' ? -90 : 90;
+  // }
 
   const itemsToAdd = [];
   if (success) {

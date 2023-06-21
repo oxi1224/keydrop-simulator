@@ -23,6 +23,26 @@
   .upgrader-mode-container::first-letter {
     text-transform: uppercase;
   }
+
+  .upgraderResult {
+    grid-area: center;
+  }
+
+  @media (min-width: 768px) {
+    .upgraderResult {
+      grid-area: initial;
+    }
+  }
+
+  .upgraderGridTemplate {
+    grid-template: 'center center' 'upgradeBtn upgradeBtn' 'userSkins userSkins' 'upgradeSkins upgradeSkins' 'options options' / 1fr 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .upgraderGridTemplate {
+      grid-template: 'userSkins center upgradeSkins' 1fr 'options center upgradeBtn' / 1fr 1fr 1fr;
+    }
+  }
 </style>
 
 <script lang="ts">
@@ -196,7 +216,7 @@
     ? (displaySuccessChance = 80)
     : null;
   $: upgraderRotation = selectedUpgraderPosition === 'TOP' ? 270 : 90;
-  $: totalGoalValue < 0 ? totalGoalValue = 0 : null;
+  $: totalGoalValue < 0 ? (totalGoalValue = 0) : null;
 
   // Misc
   $: minPrice = (totalSelectedValue - addedBalance) * selectedMultiplier;
@@ -230,39 +250,35 @@
           </span>
         </a>
         <h2 class="text-center text-white t-h2">UPGRADER</h2>
+        <label
+          class="flex w-fit ml-auto cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {$settings.fastOpen
+            ? ''
+            : 'brightness-75'}"
+        >
+          <input
+            type="checkbox"
+            id="fast-open"
+            name="fast-open"
+            class="absolute opacity-0 cursor-pointer h-0 w-0"
+            checked="{$settings.fastOpen}"
+            on:click="{(e) => setFastOpen(e)}"
+          />
+          <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
+        </label>
       </header>
-      <label
-        class="flex w-fit ml-auto cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {$settings.fastOpen
-          ? ''
-          : 'brightness-75'}"
-      >
-        <input
-          type="checkbox"
-          id="fast-open"
-          name="fast-open"
-          class="absolute opacity-0 cursor-pointer h-0 w-0"
-          checked="{$settings.fastOpen}"
-          on:click="{(e) => setFastOpen(e)}"
-        />
-        <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
-      </label>
-      <div
-        class="grid gap-3 sm:gap-5 lg:gap-0"
-        style="grid-template: 'userSkins center upgradeSkins' 1fr 'options center upgradeBtn' / 1fr 1fr 1fr"
-      >
+      <div class="grid gap-3 sm:gap-5 lg:gap-0 upgraderGridTemplate">
         <div
           class="flex flex-col rounded-l-lg rounded-r-lg lg:mt-10 lg:rounded-r-none bg-navy-800 relative"
           style="grid-area: userSkins; background-image: radial-gradient(rgba(255, 255, 255, 0.08) 3%, transparent)"
         >
           <div
-            class="absolute flex w-11/12 flex-wrap justify-center items-center gap-2 max-h-full z-20"
-            style="transform: translate(-50%, -50%); top: 50%; left: 50%;"
+            class="absolute flex w-11/12 flex-wrap justify-center items-center gap-2 h-fit z-20 inset-0 m-auto mt-8 md:mt-auto"
           >
             {#each selectedUpgradeItems as item}
               <img
                 on:click="{() => deselectUpgradeItem(item)}"
                 on:keydown="{null}"
-                class="w-1/5 cursor-pointer"
+                class="w-1/6 md:w-1/5 cursor-pointer"
                 src="{item.globalInvItem.skinImgSource}"
                 alt=""
               />
@@ -310,14 +326,13 @@
           style="grid-area: upgradeSkins; background-image: radial-gradient(rgba(255, 255, 255, 0.08) 3%, transparent);"
         >
           <div
-            class="absolute flex w-11/12 flex-wrap justify-center items-center gap-2 max-h-full z-20"
-            style="transform: translate(-50%, -50%); top: 50%; left: 50%;"
+            class="absolute flex w-11/12 flex-wrap justify-center items-center gap-2 h-fit z-20 inset-0 m-auto mt-8 md:mt-auto"
           >
             {#each selectedGoalItems as item}
               <img
                 on:click="{() => deselectGoalItem(item)}"
                 on:keydown="{null}"
-                class="w-1/5 cursor-pointer"
+                class="w-1/6 md:w-1/5 cursor-pointer"
                 src="{item.skinImgSource}"
                 alt=""
               />
@@ -358,7 +373,7 @@
         </div>
         <div
           id="upgraderResult"
-          class="z-10 flex flex-col items-center justify-center rounded-lg select-none bg-navy-800"
+          class="z-10 flex flex-col items-center w-full justify-center rounded-lg select-none bg-navy-800 upgraderResult"
           style="box-shadow: rgba(0, 0, 0, 0.46) 0px 5px 20px;"
         >
           <div
@@ -567,7 +582,7 @@
           </button>
           <button
             class="col-span-2 h-10 text-navy-200 focus:outline-none disabled:pointer-events-none disabled:opacity-25"
-            disabled="{!successChance || successChance <= 0 || loading}"
+            disabled="{true}"
             on:click="{() =>
               (selectedUpgraderMode = selectedUpgraderMode === 'TRIANGLE' ? 'CIRCLE' : 'TRIANGLE')}"
           >

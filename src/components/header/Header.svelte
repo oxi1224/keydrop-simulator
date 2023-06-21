@@ -10,6 +10,7 @@
     ListboxOption
   } from '@rgossiaux/svelte-headlessui';
   import { createToast } from '$lib';
+  import SetBalance from '$components/forms/SetBalance.svelte';
 
   const languages = [
     { id: 0, shorthand: 'en', language: 'English (English)' },
@@ -41,11 +42,15 @@
     });
     if (res.ok) window.location.reload();
   }
+
+  function togglePayment() {
+    document.querySelector('.setBalanceForm')!.classList.toggle('is-open');
+  }
 </script>
 
 <header class="sticky top-0 z-40 md:relative bg-navy-600 select-none">
   <button
-    class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block cursor-pointer"
+    class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 md:is-open:block cursor-pointer"
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
@@ -67,10 +72,10 @@
         <br />
         <span class="text-navy-300 text-xs">
           Link do donate: <a
+            class="underline hover:text-navy-200"
             href="https://ko-fi.com/oxi1224"
             target="_blank"
             rel="noopener noreferrer"
-            class="underline hover:text-navy-200"
           >
             ko-fi
           </a>
@@ -358,7 +363,7 @@
             rel="alternate"
             hreflang="pl"
             href="/skins/upgrader"
-            class="flex items-center h-full px-2.5 font-semibold leading-none text-blue uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white whitespace-nowrap"
+            class="flex items-center h-full px-2.5 font-semibold leading-none text-blue uppercase transition-colors duration-200 text-10px py-7 lg:px-3 hover:text-white whitespace-nowrap"
           >
             <svg class="w-5 h-5 mr-2">
               <use xlink:href="/icons/nav-icons.svg#donut-chart"></use>
@@ -380,6 +385,20 @@
           </a>
         </li>
       </ul> -->
+      </ul>
     </nav>
   </div>
 </header>
+
+<div
+  class="setBalanceForm hidden fixed z-[100] w-full h-full text-left p-7 is-open:flex justify-center items-center bg-navy-750 rounded-lg bg-opacity-90 text-xs md:text-xl"
+  style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
+> 
+  <button
+    on:click="{togglePayment}"
+    class="text-navy-100 rotate-45 absolute right-3 top-3 text-3xl"
+  >
+    +
+  </button>
+  <SetBalance />
+</div>

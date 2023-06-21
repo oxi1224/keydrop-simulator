@@ -18,6 +18,10 @@
       })
     : null;
   /* eslint-disable indent */
+
+  function togglePayment() {
+    document.querySelector('.setBalanceForm')!.classList.toggle('is-open');
+  }
 </script>
 
 <div class="h-full hidden items-center ml-auto md:flex">
@@ -33,6 +37,24 @@
                 {convertPrice($page.data.currency, $page.data.user?.balance)}
               </span>
             </span>
+          </div>
+          <div class="flex items-center ml-6">
+            <button
+              class="flex items-center flex-shrink-0 h-8 transition-colors duration-200 border rounded-md group text-gold-500 bg-gold-900 border-gold-500 hover:bg-gold-850 hotjaropen"
+              on:click="{togglePayment}"
+            >
+              <div
+                class="flex items-center justify-center my-1.5 ml-1.5 text-white rounded outline-none focus:outline-none bg-navy-800 hotjaropen"
+                style="height: 18px; width: 18px;"
+              >
+                <svg viewBox="0 0 6 6" class="w-1.5 h-1.5 stroke-current">
+                  <path d="M3 0V6"></path>
+                  <path d="M6 3L-1.19125e-07 3"></path>
+                </svg>
+              </div>
+              <div class="mx-2 text-2xs font-semibold uppercase text-10px">{$_("header.addBalance")}</div>
+              <div class="w-0.5"></div>
+            </button>
           </div>
         </div>
       </div>
