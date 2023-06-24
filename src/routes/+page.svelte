@@ -4,7 +4,7 @@
   export let data: { sections: CaseSectionType[] };
 
   let time = '';
-  const duration = 1687175099360 + TimeInMs.Minute * 90;
+  const duration = 1687609045207 + TimeInMs.Minute * 90;
   setInterval(() => {
     const diff = duration - new Date().getTime();
 
