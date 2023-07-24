@@ -13,6 +13,14 @@
       return o;
     });
   }
+
+  function setAudioMute() {
+    settings.update((o) => {
+      o.muteAudio = !o.muteAudio;
+      console.log(o.muteAudio);
+      return o;
+    });
+  }
 </script>
 
 <main
@@ -41,8 +49,11 @@
       </h2>
       <div class="flex justify-center space-x-1 sm:space-x-2 sm:justify-end">
         <button
-          class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 js-sound-btn"
+          class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 js-sound-btn {$settings.muteAudio
+            ? 'brightness-75'
+            : ''}"
           aria-label="Wyłącz dźwięk"
+          on:click="{() => setAudioMute()}"
         >
           <svg viewBox="-10 0 130 120" class="block w-4 h-4 fill-current">
             <path

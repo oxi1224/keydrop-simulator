@@ -37,6 +37,9 @@
   let sellSuccess = false;
   let menuState: 0 | 1 = 0;
 
+  let caseStartPlayer: HTMLAudioElement;
+  let caseEndPlayer: HTMLAudioElement;
+
   // prettier-ignore
   $: tooPoor = !$page.data.user ? true : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] < casePrice;
   $: wonItemsPrice = wonItems.reduce((n, o) => n + o.globalInvItem.skinPrice, 0);
@@ -203,7 +206,8 @@
   }
 
   async function playRollAnimation() {
-    const duration = $settings.fastOpen ? 750 : 2500;
+    if (!$settings.muteAudio) caseStartPlayer.play();
+    const duration = $settings.fastOpen ? 1750 : 3500;
     if (rouletteCount === 1) {
       const bounds = document.querySelectorAll('li.case-item')[45].getBoundingClientRect();
       const x = Math.floor(
@@ -214,7 +218,7 @@
         .animate([{ transform: 'translateX(0)' }, { transform: `translateX(-${x}px)` }], {
           iterations: 1,
           duration: duration,
-          easing: 'cubic-bezier(.8,0,0,1)',
+          easing: 'cubic-bezier(.1,.8,.01,1)',
           fill: 'forwards'
         });
     } else {
@@ -240,6 +244,7 @@
       });
     }
     await new Promise((r) => setTimeout(r, duration));
+    if (!$settings.muteAudio) caseEndPlayer.play();
   }
 
   async function switchMenus() {
@@ -249,6 +254,10 @@
   }
 
   function reOpen() {
+    caseStartPlayer.currentTime = 0;
+    caseStartPlayer.pause();
+    caseEndPlayer.currentTime = 0;
+    caseEndPlayer.pause();
     if (rouletteCount === 1) {
       (document.querySelector('ul.CaseRolls-row') as HTMLElement)!
         .getAnimations()
@@ -332,6 +341,8 @@
   </p>
 </div>
 <section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
+  <audio bind:this="{caseStartPlayer}" src="/audio/case-start.webm"></audio>
+  <audio bind:this="{caseEndPlayer}" src="/audio/case-end.webm"></audio>
   <div class="relative overflow-hidden lg:overflow-visible">
     <svg
       viewBox="0 0 31 31"
@@ -407,10 +418,10 @@
         >
           <div
             class="flex transform self-center justify-self-center absolute z-10 top-1/2 left-1/2 h-5/6 -translate-x-1/2 -translate-y-1/2 scale-100 transition-all duration-700"
-            style="aspect-ratio: 5/3;"
           >
             <div
               class="z-0 grid items-center justify-center grid-cols-1 grid-rows-1 bg-center bg-cover border border-solid rounded bg-navy-700 glow-gold group justify-items-center ratio border-gold sm:rounded-lg css-dap7rg"
+              style="aspect-ratio: 5/3;"
             >
               <div
                 class="z-10 flex items-center justify-end w-full col-start-1 row-start-1 py-2 px-11 sm:px-2 mb-auto font-semibold leading-none text-right uppercase md:p-5 text-navy-200 text-3xs"

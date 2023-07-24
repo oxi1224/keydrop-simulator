@@ -6,6 +6,7 @@
   import { invalidateAll } from '$app/navigation';
   import { _ } from 'svelte-i18n';
   import SetBalance from '$components/forms/SetBalance.svelte';
+  import { onMount } from 'svelte';
 
   let totalSkinPrice = 0;
   let loading = false;
@@ -17,14 +18,43 @@
     // @ts-ignore
     (a, b) => new Date(b.dropDate) - new Date(a.dropDate)
   );
+  let paginatedInventory: ItemWithGlobal[][] = [];
+  let loadedPages = [0];
+
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (loadedPages.length < paginatedInventory.length)
+              loadedPages.push(loadedPages.length);
+            loadedPages = loadedPages;
+          }
+        });
+      },
+      { threshold: 1 }
+    );
+
+    observer.observe(document.querySelector('.loadIndicator')!);
+  });
+
   $: {
     if (allItemsFilter) inventory = $page.data.userInventory || [];
     else inventory = $page.data.userInventory!.filter((obj) => !obj.sold && !obj.upgraded) || [];
   }
   $: totalSkinPrice =
-    $page.data.userInventory!.reduce((n, o) => n + (o.sold || o.upgraded ? 0 : o.globalInvItem.skinPrice), 0) ??
-    0;
+    $page.data.userInventory!.reduce(
+      (n, o) => n + (o.sold || o.upgraded ? 0 : o.globalInvItem.skinPrice),
+      0
+    ) ?? 0;
 
+  $: {
+    paginatedInventory = [];
+    const iterations = Math.ceil(inventory.length / 16);
+    for (let i = 0; i < iterations; i++) {
+      paginatedInventory.push(inventory.slice(i * 18, i * 18 + 18));
+    }
+  }
   async function handleInventorySell() {
     const filterdItems = $page.data.userInventory!.filter((obj) => !obj.sold && !obj.upgraded);
     if (!filterdItems)
@@ -266,10 +296,13 @@
         </div>
         {#if inventory}
           <ul class="grid gap-10 my-3 profile-items-template">
-            {#each inventory as item}
-              <InventoryItem itemData="{item}" />
+            {#each loadedPages as page}
+              {#each paginatedInventory[page] as item}
+                <InventoryItem itemData="{item}" />
+              {/each}
             {/each}
           </ul>
+          <div class="loadIndicator"></div>
         {:else}
           {$_('loading')}
         {/if}

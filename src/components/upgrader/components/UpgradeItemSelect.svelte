@@ -65,6 +65,11 @@
     }
   }
 
+  function handleFastSelect(e: MouseEvent, item: GlobalInventoryItem, targetElm: EventTarget | null) {
+    if (e.buttons !== 1 || selectedGoalItems.map((i) => i.id).includes(item.id)) return;
+    selectGoalItem(item, targetElm);
+  }
+
   async function updateItems(
     currentPage: number,
     skinOrder: 'ASC' | 'DESC',
@@ -150,7 +155,12 @@
   >
     {#if availableItems.length != 0}
       {#each availableItems as item}
-        <li on:keypress="{() => null}" on:click="{(e) => selectGoalItem(item, e.target)}">
+        <li
+          on:keypress="{() => null}"
+          on:focus="{() => null}"
+          on:mousedown="{(e) => selectGoalItem(item, e.target)}"
+          on:mouseover="{(e) => handleFastSelect(e, item, e.target)}"
+        >
           <div
             class="relative flex flex-col items-center justify-between w-full bg-center bg-cover border border-solid rounded-lg select-none group border-navy-500 bg-navy-600 cursor-pointer"
             style="aspect-ratio: 10 / 13; background-image: url(/images/browseritembg.webp);"

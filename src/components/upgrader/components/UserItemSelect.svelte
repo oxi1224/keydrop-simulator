@@ -64,6 +64,15 @@
     }
   }
 
+  function handleFastSelect(e: MouseEvent, item: ItemWithGlobal, targetElm: EventTarget | null) {
+    if (
+      e.buttons !== 1 ||
+      selectedUpgradeItems.map((i) => i.dropId).includes(item.dropId)
+    )
+      return;
+    selectUpgradeItem(item, targetElm);
+  }
+
   $: filteredInv =
     $page.data
       .userInventory!.filter((item) => !item.sold && !item.upgraded)
@@ -116,7 +125,12 @@
   >
     {#if paginatedInventory.length > 0}
       {#each paginatedInventory[inventoryPage] as item}
-        <li on:keypress="{() => null}" on:click="{(e) => selectUpgradeItem(item, e.target)}">
+        <li
+          on:keypress="{() => null}"
+          on:focus="{() => null}"
+          on:mousedown="{(e) => selectUpgradeItem(item, e.target)}"
+          on:mouseover="{(e) => handleFastSelect(e, item, e.target)}"
+        >
           <div
             class="relative flex flex-col items-center justify-between w-full bg-center bg-cover border border-solid rounded-lg select-none group border-navy-500 bg-navy-600 cursor-pointer"
             style="aspect-ratio: 10 / 13; background-image: url(/images/browseritembg.webp);"

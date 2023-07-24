@@ -3,7 +3,8 @@ import type { ToastProps } from './types';
 import { persisted } from 'svelte-local-storage-store';
 
 export const settings = persisted('settings', {
-  fastOpen: false
+  fastOpen: false,
+  muteAudio:  false,
 });
 
 export const toastOpen = writable(false);
