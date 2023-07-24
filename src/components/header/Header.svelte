@@ -55,10 +55,8 @@
   >
     <h1>
       <span class="text-red-400">
-        DZIĘKUJE _Xgamer_#0516 ZA OPŁACENIE WYŻSZEGO PROGU HOSTA
-        <br />
-        <span class="font-bold">Nie istnieją żadne oficjalne tiktoki o stronie.</span>
-        <br />
+        <span class="font-bold">POLECAM WYJŚĆ Z POPRZEDNIEGO DISCORDA. NIEDŁUGO NOWY</span>
+        <!-- <br />
         <span class="text-navy-300 text-xs">
           SERWER DISCORD: <a
             href="https://discord.gg/hY2kwdSZzR"
@@ -68,7 +66,7 @@
           >
             https://discord.gg/hY2kwdSZzR
           </a>
-        </span>
+        </span> -->
         <br />
         <span class="text-navy-300 text-xs">
           Link do donate: <a
