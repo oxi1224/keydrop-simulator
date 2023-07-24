@@ -50,7 +50,7 @@
 
 <header class="sticky top-0 z-40 md:relative bg-navy-600 select-none">
   <button
-    class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 md:is-open:block cursor-pointer"
+    class="is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block cursor-pointer"
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
