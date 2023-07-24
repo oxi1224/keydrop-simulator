@@ -55,18 +55,18 @@
   >
     <h1>
       <span class="text-red-400">
-        <span class="font-bold">POLECAM WYJŚĆ Z POPRZEDNIEGO DISCORDA. NIEDŁUGO NOWY</span>
-        <!-- <br />
-        <span class="text-navy-300 text-xs">
-          SERWER DISCORD: <a
-            href="https://discord.gg/hY2kwdSZzR"
+        <span class="font-bold">POLECAM WYJŚĆ Z POPRZEDNIEGO DISCORDA. NIEDŁUGO NOWY<br>(jeżeli was oscamują to nie płaczcie do mnie)</span>
+        <br />
+        <span class="text-navy-300 font-bold">
+          NOWY SERWER DISCORD: <a
+            href="https://discord.gg/whv3c3kWNh"
             class="underline hover:text-navy-200"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://discord.gg/hY2kwdSZzR
+          https://discord.gg/whv3c3kWNh
           </a>
-        </span> -->
+        </span>
         <br />
         <span class="text-navy-300 text-xs">
           Link do donate: <a
