@@ -50,7 +50,7 @@
 
 <header class="sticky top-0 z-40 md:relative bg-navy-600 select-none">
   <button
-    class="is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block cursor-pointer"
+    class="hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block cursor-pointer"
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
@@ -66,6 +66,7 @@
           >
           https://discord.gg/whv3c3kWNh
           </a>
+        <span class="text-xs text-navy-300">+ na serwerze wyjaśnienia tego co piszą</span>
         </span>
         <br />
         <span class="text-navy-300 text-xs">
