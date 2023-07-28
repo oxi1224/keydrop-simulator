@@ -169,6 +169,8 @@
                   <div
                     on:click="{() => sortItems(0)}"
                     on:keydown="{() => null}"
+                    role="button"
+                    tabindex="0"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
                     {$_('profile.sort.newest')}
@@ -176,6 +178,8 @@
                   <div
                     on:click="{() => sortItems(1)}"
                     on:keydown="{() => null}"
+                    role="button"
+                    tabindex="0"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
                     {$_('profile.sort.oldest')}
@@ -183,6 +187,8 @@
                   <div
                     on:click="{() => sortItems(2)}"
                     on:keydown="{() => null}"
+                    role="button"
+                    tabindex="0"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
                     {$_('profile.sort.cheapest')}
@@ -190,6 +196,8 @@
                   <div
                     on:click="{() => sortItems(3)}"
                     on:keydown="{() => null}"
+                    role="button"
+                    tabindex="0"
                     class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
                   >
                     {$_('profile.sort.mostExpensive')}

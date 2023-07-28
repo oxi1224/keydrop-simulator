@@ -76,7 +76,6 @@
   let selectedUpgraderMode: 'TRIANGLE' | 'CIRCLE' = 'TRIANGLE';
   let selectedUpgraderPosition: 'TOP' | 'BOT' = 'TOP';
   let upgraderRotation = 270;
-  let upgraderArrowRotation = 0;
   const upgraderSvgColors = {
     base: '#dcae64',
     baseRGB: '220, 174, 100',
@@ -118,7 +117,7 @@
       document.getElementById('success-chance-display-wrapper')!.style.transform = 'rotateY(0deg)';
       document.getElementById('status-display-wrapper')!.style.transform = 'rotateY(180deg)';
       upgraderRotation = selectedUpgraderPosition === 'TOP' ? 270 : 90;
-      upgraderArrowRotation = 0;
+      (document.querySelector('.upgrader-pointer-arrow') as HTMLElement)!.style.transform = 'rotate(0deg)';
     }
   }
   function deselectUpgradeItem(...items: ItemWithGlobal[]) {
@@ -186,26 +185,65 @@
       loading = false;
       return;
     }
-    if (selectedUpgraderMode === 'TRIANGLE') upgraderArrowRotation = resBody.rotation;
-    else upgraderRotation = resBody.rotation;
-  
-    await new Promise((r) => setTimeout(r, $settings.fastOpen ? 1500 : 3500));
-    
-    if (resBody.success) upgraderWinPlayer.play();
-    else upgraderLoosePlayer.play();
-
-    upgraderSvgStroke = upgraderSvgColors[resBody.success ? 'win' : 'loss'];
-    upgraderSvgRGBcolor = upgraderSvgColors[resBody.success ? 'winRGB' : 'lossRGB'];
-
-    document.querySelector('.status-display')!.textContent = resBody.success ? 'WIN' : 'LOSS';
-    document.getElementById('success-chance-display-wrapper')!.style.transform = 'rotateY(180deg)';
-    document.getElementById('status-display-wrapper')!.style.transform = 'rotateY(0deg)';
-
+    await playUpgradeAnimation(selectedUpgraderMode, resBody.rotation, resBody.success);
     deselectUpgradeItem(...selectedUpgradeItems);
     if (!resBody.success) deselectGoalItem(...selectedGoalItems);
     upgradeFinished = true;
     await invalidateAll();
     loading = false;
+  }
+
+  async function playUpgradeAnimation(mode: "TRIANGLE" | "CIRCLE", rotation: number, success: boolean) {
+    const duration = $settings.fastOpen ? 1750 : 6500;
+    let interval;
+    if (mode === 'TRIANGLE') {
+      document.querySelector('.upgrader-pointer-arrow')!.animate([
+        { transform: `rotate(0deg)` },
+        { transform: `rotate(${rotation}deg)` }
+      ], {
+        iterations: 1,
+        duration: duration,
+        easing: 'cubic-bezier(.1,.8,.01,1)',
+        fill: 'forwards'
+      });
+
+      let ticked: Element[] = [];
+      interval = setInterval(() => {
+        console.log(ticked);
+        document.querySelectorAll('.tick-point').forEach((tickPoint) => {
+          const rectSelection = document.querySelector('.upgrader-pointer-arrow')!.getBoundingClientRect();
+          const rect = tickPoint!.getBoundingClientRect();
+          if (
+            !$settings.muteAudio &&
+            !ticked.find(el => el.isSameNode(tickPoint)) && 
+            rect.bottom > rectSelection.top &&
+            rect.right > rectSelection.left &&
+            rect.top < rectSelection.bottom &&
+            rect.left < rectSelection.right
+          ) {
+            upgraderTickPlayer.fastSeek(0);
+            upgraderTickPlayer.volume = 0.8;
+            upgraderTickPlayer.play();
+            ticked.push(tickPoint);
+          }
+        });
+        ticked = [];
+      }, 10);
+    } else {
+      return;
+    }
+
+    await new Promise(r => setTimeout(r, duration));
+    if (success) upgraderWinPlayer.play();
+    else upgraderLoosePlayer.play();
+
+    upgraderSvgStroke = upgraderSvgColors[success ? 'win' : 'loss'];
+    upgraderSvgRGBcolor = upgraderSvgColors[success ? 'winRGB' : 'lossRGB'];
+
+    document.querySelector('.status-display')!.textContent = success ? 'WIN' : 'LOSS';
+    document.getElementById('success-chance-display-wrapper')!.style.transform = 'rotateY(180deg)';
+    document.getElementById('status-display-wrapper')!.style.transform = 'rotateY(0deg)';
+    clearInterval(interval);
   }
 
   function setFastOpen(e: MouseEvent) {
@@ -444,27 +482,24 @@
               class="absolute border border-solid rounded-full border-navy-500 w-[94%] h-[94%] top-[3%] left-[3%]"
             ></div>
             <div
-              class="absolute bg-current w-[1px] h-[10px] top-[-6px] left-[50%]"
+              class="absolute bg-current tick-point w-[1px] h-[10px] top-[-6px] left-[50%]"
               style="box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
             <div
-              class="absolute bg-current w-[10px] h-[1px] top-[50%] right-[-6px]"
+              class="absolute bg-current tick-point w-[10px] h-[1px] top-[50%] right-[-6px]"
               style="box-shadow: rgba{upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
             <div
-              class="absolute bg-current w-[1px] h-[10px] bottom-[-6px] left-[50%]"
+              class="absolute bg-current tick-point w-[1px] h-[10px] bottom-[-6px] left-[50%]"
               style="box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
             <div
-              class="absolute bg-current w-[10px] h-[1px] top-[50%] left-[-6px]"
+              class="absolute bg-current tick-point w-[10px] h-[1px] top-[50%] left-[-6px]"
               style="box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
             <div class="absolute top-0 left-0 z-10 flex justify-center w-full h-full">
               <div
                 class="upgrader-spin-triangle upgrader-pointer-arrow"
-                style="transition: transform {$settings.fastOpen
-                  ? '1500ms'
-                  : '3500ms'}; transform: rotate({upgraderArrowRotation}deg);"
               ></div>
             </div>
             <div class="absolute top-0 left-0 z-10 w-full h-full p-5">
@@ -474,10 +509,9 @@
               >
                 <svg
                   viewBox="0 0 100 100"
+                  id="upgrader-indicator"
                   class="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
-                  style="transition: transform {$settings.fastOpen
-                    ? '1500ms'
-                    : '3500ms'}; transform: rotate({upgraderRotation}deg);"
+                  style="transform: rotate({upgraderRotation}deg);"
                 >
                   <circle
                     cx="50"

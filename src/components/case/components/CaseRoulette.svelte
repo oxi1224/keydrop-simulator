@@ -17,6 +17,8 @@
   import type { Item } from '@prisma/client';
   import { page } from '$app/stores';
 
+  const WINNING_ITEM = 55;
+
   export let data: CaseWithDrops;
   let rouletteItems: CaseDrop[] = [];
   let multipleRoulettesItems: CaseDrop[][] = [];
@@ -161,8 +163,8 @@
     const winningCaseDrops: CaseDrop[] = resBody.caseDrops;
     wonItems = resBody.items;
 
-    if (rouletteCount === 1) rouletteItems[45] = winningCaseDrops[0];
-    else winningCaseDrops.forEach((item, i) => (multipleRoulettesItems[i][45] = item));
+    if (rouletteCount === 1) rouletteItems[WINNING_ITEM] = winningCaseDrops[0];
+    else winningCaseDrops.forEach((item, i) => (multipleRoulettesItems[i][WINNING_ITEM] = item));
 
     await playRollAnimation();
     winElmArr.forEach((elm, i) => {
@@ -206,28 +208,62 @@
   }
 
   async function playRollAnimation() {
+    const easing = 'cubic-bezier(.1,.8,.01,1)';
+    const rectSelection = document.querySelector('.point-arrow-top')!.getBoundingClientRect();
+
+    caseEndPlayer.currentTime = 0;
+    caseEndPlayer.pause();
     if (!$settings.muteAudio) caseStartPlayer.play();
-    const duration = $settings.fastOpen ? 1750 : 3500;
+    const duration = $settings.fastOpen ? 1750 : 7000;
+    let interval;
     if (rouletteCount === 1) {
-      const bounds = document.querySelectorAll('li.case-item')[45].getBoundingClientRect();
+      const bounds = document
+        .querySelectorAll('li.case-item')
+        [WINNING_ITEM].getBoundingClientRect();
       const x = Math.floor(
-        Math.random() * (bounds.width * 42.5 - bounds.width * 41.5) + bounds.width * 41.5
+        Math.random() *
+          (bounds.width * (WINNING_ITEM - 2.5) - bounds.width * (WINNING_ITEM - 3.5)) +
+          bounds.width * (WINNING_ITEM - 3.5)
       );
       document
         .querySelector('ul.CaseRolls-row')!
         .animate([{ transform: 'translateX(0)' }, { transform: `translateX(-${x}px)` }], {
           iterations: 1,
           duration: duration,
-          easing: 'cubic-bezier(.1,.8,.01,1)',
+          easing: easing,
           fill: 'forwards'
         });
+
+      const ticked: Element[] = [];
+      
+      interval = setInterval(() => {
+        document.querySelectorAll('li.case-item').forEach((li) => {
+          const tickIndicator = li.querySelector('.tick-indicator')!;
+          const rect = tickIndicator.getBoundingClientRect();
+          if (
+            !$settings.muteAudio &&
+            !ticked.find((el) => el.isSameNode(tickIndicator)) &&
+            rect.bottom > rectSelection.top &&
+            rect.right > rectSelection.left &&
+            rect.top < rectSelection.bottom &&
+            rect.left < rectSelection.right
+          ) {
+            ticked.push(tickIndicator);
+            const tickPlayer = new Audio('/audio/case-tick.webm');
+            tickPlayer.currentTime = 0.05;
+            tickPlayer.play();
+          }
+        });
+      }, 10);
     } else {
       const roulettes = [...document.querySelectorAll('div.CaseRolls-roll')];
       roulettes.forEach((roulette) => {
-        const bounds = [
-          ...document.querySelectorAll('div.CaseRolls-skin')
-        ][45].getBoundingClientRect();
-        const y = Math.floor(bounds.height * 45 - bounds.height * 46 + 1) + bounds.height * 46;
+        const bounds = [...document.querySelectorAll('div.CaseRolls-skin')][
+          WINNING_ITEM
+        ].getBoundingClientRect();
+        const y =
+          Math.floor(bounds.height * WINNING_ITEM - bounds.height * (WINNING_ITEM + 1) + 1) +
+          bounds.height * (WINNING_ITEM + 1);
         roulette.animate(
           [
             { transform: 'translateY(0)' },
@@ -237,13 +273,35 @@
           {
             iterations: 1,
             duration: duration,
-            easing: 'cubic-bezier(.8,0,0,1)',
+            easing: easing,
             fill: 'forwards'
           }
         );
       });
+
+      const ticked: Element[] = [];
+      interval = setInterval(() => {
+        document.querySelector('div.CaseRolls-roll')!.querySelectorAll('.CaseRolls-skin').forEach((elm) => {
+          const tickIndicator = elm.querySelector('.tick-indicator')!;
+          const rect = tickIndicator.getBoundingClientRect();
+          if (
+            !$settings.muteAudio &&
+            !ticked.find((el) => el.isSameNode(tickIndicator)) &&
+            rect.bottom > rectSelection.top &&
+            rect.right > rectSelection.left &&
+            rect.top < rectSelection.bottom &&
+            rect.left < rectSelection.right
+          ) {
+            ticked.push(tickIndicator);
+            const tickPlayer = new Audio('/audio/case-tick.webm');
+            tickPlayer.currentTime = 0.05;
+            tickPlayer.play();
+          }
+        });
+      }, 10);
     }
     await new Promise((r) => setTimeout(r, duration));
+    clearInterval(interval);
     if (!$settings.muteAudio) caseEndPlayer.play();
   }
 
@@ -346,7 +404,7 @@
   <div class="relative overflow-hidden lg:overflow-visible">
     <svg
       viewBox="0 0 31 31"
-      class="point-arrow absolute z-10 w-10 h-10 -mt-5 -ml-5 top-0 left-1/2 rotate-180"
+      class="point-arrow point-arrow-top absolute z-10 w-10 h-10 -mt-5 -ml-5 top-0 left-1/2 rotate-180"
     >
       <defs>
         <filter id="Polygon_43" x="1.5" y="2.5" width="28" height="24" filterUnits="userSpaceOnUse">
@@ -471,6 +529,7 @@
                   {item.weaponName}
                 </div>
               </div>
+              <div class="tick-indicator absolute -right-0.5 top-0 w-1 h-5"></div>
             </li>
           {/each}
         </ul>
@@ -532,6 +591,7 @@
                     style="width: {(3 + rouletteCount) * 10}%;"
                     class="block object-contain h-full z-10"
                   />
+                  <div class="tick-indicator absolute -bottom-0.5 left-0 h-5 w-1"></div>
                 </div>
               {/each}
             </div>
