@@ -209,7 +209,6 @@
 
       let ticked: Element[] = [];
       interval = setInterval(() => {
-        console.log(ticked);
         document.querySelectorAll('.tick-point').forEach((tickPoint) => {
           const rectSelection = document.querySelector('.upgrader-pointer-arrow')!.getBoundingClientRect();
           const rect = tickPoint!.getBoundingClientRect();
@@ -221,7 +220,7 @@
             rect.top < rectSelection.bottom &&
             rect.left < rectSelection.right
           ) {
-            upgraderTickPlayer.fastSeek(0);
+            upgraderTickPlayer.currentTime = 0;
             upgraderTickPlayer.volume = 0.8;
             upgraderTickPlayer.play();
             ticked.push(tickPoint);
