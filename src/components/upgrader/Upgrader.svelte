@@ -222,7 +222,7 @@
           ) {
             upgraderTickPlayer.currentTime = 0;
             upgraderTickPlayer.volume = 0.8;
-            upgraderTickPlayer.play();
+            // upgraderTickPlayer.play();
             ticked.push(tickPoint);
           }
         });
