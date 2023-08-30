@@ -55,6 +55,14 @@ export interface CaseBattleParsedDropData {
   [key: number]: CaseDropWithGlobal[][];
 }
 
+export interface CaseBattleWonItems {
+  [key: number]: string[];
+}
+
+export interface CaseBattleParsedWonItems {
+  [key: number]: CaseDropWithGlobal[];
+}
+
 export type UserWithoutHash = Omit<User, 'passwordHash'>;
 
 export interface CaseBattlePlayer extends UserWithoutHash {
@@ -72,14 +80,16 @@ export interface CaseBattlePlayers {
   [key: number]: CaseBattlePlayer | CaseBattleBotPlayer;
 }
 
-export interface CaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players'> {
+export interface CaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players' | 'wonItems'> {
   caseData: CaseBattleCaseData[];
   players: CaseBattlePlayers;
   drops: CaseBattleDropData;
+  wonItems: CaseBattleWonItems;
 }
 
-export interface ParsedCaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players'> {
+export interface ParsedCaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players' | 'wonItems'> {
   caseData: CaseBattleCaseData[];
   players: CaseBattlePlayers;
   drops: CaseBattleParsedDropData;
+  wonItems: CaseBattleParsedWonItems;
 }

@@ -5,10 +5,7 @@
   import { convertPrice, createToast } from '$lib';
   import type { Case } from '@prisma/client';
   import { RadioGroup, RadioGroupOption } from '@rgossiaux/svelte-headlessui';
-  import { io } from 'socket.io-client';
   import { _ } from 'svelte-i18n';
-
-  const socket = io();
 
   const cases: Case[] = $page.data.cases;
 
@@ -45,7 +42,6 @@
       return;
     }
     loading = false;
-    socket.emit('caseBattlePlayerJoin', resBody.battleID, $page.data.user, 0);
     goto(resBody.redirectTo);
   }
 

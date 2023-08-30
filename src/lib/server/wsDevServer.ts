@@ -15,8 +15,6 @@ import type { Plugin } from 'vite';
 import { dropsToItems } from './dropToItem';
 import { parseCaseBattle } from './parseCaseBattle';
 
-const WINNING_ITEM = 35;
-
 const bots: CaseBattleBotPlayer[] = [
   {
     id: '0',
@@ -47,6 +45,7 @@ const bots: CaseBattleBotPlayer[] = [
 export const webSocketServer: Plugin = {
   name: 'webSocketServer',
   configureServer(server) {
+
     interface ServerToClientEvents {
       caseBattleListUpdate: (caseBattles: CaseBattle[]) => void;
       caseBattlePlayerUpdate: (players: CaseBattlePlayers) => void;
@@ -80,20 +79,21 @@ export const webSocketServer: Plugin = {
     >(server.httpServer as any);
 
     setInterval(async () => {
-      await db.caseBattle.deleteMany({
+      db.caseBattle.deleteMany({
         where: {
           createdAt: {
             lt: new Date(new Date().getTime() - 60_000 * 20)
           }
         }
       });
+      
       const battles = await db.caseBattle.findMany({
         where: {
           finished: false
         }
       });
       io.emit('caseBattleListUpdate', battles as any as CaseBattle[]);
-    }, 1000);
+    }, 30000);
 
     io.on('connection', async (socket) => {
       // @ts-ignore
@@ -101,7 +101,7 @@ export const webSocketServer: Plugin = {
 
       if (_battleID) socket.join(_battleID);
       socket.on('caseBattlePlayerJoin', async (battleID, userData, position) => {
-        const battle: CaseBattle = (await db.caseBattle.findUnique({
+        const battle: CaseBattle = await db.caseBattle.findUnique({
           where: {
             id: battleID
           },
@@ -110,9 +110,10 @@ export const webSocketServer: Plugin = {
             playerCount: true,
             totalPrice: true
           }
-        })) as any;
+        }) as any;
 
         if (!battle || !battle.players) return;
+        if (Object.values(battle.players).map(p => p.id).includes(userData?.id)) return;
         if (userData && userData.balance < battle.totalPrice) {
           socket.emit(
             'error',
@@ -148,7 +149,7 @@ export const webSocketServer: Plugin = {
             }
           })) as any;
 
-          const parsedBattle: ParsedCaseBattle = await parseCaseBattle(updatedBattle);
+          const parsedBattle: ParsedCaseBattle = await parseCaseBattle(updatedBattle, false, true);
 
           const playerStats: {
             [key: number]: { total: number; user: CaseBattleBotPlayer | CaseBattlePlayer };
@@ -170,13 +171,12 @@ export const webSocketServer: Plugin = {
             }
 
             const intPos = parseInt(pos);
-            const wonItems = parsedBattle.drops![intPos].map(arr => arr[WINNING_ITEM]).flat();
-            const totalValue = wonItems.reduce((t, d) => t += d.skinPrice, 0);
+            const totalValue = parsedBattle.wonItems[intPos].reduce((t, d) => t += d.skinPrice, 0);
             playerStats[intPos] = {
               user: user,
               total: totalValue 
             };
-            allDrops = allDrops.concat(wonItems);
+            allDrops = allDrops.concat(parsedBattle.wonItems[intPos]);
           }
           const keys = Object.keys(playerStats).map((str) => parseInt(str));
           const maxValue = Math.max(...keys.map((k) => playerStats[k].total));

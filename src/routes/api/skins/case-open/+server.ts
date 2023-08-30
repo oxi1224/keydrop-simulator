@@ -49,7 +49,7 @@ export async function POST(event: RequestEvent) {
     });
 
   if (user[caseData.goldenCase ? 'goldBalance' : 'balance'] < caseData.price * count)
-    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.tooPoor' }), {
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.notEnoughBalance' }), {
       status: 404
     });
 

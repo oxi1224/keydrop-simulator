@@ -1,8 +1,10 @@
-import type { CaseBattleDropData, CaseWithDrops } from '$lib';
+import type { CaseBattleDropData, CaseBattleWonItems, CaseWithDrops } from '$lib';
 import { db, userFromSessionID } from '$lib/server';
 import type { RequestEvent } from '@sveltejs/kit';
 import { randomInt } from 'crypto';
 import { nanoid } from 'nanoid';
+
+const WINNING_ITEM = 35;
 
 interface RequestBody {
   cases: { caseName: string; count: number }[];
@@ -38,9 +40,12 @@ export async function POST(event: RequestEvent) {
   });
 
   if (hasActiveBattles)
-    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.battleLimitReached' }), {
-      status: 403
-    });
+    return new Response(
+      JSON.stringify({ messageKey: 'toasts.error.messages.battleLimitReached' }),
+      {
+        status: 403
+      }
+    );
 
   const totalCaseCount = cases.reduce((t, c) => (t += c.count), 0);
   if (totalCaseCount > 50 || !cases || !playerCount || !publicMode || !mode)
@@ -71,6 +76,7 @@ export async function POST(event: RequestEvent) {
     });
 
   const caseBattleDrops: CaseBattleDropData = {};
+  const wonItems: CaseBattleWonItems = {};
   for (let i = 0; i < playerCount; i++) {
     const caseDrops: string[][] = [];
     for (const cData of caseData) {
@@ -90,24 +96,26 @@ export async function POST(event: RequestEvent) {
         caseDrops.push(caseRollItemIDs);
       }
     }
+    wonItems[i] = caseDrops.map((drops) => drops[WINNING_ITEM]).flat();
     caseBattleDrops[i] = caseDrops;
   }
 
   const totalCasePrice = caseData.reduce((t, c) => (t += c.price * c.count), 0);
   if (user.balance < totalCasePrice)
-    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.tooPoor' }), {
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.notEnoughBalance' }), {
       status: 400
     });
 
   let joinKey;
   if (publicMode === 'private') joinKey = nanoid();
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { passwordHash, ...userWithoutHash } = user;
   const battle = await db.caseBattle.create({
     data: {
       owner: user.id,
       totalPrice: totalCasePrice,
       totalCases: totalCaseCount,
-      players: {},
+      players: { 0: { ...userWithoutHash, bot: false } } as any,
       playerCount: playerCount,
       caseData: caseData.map((c) => ({
         websiteName: c.websiteName,
@@ -115,11 +123,13 @@ export async function POST(event: RequestEvent) {
         count: c.count
       })),
       drops: caseBattleDrops as any,
+      wonItems: wonItems as any,
       public: publicMode === 'public',
       joinKey: joinKey,
       mode: mode
     }
   });
+
   return new Response(
     JSON.stringify({
       messageKey: 'success',

@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ locals, params, url }) => {
   })) as any as CaseBattle;
   if (!battle || (!battle?.public && !joinKey) || battle?.joinKey !== joinKey)
     throw redirect(300, '/case-battle/list');
-  const parsedBattle = await parseCaseBattle(battle);
+  const parsedBattle = await parseCaseBattle(battle, true, false);
 
   return {
     battleData: parsedBattle,

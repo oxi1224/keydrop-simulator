@@ -105,6 +105,7 @@ model CaseBattle {
   playerCount Int
   caseData    Json[] // { urlName: Case.websiteName, imgName: Case.imgName, count: Int }[] -- in order to save space;
   drops       Json   // { [player: 0-3]: CaseDrop.id[][] }
+  wonItems    Json   // { [player: 0-3]: CaseDrop.id[] }
   public      Boolean
   joinKey     String?
   mode        String

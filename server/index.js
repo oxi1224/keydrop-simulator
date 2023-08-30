@@ -8,7 +8,6 @@ import { Server } from 'socket.io';
 import { handler } from '../build/handler.js';
 
 const db = new PrismaClient();
-const WINNING_ITEM = 35;
 const bots = [
   {
     id: '0',
@@ -36,14 +35,14 @@ const bots = [
   }
 ];
 
-const port = 8080;
+const port = 8070;
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
 try {
   setInterval(async () => {
-    await db.caseBattle.deleteMany({
+    db.caseBattle.deleteMany({
       where: {
         createdAt: {
           lt: new Date(new Date().getTime() - 60_000 * 20)
@@ -53,17 +52,16 @@ try {
 
     const battles = await db.caseBattle.findMany({
       where: {
-        finished: false,
-        public: true
+        finished: false
       }
     });
     io.emit('caseBattleListUpdate', battles);
-  }, 1000);
-  
+  }, 30000);
+
   io.on('connection', async (socket) => {
     // @ts-ignore
     const _battleID = socket.request._query['battleID'];
-  
+
     if (_battleID) socket.join(_battleID);
     socket.on('caseBattlePlayerJoin', async (battleID, userData, position) => {
       const battle = await db.caseBattle.findUnique({
@@ -76,8 +74,14 @@ try {
           totalPrice: true
         }
       });
-  
+
       if (!battle || !battle.players) return;
+      if (
+        Object.values(battle.players)
+          .map((p) => p.id)
+          .includes(userData?.id)
+      )
+        return;
       if (userData && userData.balance < battle.totalPrice) {
         socket.emit(
           'error',
@@ -100,9 +104,9 @@ try {
           players: battle.players
         }
       });
-  
+
       updatePlayers(io, battleID, battle.players);
-  
+
       if (Object.values(battle.players).filter((v) => v).length === battle.playerCount) {
         const updatedBattle = await db.caseBattle.update({
           where: {
@@ -112,9 +116,9 @@ try {
             finished: true
           }
         });
-  
-        const parsedBattle = await parseCaseBattle(updatedBattle);
-  
+
+        const parsedBattle = await parseCaseBattle(updatedBattle, false, true);
+
         const playerStats = {};
         let allDrops = [];
         // prettier-ignore
@@ -131,25 +135,24 @@ try {
               }
             });
           }
-  
+
           const intPos = parseInt(pos);
-          const wonItems = parsedBattle.drops[intPos].map(arr => arr[WINNING_ITEM]).flat();
-          const totalValue = wonItems.reduce((t, d) => t += d.skinPrice, 0);
+          const totalValue = parsedBattle.wonItems[intPos].reduce((t, d) => t += d.skinPrice, 0);
           playerStats[intPos] = {
             user: user,
             total: totalValue 
           };
-          allDrops = allDrops.concat(wonItems);
+          allDrops = allDrops.concat(parsedBattle.wonItems[intPos]);
         }
         const keys = Object.keys(playerStats).map((str) => parseInt(str));
         const maxValue = Math.max(...keys.map((k) => playerStats[k].total));
         const highestValues = keys.filter((k) => playerStats[k].total === maxValue);
         const itemsToAdd = dropsToItems(allDrops, 'CASE BATTLE');
         let winnerPos = highestValues[0];
-  
+
         if (highestValues.length > 1)
           winnerPos = highestValues[randomInt(0, highestValues.length - 1)];
-  
+
         if (!playerStats[winnerPos].user.bot) {
           await db.user.update({
             where: {
@@ -162,7 +165,7 @@ try {
             }
           });
         }
-  
+
         await db.caseBattle.update({
           where: {
             id: battleID
@@ -171,12 +174,12 @@ try {
             winner: winnerPos
           }
         });
-  
+
         io.to(battleID.toString()).emit('caseBattleStateChange', true, winnerPos);
         io.in(battleID.toString()).disconnectSockets();
       }
     });
-  
+
     socket.on('caseBattlePlayerLeave', async (battleID, userData, position) => {
       const battle = await db.caseBattle.findUnique({
         where: {
@@ -187,10 +190,10 @@ try {
           owner: true
         }
       });
-  
+
       if (!battle || !battle.players) return;
-  
-      if (battle.owner === userData.id) {
+
+      if (battle.owner === userData.id && Object.values(battle.players).length > 1) {
         const newOwnerID = Object.values(battle.players).find((u) => u.id !== battle.owner).id;
         if (!newOwnerID) {
           await db.caseBattle.delete({
@@ -212,7 +215,7 @@ try {
         });
         io.to(battleID.toString()).emit('caseBattleOwnerUpdate', newOwnerID);
       }
-  
+
       // @ts-ignore
       battle.players[position] = undefined;
       await db.caseBattle.update({
@@ -223,9 +226,9 @@ try {
           players: battle.players
         }
       });
-  
+
       updatePlayers(io, battleID, battle.players);
-  
+
       if (Object.values(battle.players).filter((v) => v).length === 0) {
         await db.caseBattle.delete({
           where: {
@@ -240,7 +243,6 @@ try {
 } catch (e) {
   console.error(e);
 }
-
 
 app.use(handler);
 server.listen(port, () => {
@@ -267,27 +269,39 @@ function dropsToItems(drops, origin) {
   });
 }
 
-export async function parseCaseBattle(battle) {
+async function parseCaseBattle(battle, parseDrops, parseWonItems) {
   const parsedBattle = battle;
-  for (let i = 0; i < battle.playerCount; i++) {
-    const battleCaseDrops = battle.drops[i];
-    const parsedBattleDrops = [];
-    for (const IDs of battleCaseDrops) {
+
+  if (parseDrops) {
+    for (let i = 0; i < battle.playerCount; i++) {
       const parsedItems = [];
-      for (const id of IDs) {
-        const itemData = await db.caseDrop.findUnique({
-          where: {
-            id: id
-          },
-          include: {
-            globalInvItem: true
-          }
-        });
-        if (itemData) parsedItems.push(itemData);
+      const battleCaseDrops = battle.drops[i];
+      for (const IDs of battleCaseDrops) {
+        const items = await db.$transaction(
+          IDs.map((id) =>
+            db.caseDrop.findFirst({
+              where: { id: id },
+              include: { globalInvItem: true }
+            })
+          )
+        );
+        parsedItems.push(items);
       }
-      parsedBattleDrops.push(parsedItems);
+      parsedBattle.drops[i] = parsedItems;
     }
-    parsedBattle.drops[i] = parsedBattleDrops;
+  } else if (parseWonItems) {
+    for (let i = 0; i < battle.playerCount; i++) {
+      const IDs = battle.wonItems[i];
+      const items = await db.$transaction(
+        IDs.map((id) =>
+          db.caseDrop.findFirst({
+            where: { id: id },
+            include: { globalInvItem: true }
+          })
+        )
+      );
+      parsedBattle.wonItems[i] = items;
+    }
   }
   return parsedBattle;
 }
