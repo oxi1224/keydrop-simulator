@@ -278,6 +278,7 @@
             <button
               class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border border-navy-400 bg-navy-500 text-xs font-bold text-white transition-colors duration-200 hover:border-white hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:pointer-events-none disabled:cursor-default disabled:opacity-25"
               on:click="{() => updateCount(caseData, 1)}"
+              disabled="{totalCaseCount >= 20}"
             >
               +
             </button>
