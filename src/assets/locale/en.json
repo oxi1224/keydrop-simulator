@@ -125,7 +125,8 @@
         "upgraderInvalidValues": "Some values are invalid",
         "upgraderInvalidChance": "invalid chance",
         "spotTaken": "Spot Taken",
-        "invalidUrl": "Nieprawidłowy link"
+        "invalidUrl": "Invalid URL",
+        "battleLimitReached": "Battle limit has been reached (1)"
       }
     },
     "success": {

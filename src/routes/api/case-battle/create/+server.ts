@@ -30,6 +30,18 @@ export async function POST(event: RequestEvent) {
       status: 404
     });
 
+  const hasActiveBattles = await db.caseBattle.findFirst({
+    where: {
+      owner: user.id,
+      finished: false
+    }
+  });
+
+  if (hasActiveBattles)
+    return new Response(JSON.stringify({ messageKey: 'toasts.error.messages.battleLimitReached' }), {
+      status: 403
+    });
+
   const totalCaseCount = cases.reduce((t, c) => (t += c.count), 0);
   if (totalCaseCount > 50 || !cases || !playerCount || !publicMode || !mode)
     return new Response(JSON.stringify({ messageKey: '' }), {

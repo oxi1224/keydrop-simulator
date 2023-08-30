@@ -187,7 +187,7 @@ io.on('connection', async (socket) => {
 
     if (!battle || !battle.players) return;
 
-    if (battle.owner === userData.id && Object.values(battle.players).length > 1) {
+    if (battle.owner === userData.id) {
       const newOwnerID = Object.values(battle.players).find((u) => u.id !== battle.owner).id;
       await db.caseBattle.update({
         where: {
@@ -197,6 +197,16 @@ io.on('connection', async (socket) => {
           owner: newOwnerID
         }
       });
+      if (!newOwnerID) {
+        await db.caseBattle.delete({
+          where: {
+            id: battleID
+          }
+        });
+        io.to(battleID.toString()).emit('redirect', 'case-battle/list');
+        io.to(battleID.toString()).disconnectSockets();
+        return;
+      }
       io.to(battleID.toString()).emit('caseBattleOwnerUpdate', newOwnerID);
     }
 

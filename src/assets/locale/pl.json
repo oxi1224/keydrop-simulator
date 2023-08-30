@@ -125,7 +125,8 @@
         "upgraderInvalidValues": "Niektóre podane dane są nieprawidłowe",
         "upgraderInvalidChance": "Niepoprawna szansa",
         "spotTaken": "Miejsce zajęte",
-        "invalidUrl": "Nieprawidłowy link"
+        "invalidUrl": "Nieprawidłowy link",
+        "battleLimitReached": "Limit walk został osiągnięty (1)"
       }
     },
     "success": {
