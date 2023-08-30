@@ -41,199 +41,204 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-setInterval(async () => {
-  await db.caseBattle.deleteMany({
-    where: {
-      createdAt: {
-        lt: new Date(new Date().getTime() - 60_000 * 20)
-      }
-    }
-  });
-  const battles = await db.caseBattle.findMany({
-    where: {
-      finished: false
-    }
-  });
-  io.emit('caseBattleListUpdate', battles);
-}, 1000);
-
-io.on('connection', async (socket) => {
-  // @ts-ignore
-  const _battleID = socket.request._query['battleID'];
-
-  if (_battleID) socket.join(_battleID);
-  socket.on('caseBattlePlayerJoin', async (battleID, userData, position) => {
-    const battle = await db.caseBattle.findUnique({
+try {
+  setInterval(async () => {
+    await db.caseBattle.deleteMany({
       where: {
-        id: battleID
-      },
-      select: {
-        players: true,
-        playerCount: true,
-        totalPrice: true
+        createdAt: {
+          lt: new Date(new Date().getTime() - 60_000 * 20)
+        }
       }
     });
-
-    if (!battle || !battle.players) return;
-    if (userData && userData.balance < battle.totalPrice) {
-      socket.emit(
-        'error',
-        'toasts.error.header',
-        'toasts.error.messages.notEnoughBalance',
-        'error'
-      );
-      return;
-    }
-    if (battle.players[position]) {
-      socket.emit('error', 'toasts.error.header', 'toasts.error.messages.spotTaken', 'error');
-      return;
-    }
-    battle.players[position] = userData ? { ...userData, bot: false } : bots[position];
-    await db.caseBattle.update({
+    const battles = await db.caseBattle.findMany({
       where: {
-        id: battleID
-      },
-      data: {
-        players: battle.players
+        finished: false
       }
     });
-
-    updatePlayers(io, battleID, battle.players);
-
-    if (Object.values(battle.players).filter((v) => v).length === battle.playerCount) {
-      const updatedBattle = await db.caseBattle.update({
+    io.emit('caseBattleListUpdate', battles);
+  }, 1000);
+  
+  io.on('connection', async (socket) => {
+    // @ts-ignore
+    const _battleID = socket.request._query['battleID'];
+  
+    if (_battleID) socket.join(_battleID);
+    socket.on('caseBattlePlayerJoin', async (battleID, userData, position) => {
+      const battle = await db.caseBattle.findUnique({
         where: {
           id: battleID
         },
-        data: {
-          finished: true
+        select: {
+          players: true,
+          playerCount: true,
+          totalPrice: true
         }
       });
-
-      const parsedBattle = await parseCaseBattle(updatedBattle);
-
-      const playerStats = {};
-      let allDrops = [];
-      // prettier-ignore
-      for (const [pos, user] of Object.entries(updatedBattle.players)) {
-        if (!user.bot) {
-          await db.user.update({
-            where: {
-              id: user.id
-            },
-            data: {
-              balance: {
-                decrement: updatedBattle.totalPrice
-              }
-            }
-          });
-        }
-
-        const intPos = parseInt(pos);
-        const wonItems = parsedBattle.drops[intPos].map(arr => arr[WINNING_ITEM]).flat();
-        const totalValue = wonItems.reduce((t, d) => t += d.skinPrice, 0);
-        playerStats[intPos] = {
-          user: user,
-          total: totalValue 
-        };
-        allDrops = allDrops.concat(wonItems);
+  
+      if (!battle || !battle.players) return;
+      if (userData && userData.balance < battle.totalPrice) {
+        socket.emit(
+          'error',
+          'toasts.error.header',
+          'toasts.error.messages.notEnoughBalance',
+          'error'
+        );
+        return;
       }
-      const keys = Object.keys(playerStats).map((str) => parseInt(str));
-      const maxValue = Math.max(...keys.map((k) => playerStats[k].total));
-      const highestValues = keys.filter((k) => playerStats[k].total === maxValue);
-      const itemsToAdd = dropsToItems(allDrops, 'CASE BATTLE');
-      let winnerPos = highestValues[0];
-
-      if (highestValues.length > 1)
-        winnerPos = highestValues[randomInt(0, highestValues.length - 1)];
-
-      if (!playerStats[winnerPos].user.bot) {
-        await db.user.update({
-          where: {
-            id: playerStats[winnerPos].user.id
-          },
-          data: {
-            inventory: {
-              create: itemsToAdd
-            }
-          }
-        });
+      if (battle.players[position]) {
+        socket.emit('error', 'toasts.error.header', 'toasts.error.messages.spotTaken', 'error');
+        return;
       }
-
+      battle.players[position] = userData ? { ...userData, bot: false } : bots[position];
       await db.caseBattle.update({
         where: {
           id: battleID
         },
         data: {
-          winner: winnerPos
+          players: battle.players
         }
       });
-
-      io.to(battleID.toString()).emit('caseBattleStateChange', true, winnerPos);
-      io.in(battleID.toString()).disconnectSockets();
-    }
-  });
-
-  socket.on('caseBattlePlayerLeave', async (battleID, userData, position) => {
-    const battle = await db.caseBattle.findUnique({
-      where: {
-        id: battleID
-      },
-      select: {
-        players: true,
-        owner: true
+  
+      updatePlayers(io, battleID, battle.players);
+  
+      if (Object.values(battle.players).filter((v) => v).length === battle.playerCount) {
+        const updatedBattle = await db.caseBattle.update({
+          where: {
+            id: battleID
+          },
+          data: {
+            finished: true
+          }
+        });
+  
+        const parsedBattle = await parseCaseBattle(updatedBattle);
+  
+        const playerStats = {};
+        let allDrops = [];
+        // prettier-ignore
+        for (const [pos, user] of Object.entries(updatedBattle.players)) {
+          if (!user.bot) {
+            await db.user.update({
+              where: {
+                id: user.id
+              },
+              data: {
+                balance: {
+                  decrement: updatedBattle.totalPrice
+                }
+              }
+            });
+          }
+  
+          const intPos = parseInt(pos);
+          const wonItems = parsedBattle.drops[intPos].map(arr => arr[WINNING_ITEM]).flat();
+          const totalValue = wonItems.reduce((t, d) => t += d.skinPrice, 0);
+          playerStats[intPos] = {
+            user: user,
+            total: totalValue 
+          };
+          allDrops = allDrops.concat(wonItems);
+        }
+        const keys = Object.keys(playerStats).map((str) => parseInt(str));
+        const maxValue = Math.max(...keys.map((k) => playerStats[k].total));
+        const highestValues = keys.filter((k) => playerStats[k].total === maxValue);
+        const itemsToAdd = dropsToItems(allDrops, 'CASE BATTLE');
+        let winnerPos = highestValues[0];
+  
+        if (highestValues.length > 1)
+          winnerPos = highestValues[randomInt(0, highestValues.length - 1)];
+  
+        if (!playerStats[winnerPos].user.bot) {
+          await db.user.update({
+            where: {
+              id: playerStats[winnerPos].user.id
+            },
+            data: {
+              inventory: {
+                create: itemsToAdd
+              }
+            }
+          });
+        }
+  
+        await db.caseBattle.update({
+          where: {
+            id: battleID
+          },
+          data: {
+            winner: winnerPos
+          }
+        });
+  
+        io.to(battleID.toString()).emit('caseBattleStateChange', true, winnerPos);
+        io.in(battleID.toString()).disconnectSockets();
       }
     });
-
-    if (!battle || !battle.players) return;
-
-    if (battle.owner === userData.id) {
-      const newOwnerID = Object.values(battle.players).find((u) => u.id !== battle.owner).id;
-      if (!newOwnerID) {
+  
+    socket.on('caseBattlePlayerLeave', async (battleID, userData, position) => {
+      const battle = await db.caseBattle.findUnique({
+        where: {
+          id: battleID
+        },
+        select: {
+          players: true,
+          owner: true
+        }
+      });
+  
+      if (!battle || !battle.players) return;
+  
+      if (battle.owner === userData.id) {
+        const newOwnerID = Object.values(battle.players).find((u) => u.id !== battle.owner).id;
+        if (!newOwnerID) {
+          await db.caseBattle.delete({
+            where: {
+              id: battleID
+            }
+          });
+          io.to(battleID.toString()).emit('redirect', 'case-battle/list');
+          io.to(battleID.toString()).disconnectSockets();
+          return;
+        }
+        await db.caseBattle.update({
+          where: {
+            id: battleID
+          },
+          data: {
+            owner: newOwnerID
+          }
+        });
+        io.to(battleID.toString()).emit('caseBattleOwnerUpdate', newOwnerID);
+      }
+  
+      // @ts-ignore
+      battle.players[position] = undefined;
+      await db.caseBattle.update({
+        where: {
+          id: battleID
+        },
+        data: {
+          players: battle.players
+        }
+      });
+  
+      updatePlayers(io, battleID, battle.players);
+  
+      if (Object.values(battle.players).filter((v) => v).length === 0) {
         await db.caseBattle.delete({
           where: {
             id: battleID
           }
         });
         io.to(battleID.toString()).emit('redirect', 'case-battle/list');
-        io.to(battleID.toString()).disconnectSockets();
-        return;
-      }
-      await db.caseBattle.update({
-        where: {
-          id: battleID
-        },
-        data: {
-          owner: newOwnerID
-        }
-      });
-      io.to(battleID.toString()).emit('caseBattleOwnerUpdate', newOwnerID);
-    }
-
-    // @ts-ignore
-    battle.players[position] = undefined;
-    await db.caseBattle.update({
-      where: {
-        id: battleID
-      },
-      data: {
-        players: battle.players
+        io.in(battleID.toString()).disconnectSockets();
       }
     });
-
-    updatePlayers(io, battleID, battle.players);
-
-    if (Object.values(battle.players).filter((v) => v).length === 0) {
-      await db.caseBattle.delete({
-        where: {
-          id: battleID
-        }
-      });
-      io.to(battleID.toString()).emit('redirect', 'case-battle/list');
-      io.in(battleID.toString()).disconnectSockets();
-    }
   });
-});
+} catch (e) {
+  console.error(e);
+}
+
 
 app.use(handler);
 server.listen(port, () => {
