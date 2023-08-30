@@ -9,8 +9,8 @@ export async function parseCaseBattle(
   const parsedBattle: ParsedCaseBattle = battle as any;
 
   if (parseDrops) {
+    const memo: Map<string, CaseDropWithGlobal> = new Map();
     for (let i = 0; i < battle.playerCount; i++) {
-      const memo: Map<string, CaseDropWithGlobal> = new Map();
       const parsedItems: CaseDropWithGlobal[][] = [];
       const battleCaseDrops: string[][] = battle.drops![i] as any;
       for (const IDs of battleCaseDrops) {

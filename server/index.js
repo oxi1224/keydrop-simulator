@@ -50,13 +50,13 @@ try {
       }
     });
 
-    // const battles = await db.caseBattle.findMany({
-    //   where: {
-    //     finished: false
-    //   }
-    // });
-    // io.emit('caseBattleListUpdate', battles);
-  }, 60_000);
+    const battles = await db.caseBattle.findMany({
+      where: {
+        finished: false
+      }
+    });
+    io.emit('caseBattleListUpdate', battles);
+  }, 20_000);
 
   io.on('connection', async (socket) => {
     // @ts-ignore

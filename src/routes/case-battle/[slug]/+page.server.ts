@@ -5,6 +5,8 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals, params, url }) => {
   const joinKey: string | null = url.searchParams.get('joinKey');
+
+  if (!params.slug) throw redirect(300, '/case-battle/list');
   const battle = (await db.caseBattle.findUnique({
     where: {
       id: parseInt(params.slug)
