@@ -48,7 +48,7 @@ export async function POST(event: RequestEvent) {
     );
 
   const totalCaseCount = cases.reduce((t, c) => (t += c.count), 0);
-  if (totalCaseCount > 25 || !cases || !playerCount || !publicMode || !mode)
+  if (totalCaseCount > 20 || !cases || !playerCount || !publicMode || !mode)
     return new Response(JSON.stringify({ messageKey: '' }), {
       status: 400
     });

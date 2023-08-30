@@ -31,6 +31,7 @@ export async function parseCaseBattle(
       }
       parsedBattle.drops[i] = parsedItems;
     }
+    memo.clear();
   } else if (parseWonItems) {
     for (let i = 0; i < battle.playerCount; i++) {
       const IDs: string[] = battle.wonItems[i];

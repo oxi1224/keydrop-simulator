@@ -48,7 +48,7 @@
   function updateCount(caseData: Case, n: number) {
     const index = selectedCases.findIndex((c) => c.urlName === caseData.urlName);
     const selectedCase = selectedCases[index];
-    if (totalCaseCount + n > 25 || selectedCase.count <= 0) return;
+    if (totalCaseCount + n > 20 || selectedCase.count <= 0) return;
     if (selectedCase.count + n == 0) {
       selectedCases.splice(index, 1);
       selectedCases = selectedCases;
