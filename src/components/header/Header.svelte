@@ -49,37 +49,35 @@
   }
 </script>
 
-<header class="sticky top-0 z-40 md:relative bg-navy-600 select-none">
+<header class="sticky top-0 z-40 select-none bg-navy-600 md:relative">
   <button
-    class="announcementBar hidden is-open w-full bg-navy-800 text-navy-200 text-center py-2 is-open:block cursor-pointer"
+    class="announcementBar is-open hidden w-full cursor-pointer bg-navy-800 py-2 text-center text-navy-200 is-open:md:block"
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
       <span class="text-red-400">
-        <span class="font-bold">POLECAM WYJŚĆ Z POPRZEDNIEGO DISCORDA. NIEDŁUGO NOWY<br>(jeżeli was oscamują to nie płaczcie do mnie)</span>
+        <span class="font-bold">
+          Case battle usuwają się 20min po ich stworzeniu
+          <br />
+          Możliwość zmiany profilowego na
+          <a href="/panel/profil">/panel/profil</a>
+          <br />
+          (Porzebny link bezpośrednio do zdjęcia, np. https://i.imgur.com/1b6XRcm.jpeg)
+        </span>
         <br />
-        <span class="text-navy-300 font-bold">
+        <span class="font-bold text-navy-300">
           NOWY SERWER DISCORD: <a
             href="https://discord.gg/whv3c3kWNh"
             class="underline hover:text-navy-200"
             target="_blank"
             rel="noopener noreferrer"
           >
-          https://discord.gg/whv3c3kWNh
+            https://discord.gg/whv3c3kWNh
           </a>
-        <span class="text-xs text-navy-300">+ na serwerze wyjaśnienia tego co piszą</span>
         </span>
         <br />
-        <span class="text-navy-300 text-xs">
-          Link do donate: <a
-            class="underline hover:text-navy-200"
-            href="https://ko-fi.com/oxi1224"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ko-fi
-          </a>
-          |
+        <span class="text-sm text-navy-300">
+          Link do donate:
           <a
             href="https://tipply.pl/u/oxi_"
             target="_blank"
@@ -88,13 +86,22 @@
           >
             tipply
           </a>
+          |
+          <a
+            class="underline hover:text-navy-200"
+            href="https://ko-fi.com/oxi1224"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ko-fi
+          </a>
         </span>
       </span>
     </h1>
   </button>
-  <div class="container relative flex w-auto h-20 mx-auto md:h-24">
-    <div class="relative flex items-center h-full navbar-left">
-      <a href="/" class="w-24 mb-1 md:w-40" aria-label="Go to front page">
+  <div class="container relative mx-auto flex h-20 w-auto md:h-24">
+    <div class="navbar-left relative flex h-full items-center">
+      <a href="/" class="mb-1 w-24 md:w-40" aria-label="Go to front page">
         <svg
           version="1.1"
           id="Warstwa_1"
@@ -191,27 +198,27 @@
           </g>
         </svg>
       </a>
-      <div class="relative sm:mr-2 ml-3 sm:ml-10 flex justify-start items-center">
+      <div class="relative ml-3 flex items-center justify-start sm:ml-10 sm:mr-2">
         <img
           src="/icons/{$page.data?.lang ?? 'en'}.svg"
-          class="flex-shrink-0 w-4 h-4 mr-2 md:w-5 md:h-5"
+          class="mr-2 h-4 w-4 flex-shrink-0 md:h-5 md:w-5"
           alt="{$page.data?.lang ?? 'en'}"
         />
         <Listbox
           value="{selectedLang}"
           on:change="{(e) => (selectedLang = languages[e.detail])}"
-          class="bg-navy-700 text-navy-100 text-3xs md:text-xs text-center rounded-md relative w-24 md:w-36"
+          class="relative w-24 rounded-md bg-navy-700 text-center text-3xs text-navy-100 md:w-36 md:text-xs"
         >
-          <ListboxButton class="py-2 px-4 cursor-pointer">{selectedLang?.language}</ListboxButton>
+          <ListboxButton class="cursor-pointer px-4 py-2">{selectedLang?.language}</ListboxButton>
           <ListboxOptions
-            class="top-8 w-24 md:w-36 absolute bg-navy-650 outline-navy-300 outline-1 outline whitespace-nowrap"
+            class="absolute top-8 w-24 whitespace-nowrap bg-navy-650 outline outline-1 outline-navy-300 md:w-36"
           >
             {#each languages as lang}
               <ListboxOption
                 value="{lang.id}"
                 on:click="{() => changeLanguage(lang.shorthand)}"
                 disabled="{loading}"
-                class="py-2 px-4 cursor-pointer"
+                class="cursor-pointer px-4 py-2"
               >
                 {lang?.language}
               </ListboxOption>
@@ -219,13 +226,13 @@
           </ListboxOptions>
         </Listbox>
       </div>
-      <div class="xl:flex justify-center items-center h-10 ml-2 sm:ml-10 hidden">
+      <div class="ml-2 hidden h-10 items-center justify-center sm:ml-10 xl:flex">
         <input
           id="search"
           placeholder="{$_('header.searchboxText')}"
-          class="h-full pl-4 pr-12 text-xs font-medium text-white transition-colors duration-200 rounded-md outline-none w-36 md:w-56 bg-navy-700 focus:bg-navy-800 search-input placeholder-navy-300 md:text-xs md:pl-3 md:pr-0"
+          class="search-input h-full w-36 rounded-md bg-navy-700 pl-4 pr-12 text-xs font-medium text-white placeholder-navy-300 outline-none transition-colors duration-200 focus:bg-navy-800 md:w-56 md:pl-3 md:pr-0 md:text-xs"
         />
-        <svg viewBox="0 0 21.28 21.28" class="relative w-4 h-4 -ml-8 stroke-navy-200 fill-navy-200">
+        <svg viewBox="0 0 21.28 21.28" class="relative -ml-8 h-4 w-4 fill-navy-200 stroke-navy-200">
           <g
             fill="none"
             stroke-linejoin="round"
@@ -247,9 +254,9 @@
       </div>
     </div>
     <HeaderUserPanel />
-    <div class="flex items-center justify-center w-auto md:hidden ml-auto nav">
+    <div class="nav ml-auto flex w-auto items-center justify-center md:hidden">
       <button
-        class="flex items-center ml-4 md:hidden nav"
+        class="nav ml-4 flex items-center md:hidden"
         aria-label="Menu Toggle"
         on:click="{toggleMobileDropdown}"
       >
@@ -258,9 +265,9 @@
     </div>
   </div>
   <HeaderMobileUserPanel />
-  <div class="hidden overflow-hidden md:block bg-navy-700">
-    <nav class="container h-full mx-auto">
-      <ul class="flex flex-wrap justify-end h-full xl:flex-nowrap xl:-mx-4 text-3xs lg:text-2xs">
+  <div class="hidden overflow-hidden bg-navy-700 md:block">
+    <nav class="container mx-auto h-full">
+      <ul class="flex h-full flex-wrap justify-end text-3xs lg:text-2xs xl:-mx-4 xl:flex-nowrap">
         <!-- <li>
           <a
             rel="alternate"
@@ -312,32 +319,12 @@
         </li>
         <li>
           <a
-            rel="alternate"
-            hreflang="pl"
-            href="https://key-drop.com/pl/case-battle"
-            class="relative flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-100 text-pastelGreen group text-10px py-7 lg:px-3  whitespace-nowrap hover:text-white"
+          rel="alternate"
+          hreflang="pl"
+          href="https://key-drop.com/pl/giveaways"
+          class="relative flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-100 text-gold group text-10px py-7 lg:px-3  whitespace-nowrap hover:text-white"
           >
-            <svg viewBox="0 0 44 43" class="w-5 h-5 mr-2 transform scale-95 fill-current">
-              <path
-                d="M10.5492 24.3569L18.5585 32.3706L15.3561 35.5752L18.563 38.7821L15.3584 41.9867L9.74922 36.3775L3.33777 42.789L0.133179 39.5844L6.54463 33.1706L0.93546 27.5637L4.14005 24.3591L7.34465 27.5615L10.547 24.3569H10.5492ZM1.3706 0.773438L9.40701 0.780237L36.1882 27.5637L39.3951 24.3591L42.5997 27.5637L36.9928 33.1729L43.402 39.5844L40.1974 42.789L33.7859 36.3775L28.1768 41.9867L24.9722 38.7821L28.1768 35.5752L1.37739 8.77585L1.3706 0.773438ZM34.1349 0.773438L42.1646 0.780237L42.1691 8.76452L32.9837 17.9477L24.9699 9.93622L34.1349 0.773438Z"
-              ></path>
-            </svg>
-            <span class="font-bold">CASE BATTLE</span>
-            <span
-              class="relative flex items-center self-start justify-center flex-shrink-0 min-h-0 p-1 ml-1 font-bold leading-none text-center transition-colors duration-100 bg-pastelGreen rounded-full -mr-0.5 w-[1.0625rem] -top-1.5 s-active-battles text-2xs text-navy-700 tabular-nums aspect-square"
-            >
-              29
-            </span>
-          </a>
-        </li>
-        <li>
-          <a
-            rel="alternate"
-            hreflang="pl"
-            href="https://key-drop.com/pl/giveaways"
-            class="relative flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-100 text-gold group text-10px py-7 lg:px-3  whitespace-nowrap hover:text-white"
-          >
-            <svg class="w-5 h-5 mr-2 fill-current">
+          <svg class="w-5 h-5 mr-2 fill-current">
               <use xlink:href="/icons/nav-icons.svg#gift"></use>
             </svg>
             <span class="inline-flex items-center mt-0.5 relative">
@@ -351,7 +338,7 @@
             hreflang="pl"
             href="https://key-drop.com/pl/panel/profil/contracts"
             class="flex items-center h-full px-2.5 font-semibold leading-none uppercase transition-colors duration-200 text-10px py-7 lg:px-3  hover:text-white text-teal-400 whitespace-nowrap"
-          >
+            >
             <svg class="w-5 h-5 mr-2">
               <use xlink:href="/icons/nav-icons.svg#contracts"></use>
             </svg>
@@ -362,13 +349,28 @@
           <a
             rel="alternate"
             hreflang="pl"
-            href="/skins/upgrader"
-            class="flex items-center h-full px-2.5 font-semibold leading-none text-blue uppercase transition-colors duration-200 text-10px py-7 lg:px-3 hover:text-white whitespace-nowrap"
+            href="/case-battle/list"
+            class="text-10px group relative flex h-full items-center whitespace-nowrap px-2.5 py-7 font-semibold uppercase leading-none text-pastelGreen transition-colors duration-100 hover:text-white lg:px-3"
           >
-            <svg class="w-5 h-5 mr-2">
+            <svg viewBox="0 0 44 43" class="mr-2 h-5 w-5 scale-95 transform fill-current">
+              <path
+                d="M10.5492 24.3569L18.5585 32.3706L15.3561 35.5752L18.563 38.7821L15.3584 41.9867L9.74922 36.3775L3.33777 42.789L0.133179 39.5844L6.54463 33.1706L0.93546 27.5637L4.14005 24.3591L7.34465 27.5615L10.547 24.3569H10.5492ZM1.3706 0.773438L9.40701 0.780237L36.1882 27.5637L39.3951 24.3591L42.5997 27.5637L36.9928 33.1729L43.402 39.5844L40.1974 42.789L33.7859 36.3775L28.1768 41.9867L24.9722 38.7821L28.1768 35.5752L1.37739 8.77585L1.3706 0.773438ZM34.1349 0.773438L42.1646 0.780237L42.1691 8.76452L32.9837 17.9477L24.9699 9.93622L34.1349 0.773438Z"
+              ></path>
+            </svg>
+            <span class="font-bold">CASE BATTLE</span>
+          </a>
+        </li>
+        <li>
+          <a
+            rel="alternate"
+            hreflang="pl"
+            href="/skins/upgrader"
+            class="text-10px flex h-full items-center whitespace-nowrap px-2.5 py-7 font-semibold uppercase leading-none text-blue transition-colors duration-200 hover:text-white lg:px-3"
+          >
+            <svg class="mr-2 h-5 w-5">
               <use xlink:href="/icons/nav-icons.svg#donut-chart"></use>
             </svg>
-            <span class="inline-block mt-0.5">UPGRADER</span>
+            <span class="mt-0.5 inline-block">UPGRADER</span>
           </a>
         </li>
         <!-- <li>
@@ -391,12 +393,12 @@
 </header>
 
 <div
-  class="setBalanceForm hidden fixed z-[100] w-full h-full text-left p-7 is-open:flex justify-center items-center bg-navy-750 rounded-lg bg-opacity-90 text-xs md:text-xl"
-  style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
-> 
+  class="setBalanceForm fixed z-[100] hidden h-full w-full items-center justify-center rounded-lg bg-navy-750 bg-opacity-90 p-7 text-left text-xs is-open:flex md:text-xl"
+  style="top: 50%; left: 50%; transform: translate(-50%, -50%); display inherit;"
+>
   <button
     on:click="{togglePayment}"
-    class="text-navy-100 rotate-45 absolute right-3 top-3 text-3xl"
+    class="absolute right-3 top-3 rotate-45 text-3xl text-navy-100"
   >
     +
   </button>

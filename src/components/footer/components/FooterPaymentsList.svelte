@@ -1,7 +1,7 @@
-<div class="bg-opacity-75 bg-navy-800 overflow-hidden">
-  <div class="container py-9 md:py-16 mx-auto">
+<div class="overflow-hidden bg-navy-800 bg-opacity-75">
+  <div class="container mx-auto py-9 md:py-16">
     <div
-      class="grid flex-wrap items-center justify-between w-full grid-cols-3 gap-x-3 gap-y-6 md:gap-y-0 justify-items-center md:flex"
+      class="grid w-full grid-cols-3 flex-wrap items-center justify-between justify-items-center gap-x-3 gap-y-6 md:flex md:gap-y-0"
     >
       <img src="/icons/zen.svg" alt="Zen" class="w-24" />
       <svg class="max-w-full" xmlns="http://www.w3.org/2000/svg" width="70.59" height="22.846">

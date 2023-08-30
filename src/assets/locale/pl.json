@@ -96,6 +96,10 @@
     "setBalance": "Ustaw Balans",
     "selectBalanceType": "Wybierz typ balansu"
   },
+  "profilePicForm": {
+    "urlPlaceholder": "Link do zdjęcia",
+    "setProfilePic": "Ustaw Profilowe"
+  },
   "toasts": {
     "error": {
       "header": "Błąd",
@@ -119,7 +123,9 @@
         "invalidBalanceType": "Nieprawidłowy typ balansu",
         "maxItemsSelected": "Możesz maksymalnie wybrać 15 przedmiotów",
         "upgraderInvalidValues": "Niektóre podane dane są nieprawidłowe",
-        "upgraderInvalidChance": "Niepoprawna szansa"
+        "upgraderInvalidChance": "Niepoprawna szansa",
+        "spotTaken": "Miejsce zajęte",
+        "invalidUrl": "Nieprawidłowy link"
       }
     },
     "success": {
@@ -147,5 +153,84 @@
     "yourItems": "Twoje przedmioty",
     "findSkin": "Znajdź przedmiot",
     "price": "Cena"
+  },
+  "battles": {
+    "active": "Aktywne",
+    "online": "Online",
+    "battlesPlayed": "Rozegrane bitwy",
+    "all": "Wszystkie",
+    "battles": "Bitwy",
+    "rounds": "Rundy",
+    "cases": "Skrzynie",
+    "worth": "Wartość",
+    "players": "Graczy",
+    "status": "Status",
+    "confirm": "Potwierdź",
+    "joinClassic": "Dołącz do klasycznej bitwy",
+    "viewBattle": "Zobacz bitwę",
+    "header": {
+      "seeBots": "Zobacz nasze boty",
+      "activeBattles": "Aktywne bitwy",
+      "finishedBattles": "Zakończone bitwy",
+      "myBattles": "Moje Bitwy",
+      "createBattle": "Stwórz bitwę key-drop",
+      "createBattleShort": "Stwórz bitwę",
+      "battle": "Bitwa"
+    },
+    "list": {
+      "search": "Szukaj",
+      "sorting": "Sortowanie",
+      "newest": "Najnowsze",
+      "priceAsc": "Cena Rosnąco",
+      "priceDesc": "Cena Malejąco",
+      "priceRange": "Przedział cenowy",
+      "reset": "Reset",
+      "classicMode": "Tryb klasyczny",
+      "underdogMode": "Tryb underdog",
+      "default": "Domyślne",
+      "name": "Nazwa"
+    },
+    "create": {
+      "roundSum": "Suma rund",
+      "addCase": "Dodaj skrzynie",
+      "caseAddition": "Select Cases",
+      "playerCount": {
+        "title": "Liczba graczy",
+        "desc": "Cashback jest zwiększony w bitwach dla 3 i 4 graczy!"
+      },
+      "privacy": {
+        "title": "Prywatność",
+        "desc": "Wybierz ustawienia prywatności bitwy"
+      },
+      "mode": {
+        "title": "Case Battle Mode",
+        "desc": "Wybierz tryb dla swojej bitwy"
+      },
+      "confirm": {
+        "title": "Całkowity koszt",
+        "desc": "Całkowity koszt za skrzynie"
+      },
+      "public": "Publiczna",
+      "private": "Prywatna",
+      "classic": "Klasyczna"
+    },
+    "battlePage": {
+      "battleRounds": "Rundy Bitwy",
+      "results": "Przejdź do wyniku",
+      "battleStart": "Rozpoczęcie bitwy",
+      "createSame": "Stwórz taką samą bitwę",
+      "ready": "Jesteś gotowy",
+      "toBattle": "do gry",
+      "readyToBattle": "Gotowy do bitwy",
+      "winner": "Wygrany",
+      "loser": "Przegrany",
+      "totalPrize": "Całkowita wygrana",
+      "summonBots": "Przywołaj wszystkie boty",
+      "leaveBattle": "Opuść bitwę",
+      "waitingForPlayers": "Oczekiwanie na graczy",
+      "playWithBot": "Graj z botem",
+      "enableSound": "Włącz Dźwięk",
+      "disableSound": "Wyłącz Dźwięk"
+    }
   }
 }

@@ -1,5 +1,5 @@
-import type { PageServerLoad } from './$types';
 import { userFromSessionID } from '$lib/server';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals, cookies }) => {
   const user = await userFromSessionID(cookies.get('session_id') ?? '', true);

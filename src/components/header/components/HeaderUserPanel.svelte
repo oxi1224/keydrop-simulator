@@ -24,46 +24,48 @@
   }
 </script>
 
-<div class="h-full hidden items-center ml-auto md:flex">
+<div class="ml-auto hidden h-full items-center md:flex">
   {#if $page.data.user}
-    <div class="h-16 flex items-center">
-      <div class="flex items-center bg-navy-700 rounded-md p-3">
+    <div class="flex h-16 items-center">
+      <div class="flex items-center rounded-md bg-navy-700 p-3">
         <div class="flex items-center">
           <div>
-            <span class="flex flex-row text-navy-200 text-2xs items-center font-bold space-x-1.5">
-              <img src="/icons/wallet.svg" alt="wallet" class="object-contain w-3 h-3 mr-1.5" />
+            <span class="flex flex-row items-center space-x-1.5 text-2xs font-bold text-navy-200">
+              <img src="/icons/wallet.svg" alt="wallet" class="mr-1.5 h-3 w-3 object-contain" />
               {$_('header.wallet')}:
-              <span class="text-gold font-semibold text-sm md:text-xs">
+              <span class="text-sm font-semibold text-gold md:text-xs">
                 {convertPrice($page.data.currency, $page.data.user?.balance)}
               </span>
             </span>
           </div>
-          <div class="flex items-center ml-6">
+          <div class="ml-6 flex items-center">
             <button
-              class="flex items-center flex-shrink-0 h-8 transition-colors duration-200 border rounded-md group text-gold-500 bg-gold-900 border-gold-500 hover:bg-gold-850 hotjaropen"
+              class="hotjaropen group flex h-8 flex-shrink-0 items-center rounded-md border border-gold-500 bg-gold-900 text-gold-500 transition-colors duration-200 hover:bg-gold-850"
               on:click="{togglePayment}"
             >
               <div
-                class="flex items-center justify-center my-1.5 ml-1.5 text-white rounded outline-none focus:outline-none bg-navy-800 hotjaropen"
+                class="hotjaropen my-1.5 ml-1.5 flex items-center justify-center rounded bg-navy-800 text-white outline-none focus:outline-none"
                 style="height: 18px; width: 18px;"
               >
-                <svg viewBox="0 0 6 6" class="w-1.5 h-1.5 stroke-current">
+                <svg viewBox="0 0 6 6" class="h-1.5 w-1.5 stroke-current">
                   <path d="M3 0V6"></path>
                   <path d="M6 3L-1.19125e-07 3"></path>
                 </svg>
               </div>
-              <div class="mx-2 text-2xs font-semibold uppercase text-10px">{$_("header.addBalance")}</div>
+              <div class="text-10px mx-2 text-2xs font-semibold uppercase">
+                {$_('header.addBalance')}
+              </div>
               <div class="w-0.5"></div>
             </button>
           </div>
         </div>
       </div>
-      <div class="flex ml-9 h-16">
+      <div class="ml-9 flex h-16">
         <div class="flex flex-col justify-evenly">
-          <span class="font-semibold text-sm text-navy-200 h-min">{$page.data.user.username}</span>
+          <span class="h-min text-sm font-semibold text-navy-200">{$page.data.user.username}</span>
           <div class="flex flex-row items-center">
-            <img src="/icons/gold-coin.webp" alt="coin" class="object-contain w-4 h-4 mr-1" />
-            <span class="text-gold-600 font-semibold text-xs whitespace-nowrap">
+            <img src="/icons/gold-coin.webp" alt="coin" class="mr-1 h-4 w-4 object-contain" />
+            <span class="whitespace-nowrap text-xs font-semibold text-gold-600">
               {$page.data.user.goldBalance}
             </span>
           </div>
@@ -72,15 +74,15 @@
       <div class="ml-6 flex items-center">
         <a href="/panel/profil">
           <img
-            src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/eb/ebd92149e5950221fcb87ca8475493b8e77833f3_full.jpg"
+            src="{$page.data.user?.pfpUrl}"
             alt="Avatar"
-            class="object-cover transition-all duration-200 rounded-md w-14 h-14 hover:rounded-xl"
+            class="h-14 w-14 rounded-md object-cover transition-all duration-200 hover:rounded-xl"
             referrerpolicy="no-referrer"
           />
         </a>
-        <button class="flex items-center px-4 self-stretch group" on:click="{toggleDropdown}">
+        <button class="group flex items-center self-stretch px-4" on:click="{toggleDropdown}">
           <div
-            class="flex items-center justify-center w-5 h-5 transition-all duration-200 border border-solid rounded-md border-navy-300 bg-navy-800 group-hover:border-navy-100"
+            class="flex h-5 w-5 items-center justify-center rounded-md border border-solid border-navy-300 bg-navy-800 transition-all duration-200 group-hover:border-navy-100"
           >
             <svg class="mt-px text-white" style="width: 10px; height: 10px">
               <use xlink:href="/icons/icons.svg#arrow-down"></use>
@@ -90,40 +92,40 @@
       </div>
     </div>
   {:else}
-    <a class="hidden ml-5 md:flex button button-primary h-13 uppercase" href="/login">
+    <a class="button button-primary h-13 ml-5 hidden uppercase md:flex" href="/login">
       {$_('header.login')}
     </a>
   {/if}
 </div>
 <div
   id="user-dropdown"
-  class="absolute z-40 invisible transition-all duration-300 right-5 top-full is-open:visible"
+  class="invisible absolute right-5 top-full z-40 transition-all duration-300 is-open:visible"
 >
   <div
-    class="fixed inset-0 z-0 transition-opacity duration-300 outline-none opacity-0 bg-navy-600 in-open:opacity-70"
+    class="fixed inset-0 z-0 bg-navy-600 opacity-0 outline-none transition-opacity duration-300 in-open:opacity-70"
     on:click="{toggleDropdown}"
     on:keypress="{() => null}"
   ></div>
   <div
-    class="z-10 min-w-max bg-navy-900 overflow-hidden border border-solid border-navy-400 rounded-bl-2xl rounded-br-2xl absolute top-0 right-0 opacity-0 transition duration-300 scale-90 origin-top-right in-open:opacity-100 in-open:scale-100"
+    class="absolute right-0 top-0 z-10 min-w-max origin-top-right scale-90 overflow-hidden rounded-bl-2xl rounded-br-2xl border border-solid border-navy-400 bg-navy-900 opacity-0 transition duration-300 in-open:scale-100 in-open:opacity-100"
   >
-    <div class="pt-6 pb-3 bg-navy-600">
+    <div class="bg-navy-600 pb-3 pt-6">
       <div class="flex flex-col px-5">
         <div class="flex flex-row items-center">
           <a href="/panel/profil">
             <img
-              src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/eb/ebd92149e5950221fcb87ca8475493b8e77833f3_full.jpg"
+              src="{$page.data.user?.pfpUrl}"
               alt="Avatar"
-              class="object-cover transition-all duration-200 rounded-md w-14 h-14 hover:rounded-xl"
+              class="h-14 w-14 rounded-md object-cover transition-all duration-200 hover:rounded-xl"
               referrerpolicy="no-referrer"
             />
           </a>
           <div class="ml-5">
-            <span class="font-semibold text-sm text-white h-min">{$page.data.user?.username}</span>
-            <span class="flex flex-row text-navy-200 text-3xs items-center font-light">
+            <span class="h-min text-sm font-semibold text-white">{$page.data.user?.username}</span>
+            <span class="flex flex-row items-center text-3xs font-light text-navy-200">
               {$_('header.wallet')}:
             </span>
-            <span class="text-gold font-semibold text-xs">
+            <span class="text-xs font-semibold text-gold">
               {convertPrice($page.data.currency, $page.data.user?.balance)}
             </span>
           </div>
@@ -136,9 +138,9 @@
               rel="alternate"
               hreflang="pl"
               href="/panel/profil"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
+              class="flex items-center whitespace-nowrap px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 hover:text-white"
             >
-              <svg class="w-6 h-6 mr-3">
+              <svg class="mr-3 h-6 w-6">
                 <use xlink:href="/icons/nav-icons.svg#person"></use>
               </svg>
               {$_('header.nav.myAccount')}
@@ -241,9 +243,9 @@
             >
               <button
                 type="submit"
-                class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
+                class="flex items-center whitespace-nowrap px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 hover:text-white"
               >
-                <svg class="w-6 h-6 mr-3">
+                <svg class="mr-3 h-6 w-6">
                   <use xlink:href="/icons/nav-icons.svg#logout"></use>
                 </svg>
                 {$_('header.nav.logout')}

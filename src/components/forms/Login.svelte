@@ -40,13 +40,13 @@
 
 <div
   id="loginPage"
-  class="hidden items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-navy-700 bg-opacity-75 fixed top-0 z-50 w-full h-full"
+  class="fixed top-0 z-50 hidden h-full w-full items-center justify-center bg-navy-700 bg-opacity-75 px-4 py-12 sm:px-6 lg:px-8"
 >
   <div
-    class="w-full max-w-md space-y-8 bg-navy-700 text-navy-300 p-5 rounded-md border-navy-500 border relative"
+    class="relative w-full max-w-md space-y-8 rounded-md border border-navy-500 bg-navy-700 p-5 text-navy-300"
   >
     <div
-      class="absolute top-5 right-5 cursor-pointer text-lg"
+      class="absolute right-5 top-5 cursor-pointer text-lg"
       on:keypress="{() => null}"
       on:click="{toggleLogin}"
     >
@@ -91,16 +91,16 @@
       </div>
       <div class="relative overflow-hidden">
         <div
-          class="bg-navy-500 bg-opacity-95 min-w-full min-h-full z-50 rounded-md {loading
+          class="z-50 min-h-full min-w-full rounded-md bg-navy-500 bg-opacity-95 {loading
             ? 'flex'
-            : 'hidden'} absolute pointer-events-none justify-center items-center"
+            : 'hidden'} pointer-events-none absolute items-center justify-center"
         >
           <Spinner size="2em" borderWidth=".3em" />
         </div>
         <button
           type="submit"
           disabled="{loading}"
-          class="group relative flex w-full justify-center rounded-md border border-transparent bg-navy-500 py-2 px-4 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          class="group relative flex w-full justify-center rounded-md border border-transparent bg-navy-500 px-4 py-2 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           <span class="absolute inset-y-0 left-0 flex items-center pl-3">
             <!-- Heroicon name: mini/lock-closed -->

@@ -1,21 +1,3 @@
-<style>
-  .add-svg {
-    width: 40px;
-    height: 40px;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    box-shadow: rgb(220, 174, 100) 0px 0px 30px;
-  }
-
-  .selected-svg {
-    width: 40px;
-    height: 40px;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    box-shadow: rgb(220, 174, 100) 0px 0px 30px;
-  }
-</style>
-
 <script lang="ts">
   import { page } from '$app/stores';
   import { convertPrice, createToast, type ItemWithGlobal } from '$lib';
@@ -65,11 +47,7 @@
   }
 
   function handleFastSelect(e: MouseEvent, item: ItemWithGlobal, targetElm: EventTarget | null) {
-    if (
-      e.buttons !== 1 ||
-      selectedUpgradeItems.map((i) => i.dropId).includes(item.dropId)
-    )
-      return;
+    if (e.buttons !== 1 || selectedUpgradeItems.map((i) => i.dropId).includes(item.dropId)) return;
     selectUpgradeItem(item, targetElm);
   }
 
@@ -91,20 +69,20 @@
   }
 </script>
 
-<div class="flex flex-col relative p-6 rounded-b-lg lg:rounded-t-lg bg-navy-800">
+<div class="relative flex flex-col rounded-b-lg bg-navy-800 p-6 lg:rounded-t-lg">
   <div class="flex items-center">
-    <p class="font-bold text-sm md:text-base lg:text-lg leading-tight text-white hidden md:block">
+    <p class="hidden text-sm font-bold leading-tight text-white md:block md:text-base lg:text-lg">
       {$_('upgrader.yourItems')}
       <span class="text-navy-300">
         ({filteredInv.length})
       </span>
     </p>
     <div
-      class="flex flex-wrap justify-end -mt-3 -ml-3 sm:ml-auto sm:w-auto"
+      class="-ml-3 -mt-3 flex flex-wrap justify-end sm:ml-auto sm:w-auto"
       style="visibility: visible;"
     >
       <button
-        class="text-navy-200 flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent mt-3 ml-3"
+        class="ml-3 mt-3 flex h-10 items-center justify-center rounded-lg border border-solid border-navy-500 bg-transparent px-4 text-center text-xs text-navy-200 transition-all duration-300 hover:border-navy-300 hover:text-white"
         on:click="{() => (inventorySkinOrder = inventorySkinOrder === 'ASC' ? 'DESC' : 'ASC')}"
       >
         {$_('upgrader.price')}
@@ -120,7 +98,7 @@
     </div>
   </div>
   <ul
-    class="grid gap-3 mt-6 transition-opacity duration-300"
+    class="mt-6 grid gap-3 transition-opacity duration-300"
     style="grid-template: 1fr / repeat(auto-fill, minmax(110px, 1fr));"
   >
     {#if paginatedInventory.length > 0}
@@ -132,22 +110,22 @@
           on:mouseover="{(e) => handleFastSelect(e, item, e.target)}"
         >
           <div
-            class="relative flex flex-col items-center justify-between w-full bg-center bg-cover border border-solid rounded-lg select-none group border-navy-500 bg-navy-600 cursor-pointer"
+            class="group relative flex w-full cursor-pointer select-none flex-col items-center justify-between rounded-lg border border-solid border-navy-500 bg-navy-600 bg-cover bg-center"
             style="aspect-ratio: 10 / 13; background-image: url(/images/browseritembg.webp);"
           >
             <div
-              class="absolute w-full h-5 border-t border-solid border-{item.globalInvItem
-                .skinRarity} rounded-lg pointer-events-none -top-px"
+              class="absolute h-5 w-full border-t border-solid border-{item.globalInvItem
+                .skinRarity} pointer-events-none -top-px rounded-lg"
               style=""
             ></div>
-            <div class="flex items-center w-full">
+            <div class="flex w-full items-center">
               <div
-                class="py-1.5 my-1.5 ml-2 mr-1 font-bold leading-none text-white uppercase text-2xs"
+                class="my-1.5 ml-2 mr-1 py-1.5 text-2xs font-bold uppercase leading-none text-white"
               >
                 {item.globalInvItem.skinQuality}
               </div>
               <div
-                class="p-1.5 m-1.5 ml-auto font-bold leading-none rounded-md whitespace-nowrap text-gold bg-navy-900 min-w-0"
+                class="m-1.5 ml-auto min-w-0 whitespace-nowrap rounded-md bg-navy-900 p-1.5 font-bold leading-none text-gold"
                 style="font-size: 9px;"
               >
                 <div style="display: block; white-space: nowrap;">
@@ -159,34 +137,34 @@
               <img
                 src="{item.globalInvItem.skinImgSource}"
                 alt=""
-                class="absolute top-0 left-0 object-contain w-full h-full ease-out transform transition pointer-events-none group-hover:opacity-25 group-hover:scale-75"
+                class="pointer-events-none absolute left-0 top-0 h-full w-full transform object-contain transition ease-out group-hover:scale-75 group-hover:opacity-25"
               />
               <div
                 class="absolute {selectedUpgradeItems.map((i) => i.dropId).includes(item.dropId)
                   ? 'hidden'
-                  : 'flex'} items-center justify-center transform scale-90 rounded-full opacity-0 font-body group-hover:opacity-100 transition ease-out group-hover:scale-100 bg-gold add-svg"
+                  : 'flex'} font-body add-svg scale-90 transform items-center justify-center rounded-full bg-gold opacity-0 transition ease-out group-hover:scale-100 group-hover:opacity-100"
               >
-                <svg class="w-5 h-5 text-white">
+                <svg class="h-5 w-5 text-white">
                   <use xlink:href="/icons/icons.svg#plus-circle"></use>
                 </svg>
               </div>
               <div
                 class="absolute {selectedUpgradeItems.map((i) => i.dropId).includes(item.dropId)
                   ? 'flex'
-                  : 'hidden'} items-center justify-center transform scale-90 rounded-full font-body transition ease-out bg-red selected-svg"
+                  : 'hidden'} font-body selected-svg scale-90 transform items-center justify-center rounded-full bg-red transition ease-out"
               >
-                <svg class="w-5 h-5 text-white">
+                <svg class="h-5 w-5 text-white">
                   <use xlink:href="/icons/icons.svg#tick"></use>
                 </svg>
               </div>
             </div>
             <p
-              class="flex-shrink-0 w-full px-1 font-bold leading-tight text-center text-white uppercase truncate text-2xs"
+              class="w-full flex-shrink-0 truncate px-1 text-center text-2xs font-bold uppercase leading-tight text-white"
             >
               {item.globalInvItem.weaponName}
             </p>
             <p
-              class="flex-shrink-0 mb-2 leading-tight text-center uppercase truncate text-navy-300 w-full px-0.5 text-2xs"
+              class="mb-2 w-full flex-shrink-0 truncate px-0.5 text-center text-2xs uppercase leading-tight text-navy-300"
             >
               {item.globalInvItem.skinName}
             </p>
@@ -195,28 +173,46 @@
       {/each}
     {/if}
   </ul>
-  <div class="grid grid-cols-3 gap-3 pt-6 mt-auto transition-opacity duration-300">
+  <div class="mt-auto grid grid-cols-3 gap-3 pt-6 transition-opacity duration-300">
     <button
-      class="text-navy-300 flex items-center h-10 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent justify-center px-10 py-2 md:px-4 sm:justify-self-start"
+      class="flex h-10 items-center justify-center rounded-lg border border-solid border-navy-500 bg-transparent px-10 py-2 text-center text-xs text-navy-300 transition-all duration-300 hover:border-navy-300 hover:text-white sm:justify-self-start md:px-4"
       on:click="{() => (inventoryPage > 0 ? inventoryPage-- : null)}"
     >
-      <svg class="w-4 h-4">
+      <svg class="h-4 w-4">
         <use xlink:href="/icons/icons.svg#arrow-left"></use>
       </svg>
     </button>
     <div
-      class="flex items-center justify-center p-3 text-sm font-bold leading-none text-center text-white rounded bg-navy-900 sm:justify-self-center"
+      class="flex items-center justify-center rounded bg-navy-900 p-3 text-center text-sm font-bold leading-none text-white sm:justify-self-center"
     >
       {inventoryPage + 1}/{Math.ceil(filteredInv.length / 15)}
     </div>
     <button
-      class="text-navy-300 flex items-center h-10 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent justify-center px-10 py-2 md:px-4 sm:justify-self-end"
+      class="flex h-10 items-center justify-center rounded-lg border border-solid border-navy-500 bg-transparent px-10 py-2 text-center text-xs text-navy-300 transition-all duration-300 hover:border-navy-300 hover:text-white sm:justify-self-end md:px-4"
       on:click="{() =>
         inventoryPage < Math.ceil(filteredInv.length / 15) ? inventoryPage++ : null}"
     >
-      <svg class="w-4 h-4 rotate-180">
+      <svg class="h-4 w-4 rotate-180">
         <use xlink:href="/icons/icons.svg?38#arrow-left"></use>
       </svg>
     </button>
   </div>
 </div>
+
+<style>
+  .add-svg {
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    box-shadow: rgb(220, 174, 100) 0px 0px 30px;
+  }
+
+  .selected-svg {
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    box-shadow: rgb(220, 174, 100) 0px 0px 30px;
+  }
+</style>

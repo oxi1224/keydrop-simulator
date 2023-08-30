@@ -16,13 +16,13 @@
   /* eslint-disable indent */
 </script>
 
-<header class="container mt-6 mx-auto">
+<header class="container mx-auto mt-6">
   <div class="flex justify-between">
     <a
-      class="button justify-center h-10 px-5 font-medium rounded-lg w-36 md:w-48 bg-navy-800 text-navy-100 hover:text-white"
+      class="button h-10 w-36 justify-center rounded-lg bg-navy-800 px-5 font-medium text-navy-100 hover:text-white md:w-48"
       href="/"
     >
-      <svg class="icon w-2 h-2 flex-shrink-0 mr-2" viewBox="0 0 6.177 9.525" fill="none">
+      <svg class="icon mr-2 h-2 w-2 flex-shrink-0" viewBox="0 0 6.177 9.525" fill="none">
         <path
           d="M1985.484,56.559l4.055,4.055,4.055-4.055"
           transform="translate(62.029 -1984.777) rotate(90)"
@@ -45,9 +45,9 @@
     >
       <button
         type="submit"
-        class="button items-center h-10 px-5 font-medium rounded-md w-36 md:w-48 bg-navy-800 text-2xs text-navy-100 hover:text-white"
+        class="button h-10 w-36 items-center rounded-md bg-navy-800 px-5 text-2xs font-medium text-navy-100 hover:text-white md:w-48"
       >
-        <svg class="icon w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+        <svg class="icon mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18 6H20V18H18zM10 18L10 13 16 13 16 11 10 11 10 6 4 12z"></path>
         </svg>
         <span class="text-2xs">{$_('profile.logout')}</span>
@@ -55,18 +55,18 @@
     </form>
   </div>
   <div class="flex flex-col items-center justify-between">
-    <div class="flex flex-col items-center order-1 mx-6 mt-4 mb-2 lg:order-2 lg:w-1/3">
-      <div class="mb-2 overflow-hidden border-2 border-solid w-36 h-36 border-gold rounded-3xl">
+    <div class="order-1 mx-6 mb-2 mt-4 flex flex-col items-center lg:order-2 lg:w-1/3">
+      <div class="mb-2 h-36 w-36 overflow-hidden rounded-3xl border-2 border-solid border-gold">
         <img
-          src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/eb/ebd92149e5950221fcb87ca8475493b8e77833f3_full.jpg"
-          class="object-contain w-full h-full"
+          src="{$page.data.user.pfpUrl}"
+          class="h-full w-full object-contain"
           referrerpolicy="no-referrer"
           alt="pfp"
         />
       </div>
       <div class="flex items-center">
         <span
-          class="inline-block max-w-xs overflow-hidden text-xl font-semibold leading-none text-center truncate"
+          class="inline-block max-w-xs overflow-hidden truncate text-center text-xl font-semibold leading-none"
         >
           {$page.data.user?.username}
         </span>
@@ -82,21 +82,21 @@
     <div class="order-2 w-full lg:order-3 lg:w-1/3">
       <div>
         <p
-          class="flex items-center justify-center mb-1 text-xs font-semibold uppercase text-navy-100"
+          class="mb-1 flex items-center justify-center text-xs font-semibold uppercase text-navy-100"
         >
           {$_('profile.balance')}
         </p>
-        <div class="flex flex-col mb-4 md:flex-row">
+        <div class="mb-4 flex flex-col md:flex-row">
           <div
-            class="flex items-center px-4 mx-auto justify-center min-w-fit w-1/2 text-xs border border-solid rounded-lg bg-navy-700 border-navy-500 h-11"
+            class="mx-auto flex h-11 w-1/2 min-w-fit items-center justify-center rounded-lg border border-solid border-navy-500 bg-navy-700 px-4 text-xs"
           >
             <div class="flex items-center text-xs font-semibold text-white">
               <span class="text-gold">
                 {convertPrice($page.data.currency, $page.data.user.balance)}
               </span>
             </div>
-            <div class="flex items-center ml-4 text-xs font-semibold text-gold">
-              <img src="/icons/gold-coin.webp" alt="" class="object-contain w-4 h-4 mr-1" />
+            <div class="ml-4 flex items-center text-xs font-semibold text-gold">
+              <img src="/icons/gold-coin.webp" alt="" class="mr-1 h-4 w-4 object-contain" />
               <span>{$page.data.user?.goldBalance}</span>
             </div>
           </div>

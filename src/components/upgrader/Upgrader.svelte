@@ -1,50 +1,3 @@
-<style>
-  .upgrader-pointer-arrow {
-    margin-top: -1px;
-    width: 0px;
-    height: 0px;
-    border-color: currentcolor transparent transparent;
-    border-style: solid;
-    border-width: 18px 8px 8px;
-    border-image: none 100% / 1 / 0 stretch;
-    filter: drop-shadow(rgba(220, 174, 100, 0.8) 0px 0px 4px);
-    transform-origin: 50% 480%;
-  }
-  .t-h2 {
-    font-weight: 600;
-    line-height: 1.2;
-    text-transform: uppercase;
-  }
-
-  .upgrader-mode-container {
-    text-transform: lowercase;
-  }
-
-  .upgrader-mode-container::first-letter {
-    text-transform: uppercase;
-  }
-
-  .upgraderResult {
-    grid-area: center;
-  }
-
-  @media (min-width: 768px) {
-    .upgraderResult {
-      grid-area: initial;
-    }
-  }
-
-  .upgraderGridTemplate {
-    grid-template: 'center center' 'upgradeBtn upgradeBtn' 'userSkins userSkins' 'upgradeSkins upgradeSkins' 'options options' / 1fr 1fr;
-  }
-
-  @media (min-width: 768px) {
-    .upgraderGridTemplate {
-      grid-template: 'userSkins center upgradeSkins' 1fr 'options center upgradeBtn' / 1fr 1fr 1fr;
-    }
-  }
-</style>
-
 <script lang="ts">
   import { invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
@@ -117,7 +70,8 @@
       document.getElementById('success-chance-display-wrapper')!.style.transform = 'rotateY(0deg)';
       document.getElementById('status-display-wrapper')!.style.transform = 'rotateY(180deg)';
       upgraderRotation = selectedUpgraderPosition === 'TOP' ? 270 : 90;
-      (document.querySelector('.upgrader-pointer-arrow') as HTMLElement)!.style.transform = 'rotate(0deg)';
+      (document.querySelector('.upgrader-pointer-arrow') as HTMLElement)!.style.transform =
+        'rotate(0deg)';
     }
   }
   function deselectUpgradeItem(...items: ItemWithGlobal[]) {
@@ -193,28 +147,33 @@
     loading = false;
   }
 
-  async function playUpgradeAnimation(mode: "TRIANGLE" | "CIRCLE", rotation: number, success: boolean) {
+  async function playUpgradeAnimation(
+    mode: 'TRIANGLE' | 'CIRCLE',
+    rotation: number,
+    success: boolean
+  ) {
     const duration = $settings.fastOpen ? 1750 : 6500;
     let interval;
     if (mode === 'TRIANGLE') {
-      document.querySelector('.upgrader-pointer-arrow')!.animate([
-        { transform: `rotate(0deg)` },
-        { transform: `rotate(${rotation}deg)` }
-      ], {
-        iterations: 1,
-        duration: duration,
-        easing: 'cubic-bezier(.1,.8,.01,1)',
-        fill: 'forwards'
-      });
+      document
+        .querySelector('.upgrader-pointer-arrow')!
+        .animate([{ transform: `rotate(0deg)` }, { transform: `rotate(${rotation}deg)` }], {
+          iterations: 1,
+          duration: duration,
+          easing: 'cubic-bezier(.1,.8,.01,1)',
+          fill: 'forwards'
+        });
 
       let ticked: Element[] = [];
       interval = setInterval(() => {
         document.querySelectorAll('.tick-point').forEach((tickPoint) => {
-          const rectSelection = document.querySelector('.upgrader-pointer-arrow')!.getBoundingClientRect();
+          const rectSelection = document
+            .querySelector('.upgrader-pointer-arrow')!
+            .getBoundingClientRect();
           const rect = tickPoint!.getBoundingClientRect();
           if (
             !$settings.muteAudio &&
-            !ticked.find(el => el.isSameNode(tickPoint)) && 
+            !ticked.find((el) => el.isSameNode(tickPoint)) &&
             rect.bottom > rectSelection.top &&
             rect.right > rectSelection.left &&
             rect.top < rectSelection.bottom &&
@@ -232,7 +191,7 @@
       return;
     }
 
-    await new Promise(r => setTimeout(r, duration));
+    await new Promise((r) => setTimeout(r, duration));
     if (success) upgraderWinPlayer.play();
     else upgraderLoosePlayer.play();
 
@@ -297,14 +256,14 @@
   <audio bind:this="{upgraderWinPlayer}" src="/audio/upgrader-win.mp3"></audio>
   <audio bind:this="{upgraderLoosePlayer}" src="/audio/upgrader-loose.mp3"></audio>
   <audio bind:this="{upgraderTickPlayer}" src="/audio/upgrader-tick.mp3"></audio>
-  <div class="container pb-10 md:pb-16 mx-auto">
+  <div class="container mx-auto pb-10 md:pb-16">
     <main>
-      <header class="grid items-center grid-cols-3 py-12">
+      <header class="grid grid-cols-3 items-center py-12">
         <a
           href="/"
-          class="flex items-center transition-colors duration-200 hover:text-white uppercase font-semibold text-gray-500"
+          class="flex items-center font-semibold uppercase text-gray-500 transition-colors duration-200 hover:text-white"
         >
-          <svg class="w-3 h-3 mr-2 md:w-4 md:h-4 md:mr-3">
+          <svg class="mr-2 h-3 w-3 md:mr-3 md:h-4 md:w-4">
             <use xlink:href="/icons/icons.svg#arrow-left"></use>
           </svg>
           <span class="pt-px leading-none">
@@ -312,16 +271,16 @@
             <span class="hidden md:inline">{$_('upgrader.goToHomePage')}</span>
           </span>
         </a>
-        <h2 class="text-center text-white t-h2">UPGRADER</h2>
+        <h2 class="t-h2 text-center text-white">UPGRADER</h2>
         <div class="flex items-center justify-end">
           <button
-            class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 js-sound-btn {$settings.muteAudio
+            class="js-sound-btn flex h-10 items-center justify-center rounded-lg border border-solid border-navy-100 bg-navy-550 px-4 text-center text-xs font-bold text-white transition-all duration-300 {$settings.muteAudio
               ? 'brightness-75'
               : ''}"
             aria-label="Wyłącz dźwięk"
             on:click="{() => setAudioMute()}"
           >
-            <svg viewBox="-10 0 130 120" class="block w-4 h-4 fill-current">
+            <svg viewBox="-10 0 130 120" class="block h-4 w-4 fill-current">
               <path
                 fill="currentColor"
                 stroke="currentColor"
@@ -346,7 +305,7 @@
             </svg>
           </button>
           <label
-            class="flex w-fit ml-2 cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {$settings.fastOpen
+            class="relative ml-2 flex h-10 w-fit cursor-pointer items-center justify-center rounded-lg border border-solid border-navy-100 bg-navy-550 px-4 text-center text-xs font-bold text-white transition-all duration-300 {$settings.fastOpen
               ? ''
               : 'brightness-75'}"
           >
@@ -354,37 +313,37 @@
               type="checkbox"
               id="fast-open"
               name="fast-open"
-              class="absolute opacity-0 cursor-pointer h-0 w-0"
+              class="absolute h-0 w-0 cursor-pointer opacity-0"
               checked="{$settings.fastOpen}"
               on:click="{(e) => setFastOpen(e)}"
             />
-            <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
+            <svg class="block h-4 w-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
           </label>
         </div>
       </header>
-      <div class="grid gap-3 sm:gap-5 lg:gap-0 upgraderGridTemplate">
+      <div class="upgraderGridTemplate grid gap-3 sm:gap-5 lg:gap-0">
         <div
-          class="flex flex-col rounded-l-lg rounded-r-lg lg:mt-10 lg:rounded-r-none bg-navy-800 relative"
+          class="relative flex flex-col rounded-l-lg rounded-r-lg bg-navy-800 lg:mt-10 lg:rounded-r-none"
           style="grid-area: userSkins; background-image: radial-gradient(rgba(255, 255, 255, 0.08) 3%, transparent)"
         >
           <div
-            class="absolute flex w-11/12 flex-wrap justify-center items-center gap-2 h-fit z-20 inset-0 m-auto mt-8 md:mt-auto"
+            class="absolute inset-0 z-20 m-auto mt-8 flex h-fit w-11/12 flex-wrap items-center justify-center gap-2 md:mt-auto"
           >
             {#each selectedUpgradeItems as item}
               <img
                 on:click="{() => deselectUpgradeItem(item)}"
                 on:keydown="{null}"
-                class="w-1/6 md:w-1/5 cursor-pointer"
+                class="w-1/6 cursor-pointer md:w-1/5"
                 src="{item.globalInvItem.skinImgSource}"
                 alt=""
               />
             {/each}
           </div>
-          <div class="p-3 pb-0 my-auto sm:p-6 sm:pb-0 h-[220px]">
+          <div class="my-auto h-[220px] p-3 pb-0 sm:p-6 sm:pb-0">
             <img
               src="/images/item-placeholder.webp"
               alt=""
-              class="block object-contain w-3/5 h-full mx-auto mt-6 pointer-events-none"
+              class="pointer-events-none mx-auto mt-6 block h-full w-3/5 object-contain"
               style="filter: brightness(1.2);"
             />
           </div>
@@ -393,18 +352,18 @@
           >
             <div class="pr-1">
               <div class="flex">
-                <p class="font-bold text-sm md:text-base lg:text-lg leading-tight text-gold">
+                <p class="text-sm font-bold leading-tight text-gold md:text-base lg:text-lg">
                   {$_('upgrader.chooseItem')}
                 </p>
               </div>
-              <p class="text-xs leading-tight sm:text-sm text-navy-300">
+              <p class="text-xs leading-tight text-navy-300 sm:text-sm">
                 {$_('upgrader.upgradeItem')}
               </p>
             </div>
             <div
-              class="px-5 py-3 mt-3 text-center rounded-lg md:mt-0 md:rounded-r-none md:ml-auto bg-navy-900 md:text-right"
+              class="mt-3 rounded-lg bg-navy-900 px-5 py-3 text-center md:ml-auto md:mt-0 md:rounded-r-none md:text-right"
             >
-              <div class="text-lg font-bold leading-none text-white whitespace-nowrap">
+              <div class="whitespace-nowrap text-lg font-bold leading-none text-white">
                 <span>{convertPrice($page.data.currency, totalSelectedValue - addedBalance)}</span>
               </div>
               <div class="text-xs font-bold leading-none text-gold">
@@ -418,27 +377,27 @@
           </div>
         </div>
         <div
-          class="flex flex-col rounded-l-lg rounded-r-lg lg:mt-10 lg:rounded-l-none bg-navy-800 relative"
+          class="relative flex flex-col rounded-l-lg rounded-r-lg bg-navy-800 lg:mt-10 lg:rounded-l-none"
           style="grid-area: upgradeSkins; background-image: radial-gradient(rgba(255, 255, 255, 0.08) 3%, transparent);"
         >
           <div
-            class="absolute flex w-11/12 flex-wrap justify-center items-center gap-2 h-fit z-20 inset-0 m-auto mt-8 md:mt-auto"
+            class="absolute inset-0 z-20 m-auto mt-8 flex h-fit w-11/12 flex-wrap items-center justify-center gap-2 md:mt-auto"
           >
             {#each selectedGoalItems as item}
               <img
                 on:click="{() => deselectGoalItem(item)}"
                 on:keydown="{null}"
-                class="w-1/6 md:w-1/5 cursor-pointer"
+                class="w-1/6 cursor-pointer md:w-1/5"
                 src="{item.skinImgSource}"
                 alt=""
               />
             {/each}
           </div>
-          <div class="p-3 pb-0 my-auto sm:p-6 sm:pb-0 h-[220px]">
+          <div class="my-auto h-[220px] p-3 pb-0 sm:p-6 sm:pb-0">
             <img
               src="/images/item-placeholder.webp"
               alt=""
-              class="block object-contain w-3/5 h-full mx-auto mt-6 pointer-events-none"
+              class="pointer-events-none mx-auto mt-6 block h-full w-3/5 object-contain"
               style="filter: brightness(1.2);"
             />
           </div>
@@ -446,9 +405,9 @@
             class="flex flex-col items-center pb-3 text-center md:flex-row md:pb-6 md:pr-6 md:text-right"
           >
             <div
-              class="order-2 px-5 py-3 mt-3 text-center rounded-lg md:mt-0 md:rounded-l-none md:mr-auto bg-navy-900 md:text-left md:order-1"
+              class="order-2 mt-3 rounded-lg bg-navy-900 px-5 py-3 text-center md:order-1 md:mr-auto md:mt-0 md:rounded-l-none md:text-left"
             >
-              <div class="text-lg font-bold leading-none text-white whitespace-nowrap">
+              <div class="whitespace-nowrap text-lg font-bold leading-none text-white">
                 <span>{convertPrice($page.data.currency, totalGoalValue)}</span>
               </div>
               <div class="text-xs font-bold leading-none text-gold">
@@ -458,10 +417,10 @@
               </div>
             </div>
             <div class="order-1 pl-1 md:order-2">
-              <p class="font-bold text-sm md:text-base lg:text-lg leading-tight text-gold">
+              <p class="text-sm font-bold leading-tight text-gold md:text-base lg:text-lg">
                 {$_('upgrader.chooseItem')}
               </p>
-              <p class="text-xs leading-tight sm:text-sm text-navy-300">
+              <p class="text-xs leading-tight text-navy-300 sm:text-sm">
                 {$_('upgrader.receiveItem')}
               </p>
             </div>
@@ -469,47 +428,45 @@
         </div>
         <div
           id="upgraderResult"
-          class="z-10 flex flex-col items-center w-full justify-center rounded-lg select-none bg-navy-800 upgraderResult"
+          class="upgraderResult z-10 flex w-full select-none flex-col items-center justify-center rounded-lg bg-navy-800"
           style="box-shadow: rgba(0, 0, 0, 0.46) 0px 5px 20px;"
         >
           <div
-            class="relative flex-1 mt-12 mb-8 border-2 border-current border-solid rounded-full"
+            class="relative mb-8 mt-12 flex-1 rounded-full border-2 border-solid border-current"
             style="color: rgb({upgraderSvgRGBcolor}); width: 40%; min-width: 250px; box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 5px, rgba{upgraderSvgRGBcolor}, 0.7) 0px 0px 7px inset;"
           >
             <div class="pt-[100%]"></div>
             <div
-              class="absolute border border-solid rounded-full border-navy-500 w-[94%] h-[94%] top-[3%] left-[3%]"
+              class="absolute left-[3%] top-[3%] h-[94%] w-[94%] rounded-full border border-solid border-navy-500"
             ></div>
             <div
-              class="absolute bg-current tick-point w-[1px] h-[10px] top-[-6px] left-[50%]"
+              class="tick-point absolute left-[50%] top-[-6px] h-[10px] w-[1px] bg-current"
               style="box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
             <div
-              class="absolute bg-current tick-point w-[10px] h-[1px] top-[50%] right-[-6px]"
+              class="tick-point absolute right-[-6px] top-[50%] h-[1px] w-[10px] bg-current"
               style="box-shadow: rgba{upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
             <div
-              class="absolute bg-current tick-point w-[1px] h-[10px] bottom-[-6px] left-[50%]"
+              class="tick-point absolute bottom-[-6px] left-[50%] h-[10px] w-[1px] bg-current"
               style="box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
             <div
-              class="absolute bg-current tick-point w-[10px] h-[1px] top-[50%] left-[-6px]"
+              class="tick-point absolute left-[-6px] top-[50%] h-[1px] w-[10px] bg-current"
               style="box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 6px 1px"
             ></div>
-            <div class="absolute top-0 left-0 z-10 flex justify-center w-full h-full">
-              <div
-                class="upgrader-spin-triangle upgrader-pointer-arrow"
-              ></div>
+            <div class="absolute left-0 top-0 z-10 flex h-full w-full justify-center">
+              <div class="upgrader-spin-triangle upgrader-pointer-arrow"></div>
             </div>
-            <div class="absolute top-0 left-0 z-10 w-full h-full p-5">
+            <div class="absolute left-0 top-0 z-10 h-full w-full p-5">
               <div
-                class="relative flex items-center justify-center w-full h-full text-center border border-current border-solid rounded-full upgrader-spin-circle"
+                class="upgrader-spin-circle relative flex h-full w-full items-center justify-center rounded-full border border-solid border-current text-center"
                 style="perspective: 400px; box-shadow: rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 5px, rgba({upgraderSvgRGBcolor}, 0.7) 0px 0px 7px inset;"
               >
                 <svg
                   viewBox="0 0 100 100"
                   id="upgrader-indicator"
-                  class="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
+                  class="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full"
                   style="transform: rotate({upgraderRotation}deg);"
                 >
                   <circle
@@ -549,7 +506,7 @@
                 <div style="height: 80%; width: 80%; transform-style: preserve-3d;">
                   <div
                     id="success-chance-display-wrapper"
-                    class="absolute flex flex-col items-center justify-center w-full h-full rounded-full transition-transform duration-150"
+                    class="absolute flex h-full w-full flex-col items-center justify-center rounded-full transition-transform duration-150"
                     style="transform: rotateX(0deg); backface-visibility: hidden; background-image: radial-gradient(rgb(17, 17, 20), rgba(17, 17, 20, 0.5));"
                   >
                     <div class="text-4xl font-bold leading-none text-white">
@@ -563,10 +520,10 @@
                   </div>
                   <div
                     id="status-display-wrapper"
-                    class="absolute z-10 flex flex-col items-center justify-center w-full h-full border-4 border-current border-solid rounded-full transition-transform duration-150"
+                    class="absolute z-10 flex h-full w-full flex-col items-center justify-center rounded-full border-4 border-solid border-current transition-transform duration-150"
                     style="transform: rotateY(180deg); backface-visibility: hidden; background-image: radial-gradient(rgb(17, 17, 20), rgba(17, 17, 20, 0.5));"
                   >
-                    <div class="text-3xl font-bold leading-none status-display"></div>
+                    <div class="status-display text-3xl font-bold leading-none"></div>
                   </div>
                 </div>
               </div>
@@ -574,7 +531,7 @@
           </div>
           <div class="pb-8">
             <div class="relative">
-              <svg viewBox="0 0 234.5066 50.7309" class="block mx-auto" style="width: 230px;">
+              <svg viewBox="0 0 234.5066 50.7309" class="mx-auto block" style="width: 230px;">
                 <path
                   fill="none"
                   stroke="#31303e"
@@ -599,13 +556,13 @@
                 </g>
               </svg>
               <div
-                class="absolute text-base font-semibold text-center text-white"
+                class="absolute text-center text-base font-semibold text-white"
                 style="width: 120px; top: 28%; left: calc(50% - 60px);"
               >
                 <span>{convertPrice($page.data.currency, totalSelectedValue)}</span>
               </div>
               <div
-                class="absolute text-sm text-center text-navy-300"
+                class="absolute text-center text-sm text-navy-300"
                 style="width: 120px; top: 73%; left: calc(50% - 60px);"
               >
                 Balance
@@ -613,10 +570,10 @@
             </div>
           </div>
           <div
-            class="flex flex-col justify-center p-5 mt-auto tracking-wider rounded-lg sm:px-6 bg-navy-900 transition-opacity duration-300 self-stretch sm:h-[85px]"
+            class="mt-auto flex flex-col justify-center self-stretch rounded-lg bg-navy-900 p-5 tracking-wider transition-opacity duration-300 sm:h-[85px] sm:px-6"
           >
-            <div class="flex items-baseline -mt-1">
-              <span class="text-xs leading-none text-white uppercase">Use balance</span>
+            <div class="-mt-1 flex items-baseline">
+              <span class="text-xs uppercase leading-none text-white">Use balance</span>
               <div class="ml-auto">
                 <span class="text-xs font-bold leading-none text-gold">
                   {!balanceAddedChance || !isFinite(balanceAddedChance) ? 0 : balanceAddedChance}%
@@ -626,7 +583,7 @@
                 </span>
               </div>
             </div>
-            <div style="position: relative;" class="flex items-center h-8 mt-1 sm:h-5">
+            <div style="position: relative;" class="mt-1 flex h-8 items-center sm:h-5">
               <input
                 class="w-full"
                 type="range"
@@ -641,34 +598,34 @@
         </div>
         <div
           id="upgraderOptions"
-          class="grid grid-cols-4 row-start-2 gap-3 lg:pt-10 lg:px-10"
+          class="row-start-2 grid grid-cols-4 gap-3 lg:px-10 lg:pt-10"
           style="grid-area: options;"
         >
           <button
             on:click="{(e) => selectMultiplier(1.5, e.currentTarget)}"
             disabled="{!successChance || successChance <= 0 || loading}"
-            class="multiplier-btn text-navy-200 flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent is-open:font-bold is-open:text-white is-open:border-navy-100 is-open:bg-navy-550"
+            class="multiplier-btn flex h-10 items-center justify-center rounded-lg border border-solid border-navy-500 bg-transparent px-4 text-center text-xs text-navy-200 transition-all duration-300 hover:border-navy-300 hover:text-white is-open:border-navy-100 is-open:bg-navy-550 is-open:font-bold is-open:text-white"
           >
             1.5x
           </button>
           <button
             on:click="{(e) => selectMultiplier(2, e.currentTarget)}"
             disabled="{!successChance || successChance <= 0 || loading}"
-            class="multiplier-btn is-open text-navy-200 flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent is-open:font-bold is-open:text-white is-open:border-navy-100 is-open:bg-navy-550"
+            class="multiplier-btn is-open flex h-10 items-center justify-center rounded-lg border border-solid border-navy-500 bg-transparent px-4 text-center text-xs text-navy-200 transition-all duration-300 hover:border-navy-300 hover:text-white is-open:border-navy-100 is-open:bg-navy-550 is-open:font-bold is-open:text-white"
           >
             2x
           </button>
           <button
             on:click="{(e) => selectMultiplier(5, e.currentTarget)}"
             disabled="{!successChance || successChance <= 0 || loading}"
-            class="multiplier-btn text-navy-200 flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent is-open:font-bold is-open:text-white is-open:border-navy-100 is-open:bg-navy-550"
+            class="multiplier-btn flex h-10 items-center justify-center rounded-lg border border-solid border-navy-500 bg-transparent px-4 text-center text-xs text-navy-200 transition-all duration-300 hover:border-navy-300 hover:text-white is-open:border-navy-100 is-open:bg-navy-550 is-open:font-bold is-open:text-white"
           >
             5x
           </button>
           <button
             on:click="{(e) => selectMultiplier(10, e.currentTarget)}"
             disabled="{!successChance || successChance <= 0 || loading}"
-            class="multiplier-btn text-navy-200 flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg hover:text-white border-navy-500 hover:border-navy-300 bg-transparent is-open:font-bold is-open:text-white is-open:border-navy-100 is-open:bg-navy-550"
+            class="multiplier-btn flex h-10 items-center justify-center rounded-lg border border-solid border-navy-500 bg-transparent px-4 text-center text-xs text-navy-200 transition-all duration-300 hover:border-navy-300 hover:text-white is-open:border-navy-100 is-open:bg-navy-550 is-open:font-bold is-open:text-white"
           >
             10x
           </button>
@@ -718,7 +675,7 @@
                 class="flex h-full w-full items-center justify-center rounded-lg border border-solid border-navy-500 bg-navy-800 px-4 text-center text-sm transition-all duration-300"
               >
                 <svg
-                  class="mr-2 h-1/4 aspect-square transition-transform duration-500 {selectedUpgraderPosition ===
+                  class="mr-2 aspect-square h-1/4 transition-transform duration-500 {selectedUpgraderPosition ===
                   'TOP'
                     ? ''
                     : 'rotate-180'}"
@@ -730,9 +687,9 @@
             </div>
           </button>
         </div>
-        <div class="col-start-3 row-start-2 lg:pt-10 lg:px-10" style="grid-area: upgradeBtn;">
+        <div class="col-start-3 row-start-2 lg:px-10 lg:pt-10" style="grid-area: upgradeBtn;">
           <button
-            class="h-full text-lg font-semibold rounded-lg bg-gold w-full px-[2.5em] pt-8 pb-7 uppercase hover:bg-gold-600 hover:shadow-lg disabled:bg-white disabled:bg-opacity-10 disabled:!shadow-none"
+            class="h-full w-full rounded-lg bg-gold px-[2.5em] pb-7 pt-8 text-lg font-semibold uppercase hover:bg-gold-600 hover:shadow-lg disabled:bg-white disabled:bg-opacity-10 disabled:!shadow-none"
             style="box-shadow: rgba(220, 174, 100, 0.5) 0px 0px 10px;"
             disabled="{!successChance || successChance > 81 || successChance <= 0 || loading}"
             on:click="{upgrade}"
@@ -741,19 +698,63 @@
           </button>
         </div>
       </div>
-      <div class="grid gap-5 mt-3 sm:mt-5 lg:mt-10 lg:grid-cols-2">
-        <UserItemSelect
-          bind:selectedUpgradeItems="{selectedUpgradeItems}"
-          on:upgrade-item-select="{resetUpgrader}"
-        />
+      <div class="mt-3 grid gap-5 sm:mt-5 lg:mt-10 lg:grid-cols-2">
+        <UserItemSelect bind:selectedUpgradeItems on:upgrade-item-select="{resetUpgrader}" />
         <UpgradeItemSelect
-          availableItems="{availableItems}"
-          minPrice="{minPrice}"
-          bind:selectedGoalItems="{selectedGoalItems}"
-          bind:totalGoalValue="{totalGoalValue}"
+          {availableItems}
+          {minPrice}
+          bind:selectedGoalItems
+          bind:totalGoalValue
           on:goal-item-select="{resetUpgrader}"
         />
       </div>
     </main>
   </div>
 </div>
+
+<style>
+  .upgrader-pointer-arrow {
+    margin-top: -1px;
+    width: 0px;
+    height: 0px;
+    border-color: currentcolor transparent transparent;
+    border-style: solid;
+    border-width: 18px 8px 8px;
+    border-image: none 100% / 1 / 0 stretch;
+    filter: drop-shadow(rgba(220, 174, 100, 0.8) 0px 0px 4px);
+    transform-origin: 50% 480%;
+  }
+  .t-h2 {
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .upgrader-mode-container {
+    text-transform: lowercase;
+  }
+
+  .upgrader-mode-container::first-letter {
+    text-transform: uppercase;
+  }
+
+  .upgraderResult {
+    grid-area: center;
+  }
+
+  @media (min-width: 768px) {
+    .upgraderResult {
+      grid-area: initial;
+    }
+  }
+
+  .upgraderGridTemplate {
+    grid-template: 'center center' 'upgradeBtn upgradeBtn' 'userSkins userSkins' 'upgradeSkins upgradeSkins' 'options options' / 1fr 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .upgraderGridTemplate {
+      grid-template: 'userSkins center upgradeSkins' 1fr 'options center upgradeBtn' / 1fr 1fr 1fr;
+    }
+  }
+</style>

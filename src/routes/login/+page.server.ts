@@ -1,9 +1,9 @@
-import { redirect, type Actions } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import { TimeInMs } from '$lib';
 import { db } from '$lib/server';
+import { redirect, type Actions } from '@sveltejs/kit';
 import bcrypt from 'bcrypt';
 import { nanoid } from 'nanoid';
-import { TimeInMs } from '$lib';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
   if (locals.user) {

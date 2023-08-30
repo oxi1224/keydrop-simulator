@@ -17,27 +17,27 @@
 </script>
 
 <li
-  class="relative z-0 rounded-lg group transition-transform hover:-translate-y-6 bg-navy-700"
+  class="group relative z-0 rounded-lg bg-navy-700 transition-transform hover:-translate-y-6"
   style="padding-top: 135%; box-shadow: rgb(8, 10, 13) 0px 0px 35px 0px;"
 >
   <div
-    class="absolute top-0 left-0 hidden w-full h-full transition-transform duration-200 border-t border-solid rounded-lg will-change-transform bg-navy-900 group-hover:rounded-b-none border-{itemData
+    class="absolute left-0 top-0 hidden h-full w-full rounded-lg border-t border-solid bg-navy-900 transition-transform duration-200 will-change-transform group-hover:rounded-b-none border-{itemData
       .globalInvItem.skinRarity} css-cwrogv"
     style="display: flex;"
   >
-    <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-200"></div>
+    <div class="absolute left-0 top-0 h-full w-full transition-opacity duration-200"></div>
     <div
-      class="absolute top-0 left-0 z-10 flex w-full p-2 mt-10 transition-opacity duration-200 opacity-0 sm:p-4 group-hover:opacity-100"
+      class="absolute left-0 top-0 z-10 mt-10 flex w-full p-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:p-4"
     >
       <div>
-        <div class="font-bold leading-none uppercase text-2xs css-rgj8xp">
+        <div class="css-rgj8xp text-2xs font-bold uppercase leading-none">
           {$_('profile.item.origin')}
         </div>
-        <a href="/" class="block mt-1 text-xs font-bold leading-none text-white uppercase">
+        <a href="/" class="mt-1 block text-xs font-bold uppercase leading-none text-white">
           {itemData.origin}
         </a>
       </div>
-      <div class="ml-auto font-bold leading-snug text-right uppercase whitespace-nowrap text-2xs">
+      <div class="ml-auto whitespace-nowrap text-right text-2xs font-bold uppercase leading-snug">
         {new Date(itemData.dropDate).getHours()}:{new Date(
           itemData.dropDate
         ).getMinutes()}:{new Date(itemData.dropDate).getSeconds()}
@@ -49,69 +49,69 @@
         </span>
       </div>
     </div>
-    <div class="absolute top-0 left-0 z-10 flex items-center w-full p-2 sm:p-4">
+    <div class="absolute left-0 top-0 z-10 flex w-full items-center p-2 sm:p-4">
       {#if itemData.sold}
-        <div class="flex items-center font-bold text-red leading-none uppercase text-2xs">
-          <svg class="w-4 h-4 mr-2 -mt-px">
+        <div class="flex items-center text-2xs font-bold uppercase leading-none text-red">
+          <svg class="-mt-px mr-2 h-4 w-4">
             <use xlink:href="/icons/icons.svg#sell"></use>
           </svg>
           {$_('profile.item.sold')}
         </div>
       {:else}
-        <div class="flex items-center font-bold leading-none uppercase text-2xs text-gold">
-          <svg class="w-4 h-4 mr-2 -mt-px" style="transform: scale(0.95);">
+        <div class="flex items-center text-2xs font-bold uppercase leading-none text-gold">
+          <svg class="-mt-px mr-2 h-4 w-4" style="transform: scale(0.95);">
             <use xlink:href="/icons/icons.svg#rating-star"></use>
           </svg>
           New
         </div>
       {/if}
       <div
-        class="flex items-center p-2 ml-auto text-sm font-bold leading-none rounded-md bg-navy-700 text-gold"
+        class="ml-auto flex items-center rounded-md bg-navy-700 p-2 text-sm font-bold leading-none text-gold"
       >
         {convertPrice($page.data.currency, itemData.globalInvItem.skinPrice)}
       </div>
     </div>
     <div
-      class="absolute flex flex-col items-center justify-end w-full h-full pb-4 transition-opacity duration-200 rounded-t-lg bg-navy-600"
+      class="absolute flex h-full w-full flex-col items-center justify-end rounded-t-lg bg-navy-600 pb-4 transition-opacity duration-200"
     >
       <img
         src="/images/inventory-item.webp"
         alt=""
-        class="absolute top-0 left-0 object-cover w-full h-full rounded-lg"
+        class="absolute left-0 top-0 h-full w-full rounded-lg object-cover"
       />
       <img
         src="{itemData.globalInvItem.skinImgSource}"
         alt=""
-        class="relative flex-1 object-contain w-4/5 mt-8"
+        class="relative mt-8 w-4/5 flex-1 object-contain"
       />
       <div class="flex flex-col items-center transition-opacity duration-200 group-hover:opacity-0">
         <div
-          class="relative px-2 overflow-hidden text-sm font-light leading-none text-center text-navy-100 sm:mb-2 line-clamp"
+          class="line-clamp relative overflow-hidden px-2 text-center text-sm font-light leading-none text-navy-100 sm:mb-2"
         >
           {itemData.globalInvItem.weaponName}
         </div>
         <div
-          class="relative px-2 overflow-hidden text-sm font-semibold leading-none text-center text-white sm:mb-2 line-clamp"
+          class="line-clamp relative overflow-hidden px-2 text-center text-sm font-semibold leading-none text-white sm:mb-2"
           title="Mainframe "
         >
           {itemData.globalInvItem.skinName}
         </div>
         <div
-          class="relative px-2 overflow-hidden font-light leading-none text-center text-navy-100 text-2xs sm:mb-2 line-clamp"
+          class="line-clamp relative overflow-hidden px-2 text-center text-2xs font-light leading-none text-navy-100 sm:mb-2"
         >
           ({itemData.globalInvItem.skinQuality})
         </div>
       </div>
     </div>
     <ul
-      class="absolute bottom-0 left-0 z-10 w-full text-xs font-bold leading-none whitespace-nowrap transition-opacity duration-200 bg-navy-700 text-navy-100 divide-y divide-navy-800 opacity-0 group-hover:opacity-100"
+      class="absolute bottom-0 left-0 z-10 w-full divide-y divide-navy-800 whitespace-nowrap bg-navy-700 text-xs font-bold leading-none text-navy-100 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
     >
       <li class="border-solid">
         <button
-          class="single-sell-btn flex items-center justify-center w-full px-2 py-4 font-semibold uppercase transition-colors duration-150 text-[11px] hover:text-white"
+          class="single-sell-btn flex w-full items-center justify-center px-2 py-4 text-[11px] font-semibold uppercase transition-colors duration-150 hover:text-white"
           on:click="{(e) => handleSingleSell(e, itemData)}"
         >
-          <svg class="w-4 h-4 mr-2">
+          <svg class="mr-2 h-4 w-4">
             <use xlink:href="/icons/icons.svg?38#sell"></use>
           </svg>
           <span>
@@ -124,12 +124,12 @@
       </li>
     </ul>
     <div
-      class="absolute bottom-0 flex w-full overflow-hidden transition-transform duration-200 rounded-b-lg will-change-transform h-[50px] -translate-y-[1px]"
+      class="absolute bottom-0 flex h-[50px] w-full -translate-y-[1px] overflow-hidden rounded-b-lg transition-transform duration-200 will-change-transform"
     >
       <button
-        class="hidden hover-none:flex items-center px-3 transition-colors duration-150 border-t-0 border-b-0 border-l border-r-0 border-solid border-gold-800"
+        class="hover-none:flex border-gold-800 hidden items-center border-b-0 border-l border-r-0 border-t-0 border-solid px-3 transition-colors duration-150"
       >
-        <svg class="w-6 h-6 text-navy-600">
+        <svg class="h-6 w-6 text-navy-600">
           <use xlink:href="/icons/icons.svg?38#dots-vertical"></use>
         </svg>
       </button>

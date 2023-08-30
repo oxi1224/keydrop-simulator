@@ -4,15 +4,15 @@
 
 <div class="bg-navy-700">
   <div
-    class="container flex flex-col justify-between space-y-5 py-9 xl:py-14 xl:flex-row xl:space-y-5 mx-auto tabular-nums"
+    class="container mx-auto flex flex-col justify-between space-y-5 py-9 tabular-nums xl:flex-row xl:space-y-5 xl:py-14"
   >
     <div
-      class="flex items-center text-sm cursor-default group xl:justify-center xl:text-lg xl:mx-0 mx-auto xl:mt-5"
+      class="group mx-auto flex cursor-default items-center text-sm xl:mx-0 xl:mt-5 xl:justify-center xl:text-lg"
     >
-      <div class="mr-4 relative">
+      <div class="relative mr-4">
         <svg
           viewBox="0 0 24 24"
-          class="block w-20 h-20 fill-current text-gold"
+          class="block h-20 w-20 fill-current text-gold"
           style="transform: rotate(-45deg)"
         >
           <path
@@ -22,20 +22,20 @@
       </div>
       <div>
         <p
-          class="text-3xl font-semibold tracking-wide leading-none cursor-default text-gold group-hover:text-white transition duration-500 ease-in-out"
+          class="cursor-default text-3xl font-semibold leading-none tracking-wide text-gold transition duration-500 ease-in-out group-hover:text-white"
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+        <p class="mt-2 text-base uppercase leading-none text-navy-300">
           {$_('footer.stats.openedCases')}
         </p>
       </div>
     </div>
     <div
-      class="flex items-center text-sm cursor-default group xl:justify-center xl:text-lg xl:mx-0 mx-auto"
+      class="group mx-auto flex cursor-default items-center text-sm xl:mx-0 xl:justify-center xl:text-lg"
     >
-      <div class="mr-4 relative">
-        <svg viewBox="0 0 24 22" class="block fill-current w-20 h-20 text-gold">
+      <div class="relative mr-4">
+        <svg viewBox="0 0 24 22" class="block h-20 w-20 fill-current text-gold">
           <path
             d="m18.965 15.79 3.31 3.176-1.422 1.365-3.31-3.176 1.422-1.365ZM23.28 19.013l.652.626a.218.218 0 0 1 0 .317l-2.049 1.966a.24.24 0 0 1-.33 0l-.652-.626a.218.218 0 0 1 0-.317l2.048-1.966a.24.24 0 0 1 .33 0ZM5.146 3.503a.287.287 0 0 0-.202-.08.297.297 0 0 0-.202.08.274.274 0 0 0-.084.194.265.265 0 0 0 .084.194l11.042 10.6-1.676 1.608L2.98 5.417 1.092 0l5.643 1.812 11.13 10.682-1.676 1.608-11.043-10.6ZM14.344 16.524l3.987-3.827.568-.545.933.896a.884.884 0 0 1 .27.627.856.856 0 0 1-.27.627l-.769.738-2.3 2.208-.782.75a.928.928 0 0 1-.653.26.956.956 0 0 1-.653-.26l-.934-.895.603-.579ZM5.035 15.803l1.422 1.364-3.309 3.176-1.422-1.364 3.31-3.176ZM1.05 19.026 3.1 20.992a.223.223 0 0 1 .068.158.216.216 0 0 1-.068.159l-.653.626a.235.235 0 0 1-.165.066.24.24 0 0 1-.165-.066L.068 19.969a.22.22 0 0 1 0-.317l.652-.626a.235.235 0 0 1 .165-.066.241.241 0 0 1 .165.066ZM5.692 12.73l3.988 3.828.567.545-.933.896a.926.926 0 0 1-.653.26.956.956 0 0 1-.653-.26l-.769-.738-2.301-2.209-.782-.75a.884.884 0 0 1-.27-.627.855.855 0 0 1 .27-.627l.933-.896.603.579ZM14.426 8.542l4.833-4.638a.27.27 0 0 0 .084-.194.27.27 0 0 0-.084-.195.293.293 0 0 0-.405 0l-4.832 4.639-1.676-1.609 4.92-4.721L22.907.012 21.021 5.43l-4.919 4.72-1.676-1.608ZM9.992 12.798l1.676 1.608-1.776 1.705-1.676-1.608 1.776-1.705ZM7.911 10.8l1.676 1.61-1.776 1.704-1.676-1.608L7.911 10.8Z"
           ></path>
@@ -43,20 +43,20 @@
       </div>
       <div>
         <p
-          class="text-3xl font-semibold tracking-wide leading-none text-gold hover:text-white transition-colors ease-in-out duration-300 cursor-default"
+          class="cursor-default text-3xl font-semibold leading-none tracking-wide text-gold transition-colors duration-300 ease-in-out hover:text-white"
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+        <p class="mt-2 text-base uppercase leading-none text-navy-300">
           {$_('footer.stats.battles')}
         </p>
       </div>
     </div>
     <div
-      class="flex items-center text-sm cursor-default group xl:justify-center xl:text-lg xl:mx-0 mx-auto"
+      class="group mx-auto flex cursor-default items-center text-sm xl:mx-0 xl:justify-center xl:text-lg"
     >
-      <div class="mr-4 relative">
-        <svg viewBox="0 0 24 24" class="block w-20 h-20 fill-current text-gold">
+      <div class="relative mr-4">
+        <svg viewBox="0 0 24 24" class="block h-20 w-20 fill-current text-gold">
           <path
             d="m10 10.414 4 4 5.707-5.707L22 11V5h-6l2.293 2.293L14 11.586l-4-4-7.707 7.707 1.414 1.414z"
           ></path>
@@ -64,22 +64,22 @@
       </div>
       <div>
         <p
-          class="text-3xl font-semibold tracking-wide leading-none text-gold hover:text-white transition-colors ease-in-out duration-300 cursor-default"
+          class="cursor-default text-3xl font-semibold leading-none tracking-wide text-gold transition-colors duration-300 ease-in-out hover:text-white"
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+        <p class="mt-2 text-base uppercase leading-none text-navy-300">
           {$_('footer.stats.upgrades')}
         </p>
       </div>
     </div>
     <div
-      class="flex items-center text-sm cursor-default group xl:justify-center xl:text-lg xl:mx-0 mx-auto"
+      class="group mx-auto flex cursor-default items-center text-sm xl:mx-0 xl:justify-center xl:text-lg"
     >
-      <div class="mr-4 relative">
+      <div class="relative mr-4">
         <svg
           viewBox="0 0 24 24"
-          class="block fill-current w-20 h-20 text-gold"
+          class="block h-20 w-20 fill-current text-gold"
           style="transform: scale(.95)"
         >
           <circle fill="none" cx="12" cy="7" r="3"></circle>
@@ -90,22 +90,22 @@
       </div>
       <div>
         <p
-          class="text-3xl font-semibold tracking-wide leading-none text-gold hover:text-white transition-colors ease-in-out duration-300 cursor-default"
+          class="cursor-default text-3xl font-semibold leading-none tracking-wide text-gold transition-colors duration-300 ease-in-out hover:text-white"
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+        <p class="mt-2 text-base uppercase leading-none text-navy-300">
           {$_('footer.stats.users')}
         </p>
       </div>
     </div>
     <div
-      class="flex items-center text-sm cursor-default group xl:justify-center xl:text-lg xl:mx-0 mx-auto"
+      class="group mx-auto flex cursor-default items-center text-sm xl:mx-0 xl:justify-center xl:text-lg"
     >
-      <div class="mr-4 relative">
+      <div class="relative mr-4">
         <svg
           viewBox="0 0 24 24"
-          class="block fill-current w-20 h-20 text-gold"
+          class="block h-20 w-20 fill-current text-gold"
           style="transform: scale(.95)"
         >
           <path
@@ -119,11 +119,11 @@
       </div>
       <div>
         <p
-          class="text-3xl font-semibold tracking-wide leading-none text-gold hover:text-white transition-colors ease-in-out duration-300 cursor-default"
+          class="cursor-default text-3xl font-semibold leading-none tracking-wide text-gold transition-colors duration-300 ease-in-out hover:text-white"
         >
           696 969
         </p>
-        <p class="uppercase text-navy-300 mt-2 leading-none text-base">
+        <p class="mt-2 text-base uppercase leading-none text-navy-300">
           {$_('footer.stats.online')}
         </p>
       </div>

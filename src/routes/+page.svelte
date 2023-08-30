@@ -12,7 +12,7 @@
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    time = hours + ":" + minutes + ":" + seconds;
+    time = hours + ':' + minutes + ':' + seconds;
 
     if (diff < 0) time = 'NIEDLUGO';
   }, 1000);
@@ -27,7 +27,7 @@
             {#if sectionData.cases.length > 0}
               <CaseSection data="{sectionData}" />
             {:else}
-              <div class="text-red text-lg text-center">
+              <div class="text-center text-lg text-red">
                 SKRZYNKI SĄ AKTUALIZOWANE, PROSZE CZEKAĆ...
                 <br />
                 Oczekiwany czas: {time}

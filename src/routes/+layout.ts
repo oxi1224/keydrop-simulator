@@ -1,7 +1,7 @@
-import type { LayoutLoad } from './$types';
 import { browser } from '$app/environment';
-import { locale, waitLocale } from 'svelte-i18n';
 import '$lib/i18n.js';
+import { locale, waitLocale } from 'svelte-i18n';
+import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = async ({ data }) => {
   if (browser) {

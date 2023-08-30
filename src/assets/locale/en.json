@@ -96,6 +96,10 @@
     "setBalance": "Set Balance",
     "selectBalanceType": "Select balance type"
   },
+  "profilePicForm": {
+    "urlPlaceholder": "URL to photo",
+    "setProfilePic": "Set Profile Picture"
+  },
   "toasts": {
     "error": {
       "header": "Error",
@@ -119,7 +123,9 @@
         "invalidBalanceType": "Invalid balance type",
         "maxItemsSelected": "You can select 15 items at max",
         "upgraderInvalidValues": "Some values are invalid",
-        "upgraderInvalidChance": "invalid chance"
+        "upgraderInvalidChance": "invalid chance",
+        "spotTaken": "Spot Taken",
+        "invalidUrl": "Nieprawidłowy link"
       }
     },
     "success": {
@@ -147,6 +153,84 @@
     "yourItems": "Your items",
     "findSkin": "Find skin",
     "price": "Price"
+  },
+  "battles": {
+    "active": "Active",
+    "online": "Online",
+    "battlesPlayed": "Total Battles",
+    "all": "All",
+    "battles": "Case Battles",
+    "rounds": "Rounds",
+    "cases": "Cases",
+    "worth": "Value",
+    "players": "Players",
+    "status": "Status",
+    "confirm": "Confirm",
+    "joinClassic": "Join Classic Battle",
+    "header": {
+      "seeBots": "View Our Bots",
+      "activeBattles": "Active Battles",
+      "finishedBattles": "Finished Battles",
+      "myBattles": "My Battles",
+      "createBattle": "Create a Case Battle",
+      "createBattleShort": "Create Battle",
+      "battle": "Battle"
+    },
+    "list": {
+      "search": "Search",
+      "sorting": "Sorting",
+      "newest": "Newest",
+      "priceAsc": "Price: Low To High",
+      "priceDesc": "Price: High To Low",
+      "priceRange": "Price Range",
+      "reset": "Reset",
+      "classicMode": "Classic Mode",
+      "underdogMode": "Underdog Mode",
+      "default": "Default",
+      "name": "Name"
+    },
+    "create": {
+      "roundSum": "Total Rounds",
+      "addCase": "Add Case",
+      "caseAddition": "Select Cases",
+      "playerCount": {
+        "title": "Number of players",
+        "desc": "Cashback is increased for 3-4 player battles!"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "desc": "Game privacy settings"
+      },
+      "mode": {
+        "title": "Case Battle Mode",
+        "desc": "Select your Case Battle mode"
+      },
+      "confirm": {
+        "title": "Total cost",
+        "desc": "Total price of cases"
+      },
+      "public": "Public",
+      "private": "Private",
+      "classic": "Classic"
+    },
+    "battlePage": {
+      "battleRounds": "Battle Rounds",
+      "results": "Go to result",
+      "battleStart": "Rozpoczęcie bitwy",
+      "createSame": "Create an identical battle",
+      "ready": "You Are",
+      "toBattle": "Ready To Battle",
+      "readyToBattle": "Ready To Battle",
+      "winner": "Winner",
+      "loser": "Loser",
+      "totalPrize": "Total Win",
+      "summonBots": "Summon All Bots",
+      "leaveBattle": "Leave Battle",
+      "waitingForPlayers": "Waiting For Players",
+      "playWithBot": "Play Against Bot",
+      "enableSound": "Enable Sound",
+      "disableSound": "Disable Sound"
+    }
   },
   "menu-icon": "Menu icon",
   "polish-polski": "Polish (Polski)",

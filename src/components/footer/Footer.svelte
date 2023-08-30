@@ -9,10 +9,10 @@
   <FooterStats />
   <FooterPaymentsList />
   <div class="bg-navy-800">
-    <div class="container text-navy-300 mx-auto">
-      <div class="flex flex-col py-16 sm:items-center sm:flex-row">
+    <div class="container mx-auto text-navy-300">
+      <div class="flex flex-col py-16 sm:flex-row sm:items-center">
         <div>
-          <a rel="alternate" href="/" class="block w-48 ml-3" aria-label="Go back to front page">
+          <a rel="alternate" href="/" class="ml-3 block w-48" aria-label="Go back to front page">
             <svg viewBox="0 0 269.2 67.4" class="block">
               <path
                 class="fill-white text-white"
@@ -24,14 +24,14 @@
               ></path>
             </svg>
           </a>
-          <div class="flex w-full mt-10 sm:w-auto">
+          <div class="mt-10 flex w-full sm:w-auto">
             <FooterSocials />
           </div>
         </div>
         <FooterNav />
       </div>
       <div
-        class="flex flex-col justify-between pt-8 pb-20 text-xs font-light border-t border-dashed md:flex-row border-navy-600"
+        class="flex flex-col justify-between border-t border-dashed border-navy-600 pb-20 pt-8 text-xs font-light md:flex-row"
       >
         <p class="text-navy-400">
           With us, you can easily get Steam, Origin and Uplay games. Keys are sent immediately. 100%
@@ -39,7 +39,7 @@
           <br />
           Copyright © 2022 Key-Drop. All Rights Reserved.
         </p>
-        <p class="mt-5 md:mt-0 text-navy-400 md:text-right" style="max-width: 33em;">
+        <p class="mt-5 text-navy-400 md:mt-0 md:text-right" style="max-width: 33em;">
           Finalta Play Technologies LLP (71-75 Shelton Street, Covent Garden, London, United
           Kingdom, WC2H 9JQ)
         </p>

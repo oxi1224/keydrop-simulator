@@ -1,5 +1,6 @@
 import type {
   Case,
+  CaseBattle as DbCaseBattle,
   CaseDrop as DbCaseDrop,
   CaseSection as DbCaseSection,
   GlobalInventoryItem,
@@ -34,4 +35,51 @@ export interface CaseSection extends DbCaseSection {
 
 export interface ItemWithGlobal extends Item {
   globalInvItem: GlobalInventoryItem;
+}
+
+export interface CaseBattleCaseData {
+  websiteName: string;
+  imgName: string;
+  count: number;
+}
+
+export interface CaseBattleDropData {
+  [key: number]: string[][];
+}
+
+export interface CaseDropWithGlobal extends CaseDrop {
+  globalInvItem: GlobalInventoryItem;
+}
+
+export interface CaseBattleParsedDropData {
+  [key: number]: CaseDropWithGlobal[][];
+}
+
+export type UserWithoutHash = Omit<User, 'passwordHash'>;
+
+export interface CaseBattlePlayer extends UserWithoutHash {
+  bot: boolean;
+}
+
+export interface CaseBattleBotPlayer {
+  id: string;
+  username: string;
+  pfpUrl: string;
+  bot: boolean;
+}
+
+export interface CaseBattlePlayers {
+  [key: number]: CaseBattlePlayer | CaseBattleBotPlayer;
+}
+
+export interface CaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players'> {
+  caseData: CaseBattleCaseData[];
+  players: CaseBattlePlayers;
+  drops: CaseBattleDropData;
+}
+
+export interface ParsedCaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players'> {
+  caseData: CaseBattleCaseData[];
+  players: CaseBattlePlayers;
+  drops: CaseBattleParsedDropData;
 }

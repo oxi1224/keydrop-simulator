@@ -1,6 +1,6 @@
-import type { Item } from '@prisma/client';
 import { invalidateAll } from '$app/navigation';
 import type { ItemWithGlobal } from '$lib/types';
+import type { Item } from '@prisma/client';
 
 export async function sellItems(items: (Item | ItemWithGlobal)[]) {
   const IDs = items.map((i) => i.dropId);

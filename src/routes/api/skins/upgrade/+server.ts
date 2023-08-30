@@ -1,9 +1,9 @@
-import { db, userFromSessionID } from '$lib/server';
-import type { RequestEvent } from '@sveltejs/kit';
-import { nanoid } from 'nanoid';
-import { randomInt } from 'crypto';
 import type { ItemWithGlobal } from '$lib';
+import { db, userFromSessionID } from '$lib/server';
 import type { GlobalInventoryItem } from '@prisma/client';
+import type { RequestEvent } from '@sveltejs/kit';
+import { randomInt } from 'crypto';
+import { nanoid } from 'nanoid';
 
 interface RequestBody {
   selectedItems: ItemWithGlobal[];
@@ -49,7 +49,7 @@ export async function POST(event: RequestEvent) {
     !goalItems ||
     addedBalance < 0 ||
     !isFinite(addedBalance) ||
-    isNaN(addedBalance) || 
+    isNaN(addedBalance) ||
     mode === 'CIRCLE'
   )
     return new Response(

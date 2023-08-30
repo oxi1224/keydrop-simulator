@@ -3,10 +3,11 @@
   import InventoryItem from '$components/inventory/InventoryItem.svelte';
   import InventoryHeader from '$components/inventory/InventoryHeader.svelte';
   import { page } from '$app/stores';
-  import { invalidateAll } from '$app/navigation';
   import { _ } from 'svelte-i18n';
+  import { invalidateAll } from '$app/navigation';
   import SetBalance from '$components/forms/SetBalance.svelte';
   import { onMount } from 'svelte';
+  import ChangeProfilePic from '$components/forms/ChangeProfilePic.svelte';
 
   let totalSkinPrice = 0;
   let loading = false;
@@ -14,9 +15,7 @@
   let dropdownWidth: number;
   let displayFilter: string;
   let inventory: ItemWithGlobal[] = $page.data.userInventory!.sort(
-    // eslint-disable-next-line
-    // @ts-ignore
-    (a, b) => new Date(b.dropDate) - new Date(a.dropDate)
+    (a, b) => new Date(b.dropDate).getTime() - new Date(a.dropDate).getTime()
   );
   let paginatedInventory: ItemWithGlobal[][] = [];
   let loadedPages = [0];
@@ -35,7 +34,8 @@
       { threshold: 1 }
     );
 
-    observer.observe(document.querySelector('.loadIndicator')!);
+    const loadIndicator = document.querySelector('.loadIndicator');
+    if (loadIndicator) observer.observe(loadIndicator);
   });
 
   $: {
@@ -55,6 +55,7 @@
       paginatedInventory.push(inventory.slice(i * 18, i * 18 + 18));
     }
   }
+
   async function handleInventorySell() {
     const filterdItems = $page.data.userInventory!.filter((obj) => !obj.sold && !obj.upgraded);
     if (!filterdItems)
@@ -113,44 +114,45 @@
     background-size: 2570px;
   "
 >
-  <div class="pt-4 pb-16 text-white">
+  <div class="pb-16 pt-4 text-white">
     <InventoryHeader />
     <div class="container mx-auto">
-      <div class="flex justify-center mb-4">
+      <div class="mb-4 flex w-full flex-col items-center justify-center gap-y-4">
         <SetBalance />
+        <ChangeProfilePic />
       </div>
       <section>
-        <div class="mx-auto xl:px-5 max-w-screen-xxl">
+        <div class="max-w-screen-xxl mx-auto xl:px-5">
           <div
-            class="flex flex-wrap xl:flex-nowrap items-center w-full mb-12 xl:rounded-2xl bg-navy-750 overflow-hidden"
+            class="mb-12 flex w-full flex-wrap items-center overflow-hidden bg-navy-750 xl:flex-nowrap xl:rounded-2xl"
           >
             <div
-              class="w-1/2 py-4 pl-1.5 pr-3 md:pr-4 xl:w-full duration-200 transition-opacity dropdown-width"
+              class="dropdown-width w-1/2 py-4 pl-1.5 pr-3 transition-opacity duration-200 md:pr-4 xl:w-full"
             >
               <div
-                class="self-start mb-1 font-medium tracking-wide uppercase xl:self-center text-[8px] text-navy-200"
+                class="mb-1 self-start text-[8px] font-medium uppercase tracking-wide text-navy-200 xl:self-center"
               >
                 {$_('profile.sort.title')}
               </div>
-              <div class="relative w-full h-9">
+              <div class="relative h-9 w-full">
                 <button
                   id="dropdown"
-                  class="dropdown dropdown-compact uppercase w-full xl:mr-0 h-9 border-navy-500 rounded-lg"
+                  class="dropdown dropdown-compact h-9 w-full rounded-lg border-[0.5px] border-navy-500 bg-navy-600 uppercase xl:mr-0"
                   bind:offsetWidth="{dropdownWidth}"
                   on:click="{toggleDropdown}"
                 >
                   <div class="px-3 text-[16px] lg:text-2xs">
                     <span
-                      class="font-semibold uppercase text-[10px] text-navy-300"
+                      class="text-[10px] font-semibold uppercase text-navy-300"
                       contenteditable="true"
                       bind:textContent="{displayFilter}"
                     >
                       {$_('profile.sort.newest')}
                     </span>
                   </div>
-                  <div class="ml-auto dropdown-arrow">
+                  <div class="dropdown-arrow ml-auto">
                     <svg
-                      class="dropdown-arrow-svg icon flex-shrink-0 block transition-transform duration-200 w-2.5 h-2.5"
+                      class="dropdown-arrow-svg icon block h-2.5 w-2.5 flex-shrink-0 transition-transform duration-200"
                       viewBox="0 0 10 6"
                       fill="none"
                     >
@@ -160,18 +162,18 @@
                 </button>
               </div>
               <div
-                class="hidden dropdown-items absolute z-50 w-full origin-top transform scale-100 opacity-100"
+                class="dropdown-items absolute z-50 hidden w-full origin-top scale-100 transform opacity-100"
                 style="width: {dropdownWidth}px;"
               >
                 <div
-                  class="flex flex-col rounded-lg border border-navy-200 border-opacity-30 shadow-lg bg-navy-700 bg-opacity-90"
+                  class="flex flex-col rounded-lg border border-navy-200 border-opacity-30 bg-navy-700 bg-opacity-90 shadow-lg"
                 >
                   <div
                     on:click="{() => sortItems(0)}"
                     on:keydown="{() => null}"
                     role="button"
                     tabindex="0"
-                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                    class="dropdown-item flex w-full cursor-pointer items-center px-3 py-2 text-left text-[16px] font-semibold uppercase text-navy-200 outline-none transition-colors duration-200 hover:bg-navy-600 lg:text-xs"
                   >
                     {$_('profile.sort.newest')}
                   </div>
@@ -180,7 +182,7 @@
                     on:keydown="{() => null}"
                     role="button"
                     tabindex="0"
-                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                    class="dropdown-item flex w-full cursor-pointer items-center px-3 py-2 text-left text-[16px] font-semibold uppercase text-navy-200 outline-none transition-colors duration-200 hover:bg-navy-600 lg:text-xs"
                   >
                     {$_('profile.sort.oldest')}
                   </div>
@@ -189,7 +191,7 @@
                     on:keydown="{() => null}"
                     role="button"
                     tabindex="0"
-                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                    class="dropdown-item flex w-full cursor-pointer items-center px-3 py-2 text-left text-[16px] font-semibold uppercase text-navy-200 outline-none transition-colors duration-200 hover:bg-navy-600 lg:text-xs"
                   >
                     {$_('profile.sort.cheapest')}
                   </div>
@@ -198,21 +200,21 @@
                     on:keydown="{() => null}"
                     role="button"
                     tabindex="0"
-                    class="dropdown-item cursor-pointer text-[16px] lg:text-xs font-semibold py-2 w-full text-left px-3 flex items-center outline-none transition-colors duration-200 uppercase text-navy-200 hover:bg-navy-600"
+                    class="dropdown-item flex w-full cursor-pointer items-center px-3 py-2 text-left text-[16px] font-semibold uppercase text-navy-200 outline-none transition-colors duration-200 hover:bg-navy-600 lg:text-xs"
                   >
                     {$_('profile.sort.mostExpensive')}
                   </div>
                 </div>
               </div>
             </div>
-            <div class="w-1/2 pl-1.5 pr-3 md:px-3 py-4 mr-auto lg:w-1/4 xl:w-auto">
+            <div class="mr-auto w-1/2 py-4 pl-1.5 pr-3 md:px-3 lg:w-1/4 xl:w-auto">
               <div
-                class="self-start mb-1 font-medium tracking-wide uppercase xl:self-center text-[8px] text-navy-200"
+                class="mb-1 self-start text-[8px] font-medium uppercase tracking-wide text-navy-200 xl:self-center"
               >
                 {$_('profile.showItems.title')}
               </div>
-              <div class="flex items-center h-9">
-                <div class="flex switch">
+              <div class="flex h-9 items-center">
+                <div class="switch flex">
                   <label for="labelid-13" class="flex items-center">
                     <div
                       class="mr-3 cursor-pointer py-1.5 text-right {!allItemsFilter
@@ -229,10 +231,10 @@
                         bind:checked="{allItemsFilter}"
                       />
                       <div
-                        class="h-6 rounded-full shadow-inner w-[3.25rem] toggle__line bg-navy-500"
+                        class="toggle__line h-6 w-[3.25rem] rounded-full bg-navy-500 shadow-inner"
                       ></div>
                       <div
-                        class="absolute inset-y-0 left-0 w-6 h-4 m-1 transition duration-200 transform translate-x-5 shadow rounded-lg toggle__dot bg-white"
+                        class="toggle__dot absolute inset-y-0 left-0 m-1 h-4 w-6 translate-x-5 transform rounded-lg bg-white shadow transition duration-200"
                       ></div>
                     </div>
                     <div
@@ -248,29 +250,29 @@
             </div>
             <a
               href="/skins/upgrader"
-              class="px-4 md:px-3 py-4 w-1/2 sm:w-auto {loading
-                ? 'opacity-25 pointer-events-none cursor-none'
+              class="w-1/2 px-4 py-4 sm:w-auto md:px-3 {loading
+                ? 'pointer-events-none cursor-none opacity-25'
                 : ''}"
             >
               <div
-                class="flex items-center justify-center font-semibold leading-none uppercase sm:justify-start text-[10px] text-red"
+                class="flex items-center justify-center text-[10px] font-semibold uppercase leading-none text-red sm:justify-start"
               >
-                <svg class="w-6 h-6 mr-2">
+                <svg class="mr-2 h-6 w-6">
                   <use xlink:href="/icons/nav-icons.svg#donut-chart"></use>
                 </svg>
                 {$_('profile.upgrade')}
               </div>
             </a>
             <div
-              class="w-1/2 px-4 py-4 md:px-3 sm:w-auto {loading
-                ? 'opacity-25 pointer-events-none cursor-none'
+              class="w-1/2 px-4 py-4 sm:w-auto md:px-3 {loading
+                ? 'pointer-events-none cursor-none opacity-25'
                 : ''}"
             >
               <button
-                class="group flex items-center text-left font-semibold uppercase text-[10px] text-neonGreen mx-auto sm:mx-0"
+                class="group mx-auto flex items-center text-left text-[10px] font-semibold uppercase text-neonGreen sm:mx-0"
                 on:click="{handleInventorySell}"
               >
-                <svg class="icon w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <svg class="icon mr-2 h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M20 4H4C2.897 4 2 4.897 2 6v2h20V6C22 4.897 21.103 4 20 4zM2 18c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-6H2V18zM5 15h6v2H5V15z"
                   ></path>
@@ -278,7 +280,7 @@
                 <div class="mt-1 leading-none">
                   {$_('profile.sellAll')}
                   <div
-                    class="text-left transition-colors duration-200 text-[8px] text-navy-200 group-hover:text-white"
+                    class="text-left text-[8px] text-navy-200 transition-colors duration-200 group-hover:text-white"
                   >
                     {convertPrice($page.data.currency, totalSkinPrice)}
                   </div>
@@ -287,14 +289,14 @@
             </div>
             <a
               href="/skin-changer"
-              class="px-4 md:px-3 py-4 w-1/2 sm:w-auto {loading
-                ? 'opacity-25 pointer-events-none cursor-none'
+              class="w-1/2 px-4 py-4 sm:w-auto md:px-3 {loading
+                ? 'pointer-events-none cursor-none opacity-25'
                 : ''}"
             >
               <div
-                class="flex items-center justify-center font-semibold uppercase sm:justify-start text-[10px] text-teal-500"
+                class="flex items-center justify-center text-[10px] font-semibold uppercase text-teal-500 sm:justify-start"
               >
-                <svg class="w-6 h-6 mr-2">
+                <svg class="mr-2 h-6 w-6">
                   <use xlink:href="/icons/nav-icons.svg#lightning"></use>
                 </svg>
                 {$_('profile.exchange')}
@@ -302,8 +304,8 @@
             </a>
           </div>
         </div>
-        {#if inventory}
-          <ul class="grid gap-10 my-3 profile-items-template">
+        {#if inventory && inventory.length > 0}
+          <ul class="profile-items-template my-3 grid gap-10">
             {#each loadedPages as page}
               {#each paginatedInventory[page] as item}
                 <InventoryItem itemData="{item}" />
@@ -311,8 +313,10 @@
             {/each}
           </ul>
           <div class="loadIndicator"></div>
+        {:else if inventory && inventory.length === 0}
+          <span>No items</span>
         {:else}
-          {$_('loading')}
+          <span>{$_('loading')}</span>
         {/if}
       </section>
     </div>

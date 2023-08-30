@@ -8,21 +8,21 @@
 
 <div
   id="toast-container"
-  class="z-50 fixed right-0 bottom-0 max-w-full md:right-5 md:bottom-5 md:w-96 transition-transform duration-500 translate-x-110 is-open:-translate-x-0 {open
+  class="fixed bottom-0 right-0 z-50 max-w-full translate-x-110 transition-transform duration-500 is-open:-translate-x-0 md:bottom-5 md:right-5 md:w-96 {open
     ? 'is-open'
     : ''}"
   on:click="{closetoast}"
   on:keypress="{() => null}"
 >
-  <div class="mt-2 w-full h-full">
+  <div class="mt-2 h-full w-full">
     <div
-      class="flex items-center w-full relative z-0 text-white cursor-pointer md:rounded-xl bg-opacity-95 {toastData.type ===
+      class="relative z-0 flex w-full cursor-pointer items-center bg-opacity-95 text-white md:rounded-xl {toastData.type ===
       'error'
         ? 'bg-failure'
         : 'bg-success'}"
     >
       <div
-        class="self-stretch shrink-0 flex justify-center items-center w-16 p-2 mb-3 ml-5 bg-white rounded-bl-xl rounded-rl-xl {toastData.type ===
+        class="rounded-rl-xl mb-3 ml-5 flex w-16 shrink-0 items-center justify-center self-stretch rounded-bl-xl bg-white p-2 {toastData.type ===
         'error'
           ? 'text-failure'
           : 'text-success'}"
@@ -42,8 +42,8 @@
         </svg>
       </div>
       <div class="p-5">
-        <p class="font-semibold text-base leading-none uppercase">{toastData.header}</p>
-        <p class="mt-2 font-extralight text-xs leading-snug">{toastData.message}</p>
+        <p class="text-base font-semibold uppercase leading-none">{toastData.header}</p>
+        <p class="mt-2 text-xs font-extralight leading-snug">{toastData.message}</p>
       </div>
       <div class="toast-close-btn"></div>
     </div>

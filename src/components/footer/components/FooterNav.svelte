@@ -1,13 +1,13 @@
-<nav class="flex w-auto mt-8 space-x-5 md:space-x-16 sm:ml-auto sm:mt-8">
+<nav class="mt-8 flex w-auto space-x-5 sm:ml-auto sm:mt-8 md:space-x-16">
   <div>
-    <h6 class="uppercase text-white text-xs mb-3">Customer service</h6>
+    <h6 class="mb-3 text-xs uppercase text-white">Customer service</h6>
     <ul class="text-xs font-light text-navy-100">
       <li>
         <a
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/ProvablyFair"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Provably Fair
         </a>
@@ -17,7 +17,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/tos"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Regulamin
         </a>
@@ -27,7 +27,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/policy"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Polityka prywatności
         </a>
@@ -37,7 +37,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/panel/profil/support"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Pomoc
         </a>
@@ -45,14 +45,14 @@
     </ul>
   </div>
   <div>
-    <h6 class="uppercase text-white text-xs mb-3">my account</h6>
+    <h6 class="mb-3 text-xs uppercase text-white">my account</h6>
     <ul class="text-xs font-light text-navy-100">
       <li>
         <a
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/ProvablyFair"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Moje konto
         </a>
@@ -62,7 +62,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/tos"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Moje skrzynie
         </a>
@@ -72,7 +72,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/policy"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Współpraca
         </a>
@@ -82,7 +82,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/panel/profil/support"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Darmowe złoto
         </a>
@@ -90,14 +90,14 @@
     </ul>
   </div>
   <div>
-    <h6 class="uppercase text-white text-xs mb-3">Key-drop</h6>
+    <h6 class="mb-3 text-xs uppercase text-white">Key-drop</h6>
     <ul class="text-xs font-light text-navy-100">
       <li>
         <a
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/ProvablyFair"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Codzienna skrzynia
         </a>
@@ -107,7 +107,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/tos"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           Skin Changer
         </a>
@@ -117,7 +117,7 @@
           rel="alternate"
           hreflang="pl"
           href="https://key-drop.com/pl/policy"
-          class="block py-1.5 hover:text-white duration-200 transition-colors"
+          class="block py-1.5 transition-colors duration-200 hover:text-white"
         >
           UPGRADER
         </a>

@@ -31,12 +31,12 @@
     id="case-root"
     style="background: url(/images/loser-bg.webp) center top / 100% auto no-repeat"
   >
-    <header class="container flex items-center grid-cols-3 py-8 sm:grid mx-auto">
+    <header class="container mx-auto flex grid-cols-3 items-center py-8 sm:grid">
       <a
         href="/"
-        class="flex items-center transition-colors duration-200 text-navy-200 hover:text-white text-sm font-bold"
+        class="flex items-center text-sm font-bold text-navy-200 transition-colors duration-200 hover:text-white"
       >
-        <svg class="w-3 h-3 mr-2 md:w-4 md:h-4 md:mr-3">
+        <svg class="mr-2 h-3 w-3 md:mr-3 md:h-4 md:w-4">
           <use xlink:href="/icons/icons.svg#arrow-left"></use>
         </svg>
         <span class="pt-px leading-none">
@@ -44,18 +44,18 @@
           <span class="hidden md:inline">{$_('case.goBack')}</span>
         </span>
       </a>
-      <h2 class="px-6 mx-auto text-xl font-semibold leading-tight text-center text-white uppercase">
+      <h2 class="mx-auto px-6 text-center text-xl font-semibold uppercase leading-tight text-white">
         {caseData.websiteName}
       </h2>
-      <div class="flex justify-center space-x-1 sm:space-x-2 sm:justify-end">
+      <div class="flex justify-center space-x-1 sm:justify-end sm:space-x-2">
         <button
-          class="flex justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 js-sound-btn {$settings.muteAudio
+          class="js-sound-btn flex h-10 items-center justify-center rounded-lg border border-solid border-navy-100 bg-navy-550 px-4 text-center text-xs font-bold text-white transition-all duration-300 {$settings.muteAudio
             ? 'brightness-75'
             : ''}"
           aria-label="Wyłącz dźwięk"
           on:click="{() => setAudioMute()}"
         >
-          <svg viewBox="-10 0 130 120" class="block w-4 h-4 fill-current">
+          <svg viewBox="-10 0 130 120" class="block h-4 w-4 fill-current">
             <path
               fill="currentColor"
               stroke="currentColor"
@@ -80,7 +80,7 @@
           </svg>
         </button>
         <label
-          class="flex cursor-pointer relative justify-center items-center h-10 px-4 transition-all duration-300 text-xs text-center border border-solid rounded-lg font-bold text-white border-navy-100 bg-navy-550 {$settings.fastOpen
+          class="relative flex h-10 cursor-pointer items-center justify-center rounded-lg border border-solid border-navy-100 bg-navy-550 px-4 text-center text-xs font-bold text-white transition-all duration-300 {$settings.fastOpen
             ? ''
             : 'brightness-75'}"
         >
@@ -88,15 +88,15 @@
             type="checkbox"
             id="fast-open"
             name="fast-open"
-            class="absolute opacity-0 cursor-pointer h-0 w-0"
+            class="absolute h-0 w-0 cursor-pointer opacity-0"
             on:click="{(e) => setFastOpen(e)}"
           />
-          <svg class="block w-4 h-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
+          <svg class="block h-4 w-4"><use xlink:href="/icons/icons.svg#lightning"></use></svg>
         </label>
       </div>
     </header>
     <CaseRoulette data="{caseData}" />
-    <CaseContents caseDrops="{caseDrops}" />
+    <CaseContents {caseDrops} />
     <div class="container mx-auto"></div>
   </div>
 </main>

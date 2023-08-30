@@ -15,7 +15,8 @@ const auth: Handle = async ({ event, resolve }) => {
       balance: user.balance,
       goldBalance: user.goldBalance,
       sandboxMode: user.sandboxMode,
-      language: user.language
+      language: user.language,
+      pfpUrl: user.pfpUrl
     };
   }
   return resolve(event);

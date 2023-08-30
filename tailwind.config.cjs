@@ -9,9 +9,6 @@ module.exports = {
         '2xs': '.56rem',
         '3xs': '.5rem'
       },
-      gridTemplateColumns: {
-        payments: 'repeat(auto-fill,minmax(13rem,1fr))'
-      },
       colors: {
         navy: {
           100: 'rgb(180 184 205)',
@@ -68,6 +65,9 @@ module.exports = {
       },
       maxWidth: {
         '1/2': '50%'
+      },
+      borderColor: {
+        default: 'currentColor'
       }
     }
   },

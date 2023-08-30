@@ -56,7 +56,7 @@
       />
     </div>
   </div>
-  <div class="bg-white border text-navy-300 border-gray-300 px-3 py-2 sm:text-sm">
+  <div class="border border-gray-300 bg-white px-3 py-2 text-navy-300 sm:text-sm">
     <p>{$_('balanceForm.selectBalanceType')}</p>
     <input type="radio" id="balanceType-money" name="balanceType" value="money" checked />
     <label for="balanceType-money">{$_('money')}</label>
@@ -67,16 +67,16 @@
   </div>
   <div class="relative overflow-hidden">
     <div
-      class="bg-navy-500 bg-opacity-95 min-w-full min-h-full z-50 rounded-md {loading
+      class="z-50 min-h-full min-w-full rounded-md bg-navy-500 bg-opacity-95 {loading
         ? 'flex'
-        : 'hidden'} absolute pointer-events-none justify-center items-center"
+        : 'hidden'} pointer-events-none absolute items-center justify-center"
     >
       <Spinner size="2em" borderWidth=".3em" />
     </div>
     <button
       type="submit"
       disabled="{loading}"
-      class="group relative flex w-full justify-center rounded-b-md border border-transparent bg-navy-500 py-2 px-4 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      class="group relative flex w-full justify-center rounded-b-md border border-transparent bg-navy-500 px-4 py-2 text-sm font-medium text-white hover:bg-navy-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
     >
       {$_('balanceForm.setBalance')}
     </button>

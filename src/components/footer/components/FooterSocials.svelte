@@ -3,17 +3,17 @@
 </script>
 
 <div>
-  <div class="mb-3 ml-3 text-xs text-white uppercase">{$_('footer.socials.follow')}</div>
-  <ul class="flex ml-1">
+  <div class="mb-3 ml-3 text-xs uppercase text-white">{$_('footer.socials.follow')}</div>
+  <ul class="ml-1 flex">
     <li>
       <a
         href="https://www.instagram.com/keydropcom_official/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram page"
-        class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
+        class="block p-2 text-navy-200 transition-colors duration-200 hover:text-white"
       >
-        <svg class="block w-6 h-6">
+        <svg class="block h-6 w-6">
           <use xlink:href="/icons/icons.svg#instagram"></use>
         </svg>
       </a>
@@ -24,9 +24,9 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Facebook page"
-        class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
+        class="block p-2 text-navy-200 transition-colors duration-200 hover:text-white"
       >
-        <svg class="block w-6 h-6">
+        <svg class="block h-6 w-6">
           <use xlink:href="/icons/icons.svg#facebook"></use>
         </svg>
       </a>
@@ -37,9 +37,9 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Twitter page"
-        class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
+        class="block p-2 text-navy-200 transition-colors duration-200 hover:text-white"
       >
-        <svg class="block w-6 h-6">
+        <svg class="block h-6 w-6">
           <use xlink:href="/icons/icons.svg#twitter"></use>
         </svg>
       </a>
@@ -50,9 +50,9 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Steam page"
-        class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
+        class="block p-2 text-navy-200 transition-colors duration-200 hover:text-white"
       >
-        <svg class="block w-6 h-6">
+        <svg class="block h-6 w-6">
           <use xlink:href="/icons/icons.svg#steam-circle"></use>
         </svg>
       </a>
@@ -63,9 +63,9 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Join the Key-Drop.com Discord Server!"
-        class="block p-2 transition-colors duration-200 text-navy-200 hover:text-white"
+        class="block p-2 text-navy-200 transition-colors duration-200 hover:text-white"
       >
-        <svg class="block w-6 h-6">
+        <svg class="block h-6 w-6">
           <use xlink:href="/icons/icons.svg#discord"></use>
         </svg>
       </a>
@@ -78,7 +78,7 @@
         aria-label="Join the Key-Drop.com Telegram Channel!"
         class="block p-2 transition-colors duration-200 hover:text-white"
       >
-        <svg class="block w-6 h-6">
+        <svg class="block h-6 w-6">
           <use xlink:href="/icons/icons.svg#telegram"></use>
         </svg>
       </a>

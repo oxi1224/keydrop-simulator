@@ -235,7 +235,7 @@
         });
 
       const ticked: Element[] = [];
-      
+
       interval = setInterval(() => {
         document.querySelectorAll('li.case-item').forEach((li) => {
           const tickIndicator = li.querySelector('.tick-indicator')!;
@@ -281,23 +281,26 @@
 
       const ticked: Element[] = [];
       interval = setInterval(() => {
-        document.querySelector('div.CaseRolls-roll')!.querySelectorAll('.CaseRolls-skin').forEach((elm) => {
-          const tickIndicator = elm.querySelector('.tick-indicator')!;
-          const rect = tickIndicator.getBoundingClientRect();
-          if (
-            !$settings.muteAudio &&
-            !ticked.find((el) => el.isSameNode(tickIndicator)) &&
-            rect.bottom > rectSelection.top &&
-            rect.right > rectSelection.left &&
-            rect.top < rectSelection.bottom &&
-            rect.left < rectSelection.right
-          ) {
-            ticked.push(tickIndicator);
-            const tickPlayer = new Audio('/audio/case-tick.webm');
-            tickPlayer.currentTime = 0.05;
-            tickPlayer.play();
-          }
-        });
+        document
+          .querySelector('div.CaseRolls-roll')!
+          .querySelectorAll('.CaseRolls-skin')
+          .forEach((elm) => {
+            const tickIndicator = elm.querySelector('.tick-indicator')!;
+            const rect = tickIndicator.getBoundingClientRect();
+            if (
+              !$settings.muteAudio &&
+              !ticked.find((el) => el.isSameNode(tickIndicator)) &&
+              rect.bottom > rectSelection.top &&
+              rect.right > rectSelection.left &&
+              rect.top < rectSelection.bottom &&
+              rect.left < rectSelection.right
+            ) {
+              ticked.push(tickIndicator);
+              const tickPlayer = new Audio('/audio/case-tick.webm');
+              tickPlayer.currentTime = 0.05;
+              tickPlayer.play();
+            }
+          });
       }, 10);
     }
     await new Promise((r) => setTimeout(r, duration));
@@ -386,7 +389,7 @@
 </script>
 
 <div
-  class="m-2 p-5 fixed bottom-0 left-0 bg-navy-700 bg-opacity-75 text-navy-200 text-base z-50 rounded-xl glow-gold"
+  class="glow-gold fixed bottom-0 left-0 z-50 m-2 rounded-xl bg-navy-700 bg-opacity-75 p-5 text-base text-navy-200"
 >
   <p>
     {$_('case.winScreen.spendings')}: {convertPrice($page.data.currency, totalSpendings)}
@@ -398,13 +401,13 @@
     {$_('case.winScreen.profit')}: {convertPrice($page.data.currency, totalProfit)}
   </p>
 </div>
-<section class="mt-1 mb-8 container mx-auto" style="max-width: 1480px;">
+<section class="container mx-auto mb-8 mt-1" style="max-width: 1480px;">
   <audio bind:this="{caseStartPlayer}" src="/audio/case-start.webm"></audio>
   <audio bind:this="{caseEndPlayer}" src="/audio/case-end.webm"></audio>
   <div class="relative overflow-hidden lg:overflow-visible">
     <svg
       viewBox="0 0 31 31"
-      class="point-arrow point-arrow-top absolute z-10 w-10 h-10 -mt-5 -ml-5 top-0 left-1/2 rotate-180"
+      class="point-arrow point-arrow-top absolute left-1/2 top-0 z-10 -ml-5 -mt-5 h-10 w-10 rotate-180"
     >
       <defs>
         <filter id="Polygon_43" x="1.5" y="2.5" width="28" height="24" filterUnits="userSpaceOnUse">
@@ -434,7 +437,7 @@
     </svg>
     <svg
       viewBox="0 0 31 31"
-      class="point-arrow absolute z-10 w-10 h-10 -mt-5 -ml-5 top-full left-1/2 rotate-0"
+      class="point-arrow absolute left-1/2 top-full z-10 -ml-5 -mt-5 h-10 w-10 rotate-0"
     >
       <defs>
         <filter id="Polygon_43" x="1.5" y="2.5" width="28" height="24" filterUnits="userSpaceOnUse">
@@ -463,26 +466,26 @@
       </g>
     </svg>
     <div
-      class="relative overflow-hidden sm:rounded-lg bg-navy-800"
+      class="relative overflow-hidden bg-navy-800 sm:rounded-lg"
       style="height: 300px; box-shadow: rgba(66, 66, 84, 0.2) 0px 0px 0px 5px;"
     >
       <div
-        class="absolute top-0 left-0 h-full grid grid-stack single-roll"
+        class="grid-stack single-roll absolute left-0 top-0 grid h-full"
         style="width: 1480px; left: calc(50% - 740px);"
       >
         <div
-          class="z-40 single-roll-winScreen hidden absolute left-1/2 w-full -translate-x-1/2 overflow-hidden sm:rounded-lg bg-navy-800 bg-opacity-50"
+          class="single-roll-winScreen absolute left-1/2 z-40 hidden w-full -translate-x-1/2 overflow-hidden bg-navy-800 bg-opacity-50 sm:rounded-lg"
           style="height: 300px; box-shadow: rgba(66, 66, 84, 0.2) 0px 0px 0px 5px;"
         >
           <div
-            class="flex transform self-center justify-self-center absolute z-10 top-1/2 left-1/2 h-5/6 -translate-x-1/2 -translate-y-1/2 scale-100 transition-all duration-700"
+            class="absolute left-1/2 top-1/2 z-10 flex h-5/6 -translate-x-1/2 -translate-y-1/2 scale-100 transform self-center justify-self-center transition-all duration-700"
           >
             <div
-              class="z-0 grid items-center justify-center grid-cols-1 grid-rows-1 bg-center bg-cover border border-solid rounded bg-navy-700 glow-gold group justify-items-center ratio border-gold sm:rounded-lg css-dap7rg"
+              class="glow-gold ratio css-dap7rg group z-0 grid grid-cols-1 grid-rows-1 items-center justify-center justify-items-center rounded border border-solid border-gold bg-navy-700 bg-cover bg-center sm:rounded-lg"
               style="aspect-ratio: 5/3;"
             >
               <div
-                class="z-10 flex items-center justify-end w-full col-start-1 row-start-1 py-2 px-11 sm:px-2 mb-auto font-semibold leading-none text-right uppercase md:p-5 text-navy-200 text-3xs"
+                class="z-10 col-start-1 row-start-1 mb-auto flex w-full items-center justify-end px-11 py-2 text-right text-3xs font-semibold uppercase leading-none text-navy-200 sm:px-2 md:p-5"
               >
                 <div class="ml-2">
                   Chance
@@ -495,56 +498,56 @@
               <img
                 src=""
                 alt=""
-                class="award-bg-img w-3/5 object-contain col-start-1 mt-6 md:mt-0 row-start-1 duration-300 transform group-hover:scale-110 ease-in-out"
+                class="award-bg-img col-start-1 row-start-1 mt-6 w-3/5 transform object-contain duration-300 ease-in-out group-hover:scale-110 md:mt-0"
               />
               <!-- img -->
               <img
                 alt=""
-                class="award-img object-contain w-2/3 col-start-1 row-start-1 mt-6 duration-300 ease-in-out transform pointer-events-none group-hover:scale-75 group-hover:rotate-10"
+                class="award-img group-hover:rotate-10 pointer-events-none col-start-1 row-start-1 mt-6 w-2/3 transform object-contain duration-300 ease-in-out group-hover:scale-75"
               />
               <div
-                class="z-10 self-end w-full col-start-1 row-start-2 py-3 px-11 sm:px-3 font-semibold leading-tight uppercase md:p-5 md:row-start-1 justify-self-start"
+                class="z-10 col-start-1 row-start-2 w-full self-end justify-self-start px-11 py-3 font-semibold uppercase leading-tight sm:px-3 md:row-start-1 md:p-5"
               >
                 <!-- skin, weapon, wear, price -->
-                <div class="truncate text-navy-200 award-skin text-2xs"></div>
-                <div class="font-bold text-white truncate award-weapon text-xs"></div>
-                <div class="truncate text-navy-200 award-wear text-2xs"></div>
-                <div class="-mb-1 font-bold truncate text-gold award-price text-xs"></div>
+                <div class="award-skin truncate text-2xs text-navy-200"></div>
+                <div class="award-weapon truncate text-xs font-bold text-white"></div>
+                <div class="award-wear truncate text-2xs text-navy-200"></div>
+                <div class="award-price -mb-1 truncate text-xs font-bold text-gold"></div>
               </div>
             </div>
           </div>
         </div>
-        <ul class="flex w-full h-full CaseRolls-row">
+        <ul class="CaseRolls-row flex h-full w-full">
           {#each rouletteItems as item}
             <li
-              class="flex-shrink-0 flex h-full min-w-0 relative case-item"
+              class="case-item relative flex h-full min-w-0 flex-shrink-0"
               style="width: 14.2857%; background-image: {colors.gradient[item.skinRarity]};"
             >
-              <img src="{item.skinImgSource}" alt="" class="object-contain mx-auto w-4/5 h-full" />
+              <img src="{item.skinImgSource}" alt="" class="mx-auto h-full w-4/5 object-contain" />
               <div
-                class="absolute bottom-0 left-0 w-full p-2 -mb-1 font-semibold leading-tight uppercase md:p-5"
+                class="absolute bottom-0 left-0 -mb-1 w-full p-2 font-semibold uppercase leading-tight md:p-5"
               >
-                <div class="truncate text-navy-200 css-1vba4yg">{item.skinName}</div>
-                <div class="font-bold text-white truncate" title="{item.weaponName} ">
+                <div class="css-1vba4yg truncate text-navy-200">{item.skinName}</div>
+                <div class="truncate font-bold text-white" title="{item.weaponName} ">
                   {item.weaponName}
                 </div>
               </div>
-              <div class="tick-indicator absolute -right-0.5 top-0 w-1 h-5"></div>
+              <div class="tick-indicator absolute -right-0.5 top-0 h-5 w-1"></div>
             </li>
           {/each}
         </ul>
       </div>
-      <div class="flex absolute top-0 left-0 w-full h-full css-1ubc7bb">
+      <div class="css-1ubc7bb absolute left-0 top-0 flex h-full w-full">
         {#each multipleRoulettesItems as rouletteItemsArray}
           <div
             style="width: {(1 / rouletteCount) * 100}%;"
-            class="CaseRolls-wrapper h-full will-change-transform border-r border-dashed border-navy-550"
+            class="CaseRolls-wrapper h-full border-r border-dashed border-navy-550 will-change-transform"
           >
             <div
-              class="CaseRolls-winScreen hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-full z-30"
+              class="CaseRolls-winScreen fixed left-1/2 top-1/2 z-30 hidden h-full w-full -translate-x-1/2 -translate-y-1/2"
             >
               <div
-                class="p-2 mb-auto space-y-1 sm:space-y-0 items-center w-full font-semibold leading-none text-right transform uppercase md:p-5 text-navy-200 opacity-100 translate-y-3 text-2xs"
+                class="mb-auto w-full translate-y-3 transform items-center space-y-1 p-2 text-right text-2xs font-semibold uppercase leading-none text-navy-200 opacity-100 sm:space-y-0 md:p-5"
               >
                 <div class="ml-2 text-2xs">
                   Chance
@@ -554,18 +557,18 @@
                 </div>
               </div>
               <div
-                class="absolute bottom-0 p-2 md:p-5 flex flex-col items-center lg:flex-row w-full font-semibold leading-tight justify-between uppercase min-w-0 opacity-100 md:text-xl"
+                class="absolute bottom-0 flex w-full min-w-0 flex-col items-center justify-between p-2 font-semibold uppercase leading-tight opacity-100 md:p-5 md:text-xl lg:flex-row"
               >
-                <div class="flex-1 w-full flex justify-start flex-col">
+                <div class="flex w-full flex-1 flex-col justify-start">
                   <!-- skin -->
-                  <div class="truncate text-navy-200 text-2xs award-skin"></div>
+                  <div class="award-skin truncate text-2xs text-navy-200"></div>
                   <!-- weapon -->
-                  <div class="font-bold text-white truncate text-xs award-weapon"></div>
+                  <div class="award-weapon truncate text-xs font-bold text-white"></div>
                   <!-- wear -->
-                  <div class="truncate text-navy-200 text-2xs award-wear"></div>
+                  <div class="award-wear truncate text-2xs text-navy-200"></div>
                 </div>
                 <button
-                  class="single-sell-btn events px-2 py-1 mt-1 h-3/4 font-bold text-3xs md:text-xs uppercase transition duration-200 border border-solid rounded-md lg:px-4 sm:py-2 -ml-2px brightness-75 hover:brightness-100 text-gold truncate disabled:brightness-50"
+                  class="single-sell-btn events -ml-2px mt-1 h-3/4 truncate rounded-md border border-solid px-2 py-1 text-3xs font-bold uppercase text-gold brightness-75 transition duration-200 hover:brightness-100 disabled:brightness-50 sm:py-2 md:text-xs lg:px-4"
                   on:click="{(e) => handleSingleSell(e)}"
                 >
                   {$_('case.winScreen.sell')}
@@ -574,14 +577,14 @@
                 </button>
               </div>
             </div>
-            <div class="CaseRolls-roll flex-shrink-0 h-full w-full">
+            <div class="CaseRolls-roll h-full w-full flex-shrink-0">
               {#each rouletteItemsArray as caseItem}
                 <div
-                  class="CaseRolls-skin w-full h-full css-1hmgmgm flex items-center justify-center relative border-navy-400 border-dotted border"
+                  class="CaseRolls-skin css-1hmgmgm relative flex h-full w-full items-center justify-center border border-dotted border-navy-400"
                 >
                   <img
                     alt=""
-                    class="object-contain absolute mx-auto"
+                    class="absolute mx-auto object-contain"
                     style="width: {(3 + rouletteCount) * 10}%;"
                     src="{colors.itemBg[caseItem.skinRarity]}"
                   />
@@ -589,7 +592,7 @@
                     src="{caseItem.skinImgSource}"
                     alt=""
                     style="width: {(3 + rouletteCount) * 10}%;"
-                    class="block object-contain h-full z-10"
+                    class="z-10 block h-full object-contain"
                   />
                   <div class="tick-indicator absolute -bottom-0.5 left-0 h-5 w-1"></div>
                 </div>
@@ -600,35 +603,35 @@
       </div>
     </div>
   </div>
-  <div class="grid w-full px-2 mt-6 sm:mt-8 sm:w-auto">
+  <div class="mt-6 grid w-full px-2 sm:mt-8 sm:w-auto">
     <div
-      class="Case-AfterOpen col-start-1 row-start-1 transition duration-1000 ease-out -translate-y-5 opacity-0 -z-10 is-open:opacity-100 is-open:z-20 is-open:translate-y-0"
+      class="Case-AfterOpen -z-10 col-start-1 row-start-1 -translate-y-5 opacity-0 transition duration-1000 ease-out is-open:z-20 is-open:translate-y-0 is-open:opacity-100"
     >
       <div
-        class="grid grid-cols-2 gap-2 mx-auto mb-4 sm:gap-4 md:gap-8 sm:mb-6 max-w-5xl"
+        class="mx-auto mb-4 grid max-w-5xl grid-cols-2 gap-2 sm:mb-6 sm:gap-4 md:gap-8"
         style="grid-template-columns: auto 1fr 1fr 1fr;"
       >
         <button
           on:click="{switchMenus}"
           disabled="{menuState === 0}"
-          class="flex items-center justify-center h-10 font-extrabold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:rounded-lg text-2xs sm:text-sm md:w-15 sm:h-15 border-navy-400 aspect-square text-navy-400 bg-navy-700 hover:bg-gray hover:bg-opacity-5 active:bg-opacity-15 active:duration-0"
+          class="md:w-15 sm:h-15 active:bg-opacity-15 flex aspect-square h-10 items-center justify-center rounded-md border border-solid border-navy-400 bg-navy-700 text-center text-2xs font-extrabold uppercase leading-tight text-navy-400 transition-colors duration-200 hover:bg-gray hover:bg-opacity-5 active:duration-0 sm:rounded-lg sm:text-sm"
         >
-          <svg class="flex-shrink-0 w-3 h-3 sm:w-5 sm:h-5">
+          <svg class="h-3 w-3 flex-shrink-0 sm:h-5 sm:w-5">
             <use xlink:href="/icons/icons.svg#arrow-left"></use>
           </svg>
         </button>
         <button
-          class="flex items-center justify-center h-10 px-1 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-red text-red bg-navy-700 hover:bg-red hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-red"
+          class="sm:h-15 active:bg-opacity-15 glow-red flex h-10 items-center justify-center rounded-md border border-solid border-red bg-navy-700 px-1 text-center text-2xs font-bold uppercase leading-tight text-red transition-colors duration-200 hover:bg-red hover:bg-opacity-5 active:duration-0 sm:rounded-lg sm:px-8 sm:text-sm md:px-12"
           on:click="{reOpen}"
           disabled="{loading || menuState === 0}"
         >
-          <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
+          <svg class="mr-2 h-3 w-3 flex-shrink-0 sm:mr-3 sm:h-5 sm:w-5">
             <use xlink:href="/icons/icons.svg#try-again"></use>
           </svg>
           {$_('case.winScreen.reOpen')}
         </button>
         <button
-          class="mass-sell-btn flex items-center justify-center h-10 px-1 font-bold text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 bg-navy-700 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 text-gold hover:bg-gold glow-gold border-gold disabled:brightness-50 disabled:hover:bg-navy-700"
+          class="mass-sell-btn sm:h-15 active:bg-opacity-15 glow-gold flex h-10 items-center justify-center rounded-md border border-solid border-gold bg-navy-700 px-1 text-center text-2xs font-bold uppercase text-gold transition-colors duration-200 hover:bg-gold hover:bg-opacity-5 active:duration-0 disabled:brightness-50 disabled:hover:bg-navy-700 sm:rounded-lg sm:px-8 sm:text-sm md:px-12"
           on:click="{() => handleMassSell(wonItems)}"
           disabled="{sellLoading || sellSuccess || menuState === 0}"
         >
@@ -637,7 +640,7 @@
           {:else if sellSuccess}
             {$_('case.sellSuccess')}
           {:else}
-            <svg class="flex-shrink-0 w-3 h-4 mr-2 sm:mr-3 sm:w-5 sm:h-6">
+            <svg class="mr-2 h-4 w-3 flex-shrink-0 sm:mr-3 sm:h-6 sm:w-5">
               <use xlink:href="/icons/icons.svg#sell"></use>
             </svg>
             {$_('case.winScreen.sell')}&nbsp;
@@ -648,10 +651,10 @@
         </button>
         <a
           href="/skins/upgrader"
-          class="flex items-center justify-center h-10 px-1 font-bold leading-tight text-center uppercase transition-colors duration-200 border border-solid rounded-md sm:px-8 sm:rounded-lg text-2xs sm:text-sm md:px-12 sm:h-15 border-teal-500 text-teal-500 bg-navy-700 hover:bg-teal-500 hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 glow-teal"
+          class="sm:h-15 active:bg-opacity-15 glow-teal flex h-10 items-center justify-center rounded-md border border-solid border-teal-500 bg-navy-700 px-1 text-center text-2xs font-bold uppercase leading-tight text-teal-500 transition-colors duration-200 hover:bg-teal-500 hover:bg-opacity-5 active:duration-0 sm:rounded-lg sm:px-8 sm:text-sm md:px-12"
           style="{menuState === 0 ? 'pointer-events: none;' : ''}"
         >
-          <svg class="flex-shrink-0 w-3 h-3 mr-2 sm:mr-3 sm:w-5 sm:h-5">
+          <svg class="mr-2 h-3 w-3 flex-shrink-0 sm:mr-3 sm:h-5 sm:w-5">
             <use xlink:href="/icons/icons.svg?38#upgrader"></use>
           </svg>
           {$_('case.winScreen.upgrade')}
@@ -659,66 +662,66 @@
       </div>
     </div>
     <div
-      class="Case-MainUI w-full p-1 md:w-auto grid col-start-1 row-start-1 gap-2 sm:gap-4 md:gap-8 mx-auto transition duration-1000 ease-in-out will-change-transform grid-cols-2 opacity-0 -z-10 -translate-y-5 is-open:opacity-100 is-open:z-20 is-open:translate-y-0 is-open"
+      class="Case-MainUI is-open -z-10 col-start-1 row-start-1 mx-auto grid w-full -translate-y-5 grid-cols-2 gap-2 p-1 opacity-0 transition duration-1000 ease-in-out will-change-transform is-open:z-20 is-open:translate-y-0 is-open:opacity-100 sm:gap-4 md:w-auto md:gap-8"
     >
-      <div class="relative flex h-10 sm:h-15">
+      <div class="sm:h-15 relative flex h-10">
         <div
           style="left: 0;"
-          class="absolute top-0 h-full py-6 z-10 border border-solid transition-transform duration-700 -ml-px will-change-transform border-pastelGreen css-1ti3c59"
+          class="css-1ti3c59 absolute top-0 z-10 -ml-px h-full border border-solid border-pastelGreen py-6 transition-transform duration-700 will-change-transform"
         ></div>
         <button
           on:click="{() => changeRouletteCount(1)}"
           disabled="{loading || menuState === 1}"
-          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-2xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 rounded-l text-navy-200 sm:rounded-l-lg ml-0 case-count-selected-btn hover:text-white hover:bg-navy-600"
+          class="case-count-btn case-count-selected-btn ml-0 flex h-full w-full flex-1 items-center justify-center rounded-l border border-solid border-navy-500 bg-navy-700 py-6 text-center text-2xs font-bold leading-tight text-navy-200 transition-colors duration-200 hover:bg-navy-600 hover:text-white sm:rounded-l-lg sm:px-6 sm:text-sm"
         >
           1
         </button>
         <button
           on:click="{() => changeRouletteCount(2)}"
           disabled="{loading || menuState === 1}"
-          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
+          class="case-count-btn -ml-px flex h-full w-full flex-1 items-center justify-center border border-solid border-navy-500 bg-navy-700 py-6 text-center text-xs font-bold leading-tight text-navy-200 transition-colors duration-200 hover:bg-navy-600 hover:text-white sm:px-6 sm:text-sm"
         >
           2
         </button>
         <button
           on:click="{() => changeRouletteCount(3)}"
           disabled="{loading || menuState === 1}"
-          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
+          class="case-count-btn -ml-px flex h-full w-full flex-1 items-center justify-center border border-solid border-navy-500 bg-navy-700 py-6 text-center text-xs font-bold leading-tight text-navy-200 transition-colors duration-200 hover:bg-navy-600 hover:text-white sm:px-6 sm:text-sm"
         >
           3
         </button>
         <button
           on:click="{() => changeRouletteCount(4)}"
           disabled="{loading || menuState === 1}"
-          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px text-navy-200 hover:text-white hover:bg-navy-600"
+          class="case-count-btn -ml-px flex h-full w-full flex-1 items-center justify-center border border-solid border-navy-500 bg-navy-700 py-6 text-center text-xs font-bold leading-tight text-navy-200 transition-colors duration-200 hover:bg-navy-600 hover:text-white sm:px-6 sm:text-sm"
         >
           4
         </button>
         <button
           on:click="{() => changeRouletteCount(5)}"
           disabled="{loading || menuState === 1}"
-          class="case-count-btn flex-1 flex sm:px-6 py-6 justify-center items-center h-full w-full text-center font-bold text-xs sm:text-sm leading-tight bg-navy-700 border border-solid border-navy-500 transition-colors duration-200 -ml-px rounded-r sm:rounded-r-lg text-navy-200 hover:text-white hover:bg-navy-600"
+          class="case-count-btn -ml-px flex h-full w-full flex-1 items-center justify-center rounded-r border border-solid border-navy-500 bg-navy-700 py-6 text-center text-xs font-bold leading-tight text-navy-200 transition-colors duration-200 hover:bg-navy-600 hover:text-white sm:rounded-r-lg sm:px-6 sm:text-sm"
         >
           5
         </button>
       </div>
       <button
-        class="grid w-auto items-center justify-center py-6 h-10 grid-cols-1 grid-rows-1 text-2xs md:text-xs font-bold uppercase transition-colors duration-200 border border-solid rounded justify-items-center sm:px-12 sm:text-sm sm:rounded-lg sm:h-15 bg-navy-700 ga_openButtonLoser hover:bg-opacity-5 active:bg-opacity-15 active:duration-0 css-8f0coi
+        class="sm:h-15 ga_openButtonLoser active:bg-opacity-15 css-8f0coi grid h-10 w-auto grid-cols-1 grid-rows-1 items-center justify-center justify-items-center rounded border border-solid bg-navy-700 py-6 text-2xs font-bold uppercase transition-colors duration-200 hover:bg-opacity-5 active:duration-0 sm:rounded-lg sm:px-12 sm:text-sm md:text-xs
         {!$page.data.user
-          ? 'border-red text-red glow-red hover:bg-red'
+          ? 'glow-red border-red text-red hover:bg-red'
           : $page.data.user[data.goldenCase ? 'goldBalance' : 'balance'] >= casePrice
-          ? 'border-green text-green glow-pastelGreen hover:bg-green'
-          : 'border-red text-red glow-red hover:bg-red'}"
+          ? 'glow-pastelGreen border-green text-green hover:bg-green'
+          : 'glow-red border-red text-red hover:bg-red'}"
         on:click="{handleRoll}"
         disabled="{loading || tooPoor || menuState === 1}"
       >
         <span
-          class="row-start-1 col-start-1 flex items-center justify-center transition duration-300 transform scale-50 opacity-0"
+          class="col-start-1 row-start-1 flex scale-50 transform items-center justify-center opacity-0 transition duration-300"
         >
           <svg
             viewBox="9 0 188.4 140.4"
             fill="none"
-            class="block w-6 h-6 transform rotate-180 stroke-current -translate-y-2px sm:w-10 sm:h-10 text-pastelGreen css-9uqyfg"
+            class="-translate-y-2px css-9uqyfg block h-6 w-6 rotate-180 transform stroke-current text-pastelGreen sm:h-10 sm:w-10"
           >
             <path
               class="triangle-path css-1sx0a3p"
@@ -729,7 +732,7 @@
             ></path>
           </svg>
         </span>
-        <span class="flex items-center col-start-1 row-start-1 transition-opacity duration-300">
+        <span class="col-start-1 row-start-1 flex items-center transition-opacity duration-300">
           {#if loading}
             <Spinner size="1.5em" borderWidth=".25em" />
           {:else}
@@ -741,7 +744,7 @@
                 : `${$_('case.tooPoor')} ${convertPrice($page.data.currency, casePrice)}`}
             {/if}
             {#if $page.data.user}
-              <div class="flex items-center ml-1">
+              <div class="ml-1 flex items-center">
                 {@html goldenNames.includes(data.websiteName)
                   ? '<img src="/icons/gold-coin.webp" class="w-3 h-3 ml-1">'
                   : ''}

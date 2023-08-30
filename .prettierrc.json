@@ -3,13 +3,17 @@
   "singleQuote": true,
   "trailingComma": "none",
   "printWidth": 100,
-  "plugins": ["prettier-plugin-svelte"],
-  "pluginSearchDirs": ["."],
+  "plugins": [
+    "prettier-plugin-svelte",
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }],
+  "tailwindConfig": "./tailwind.config.cjs",
   "tabWidth": 2,
   "semi": true,
   "bracketSpacing": true,
-  "svelteSortOrder": "options-styles-scripts-markup",
+  "svelteSortOrder": "options-scripts-markup-styles",
   "svelteStrictMode": true,
   "htmlWhitespaceSensitivity": "ignore",
   "arrowParens": "always"

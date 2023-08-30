@@ -1,7 +1,7 @@
 import { db, userFromSessionID } from '$lib/server';
 import type { RequestEvent } from '@sveltejs/kit';
-import { nanoid } from 'nanoid';
 import { randomInt } from 'crypto';
+import { nanoid } from 'nanoid';
 
 interface RequestBody {
   count: number;

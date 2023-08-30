@@ -1,8 +1,10 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
 import path from 'path';
+import type { UserConfig } from 'vite';
+import { webSocketServer } from './src/lib/server/wsDevServer.js';
+
 const config: UserConfig = {
-  plugins: [sveltekit()],
+  plugins: [sveltekit(), webSocketServer],
   resolve: {
     alias: {
       $components: path.resolve('src/components'),

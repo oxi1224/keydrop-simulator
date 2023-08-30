@@ -8,7 +8,7 @@
 </script>
 
 {#if $page.data.connectionCount > 100}
-  <div class="w-full h-full fixed flex justify-center items-center">
+  <div class="fixed flex h-full w-full items-center justify-center">
     <h1>
       <span class="text-red-400">LIMIT POŁĄCZEŃ OSIĄGNIĘTY, PROSZE WRÓCIĆ PÓŹNIEJ</span>
     </h1>
@@ -16,7 +16,7 @@
 {:else}
   <Header />
   {#if $navigating}
-    <div class="container flex justify-center items-center my-10 mx-auto">
+    <div class="container mx-auto my-10 flex items-center justify-center">
       <Spinner />
     </div>
   {:else}
