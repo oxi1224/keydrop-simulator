@@ -217,9 +217,7 @@
                   <div class="snap-center" style="width: 85px; margin-right: 10px;">
                     <div
                       class="w- flex h-full items-end justify-center rounded-md bg-cover bg-center pb-1 text-xs uppercase"
-                      style="width: 85px; background-image: url('{caseData.imgName.startsWith('https://raw.github') // prettier-ignore
-                        ? caseData.imgName
-                        : `https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}`}');"
+                      style="width: 85px; background-image: url('{caseData.imgName}');"
                     >
                       <p
                         class="mx-1 line-clamp-2 overflow-hidden break-words text-center text-xs leading-tight text-white"
@@ -257,9 +255,7 @@
           </div>
           <div
             class="flex h-64 w-full items-end justify-center rounded-lg bg-cover bg-center pb-1 text-xs uppercase"
-            style="background-image: url('{caseData.imgName.startsWith('https://raw.github') // prettier-ignore
-              ? caseData.imgName
-              : `https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}`}');"
+            style="background-image: url('{caseData.imgName}');"
           >
             <p
               class="mx-1 mb-4 line-clamp-2 overflow-hidden break-all text-center text-base leading-tight text-white"

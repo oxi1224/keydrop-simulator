@@ -183,9 +183,7 @@
                 .map((c) => c.urlName)
                 .includes(caseData.urlName)
                 ? 'linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),'
-                : ''} url('{caseData.imgName.startsWith('https://raw.github')
-                ? caseData.imgName
-                : `https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}`}');"
+                : ''} url('{caseData.imgName}');"
               on:click="{() => selectCase(caseData)}"
               on:keypress="{(e) => (e.key === 'Enter' ? selectCase(caseData) : null)}"
               role="button"
