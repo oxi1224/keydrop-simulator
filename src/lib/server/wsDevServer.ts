@@ -229,6 +229,16 @@ export const webSocketServer: Plugin = {
 
         if (battle.owner === userData.id && Object.values(battle.players).length > 1) {
           const newOwnerID = Object.values(battle.players).find((u) => u.id !== battle.owner).id;
+          if (!newOwnerID) {
+            await db.caseBattle.delete({
+              where: {
+                id: battleID
+              }
+            });
+            io.to(battleID.toString()).emit('redirect', 'case-battle/list');
+            io.to(battleID.toString()).disconnectSockets();
+            return;
+          }
           await db.caseBattle.update({
             where: {
               id: battleID
