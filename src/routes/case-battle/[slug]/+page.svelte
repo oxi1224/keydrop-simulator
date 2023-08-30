@@ -256,9 +256,7 @@
                 class="display-case relative mr-[10px] flex h-full flex-col items-center justify-between overflow-hidden rounded-md pb-2 text-xs uppercase w-[72px] min-w-[72px] snap-center transition-all duration-700 ease-in-out"
               >
                 <img
-                  src="{caseData.imgName.startsWith('https://raw.github')
-                    ? caseData.imgName
-                    : `https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}`}"
+                  src="{caseData.imgName}"
                   class="absolute inset-0 h-full w-full object-cover"
                   alt=""
                 />

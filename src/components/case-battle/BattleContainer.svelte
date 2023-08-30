@@ -26,9 +26,7 @@
             class="relative flex h-full w-[85px] max-w-[85px] flex-shrink-0 flex-col items-center overflow-hidden rounded-md pb-2 text-xs uppercase"
           >
             <img
-              src="{caseData.imgName.startsWith('https://raw.github')
-                ? caseData.imgName
-                : `https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}`}"
+              src="{caseData.imgName}"
               class="absolute inset-0 h-full w-full object-cover"
               alt=""
             />

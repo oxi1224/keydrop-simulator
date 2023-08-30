@@ -63,11 +63,7 @@
           class="z-20 col-start-1 row-start-1 row-end-3 h-full w-full"
         >
           <img
-            use:lazyLoad="{!caseData.imgName.startsWith(
-              'https://raw.githubusercontent.com/oxi1224/images/main/'
-            )
-              ? `https://raw.githubusercontent.com/oxi1224/images/main/${caseData.imgName}`
-              : caseData.imgName}"
+            use:lazyLoad="{caseData.imgName}"
             alt=""
             class="absolute right-0 top-0 h-full w-full rounded-lg object-cover"
           />
