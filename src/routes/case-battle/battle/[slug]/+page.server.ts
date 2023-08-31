@@ -5,14 +5,16 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals, params, url }) => {
   const joinKey: string | null = url.searchParams.get('joinKey');
-
-  if (!params.slug) throw redirect(300, '/case-battle/list');
-  const battle = (await db.caseBattle.findUnique({
+  const battle: CaseBattle = (await db.caseBattle.findUnique({
     where: {
       id: parseInt(params.slug)
     }
-  })) as any as CaseBattle;
-  if (!battle || (!battle?.public && !joinKey) || battle?.joinKey !== joinKey)
+  })) as any;
+  if (
+    !battle ||
+    (!battle?.public && !joinKey && battle?.owner !== locals?.user.id) ||
+    (battle?.joinKey !== joinKey && battle?.owner !== locals?.user.id)
+  )
     throw redirect(300, '/case-battle/list');
   const parsedBattle = await parseCaseBattle(battle, true, false);
   return {

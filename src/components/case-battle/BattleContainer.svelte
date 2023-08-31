@@ -92,7 +92,7 @@
         {#if !data.finished}
           <a
             class="button button-green-dimmed ml-1 mr-5 w-auto flex-1 px-1 transition-all hover:brightness-110"
-            href="/case-battle/{data.id}"
+            href="/case-battle/battle/{data.id}"
           >
             <span>
               <div class="flex items-center gap-2">
@@ -108,7 +108,7 @@
         {:else}
           <a
             class="button button-secondary ml-1 mr-5 h-12 w-auto flex-1 px-1"
-            href="/case-battle/{data.id}"
+            href="/case-battle/battle/{data.id}"
           >
             <svg class="icon mr-2 h-5 w-5 flex-shrink-0 text-white" viewBox="0 0 20 20" fill="none">
               <path

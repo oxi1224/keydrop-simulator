@@ -154,27 +154,39 @@
         </a>
       </li>
       <li class="w-1/2">
-        <form
-          action="/login?/logout"
-          method="POST"
-          use:enhance="{() => {
-            return async ({ result }) => {
-              invalidateAll();
-              await applyAction(result);
-              window.location.reload();
-            };
-          }}"
-        >
-          <button
-            type="submit"
+        {#if $page.data.user}
+          <form
+            action="/login?/logout"
+            method="POST"
+            use:enhance="{() => {
+              return async ({ result }) => {
+                invalidateAll();
+                await applyAction(result);
+                window.location.reload();
+              };
+            }}"
+          >
+            <button
+              type="submit"
+              class="flex items-center whitespace-nowrap px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 hover:text-white"
+            >
+              <svg class="mr-3 h-6 w-6 flex-shrink-0">
+                <use xlink:href="/icons/nav-icons.svg#logout"></use>
+              </svg>
+              {$_('header.nav.logout')}
+            </button>
+          </form>
+        {:else}
+          <a
+            href="/login"
             class="flex items-center whitespace-nowrap px-5 py-4 text-xs font-semibold uppercase transition-colors duration-200 hover:text-white"
           >
-            <svg class="mr-3 h-6 w-6 flex-shrink-0">
+            <svg class="mr-3 h-6 w-6 flex-shrink-0 rotate-180">
               <use xlink:href="/icons/nav-icons.svg#logout"></use>
             </svg>
-            {$_('header.nav.logout')}
-          </button>
-        </form>
+            {$_('header.login')}
+          </a>
+        {/if}
       </li>
     </ul>
   </nav>

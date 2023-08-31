@@ -10,6 +10,7 @@
   import CaseBattlePanels from '$components/case-battle/CaseBattlePanels.svelte';
   import CaseBattleMobilePanels from '$components/case-battle/CaseBattleMobilePanels.svelte';
   import { _ } from 'svelte-i18n';
+  import Spinner from '$components/util/Spinner.svelte';
 
   const WINNING_ITEM = 35;
   const ROLL_DURATION = 3500;
@@ -162,6 +163,36 @@
     }
   }
 
+  let loading = false;
+  async function createSameBattle() {
+    loading = true;
+    console.log(caseBattleData.public ? 'public' : 'private');
+    const res = await fetch('/api/case-battle/create', {
+      method: 'POST',
+      body: JSON.stringify({
+        cases: caseBattleData.caseData.map((c) => ({ caseName: c.urlName, count: c.count })),
+        playerCount: caseBattleData.playerCount,
+        publicMode: caseBattleData.public ? 'public' : 'private',
+        mode: caseBattleData.mode
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const resBody = await res.json();
+    if (!res.ok) {
+      createToast({
+        type: 'error',
+        header: $_('error'),
+        message: $_(resBody.messageKey)
+      });
+      loading = false;
+      return;
+    }
+    loading = false;
+    goto(resBody.redirectTo);
+  }
+
   function resetAudio() {
     stopRolling = true;
     checkPlayer.pause();
@@ -204,7 +235,10 @@
 />
 <div class="min-h-screen pb-16 pt-4">
   <CaseBattleHeader title="{$_('battles.header.battle')}" activeTab="{4}">
-    <button class="button button-green-dimmed h-12 w-full lg:w-min lg:min-w-[16rem]">
+    <button
+      on:click="{createSameBattle}"
+      class="button button-green-dimmed h-12 w-full lg:w-min lg:min-w-[16rem] relative hover:brightness-110 {loading ? 'brightness-75 pointer-events-none' : ''}"
+    >
       <span>
         <p>
           {$_('battles.battlePage.createSame')}
@@ -213,6 +247,11 @@
           </span>
         </p>
       </span>
+      {#if loading}
+        <div class="absolute inset-auto w-fit h-fit brightness-125">
+          <Spinner />
+        </div>
+      {/if}
     </button>
   </CaseBattleHeader>
 

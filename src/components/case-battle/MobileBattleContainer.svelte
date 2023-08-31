@@ -78,7 +78,7 @@
       {#if !data.finished}
         <a
           class="button button-green-dimmed mr-5 h-12 w-auto flex-1 px-1 transition-all hover:brightness-110"
-          href="/case-battle/{data.id}"
+          href="/case-battle/battle/{data.id}"
         >
           <span>
             <div class="flex items-center gap-2 text-[0.65rem] md:text-xs">
@@ -91,7 +91,7 @@
             </div>
           </span>
         </a>
-        <a class="button button-secondary !h-12 !w-12 !p-0" href="/case-battle/{data.id}">
+        <a class="button button-secondary !h-12 !w-12 !p-0" href="/case-battle/battle/{data.id}">
           <svg class="icon h-5 w-5 flex-shrink-0 text-white" viewBox="0 0 20 20" fill="none">
             <path
               fill="currentColor"
@@ -104,7 +104,7 @@
           </svg>
         </a>
       {:else}
-        <a class="button button-secondary h-12 w-auto flex-1 px-1" href="/case-battle/{data.id}">
+        <a class="button button-secondary h-12 w-auto flex-1 px-1" href="/case-battle/battle/{data.id}">
           <svg class="icon mr-2 h-5 w-5 flex-shrink-0 text-white" viewBox="0 0 20 20" fill="none">
             <path
               fill="currentColor"

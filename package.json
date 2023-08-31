@@ -63,9 +63,6 @@
   "dependencies": {
     "@prisma/client": "^5.0.0",
     "@rgossiaux/svelte-headlessui": "^2.0.0",
-    "@socket.io/cluster-adapter": "^0.2.2",
-    "@socket.io/postgres-adapter": "^0.3.1",
-    "@socket.io/sticky": "^1.0.4",
     "@types/pg": "^8.10.2",
     "bcrypt": "^5.1.0",
     "buffer": "^6.0.3",
@@ -79,12 +76,9 @@
     "pg-hstore": "^2.3.4",
     "socket.io": "^4.7.2",
     "socket.io-client": "^4.7.2",
-    "socketio-sticky-session": "^0.4.3",
-    "sticky-session": "^1.1.2",
     "svelte-adapter-static-digitalocean": "^2.0.1",
     "svelte-i18n": "^3.7.0",
     "svelte-local-storage-store": "^0.5.0",
-    "swiper": "^10.2.0",
-    "vite-plugin-vercel": "^0.2.1"
+    "swiper": "^10.2.0"
   }
 }

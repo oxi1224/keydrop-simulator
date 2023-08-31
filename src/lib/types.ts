@@ -40,6 +40,7 @@ export interface ItemWithGlobal extends Item {
 export interface CaseBattleCaseData {
   websiteName: string;
   imgName: string;
+  urlName: string;
   count: number;
 }
 

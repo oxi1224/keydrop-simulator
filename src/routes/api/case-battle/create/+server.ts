@@ -119,6 +119,7 @@ export async function POST(event: RequestEvent) {
       playerCount: playerCount,
       caseData: caseData.map((c) => ({
         websiteName: c.websiteName,
+        urlName: c.urlName,
         imgName: c.imgName,
         count: c.count
       })),
@@ -134,7 +135,7 @@ export async function POST(event: RequestEvent) {
     JSON.stringify({
       messageKey: 'success',
       battleID: battle.id,
-      redirectTo: `/case-battle/${battle.id}${joinKey ? '?joinKey=' + joinKey : ''}`
+      redirectTo: `/case-battle/battle/${battle.id}${joinKey ? '?joinKey=' + joinKey : ''}`
     }),
     {
       status: 200

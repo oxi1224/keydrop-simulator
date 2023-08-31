@@ -45,7 +45,6 @@ const bots: CaseBattleBotPlayer[] = [
 export const webSocketServer: Plugin = {
   name: 'webSocketServer',
   configureServer(server) {
-
     interface ServerToClientEvents {
       caseBattleListUpdate: (caseBattles: CaseBattle[]) => void;
       caseBattlePlayerUpdate: (players: CaseBattlePlayers) => void;
@@ -86,14 +85,15 @@ export const webSocketServer: Plugin = {
           }
         }
       });
-      
+
       const battles = await db.caseBattle.findMany({
         where: {
-          finished: false
+          finished: false,
+          public: true
         }
       });
       io.emit('caseBattleListUpdate', battles as any as CaseBattle[]);
-    }, 30000);
+    }, 1_000);
 
     io.on('connection', async (socket) => {
       // @ts-ignore
@@ -101,7 +101,7 @@ export const webSocketServer: Plugin = {
 
       if (_battleID) socket.join(_battleID);
       socket.on('caseBattlePlayerJoin', async (battleID, userData, position) => {
-        const battle: CaseBattle = await db.caseBattle.findUnique({
+        const battle: CaseBattle = (await db.caseBattle.findUnique({
           where: {
             id: battleID
           },
@@ -110,10 +110,15 @@ export const webSocketServer: Plugin = {
             playerCount: true,
             totalPrice: true
           }
-        }) as any;
+        })) as any;
 
         if (!battle || !battle.players) return;
-        if (Object.values(battle.players).map(p => p.id).includes(userData?.id)) return;
+        if (
+          Object.values(battle.players)
+            .map((p) => p.id)
+            .includes(userData?.id)
+        )
+          return;
         if (userData && userData.balance < battle.totalPrice) {
           socket.emit(
             'error',
