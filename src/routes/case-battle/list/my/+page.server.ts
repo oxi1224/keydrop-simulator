@@ -1,7 +1,9 @@
 import { db } from '$lib/server';
+import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
+  if (!locals.user) throw redirect(300, '/case-battle/list');
   const battles = await db.caseBattle.findMany({
     where: {
       OR: [
@@ -34,7 +36,7 @@ export const load: PageServerLoad = async ({ locals }) => {
     orderBy: {
       createdAt: 'desc'
     }
-  });
+  }).catch(() => null);
 
   return {
     battles: battles,

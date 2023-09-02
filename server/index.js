@@ -42,7 +42,7 @@ const io = new Server(server);
 
 try {
   setInterval(async () => {
-    db.caseBattle.deleteMany({
+    await db.caseBattle.deleteMany({
       where: {
         createdAt: {
           lt: new Date(new Date().getTime() - 60_000 * 20)
@@ -55,9 +55,9 @@ try {
         finished: false,
         public: true
       }
-    });
+    }).catch(() => null);
     io.emit('caseBattleListUpdate', battles);
-  }, 15_000);
+  }, 25_000);
 
   io.on('connection', async (socket) => {
     // @ts-ignore

@@ -9,7 +9,7 @@ export const load: PageServerLoad = async ({ locals }) => {
     orderBy: {
       createdAt: 'desc'
     }
-  });
+  }).catch(() => null);
 
   return {
     battles: battles,

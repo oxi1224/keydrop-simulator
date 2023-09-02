@@ -78,7 +78,7 @@ export const webSocketServer: Plugin = {
     >(server.httpServer as any);
 
     setInterval(async () => {
-      db.caseBattle.deleteMany({
+      await db.caseBattle.deleteMany({
         where: {
           createdAt: {
             lt: new Date(new Date().getTime() - 60_000 * 20)
@@ -91,7 +91,7 @@ export const webSocketServer: Plugin = {
           finished: false,
           public: true
         }
-      });
+      }).catch(() => null);
       io.emit('caseBattleListUpdate', battles as any as CaseBattle[]);
     }, 1_000);
 
