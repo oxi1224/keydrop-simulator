@@ -41,7 +41,7 @@
     for (let i = 0; i < caseBattleData.playerCount; i++) {
       if (caseBattleData.players[i]) continue;
       socket.emit('caseBattlePlayerJoin', caseBattleData.id, null, i, true);
-      await sleep(50); // Fixes unreliability
+      await sleep(250); // Fixes unreliability
     }
   }
 </script>
@@ -53,32 +53,32 @@
           class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-blue-400 text-center text-xl font-bold text-blue-400 md:h-14 md:w-14 css-1880x07"
         ></div>
       </div> -->
-{#if showCountdown}
-  <div
-    class="h-15 w-15 pointer-events-none absolute -top-12 z-10 mr-1 flex h-24 w-24 flex-shrink-0 scale-100 transform items-center justify-center rounded-full border border-gray-800 opacity-100 transition duration-300 md:h-24 md:w-24"
-    style="left: calc(50% - 3rem); background: radial-gradient(50% 50%, rgb(19, 19, 22) 60%, rgba(59, 184, 255, 0.11) 100%);"
-    transition:scale="{{ duration: 250 }}"
-  >
-    <div
-      class="relative flex h-9 w-9 items-center justify-center rounded-full border-2 border-blue-400 text-center text-xl font-bold text-blue-400 md:h-14 md:w-14"
-      style="box-shadow: rgba(65, 173, 255, 0.5) 0px 0px 10px, rgba(65, 173, 255, 0.5) 0px 0px 10px inset;"
-    >
-      {#key countdownContent}
-        <div
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          transition:scale="{{ duration: 250 }}"
-        >
-          {countdownContent}
-        </div>
-      {/key}
-    </div>
-  </div>
-{/if}
 
 <div
   class="relative hidden gap-x-5 md:grid"
   style="grid-template-columns: repeat({caseBattleData.playerCount}, minmax(0px, 1fr));"
 >
+  {#if showCountdown}
+    <div
+      class="h-15 w-15 pointer-events-none absolute -top-12 z-10 mr-1 flex h-24 w-24 flex-shrink-0 scale-100 transform items-center justify-center rounded-full border border-gray-800 opacity-100 transition duration-300 md:h-24 md:w-24"
+      style="left: calc(50% - 3rem); background: radial-gradient(50% 50%, rgb(19, 19, 22) 60%, rgba(59, 184, 255, 0.11) 100%);"
+      transition:scale="{{ duration: 250 }}"
+    >
+      <div
+        class="relative flex h-9 w-9 items-center justify-center rounded-full border-2 border-blue-400 text-center text-xl font-bold text-blue-400 md:h-14 md:w-14"
+        style="box-shadow: rgba(65, 173, 255, 0.5) 0px 0px 10px, rgba(65, 173, 255, 0.5) 0px 0px 10px inset;"
+      >
+        {#key countdownContent}
+          <div
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            transition:scale="{{ duration: 250 }}"
+          >
+            {countdownContent}
+          </div>
+        {/key}
+      </div>
+    </div>
+  {/if}
   {#each Array(caseBattleData.playerCount) as dummy, i}
     <div>
       <div

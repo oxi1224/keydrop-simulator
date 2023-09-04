@@ -36,6 +36,11 @@ module.exports = {
           900: 'rgb(62 50 30)',
           1000: 'rgb(220 174 100)'
         },
+        lightgreen: {
+          DEFAULT: 'rgb(119 255 157)',
+          100: 'rgb(168 255 166)',
+          200: 'rgb(119 255 157)'
+        },
         current: 'currentColor',
         pastelGreen: 'rgb(80, 227, 109)',
         neonGreen: 'rgb(127, 217, 25)',

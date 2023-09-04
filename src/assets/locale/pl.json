@@ -7,12 +7,13 @@
   "header": {
     "displayedLang": "Polish (Polski)",
     "searchboxText": "Wyszukaj",
-    "wallet": "Portfel",
+    "balance": "Saldo Portfela",
     "login": "Zaloguj się",
-    "addBalance": "Doładuj Konto",
+    "logout": "Wyloguj się",
+    "deposit": "Doładuj",
     "nav": {
       "myAccount": "Moje konto",
-      "logout": "Wyloguj się"
+      "games": "Gry"
     }
   },
   "footer": {

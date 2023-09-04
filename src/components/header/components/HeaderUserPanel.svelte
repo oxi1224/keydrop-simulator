@@ -4,10 +4,7 @@
   import { page } from '$app/stores';
   import { createToast, convertPrice } from '$lib';
   import { _ } from 'svelte-i18n';
-
-  function toggleDropdown() {
-    document.getElementById('user-dropdown')!.classList.toggle('is-open');
-  }
+  import { Menu, MenuButton, MenuItems, Transition } from '@rgossiaux/svelte-headlessui';
 
   $: $page.form
     ? /* eslint-disable indent */
@@ -24,236 +21,235 @@
   }
 </script>
 
-<div class="ml-auto hidden h-full items-center md:flex">
-  {#if $page.data.user}
-    <div class="flex h-16 items-center">
-      <div class="flex items-center rounded-md bg-navy-700 p-3">
-        <div class="flex items-center">
-          <div>
-            <span class="flex flex-row items-center space-x-1.5 text-2xs font-bold text-navy-200">
-              <img src="/icons/wallet.svg" alt="wallet" class="mr-1.5 h-3 w-3 object-contain" />
-              {$_('header.wallet')}:
-              <span class="text-sm font-semibold text-gold md:text-xs">
-                {convertPrice($page.data.currency, $page.data.user?.balance)}
-              </span>
-            </span>
-          </div>
-          <div class="ml-6 flex items-center">
-            <button
-              class="hotjaropen group flex h-8 flex-shrink-0 items-center rounded-md border border-gold-500 bg-gold-900 text-gold-500 transition-colors duration-200 hover:bg-gold-850"
-              on:click="{togglePayment}"
-            >
-              <div
-                class="hotjaropen my-1.5 ml-1.5 flex items-center justify-center rounded bg-navy-800 text-white outline-none focus:outline-none"
-                style="height: 18px; width: 18px;"
-              >
-                <svg viewBox="0 0 6 6" class="h-1.5 w-1.5 stroke-current">
-                  <path d="M3 0V6"></path>
-                  <path d="M6 3L-1.19125e-07 3"></path>
-                </svg>
-              </div>
-              <div class="text-10px mx-2 text-2xs font-semibold uppercase">
-                {$_('header.addBalance')}
-              </div>
-              <div class="w-0.5"></div>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="ml-9 flex h-16">
-        <div class="flex flex-col justify-evenly">
-          <span class="h-min text-sm font-semibold text-navy-200">{$page.data.user.username}</span>
-          <div class="flex flex-row items-center">
-            <img src="/icons/gold-coin.webp" alt="coin" class="mr-1 h-4 w-4 object-contain" />
-            <span class="whitespace-nowrap text-xs font-semibold text-gold-600">
-              {$page.data.user.goldBalance}
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="ml-6 flex items-center">
-        <a href="/panel/profil">
-          <img
-            src="{$page.data.user?.pfpUrl}"
-            alt="Avatar"
-            class="h-14 w-14 rounded-md object-cover transition-all duration-200 hover:rounded-xl"
-            referrerpolicy="no-referrer"
-          />
-        </a>
-        <button class="group flex items-center self-stretch px-4" on:click="{toggleDropdown}">
-          <div
-            class="flex h-5 w-5 items-center justify-center rounded-md border border-solid border-navy-300 bg-navy-800 transition-all duration-200 group-hover:border-navy-100"
+<div class="order-5 ml-auto flex self-stretch rounded-l-2xl md:bg-navy-800/80">
+  <div class="hidden items-center gap-x-3 pl-3 lg:flex lg:pl-5">
+    <div class="flex h-full items-center gap-x-5">
+      <div class="flex items-center gap-x-2">
+        <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#000902] lg:h-9 lg:w-9">
+          <svg
+            class="icon h-4 w-4 flex-shrink-0 text-lightgreen lg:h-5 lg:w-5"
+            viewBox="0 0 22 19"
+            fill="currentColor"
           >
-            <svg class="mt-px text-white" style="width: 10px; height: 10px">
-              <use xlink:href="/icons/icons.svg#arrow-down"></use>
-            </svg>
-          </div>
-        </button>
-      </div>
-    </div>
-  {:else}
-    <a class="button button-primary h-13 ml-5 hidden uppercase md:flex" href="/login">
-      {$_('header.login')}
-    </a>
-  {/if}
-</div>
-<div
-  id="user-dropdown"
-  class="invisible absolute right-5 top-full z-40 transition-all duration-300 is-open:visible"
->
-  <div
-    class="fixed inset-0 z-0 bg-navy-600 opacity-0 outline-none transition-opacity duration-300 in-open:opacity-70"
-    on:click="{toggleDropdown}"
-    on:keypress="{() => null}"
-  ></div>
-  <div
-    class="absolute right-0 top-0 z-10 min-w-max origin-top-right scale-90 overflow-hidden rounded-bl-2xl rounded-br-2xl border border-solid border-navy-400 bg-navy-900 opacity-0 transition duration-300 in-open:scale-100 in-open:opacity-100"
-  >
-    <div class="bg-navy-600 pb-3 pt-6">
-      <div class="flex flex-col px-5">
-        <div class="flex flex-row items-center">
-          <a href="/panel/profil">
-            <img
-              src="{$page.data.user?.pfpUrl}"
-              alt="Avatar"
-              class="h-14 w-14 rounded-md object-cover transition-all duration-200 hover:rounded-xl"
-              referrerpolicy="no-referrer"
-            />
-          </a>
-          <div class="ml-5">
-            <span class="h-min text-sm font-semibold text-white">{$page.data.user?.username}</span>
-            <span class="flex flex-row items-center text-3xs font-light text-navy-200">
-              {$_('header.wallet')}:
-            </span>
-            <span class="text-xs font-semibold text-gold">
-              {convertPrice($page.data.currency, $page.data.user?.balance)}
-            </span>
-          </div>
+            <path
+              d="M20.825 3.5h-7a6 6 0 0 0 0 12h7v2a1 1 0 0 1-1 1h-18a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2Zm-7 2h8v8h-8a4 4 0 1 1 0-8Zm0 3v2h3v-2h-3Z"
+            ></path>
+          </svg>
+        </div>
+        <div class="text-gray-300">
+          <p class="text-xs font-bold tabular-nums text-lightgreen lg:text-sm">
+            <span>{convertPrice($page.data.currency, $page.data.user?.balance)}</span>
+          </p>
+          <p class="whitespace-nowrap text-2xs font-semibold uppercase leading-none tracking-wider">
+            {$_('header.balance')}
+          </p>
         </div>
       </div>
-      <nav class="mt-5">
-        <ul class="text-navy-100">
-          <li>
-            <a
-              rel="alternate"
-              hreflang="pl"
-              href="/panel/profil"
-              class="flex items-center whitespace-nowrap px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 hover:text-white"
-            >
-              <svg class="mr-3 h-6 w-6">
-                <use xlink:href="/icons/nav-icons.svg#person"></use>
-              </svg>
-              {$_('header.nav.myAccount')}
-            </a>
-            <!-- </li>
-          <li>
-            <a
-              href="d"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-            >
-              <svg class="w-6 h-6 mr-3">
-                <use xlink:href="/icons/nav-icons.svg#barcode"></use>
-              </svg>
-              Kod promocyjny
-            </a>
-          </li>
-          <li>
-            <a
-              rel="alternate"
-              hreflang="pl"
-              href="https://key-drop.com/pl/skin-changer"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-            >
-              <svg class="w-6 h-6 mr-3">
-                <use xlink:href="/icons/nav-icons.svg#lightning"></use>
-              </svg>
-              Skin Changer
-            </a>
-          </li>
-          <li>
-            <a
-              rel="alternate"
-              hreflang="pl"
-              href="https://key-drop.com/pl/panel/profil/contracts"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-            >
-              <svg class="w-6 h-6 mr-3">
-                <use xlink:href="/icons/nav-icons.svg#contracts"></use>
-              </svg>
-              Kontrakty
-            </a>
-          </li>
-          <li>
-            <a
-              rel="alternate"
-              hreflang="pl"
-              href="https://key-drop.com/pl/panel/profil/affiliate-system"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-            >
-              <svg class="w-6 h-6 mr-3">
-                <use xlink:href="/icons/nav-icons.svg#wallet"></use>
-              </svg>
-              Program partnerski
-            </a>
-          </li>
-          <li>
-            <a
-              rel="alternate"
-              hreflang="pl"
-              href="https://key-drop.com/pl/panel/profil/support-chat"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-            >
-              <svg class="w-6 h-6 mr-3">
-                <use xlink:href="/icons/nav-icons.svg#buoy"></use>
-              </svg>
-              Pomoc
-              <div
-                id="new_message"
-                class="flex items-center justify-center w-6 h-6 ml-2 -mt-px text-xs font-bold leading-none text-center text-white rounded-full bg-gold"
-                style="font-size: 9px;width: 15px; height: 15px;display:none;"
-              >
-                1
-              </div>
-            </a>
-          </li>
-          <li>
-            <a
-              rel="alternate"
-              hreflang="pl"
-              href="https://key-drop.com/pl/ProvablyFair"
-              class="flex items-center px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 whitespace-nowrap hover:text-white"
-            >
-              <svg class="w-6 h-6 mr-3">
-                <use xlink:href="/icons/nav-icons.svg#shield"></use>
-              </svg>
-              Provably Fair
-            </a>
-          </li>
-          <li> -->
-            <form
-              action="/login?/logout"
-              method="POST"
-              use:enhance="{() => {
-                return async ({ result }) => {
-                  invalidateAll();
-                  await applyAction(result);
-                  window.location.reload();
-                };
-              }}"
-            >
-              <button
-                type="submit"
-                class="flex items-center whitespace-nowrap px-5 py-2.5 text-xs font-semibold uppercase transition-colors duration-200 hover:text-white"
-              >
-                <svg class="mr-3 h-6 w-6">
-                  <use xlink:href="/icons/nav-icons.svg#logout"></use>
-                </svg>
-                {$_('header.nav.logout')}
-              </button>
-            </form>
-          </li>
-        </ul>
-      </nav>
     </div>
+  </div>
+
+  <div
+    class="flex items-center justify-center rounded-l-2xl md:bg-[#121216] md:px-3 lg:px-5"
+    style="opacity: 1;"
+  >
+    <button
+      on:click="{togglePayment}"
+      class="group relative flex h-9 items-center gap-x-3 overflow-hidden whitespace-nowrap rounded-[0.25rem] border border-lightgreen-200 bg-gradient-to-l from-lightgreen-100/25 to-transparent bg-[length:100%_100%] px-2 py-2 transition-[background-size] duration-200 after:absolute after:right-0 after:top-0 after:rotate-12 hover:bg-[length:150%_150%] sm:gap-x-2 sm:bg-gradient-to-r md:h-auto md:rounded-lg lg:px-4 lg:py-3"
+    >
+      <svg
+        class="icon h-4 w-4 flex-shrink-0 text-lightgreen lg:h-5 lg:w-5"
+        viewBox="0 0 22 19"
+        fill="currentColor"
+      >
+        <path
+          d="M20.825 3.5h-7a6 6 0 0 0 0 12h7v2a1 1 0 0 1-1 1h-18a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2Zm-7 2h8v8h-8a4 4 0 1 1 0-8Zm0 3v2h3v-2h-3Z"
+        ></path>
+      </svg>
+      <div class="flex gap-1.5">
+        <span class="hidden text-xs font-bold uppercase text-white sm:inline">{$_('header.deposit')}</span>
+        <svg viewBox="0 0 12 11" class="h-3 w-3 fill-lightgreen sm:hidden">
+          <path
+            d="M11.1019 7.10003H7.32186V10.98H4.68186V7.10003H0.901855V4.66003H4.68186V0.780029H7.32186V4.66003H11.1019V7.10003Z"
+          ></path>
+        </svg>
+      </div>
+      <div
+        class="absolute right-0 hidden rotate-[30deg] text-6xl font-bold leading-none text-lightgreen-200 opacity-5 transition-transform duration-200 group-hover:-translate-x-6 group-hover:translate-y-3 group-hover:rotate-[30deg] group-hover:scale-125 group-hover:duration-[400ms] group-hover:ease-[cubic-bezier(0.03,0.69,0.15,0.86)] sm:block"
+      >
+        $
+      </div>
+    </button>
+  </div>
+
+  <div
+    class="flex items-center self-stretch rounded-l-2xl pl-4 pr-3 md:gap-3 md:bg-navy-550 md:pl-3 lg:gap-4 lg:px-5"
+  >
+    <div class="hidden flex-col gap-3 md:flex" style="opacity: 1;">
+      <a href="/panel/profil" class="min-w-[10rem] text-sm font-bold text-white md:min-w-[9rem]">
+        {$page.data.user?.username}
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="/#gold-area" class="cursor-pointer">
+          <span class="flex items-center gap-1 text-xs font-bold tabular-nums text-gold">
+            <img src="/images/gold-coin.svg" alt="" class="h-4 w-4 object-contain" />
+            <span>{$page.data.user?.goldBalance}</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <a
+        href="/panel/profil"
+        aria-label="Profil"
+        class="hidden h-16 w-16 overflow-hidden rounded-full md:block"
+      >
+        <img
+          class="w-auto"
+          src="{$page.data.user?.pfpUrl}"
+          alt=""
+        />
+      </a>
+    </div>
+
+    <Menu let:open>
+      <MenuButton
+        class="h-9 w-9 cursor-pointer rounded bg-navy-400 p-2 transition md:h-auto md:w-auto md:rounded-md md:hover:bg-navy-300"
+      >
+        <svg
+          class="duration-250 css-30myhr hidden h-2.5 w-2.5 text-white transition ease-out md:block"
+          style="transform: rotateX({open ? '180' : ''}deg)"
+        >
+          <use xlink:href="/icons/icons.svg#arrow-down"></use>
+        </svg>
+        <svg class="h-5 w-5 text-white md:hidden">
+          <use xlink:href="/icons/icons.svg#mobile-hamburger"></use>
+        </svg>
+      </MenuButton>
+      <div
+        class="fixed left-0 top-[4.125rem] z-50 md:absolute md:left-auto md:right-6 md:top-[5.625rem]"
+      >
+        <Transition
+          show="{open}"
+          enter="transition-all duration-200"
+          enterFrom="scale-90 opacity-0"
+          enterTo="scale-100 opacity-100"
+          leave="transition-all duration-200"
+          leaveFrom="scale-100 opacity-100"
+          leaveTo="scale-90 opacity-0"
+        >
+          <div
+            class="flex h-screen w-screen origin-top transform flex-col overflow-scroll bg-navy-550 opacity-100 focus:outline-none md:h-auto md:w-60 md:origin-top-right md:overflow-hidden md:rounded-b-xl"
+          >
+            <MenuItems class="flex flex-col">
+              <div
+                class="flex items-center rounded-b-xl rounded-t-xl bg-navy-750 px-2.5 py-6 md:rounded-t-none md:p-5"
+                role="none"
+              >
+                <a class="flex-shrink-0" href="/panel/profil">
+                  <img
+                    src="{$page.data.user?.pfpUrl}"
+                    alt=""
+                    class="md:h-13 md:w-13 mr-5 h-16 w-16 rounded-lg object-cover md:mr-4"
+                  />
+                </a>
+                <div class="w-full md:w-auto">
+                  <a
+                    href="/panel/profil"
+                    class="block text-base font-semibold uppercase text-navy-100 md:mb-1 md:text-sm"
+                  >
+                    {$page.data.user?.username}
+                  </a>
+                  <div class="flex items-center">
+                    <svg
+                      class="icon mr-2 h-4 w-4 text-white md:h-3.5 md:w-3.5"
+                      viewBox="0 0 22 19"
+                      fill="currentColor"
+                      role="none"
+                    >
+                      <path
+                        d="M20.825 3.5h-7a6 6 0 0 0 0 12h7v2a1 1 0 0 1-1 1h-18a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2Zm-7 2h8v8h-8a4 4 0 1 1 0-8Zm0 3v2h3v-2h-3Z"
+                        role="none"
+                      ></path>
+                    </svg>
+                    <span
+                      class="saldo_punkty text-base font-bold uppercase tabular-nums text-white md:text-sm md:font-semibold"
+                      role="none"
+                    >
+                      {convertPrice($page.data.currency, $page.data.user?.balance ?? 0)}
+                    </span>
+                  </div>
+                  <div
+                    class="mt-1 flex w-full items-center gap-2.5 border-t border-navy-400 pt-2 md:hidden"
+                    role="none"
+                  >
+                    <span class="cursor-pointer">
+                      <span
+                        class="flex items-center gap-1 text-xs font-bold tabular-nums text-gold"
+                      >
+                        <img
+                          src="/images/gold-coin.svg?v85"
+                          alt=""
+                          class="h-4 w-4 object-contain"
+                        />
+                        {$page.data.user?.goldBalance}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="/panel/profil"
+                class="flex items-center py-2.5 text-white hover:bg-gold hover:text-navy-750"
+              >
+                <svg class="mx-10 h-6 w-6 md:mx-6 md:h-4 md:w-4">
+                  <use xlink:href="/icons/icons.svg#new-account"></use>
+                </svg>
+                <span class="text-base capitalize md:text-sm">{$_('header.nav.myAccount')}</span>
+              </a>
+              <p class="my-2 ml-10 text-xs text-navy-100 md:ml-6" role="none">{$_('header.nav.games')}</p>
+              <a
+                href="/case-battle/list"
+                class="flex items-center py-2.5 text-white hover:bg-gold hover:text-navy-750"
+              >
+                <svg class="mx-10 h-6 w-6 md:mx-6 md:h-4 md:w-4">
+                  <use xlink:href="/icons/icons.svg#case-battle-swords"></use>
+                </svg>
+                <span class="text-base capitalize md:text-sm">Case Battle</span>
+              </a>
+              <a
+                href="/upgrader"
+                class="flex items-center py-2.5 text-white hover:bg-gold hover:text-navy-750"
+              >
+                <svg class="mx-10 h-6 w-6 md:mx-6 md:h-4 md:w-4">
+                  <use xlink:href="/icons/icons.svg#upgrader"></use>
+                </svg>
+                <span class="text-base capitalize md:text-sm">Upgrader</span>
+              </a>
+              <form
+                action="/login?/logout"
+                method="POST"
+                use:enhance="{() => {
+                  return async ({ result }) => {
+                    invalidateAll();
+                    await applyAction(result);
+                    window.location.reload();
+                  };
+                }}"
+              >
+                <button
+                  class="mt-3 flex w-full items-center border-t border-t-navy-400 py-3 text-white hover:bg-gold hover:text-navy-750 md:rounded-b-xl"
+                  type="submit"
+                >
+                  <svg class="mx-10 h-6 w-6 md:mx-6 md:h-4 md:w-4">
+                    <use xlink:href="/icons/icons.svg#new-logout"></use>
+                  </svg>
+                  <span class="text-base capitalize md:text-sm">{$_('header.logout')}</span>
+                </button>
+              </form>
+            </MenuItems>
+          </div>
+        </Transition>
+      </div>
+    </Menu>
   </div>
 </div>

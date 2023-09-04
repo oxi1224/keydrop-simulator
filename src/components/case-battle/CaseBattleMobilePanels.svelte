@@ -47,7 +47,7 @@
     for (let i = 0; i < caseBattleData.playerCount; i++) {
       if (caseBattleData.players[i]) continue;
       socket.emit('caseBattlePlayerJoin', caseBattleData.id, null, i, true);
-      await sleep(50); // Fixes unreliability
+      await sleep(250); // Fixes unreliability
     }
   }
 

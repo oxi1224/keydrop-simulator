@@ -28,7 +28,7 @@ export const actions: Actions = {
         messageKey: 'toasts.error.messages.noPasswordUsername'
       };
 
-    if (event.cookies.get('session_id'))
+    if (event.locals.user)
       return {
         success: false,
         messageKey: 'toasts.error.messages.loggedIn'
@@ -80,7 +80,7 @@ export const actions: Actions = {
         messageKey: 'toasts.error.messages.invalidRegisterValue'
       };
 
-    if (event.cookies.get('session_id'))
+    if (event.locals.user)
       return {
         success: false,
         messageKey: 'toasts.error.messages.loggedIn'

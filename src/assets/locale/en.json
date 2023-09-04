@@ -7,12 +7,13 @@
   "header": {
     "displayedLang": "English (English)",
     "searchboxText": "Search",
-    "wallet": "Wallet",
+    "balance": "Wallet Balance",
     "login": "Login",
-    "addBalance": "Add Balance",
+    "logout": "Log Out",
+    "deposit": "Deposit",
     "nav": {
       "myAccount": "My account",
-      "logout": "logout"
+      "games": "Games"
     }
   },
   "footer": {

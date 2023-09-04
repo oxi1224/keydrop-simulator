@@ -33,16 +33,6 @@
       <div
         class="flex flex-col justify-between border-t border-dashed border-navy-600 pb-20 pt-8 text-xs font-light md:flex-row"
       >
-        <p class="text-navy-400">
-          With us, you can easily get Steam, Origin and Uplay games. Keys are sent immediately. 100%
-          satisfaction guaranteed.
-          <br />
-          Copyright © 2022 Key-Drop. All Rights Reserved.
-        </p>
-        <p class="mt-5 text-navy-400 md:mt-0 md:text-right" style="max-width: 33em;">
-          Finalta Play Technologies LLP (71-75 Shelton Street, Covent Garden, London, United
-          Kingdom, WC2H 9JQ)
-        </p>
       </div>
     </div>
   </div>
