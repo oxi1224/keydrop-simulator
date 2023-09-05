@@ -104,7 +104,10 @@
           </svg>
         </a>
       {:else}
-        <a class="button button-secondary h-12 w-auto flex-1 px-1" href="/case-battle/battle/{data.id}">
+        <a
+          class="button button-secondary h-12 w-auto flex-1 px-1"
+          href="/case-battle/battle/{data.id}"
+        >
           <svg class="icon mr-2 h-5 w-5 flex-shrink-0 text-white" viewBox="0 0 20 20" fill="none">
             <path
               fill="currentColor"

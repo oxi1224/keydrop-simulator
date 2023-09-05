@@ -237,7 +237,9 @@
   <CaseBattleHeader title="{$_('battles.header.battle')}" activeTab="{4}">
     <button
       on:click="{createSameBattle}"
-      class="button button-green-dimmed h-12 w-full lg:w-min lg:min-w-[16rem] relative hover:brightness-110 {loading ? 'brightness-75 pointer-events-none' : ''}"
+      class="button button-green-dimmed relative h-12 w-full hover:brightness-110 lg:w-min lg:min-w-[16rem] {loading
+        ? 'pointer-events-none brightness-75'
+        : ''}"
     >
       <span>
         <p>
@@ -248,7 +250,7 @@
         </p>
       </span>
       {#if loading}
-        <div class="absolute inset-auto w-fit h-fit brightness-125">
+        <div class="absolute inset-auto h-fit w-fit brightness-125">
           <Spinner />
         </div>
       {/if}

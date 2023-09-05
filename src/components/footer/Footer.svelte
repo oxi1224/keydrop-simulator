@@ -32,8 +32,7 @@
       </div>
       <div
         class="flex flex-col justify-between border-t border-dashed border-navy-600 pb-20 pt-8 text-xs font-light md:flex-row"
-      >
-      </div>
+      ></div>
     </div>
   </div>
 </footer>

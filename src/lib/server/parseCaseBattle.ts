@@ -19,10 +19,10 @@ export async function parseCaseBattle(
           if (memo.has(id)) {
             items.push(memo.get(id)!);
           } else {
-            const item: CaseDropWithGlobal = await db.caseDrop.findFirst({
+            const item: CaseDropWithGlobal = (await db.caseDrop.findFirst({
               where: { id: id },
               include: { globalInvItem: true }
-            }) as any;
+            })) as any;
             memo.set(id, item);
             items.push(item);
           }
@@ -35,14 +35,14 @@ export async function parseCaseBattle(
   } else if (parseWonItems) {
     for (let i = 0; i < battle.playerCount; i++) {
       const IDs: string[] = battle.wonItems[i];
-      const items: CaseDropWithGlobal[] = await db.$transaction(
+      const items: CaseDropWithGlobal[] = (await db.$transaction(
         IDs.map((id) =>
           db.caseDrop.findFirst({
             where: { id: id },
             include: { globalInvItem: true }
           })
         )
-      ) as any;
+      )) as any;
       parsedBattle.wonItems[i] = items;
     }
   }

@@ -86,12 +86,14 @@ export const webSocketServer: Plugin = {
         }
       });
 
-      const battles = await db.caseBattle.findMany({
-        where: {
-          finished: false,
-          public: true
-        }
-      }).catch(() => null);
+      const battles = await db.caseBattle
+        .findMany({
+          where: {
+            finished: false,
+            public: true
+          }
+        })
+        .catch(() => null);
       io.emit('caseBattleListUpdate', battles as any as CaseBattle[]);
     }, 1_000);
 

@@ -59,23 +59,16 @@
 </script>
 
 <header class="bg-navy-800">
-  <!-- <button
+  <button
     class="announcementBar is-open hidden w-full cursor-pointer bg-navy-800 py-2 text-center text-navy-200 is-open:md:block"
     on:click="{(e) => e.currentTarget.classList.remove('is-open')}"
   >
     <h1>
       <span class="text-red-400">
-        <span class="font-bold">
-          Case battle usuwają się 20min po ich stworzeniu
-          <br />
-          Możliwość zmiany profilowego na
-          <a href="/panel/profil">/panel/profil</a>
-          <br />
-          (Porzebny link bezpośrednio do zdjęcia, np. https://i.imgur.com/1b6XRcm.jpeg)
-        </span>
+        <span class="font-bold">Case battle usuwają się 20min po ich stworzeniu!</span>
         <br />
-        <span class="font-bold text-navy-300">
-          NOWY SERWER DISCORD: <a
+        <span class="text-sm font-bold text-navy-300">
+          DISCORD: <a
             href="https://discord.gg/whv3c3kWNh"
             class="underline hover:text-navy-200"
             target="_blank"
@@ -85,7 +78,7 @@
           </a>
         </span>
         <br />
-        <span class="text-sm text-navy-300">
+        <span class="text-sm font-bold text-navy-300">
           Link do donate:
           <a
             href="https://tipply.pl/u/oxi_"
@@ -107,7 +100,7 @@
         </span>
       </span>
     </h1>
-  </button> -->
+  </button>
 
   <div class="flex h-[4.125rem] items-center bg-navy-700 md:mb-3 md:h-[5.625rem]">
     <a href="/" class="w-26 xs:w-32 mb-1 ml-3 flex-shrink-0 sm:w-40 md:ml-5">
@@ -242,10 +235,7 @@
         <div
           class="flex items-center self-stretch rounded-l-2xl pl-4 pr-3 md:gap-3 md:bg-navy-550 md:pl-3 lg:gap-4 lg:px-5"
         >
-          <a
-            class="button h-13 hidden bg-gold-400 text-[#23232d] hover:bg-gold-600 md:flex"
-            href="/login"
-          >
+          <a class="button h-13 flex bg-gold-400 text-[#23232d] hover:bg-gold-600" href="/login">
             LOGIN
           </a>
         </div>

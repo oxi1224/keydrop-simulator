@@ -50,12 +50,14 @@ try {
       }
     });
 
-    const battles = await db.caseBattle.findMany({
-      where: {
-        finished: false,
-        public: true
-      }
-    }).catch(() => null);
+    const battles = await db.caseBattle
+      .findMany({
+        where: {
+          finished: false,
+          public: true
+        }
+      })
+      .catch(() => null);
     io.emit('caseBattleListUpdate', battles);
   }, 25_000);
 

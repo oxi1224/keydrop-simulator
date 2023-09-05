@@ -66,7 +66,9 @@
         ></path>
       </svg>
       <div class="flex gap-1.5">
-        <span class="hidden text-xs font-bold uppercase text-white sm:inline">{$_('header.deposit')}</span>
+        <span class="hidden text-xs font-bold uppercase text-white sm:inline">
+          {$_('header.deposit')}
+        </span>
         <svg viewBox="0 0 12 11" class="h-3 w-3 fill-lightgreen sm:hidden">
           <path
             d="M11.1019 7.10003H7.32186V10.98H4.68186V7.10003H0.901855V4.66003H4.68186V0.780029H7.32186V4.66003H11.1019V7.10003Z"
@@ -103,11 +105,7 @@
         aria-label="Profil"
         class="hidden h-16 w-16 overflow-hidden rounded-full md:block"
       >
-        <img
-          class="w-auto"
-          src="{$page.data.user?.pfpUrl}"
-          alt=""
-        />
+        <img class="w-auto" src="{$page.data.user?.pfpUrl}" alt="" />
       </a>
     </div>
 
@@ -206,7 +204,9 @@
                 </svg>
                 <span class="text-base capitalize md:text-sm">{$_('header.nav.myAccount')}</span>
               </a>
-              <p class="my-2 ml-10 text-xs text-navy-100 md:ml-6" role="none">{$_('header.nav.games')}</p>
+              <p class="my-2 ml-10 text-xs text-navy-100 md:ml-6" role="none">
+                {$_('header.nav.games')}
+              </p>
               <a
                 href="/case-battle/list"
                 class="flex items-center py-2.5 text-white hover:bg-gold hover:text-navy-750"

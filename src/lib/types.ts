@@ -81,14 +81,16 @@ export interface CaseBattlePlayers {
   [key: number]: CaseBattlePlayer | CaseBattleBotPlayer;
 }
 
-export interface CaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players' | 'wonItems'> {
+export interface CaseBattle
+  extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players' | 'wonItems'> {
   caseData: CaseBattleCaseData[];
   players: CaseBattlePlayers;
   drops: CaseBattleDropData;
   wonItems: CaseBattleWonItems;
 }
 
-export interface ParsedCaseBattle extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players' | 'wonItems'> {
+export interface ParsedCaseBattle
+  extends Omit<DbCaseBattle, 'caseData' | 'drops' | 'players' | 'wonItems'> {
   caseData: CaseBattleCaseData[];
   players: CaseBattlePlayers;
   drops: CaseBattleParsedDropData;
