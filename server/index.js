@@ -35,7 +35,7 @@ const bots = [
   }
 ];
 
-const port = 8070;
+const port = 8080;
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
