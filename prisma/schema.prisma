@@ -61,8 +61,9 @@ model CaseSection {
 
 model CaseDrop {
   case          Case                @relation(fields: [parentCase], references: [websiteName])
-  globalInvItem GlobalInventoryItem @relation(fields: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], references: [weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], onUpdate: Cascade)
+  globalInvItem GlobalInventoryItem @relation(fields: [globalInvID, weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], references: [id, weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack], onUpdate: Cascade)
   id            String              @id @unique
+  globalInvID   String
   weaponName    String
   skinName      String
   skinQuality   String
@@ -92,7 +93,7 @@ model GlobalInventoryItem {
   CaseDop       CaseDrop[]
 
   @@unique([weaponName, skinName, skinQuality, stattrack])
-  @@unique([weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack])
+  @@unique([id, weaponName, skinName, skinQuality, skinPrice, skinRarity, skinImgSource, stattrack])
 }
 
 model CaseBattle {

@@ -217,7 +217,7 @@
                 <span class="text-base capitalize md:text-sm">Case Battle</span>
               </a>
               <a
-                href="/upgrader"
+                href="/skins/upgrader"
                 class="flex items-center py-2.5 text-white hover:bg-gold hover:text-navy-750"
               >
                 <svg class="mx-10 h-6 w-6 md:mx-6 md:h-4 md:w-4">

@@ -1,4 +1,4 @@
-import type { CaseDropWithGlobal } from '$lib/types';
+import type { CaseDrop } from '$lib/types';
 import { nanoid } from 'nanoid';
 
 export interface ItemAddObject {
@@ -12,16 +12,15 @@ export interface ItemAddObject {
   };
 }
 
-export function dropsToItems(drops: CaseDropWithGlobal[], origin: string): ItemAddObject[] {
+export function dropsToItems(drops: CaseDrop[], origin: string): ItemAddObject[] {
   return drops.map((drop) => {
-    const globalItem = drop.globalInvItem;
     return {
       dropId: nanoid(),
       origin: origin,
       dropDate: new Date(),
       globalInvItem: {
         connect: {
-          id: globalItem.id
+          id: drop.globalInvID
         }
       }
     };

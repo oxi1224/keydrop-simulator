@@ -35,7 +35,7 @@ const bots = [
   }
 ];
 
-const port = 8080;
+const port = 8070;
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
@@ -197,7 +197,9 @@ try {
       if (!battle || !battle.players) return;
 
       if (battle.owner === userData.id && Object.values(battle.players).length > 1) {
-        const newOwnerID = Object.values(battle.players).find((u) => u.id !== battle.owner).id;
+        const newOwnerID = Object.values(battle.players).find(
+          (p) => p.id !== battle.owner && !p.bot
+        )?.id;
         if (!newOwnerID) {
           await db.caseBattle.delete({
             where: {
@@ -258,14 +260,13 @@ function updatePlayers(_io, battleID, players) {
 
 function dropsToItems(drops, origin) {
   return drops.map((drop) => {
-    const globalItem = drop.globalInvItem;
     return {
       dropId: nanoid(),
       origin: origin,
       dropDate: new Date(),
       globalInvItem: {
         connect: {
-          id: globalItem.id
+          id: drop.globalInvID
         }
       }
     };
@@ -283,8 +284,7 @@ async function parseCaseBattle(battle, parseDrops, parseWonItems) {
         const items = await db.$transaction(
           IDs.map((id) =>
             db.caseDrop.findFirst({
-              where: { id: id },
-              include: { globalInvItem: true }
+              where: { id: id }
             })
           )
         );
@@ -298,8 +298,7 @@ async function parseCaseBattle(battle, parseDrops, parseWonItems) {
       const items = await db.$transaction(
         IDs.map((id) =>
           db.caseDrop.findFirst({
-            where: { id: id },
-            include: { globalInvItem: true }
+            where: { id: id }
           })
         )
       );

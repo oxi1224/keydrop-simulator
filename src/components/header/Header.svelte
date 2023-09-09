@@ -65,7 +65,8 @@
   >
     <h1>
       <span class="text-red-400">
-        <span class="font-bold">Case battle usuwają się 20min po ich stworzeniu!</span>
+        <span class="font-bold">Case battle usuwają się 20min po ich stworzeniu!</span><br />
+        <span class="text-navy-300 text-sm font-bold">Boty nie mają zwiększonego dropu (XD)</span>
         <br />
         <span class="text-sm font-bold text-navy-300">
           DISCORD: <a

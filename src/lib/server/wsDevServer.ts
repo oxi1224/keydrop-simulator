@@ -8,7 +8,7 @@ import type {
   ParsedCaseBattle,
   ToastProps
 } from '$lib';
-import { PrismaClient, type GlobalInventoryItem, type User } from '@prisma/client';
+import { PrismaClient, type User } from '@prisma/client';
 import { randomInt } from 'crypto';
 import { Server } from 'socket.io';
 import type { Plugin } from 'vite';
@@ -161,7 +161,7 @@ export const webSocketServer: Plugin = {
           const playerStats: {
             [key: number]: { total: number; user: CaseBattleBotPlayer | CaseBattlePlayer };
           } = {};
-          let allDrops: (CaseDrop & { globalInvItem: GlobalInventoryItem })[] = [];
+          let allDrops: CaseDrop[] = [];
           // prettier-ignore
           for (const [pos, user] of Object.entries(updatedBattle.players as any as CaseBattlePlayers)) {
             if (!user.bot) {
@@ -235,7 +235,9 @@ export const webSocketServer: Plugin = {
         if (!battle || !battle.players) return;
 
         if (battle.owner === userData.id && Object.values(battle.players).length > 1) {
-          const newOwnerID = Object.values(battle.players).find((u) => u.id !== battle.owner).id;
+          const newOwnerID = Object.values(battle.players).find(
+            (p) => p.id !== battle.owner && !p.bot
+          )?.id;
           if (!newOwnerID) {
             await db.caseBattle.delete({
               where: {
@@ -270,7 +272,7 @@ export const webSocketServer: Plugin = {
 
         updatePlayers(io, battleID, battle.players as any as CaseBattlePlayers);
 
-        if (Object.values(battle.players).filter((v) => v).length === 0) {
+        if (Object.values(battle.players).filter((p) => p).length === 0) {
           await db.caseBattle.delete({
             where: {
               id: battleID

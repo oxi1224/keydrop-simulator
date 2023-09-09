@@ -48,12 +48,8 @@ export interface CaseBattleDropData {
   [key: number]: string[][];
 }
 
-export interface CaseDropWithGlobal extends CaseDrop {
-  globalInvItem: GlobalInventoryItem;
-}
-
 export interface CaseBattleParsedDropData {
-  [key: number]: CaseDropWithGlobal[][];
+  [key: number]: CaseDrop[][];
 }
 
 export interface CaseBattleWonItems {
@@ -61,7 +57,7 @@ export interface CaseBattleWonItems {
 }
 
 export interface CaseBattleParsedWonItems {
-  [key: number]: CaseDropWithGlobal[];
+  [key: number]: CaseDrop[];
 }
 
 export type UserWithoutHash = Omit<User, 'passwordHash'>;
