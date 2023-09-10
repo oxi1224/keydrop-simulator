@@ -23,7 +23,6 @@
   let selectedLang = languages.find((obj) => obj.shorthand === ($page.data?.lang ?? 'en'));
   let searchValue = '';
   let searchResults: Case[] = [];
-  let searchFocused = false;
 
   async function changeLanguage(lang: (typeof languages)[number]['shorthand']) {
     loading = true;
@@ -52,9 +51,9 @@
   $: searchResults = !searchValue
     ? []
     : $page.data?.sections
-        .map((s: CaseSection) => s.cases)
+        ?.map((s: CaseSection) => s.cases)
         .flat()
-        .filter((c: Case) => c.websiteName.toLowerCase().includes(searchValue));
+        .filter((c: Case) => c.websiteName.toLowerCase().includes(searchValue)) || [];
   /* eslint-disable indent */
 </script>
 
@@ -65,8 +64,9 @@
   >
     <h1>
       <span class="text-red-400">
-        <span class="font-bold">Case battle usuwają się 20min po ich stworzeniu!</span><br />
-        <span class="text-navy-300 text-sm font-bold">Boty nie mają zwiększonego dropu (XD)</span>
+        <span class="font-bold">Case battle usuwają się 20min po ich stworzeniu!</span>
+        <br />
+        <span class="text-sm font-bold text-navy-300">Boty nie mają zwiększonego dropu (XD)</span>
         <br />
         <span class="text-sm font-bold text-navy-300">
           DISCORD: <a
@@ -117,8 +117,6 @@
             class="input -mr-11 h-12 w-full rounded-lg border-navy-550 bg-navy-550 pl-5 pr-11 text-xs font-semibold uppercase text-navy-200 placeholder-navy-200 placeholder:font-normal focus:border-gold-400"
             placeholder="{$_('header.searchboxText')}"
             bind:value="{searchValue}"
-            on:focus="{() => (searchFocused = true)}"
-            on:blur="{() => (searchFocused = false)}"
           />
           <div class="my-auto flex h-9 w-9 items-center justify-center p-2">
             <svg class="block h-5 w-5 text-navy-200">
@@ -127,7 +125,7 @@
           </div>
         </label>
 
-        {#if searchResults?.length > 0 && searchFocused}
+        {#if searchResults?.length > 0}
           <div
             class="custom-scrollbar fixed left-0 top-0 z-50 w-full origin-top overflow-y-auto rounded-b-lg bg-navy-550 xl:absolute xl:top-[4.625rem] xl:max-h-[350px] xl:bg-navy-700"
             transition:fade="{{ duration: 250 }}"

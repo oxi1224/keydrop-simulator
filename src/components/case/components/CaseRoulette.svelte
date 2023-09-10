@@ -72,7 +72,10 @@
           const item = data.drops.find(
             (obj) => obj.oddsRange[0] <= rollNumber && obj.oddsRange[1] >= rollNumber
           );
-          if (!item) continue;
+          if (!item) {
+            i--;
+            continue;
+          }
           rollItems.push(item);
         }
         multipleRoulettesItems.push(rollItems);

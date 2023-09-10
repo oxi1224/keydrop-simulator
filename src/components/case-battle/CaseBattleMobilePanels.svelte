@@ -157,20 +157,14 @@
             .map((p) => p.id)
             .includes($page.data.user?.id)}
           <div
-            class="relative z-10 flex w-full flex-col items-center transition-opacity duration-500 opacity-{startBattle
+            class="absolute top-1/2 z-10 flex w-full -translate-y-1/2 flex-col items-center transition-opacity duration-500 opacity-{startBattle
               ? '0'
               : '100'}"
           >
-            <p class="mt-2 text-center text-xl uppercase text-white">
+            <p class="mt-2 px-3 text-center uppercase text-white">
               <span class="font-light">{$_('battles.battlePage.ready')}</span>
               <strong class="font-semibold">{$_('battles.battlePage.toBattle')}</strong>
             </p>
-            <button
-              class="button button-green-dimmed mt-4 max-w-full"
-              on:click="{() => joinBattle(i)}"
-            >
-              Dołącz do klasycznej bitwy
-            </button>
           </div>
         {/if}
         <!-- TODO: AFTER ROLL SCREEN -->
@@ -394,7 +388,7 @@
         <div class="mb-4 w-full rounded-xl bg-navy-900 bg-opacity-20 p-2">
           {#if Object.values(players)
             .map((p) => p.id)
-            .includes($page.data.user?.id)}
+            .includes($page.data.user?.id) && !caseBattleData.finished}
             <button
               class="button button-secondary ml-auto h-8 px-4 text-2xs"
               on:click="{() => leaveBattle(i)}"
@@ -431,7 +425,7 @@
                       class="m-1.5 ml-auto min-w-0 whitespace-nowrap rounded-md bg-navy-900 p-1.5 font-bold leading-none text-gold"
                       style="font-size: 9px;"
                     >
-                      <div style="display: block; white-space: nowrap;">
+                      <div class="overflow-hidden" style="display: block; white-space: nowrap;">
                         {convertPrice($page.data.currency, wonItems[i][roundIndex].skinPrice ?? 0)}
                       </div>
                     </div>

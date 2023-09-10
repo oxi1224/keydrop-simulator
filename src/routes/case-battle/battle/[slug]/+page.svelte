@@ -78,7 +78,7 @@
 
   let showAwardInfo = false;
   let showRoulettes = false;
-  let showCountdown = true;
+  let showCountdown = false;
   let battleAnimationOver = false;
   let rollAnimationOver = false;
   let stopRolling = false;
@@ -358,7 +358,8 @@
       </button>
       <div>
         <button
-          class="button group h-7 p-0 text-[10px] font-normal lowercase text-navy-300 transition-opacity duration-200 hover:text-white md:h-9"
+          class="button group h-7 p-0 text-[10px] font-normal lowercase text-navy-300 transition-opacity duration-200 hover:text-white md:h-9 max-w-full overflow-hidden"
+          on:click="{() => navigator.clipboard.writeText($page.url.toString())}"
         >
           <svg class="icon mr-2 block h-3 w-3" viewBox="0 0 16 16" fill="currentColor">
             <path

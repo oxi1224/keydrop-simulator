@@ -105,7 +105,7 @@
             <svg class="h-8 w-8 text-green">
               <use xlink:href="/icons/icons.svg?39#tick"></use>
             </svg>
-            <p class="mt-2 text-xl font-semibold uppercase text-white">
+            <p class="mt-2 text-xl text-center font-semibold uppercase text-white">
               {$_('battles.battlePage.readyToBattle')}
             </p>
             {#if $page.data.user?.id === players[i]?.id}
@@ -348,7 +348,7 @@
           {/if}
           <p class="ml-4 flex items-center gap-1">
             <span
-              class="line-clamp-2 overflow-hidden break-all text-2xs font-bold uppercase text-white"
+              class="line-clamp-2 overflow-hidden break-all text-2xs font-bold uppercase text-white md:hidden lg:inline"
             >
               {players[i]?.username || ''}
             </span>
@@ -356,7 +356,7 @@
         </div>
 
         <!-- TODO: TOTAL WINNINGS DATA -->
-        <div class="ml-auto flex items-center text-xs font-semibold text-white">
+        <div class="ml-auto flex items-center text-xs font-semibold text-white overflow-scroll no-scrollbar">
           {#if highestValuePositions.includes(i)}
             <svg
               class="icon mr-2 h-4 w-4 text-green transition-opacity duration-1000"
@@ -414,7 +414,7 @@
                       class="m-1.5 ml-auto min-w-0 whitespace-nowrap rounded-md bg-navy-900 p-1.5 font-bold leading-none text-gold"
                       style="font-size: 9px;"
                     >
-                      <div style="display: block; white-space: nowrap;">
+                      <div class="overflow-hidden" style="display: block; white-space: nowrap;">
                         {convertPrice($page.data.currency, wonItems[i][roundIndex].skinPrice ?? 0)}
                       </div>
                     </div>

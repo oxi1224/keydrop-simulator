@@ -52,13 +52,23 @@
 
   $: totalCaseCount = selectedCases.reduce((t, c) => (t += c.count), 0);
   $: totalPrice = selectedCases.reduce((t, c) => (t += c.price * c.count), 0);
-  $: filteredCases = cases.filter((c) =>
-    c.websiteName.toLowerCase().includes(caseSearchString.toLowerCase())
-  );
+
+  $: {
+    let sortedCases = cases;
+    if (sorting.value === $_('battles.list.priceAsc'))
+      sortedCases = [...cases].sort((a, b) => b.price - a.price);
+    else if (sorting.value === $_('battles.list.priceDesc'))
+      sortedCases = [...cases].sort((a, b) => a.price - b.price);
+    else if (sorting.value === $_('battles.list.name'))
+      sortedCases = [...cases].sort((a, b) => a.websiteName.localeCompare(b.websiteName));
+    filteredCases = sortedCases.filter((c) =>
+      c.websiteName.toLowerCase().includes(caseSearchString.toLowerCase())
+    );
+  }
 </script>
 
 <div
-  class="fixed left-0 top-0 z-50 hidden h-full w-full items-center overflow-auto is-open:flex"
+  class="fixed left-0 top-0 z-50 hidden h-screen w-screen items-center overflow-hidden is-open:flex"
   style="background: rgba(0, 0, 0, 0.85); opacity: 1;"
   bind:this="{modalElement}"
 >
@@ -268,6 +278,11 @@
   @media (min-width: 1280px) {
     .css-12z2xf8 {
       max-width: 1024px;
+    }
+  }
+  @media (max-width: 768px) {
+    .case-dialog {
+      max-width: 100vw !important;
     }
   }
 </style>
