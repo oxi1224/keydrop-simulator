@@ -208,7 +208,7 @@
         leaveFrom="scale-100 opacity-100"
         leaveTo="scale-90 opacity-0"
       >
-        <ListboxOptions class="absolute w-fit origin-top lg:w-full">
+        <ListboxOptions class="absolute z-50 w-fit origin-top lg:w-full">
           <div
             class="max-h-64 overflow-y-auto overflow-x-hidden rounded-lg border border-navy-200 border-opacity-30 bg-navy-700 bg-opacity-90 text-navy-200 shadow-lg outline-none md:max-h-80"
           >
