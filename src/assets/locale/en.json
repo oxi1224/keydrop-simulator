@@ -169,6 +169,7 @@
     "status": "Status",
     "confirm": "Confirm",
     "joinClassic": "Join Classic Battle",
+    "joinUnderdog": "Join Underdog Battle",
     "viewBattle": "Watch The Battle",
     "header": {
       "seeBots": "View Our Bots",
@@ -219,7 +220,7 @@
     "battlePage": {
       "battleRounds": "Battle Rounds",
       "results": "Go to result",
-      "battleStart": "Rozpoczęcie bitwy",
+      "battleStart": "Battle Start",
       "createSame": "Create an identical battle",
       "ready": "You Are",
       "toBattle": "Ready To Battle",

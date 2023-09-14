@@ -110,7 +110,8 @@ export const webSocketServer: Plugin = {
           select: {
             players: true,
             playerCount: true,
-            totalPrice: true
+            totalPrice: true,
+            mode: true
           }
         })) as any;
 
@@ -187,12 +188,14 @@ export const webSocketServer: Plugin = {
           }
           const keys = Object.keys(playerStats).map((str) => parseInt(str));
           const maxValue = Math.max(...keys.map((k) => playerStats[k].total));
-          const highestValues = keys.filter((k) => playerStats[k].total === maxValue);
+          const minValue = Math.min(...keys.map((k) => playerStats[k].total));
+          const compareVal = battle.mode === 'underdog' ? minValue : maxValue;
+          const winningValues = keys.filter((k) => playerStats[k].total === compareVal);
           const itemsToAdd = dropsToItems(allDrops, 'CASE BATTLE');
-          let winnerPos = highestValues[0];
+          let winnerPos = winningValues[0];
 
-          if (highestValues.length > 1)
-            winnerPos = highestValues[randomInt(0, highestValues.length - 1)];
+          if (winningValues.length > 1)
+            winnerPos = winningValues[randomInt(0, winningValues.length - 1)];
 
           if (!playerStats[winnerPos].user.bot) {
             await db.user.update({

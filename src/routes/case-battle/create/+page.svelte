@@ -416,13 +416,12 @@
               {$_('battles.create.classic')}
             </button>
           </RadioGroupOption>
-          <RadioGroupOption value="underdog" disabled="{true}">
+          <RadioGroupOption value="underdog">
             <button
               class="button w-full px-4 text-[10px] disabled:cursor-default disabled:brightness-75 {mode ===
               'underdog'
                 ? 'border border-gold bg-navy-700 transition-colors duration-200 hover:bg-navy-600'
                 : 'button-secondary'}"
-              disabled="{true}"
             >
               Underdog
             </button>

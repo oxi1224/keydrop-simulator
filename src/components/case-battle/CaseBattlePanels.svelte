@@ -13,10 +13,11 @@
   export let currentRound: number;
   export let visibleItems: number;
   export let countdownContent: number;
-  export let highestValuePositions: number[];
+  export let winningPositions: number[];
   export let wonItems: { [key: number]: CaseDrop[] };
   export let players: CaseBattlePlayers;
   export let battleOwner: string;
+  export let battleMode: 'underdog' | 'classic';
 
   export let showCountdown: boolean;
   export let battleAnimationOver: boolean;
@@ -102,7 +103,7 @@
               ? '0'
               : '100'}"
           >
-            <svg class="h-8 w-8 text-green">
+            <svg class="h-8 w-8 {battleMode === 'underdog' ? 'text-purple-500' : 'text-green'}">
               <use xlink:href="/icons/icons.svg?39#tick"></use>
             </svg>
             <p class="mt-2 text-xl text-center font-semibold uppercase text-white">
@@ -154,7 +155,7 @@
             {#if $page.data.user?.id === battleOwner}
               <div class="relative">
                 <button
-                  class="button button-green-dimmed mx-auto h-8 px-4 text-2xs hover:brightness-110"
+                  class="button mx-auto h-8 px-4 text-2xs hover:brightness-110 {battleMode === 'underdog' ? 'button-pink-dimmed' : 'button-green-dimmed'}"
                   on:click="{() => addBot(i)}"
                 >
                   <svg
@@ -171,7 +172,7 @@
                 </button>
                 <button
                   type="button"
-                  class="mx-auto mt-5 block text-sm uppercase text-neonGreen"
+                  class="mx-auto mt-5 block text-sm uppercase {battleMode === 'underdog' ? 'text-purple-500' : 'text-neonGreen'}"
                   on:click="{() => addAllBots()}"
                 >
                   {$_('battles.battlePage.summonBots')}
@@ -185,7 +186,7 @@
           class="transition-opacity duration-500"
           style="opacity: {!battleAnimationOver &&
           rollAnimationOver &&
-          highestValuePositions.length > 1
+          winningPositions.length > 1
             ? '100'
             : '0'}"
         >
@@ -219,10 +220,10 @@
               <strong class="font-semibold">{$_('battles.battlePage.toBattle')}</strong>
             </p>
             <button
-              class="button button-green-dimmed mt-4 max-w-full"
+              class="button mt-4 max-w-full {battleMode === 'underdog' ? 'button-pink-dimmed' : 'button-green-dimmed'}"
               on:click="{() => joinBattle(i)}"
             >
-              {$_('battles.joinClassic')}
+              {$_(battleMode == 'underdog' ? 'battles.joinUnderdog' : 'battles.joinClassic')}
             </button>
           </div>
         {/if}
@@ -357,9 +358,9 @@
 
         <!-- TODO: TOTAL WINNINGS DATA -->
         <div class="ml-auto flex items-center text-xs font-semibold text-white overflow-scroll no-scrollbar">
-          {#if highestValuePositions.includes(i)}
+          {#if winningPositions.includes(i)}
             <svg
-              class="icon mr-2 h-4 w-4 text-green transition-opacity duration-1000"
+              class="icon mr-2 h-4 w-4 text-green transition-opacity duration-1000 {battleMode === 'underdog' ? 'rotate-180' : ''}"
               viewBox="0 0 18 18"
               fill="none"
               stroke="currentColor"

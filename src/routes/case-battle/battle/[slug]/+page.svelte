@@ -23,10 +23,11 @@
   let visibleRound = 0;
   let visibleItems = 0;
   let countdownContent = 3;
-  let highestValuePositions: number[] = [];
+  let winningPositions: number[] = [];
   let winnerPos = caseBattleData.winner;
   let battleOwner = caseBattleData.owner;
   let screenSize: number;
+  const battleMode = caseBattleData.mode as 'underdog' | 'classic';
   const wonItems: { [key: number]: CaseDrop[] } = Object.fromEntries(
     Object.entries(caseBattleData.drops).map(([key, drops]) => [
       parseInt(key),
@@ -123,7 +124,7 @@
     [...document.querySelectorAll('.display-case')].forEach((elm) =>
       elm.classList.remove('inactive-case-display')
     );
-    if (highestValuePositions.length !== 1) await sleep(2500);
+    if (winningPositions.length !== 1) await sleep(2500);
     if (!$settings.muteAudio && !stopRolling) {
       checkPlayer.load();
       battleFinalePlayer.play();
@@ -224,7 +225,9 @@
     }
     const keys = Object.keys(playerStats).map((str) => parseInt(str));
     const maxValue = Math.max(...keys.map((k) => playerStats[k]));
-    highestValuePositions = keys.filter((k) => playerStats[k] === maxValue);
+    const minValue = Math.min(...keys.map((k) => playerStats[k]));
+    const compareVal = battleMode === 'underdog' ? minValue : maxValue;
+    winningPositions = keys.filter((k) => playerStats[k] === compareVal);
   }
 </script>
 
@@ -237,9 +240,9 @@
   <CaseBattleHeader title="{$_('battles.header.battle')}" activeTab="{4}">
     <button
       on:click="{createSameBattle}"
-      class="button button-green-dimmed relative h-12 w-full hover:brightness-110 lg:w-min lg:min-w-[16rem] {loading
+      class="button relative h-12 w-full hover:brightness-110 lg:w-min lg:min-w-[16rem] {loading
         ? 'pointer-events-none brightness-75'
-        : ''}"
+        : ''} {battleMode === 'underdog' ? 'button-pink-dimmed' : 'button-green-dimmed'}"
     >
       <span>
         <p>
@@ -265,10 +268,10 @@
       <div class="flex rounded-bl-full rounded-br-lg rounded-tl-full rounded-tr-lg bg-navy-800">
         <div
           data-testid="case_battle_list_item_round"
-          class="mr-1 flex h-[96px] w-[96px] min-w-[96px] items-center justify-center rounded-full border border-[#665130] bg-[#1E180E] text-2xl shadow-[inset_0_0_0.8rem_0.4rem_rgba(232,179,33,0.1)] transition"
+          class="mr-1 flex h-[96px] w-[96px] min-w-[96px] items-center justify-center rounded-full border text-2xl transition {battleMode === 'underdog' ? 'border-purple-500 bg-[#110515] shadow-[inset_0_0_0.8rem_0.4rem_#4D2858]' : 'border-[#665130] bg-[#1E180E] shadow-[inset_0_0_0.8rem_0.4rem_rgba(232,179,33,0.1)]'}"
         >
           <div
-            class="flex h-[56%] w-[56%] items-center justify-center rounded-full border-2 border-gold-400 text-center font-bold text-gold-400 drop-shadow-[0_0_0.1rem_rgba(232,179,33,0.5)] transition"
+            class="flex h-[56%] w-[56%] items-center justify-center rounded-full border-2 text-center font-bold transition {battleMode === 'underdog' ? 'border-purple-400 text-purple-400 drop-shadow-[0_0_0.4rem_purple-400/50]' : 'border-gold-400 text-gold-400 drop-shadow-[0_0_0.1rem_rgba(232,179,33,0.5)]'}"
           >
             {visibleRound}
           </div>
@@ -358,7 +361,7 @@
       </button>
       <div>
         <button
-          class="button group h-7 p-0 text-[10px] font-normal lowercase text-navy-300 transition-opacity duration-200 hover:text-white md:h-9 max-w-full overflow-hidden"
+          class="button group h-7 max-w-full overflow-hidden p-0 text-[10px] font-normal lowercase text-navy-300 transition-opacity duration-200 hover:text-white md:h-9"
           on:click="{() => navigator.clipboard.writeText($page.url.toString())}"
         >
           <svg class="icon mr-2 block h-3 w-3" viewBox="0 0 16 16" fill="currentColor">
@@ -382,10 +385,11 @@
         {currentRound}
         {visibleItems}
         {countdownContent}
-        {highestValuePositions}
+        {winningPositions}
         {wonItems}
         {players}
         {battleOwner}
+        {battleMode}
         {startBattle}
         {showAwardInfo}
         {showRoulettes}
@@ -401,10 +405,11 @@
         {currentRound}
         {visibleItems}
         {countdownContent}
-        {highestValuePositions}
+        {winningPositions}
         {wonItems}
         {players}
         {battleOwner}
+        {battleMode}
         {startBattle}
         {showAwardInfo}
         {showRoulettes}

@@ -60,6 +60,13 @@
     background-color: rgb(94 72 47 / var(--tw-bg-opacity));
   }
 
+  .button-pink-dimmed {
+    --tw-border-opacity: 1;
+    border: 1px solid rgb(193 100 220/var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(39 20 44/var(--tw-bg-opacity));
+  }
+
   .dropdown-compact {
     min-width: 7rem;
     height: 2.25rem;
@@ -652,4 +659,21 @@ img.loaded ~ div.loader-container {
 
 .animate-scale {
   animation: scale 1s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-scrollbar {
+  scrollbar-width:thin;
+  scrollbar-color:#6a6d81 #19181e
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width:14px
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background:#19181e;
+  border-radius:50px
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius:50px;
+  background-color:#6a6d81;
+  border:5px solid #19181e
 }

@@ -17,10 +17,11 @@
   export let currentRound: number;
   export let visibleItems: number;
   export let countdownContent: number;
-  export let highestValuePositions: number[];
+  export let winningPositions: number[];
   export let wonItems: { [key: number]: CaseDrop[] };
   export let players: CaseBattlePlayers;
   export let battleOwner: string;
+  export let battleMode: 'underdog' | 'classic';
 
   export let showCountdown: boolean;
   export let battleAnimationOver: boolean;
@@ -132,7 +133,7 @@
           class="transition-opacity duration-500"
           style="opacity: {!battleAnimationOver &&
           rollAnimationOver &&
-          highestValuePositions.length > 1
+          winningPositions.length > 1
             ? '100'
             : '0'}"
         >
@@ -331,7 +332,7 @@
             .map((p) => p.id)
             .includes($page.data.user?.id)}
           <button
-            class="button button-green-dimmed mx-auto h-fit whitespace-normal px-3 py-1 text-2xs leading-none"
+            class="button mx-auto h-fit whitespace-normal px-3 py-1 text-2xs leading-none {battleMode === 'underdog' ? 'button-pink-dimmed' : 'button-green-dimmed'}"
             on:click="{() => joinBattle(i)}"
           >
             <span>
@@ -350,7 +351,7 @@
           <div class="flex flex-col items-center">
             <div class="relative flex flex-col items-center">
               <button
-                class="button button-green-dimmed mx-auto h-9 px-3 text-2xs"
+                class="button mx-auto h-9 px-3 text-2xs {battleMode === 'underdog' ? 'button-pink-dimmed' : 'button-green-dimmed'}"
                 on:click="{() => addBot(i)}"
               >
                 <svg class="icon h-4 w-4 flex-shrink-0 text-white" viewBox="0 0 19 21" fill="none">
@@ -363,7 +364,7 @@
             </div>
             <button
               type="button"
-              class="mx-auto mt-2.5 block text-xs uppercase text-green-200"
+              class="mx-auto mt-2.5 block text-xs uppercase {battleMode === 'underdog' ? 'text-purple-500' : 'text-green-200'}"
               on:click="{() => addAllBots()}"
             >
               {$_('battles.battlePage.summonBots')}
