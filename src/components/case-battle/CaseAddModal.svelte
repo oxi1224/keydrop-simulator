@@ -56,9 +56,9 @@
   $: {
     let sortedCases = cases;
     if (sorting.value === $_('battles.list.priceAsc'))
-      sortedCases = [...cases].sort((a, b) => b.price - a.price);
-    else if (sorting.value === $_('battles.list.priceDesc'))
       sortedCases = [...cases].sort((a, b) => a.price - b.price);
+    else if (sorting.value === $_('battles.list.priceDesc'))
+      sortedCases = [...cases].sort((a, b) => b.price - a.price);
     else if (sorting.value === $_('battles.list.name'))
       sortedCases = [...cases].sort((a, b) => a.websiteName.localeCompare(b.websiteName));
     filteredCases = sortedCases.filter((c) =>

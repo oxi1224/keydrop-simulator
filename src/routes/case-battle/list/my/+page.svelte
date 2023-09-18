@@ -33,8 +33,8 @@
 
     if (filters.sorting !== $_('battles.list.newest')) {
       filteredBattles = filteredBattles.sort((a, b) => {
-        if (filters.sorting === $_('battles.list.priceAsc')) return b.totalPrice - a.totalPrice;
-        return a.totalPrice - b.totalPrice;
+        if (filters.sorting === $_('battles.list.priceAsc')) return a.totalPrice - b.totalPrice;
+        return b.totalPrice - a.totalPrice;
       });
     }
   }
