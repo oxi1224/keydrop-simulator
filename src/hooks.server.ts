@@ -19,7 +19,7 @@ const auth: Handle = async ({ event, resolve }) => {
       pfpUrl: user.pfpUrl
     };
   }
-  return resolve(event);
+  return await resolve(event);
 };
 
 const i18n: Handle = async ({ event, resolve }) => {
@@ -38,7 +38,7 @@ const i18n: Handle = async ({ event, resolve }) => {
     });
   }
 
-  return resolve(event, {
+  return await resolve(event, {
     transformPageChunk: ({ html }) => html.replace('%lang%', lang ?? 'en')
   });
 };
