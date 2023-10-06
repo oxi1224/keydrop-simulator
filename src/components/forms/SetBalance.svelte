@@ -51,6 +51,7 @@
         type="number"
         min="0"
         max="999999999"
+        step="0.01"
         class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-navy-700 placeholder-navy-300 focus:z-10 focus:border-navy-550 focus:outline-none focus:ring-indigo-500 sm:text-sm"
         placeholder="{$_('balanceForm.balancePlaceholder')}"
       />
