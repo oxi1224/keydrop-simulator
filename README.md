@@ -1,42 +1,29 @@
 # PROJEKT NIE AKTUALIZOWANY
 # PROJECT DISCONTINUED
 
+# Wymagania
+- Node.JS (https://nodejs.org/en)
+- yarn (https://yarnpkg.com/)
+- PostgreSQL (https://www.postgresql.org.pl/)
+- Baza danych (lokalna bądź postronna)
 
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+# Uzywanie
+- Pobierz kod źródłowy i wypakuj
+- Stwórz bazę danych PostgreSQL i stwórz plik ``.env`` z następującą zawartością:
+```.env
+DATABASE_URL = "Link do bazy danych"
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+- Wpisz następujące komendy w konsoli w ścieżce w której znajduje się projekt:
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
+yarn
+npx prisma db push
+npx prisma generate
+yarn dev -- --open
 ```
+- Jeżeli wszystko zostało poprawne wykonane, powinno się otworzyć okno przeglądarki zawierające stronę.
 
-You can preview the production build with `npm run preview`.
+## Importowanie skrzynek
+Instrukcja znajduję sie w osobnym repozytorium. [link](https://github.com/oxi1224/keydrop-simulator-scripts/tree/main)
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Autorzy
+- [Oxi1224](https://github.com/oxi1224)
