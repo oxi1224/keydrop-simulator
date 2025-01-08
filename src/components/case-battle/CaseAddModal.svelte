@@ -28,7 +28,7 @@
   let sorting = sortingOptions[0];
 
   function selectCase(caseData: Case) {
-    if (selectedCases.map((c) => c.urlName).includes(caseData.urlName) || totalCaseCount >= 20)
+    if (selectedCases.map((c) => c.urlName).includes(caseData.urlName) || totalCaseCount >= 50)
       return;
     selectedCases.push({ ...caseData, count: 1 });
     selectedCases = selectedCases;
