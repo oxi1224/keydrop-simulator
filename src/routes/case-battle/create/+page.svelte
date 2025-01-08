@@ -48,7 +48,7 @@
   function updateCount(caseData: Case, n: number) {
     const index = selectedCases.findIndex((c) => c.urlName === caseData.urlName);
     const selectedCase = selectedCases[index];
-    if (totalCaseCount + n > 20 || selectedCase.count <= 0) return;
+    if (totalCaseCount + n > 50 || selectedCase.count <= 0) return;
     if (selectedCase.count + n == 0) {
       selectedCases.splice(index, 1);
       selectedCases = selectedCases;
@@ -278,7 +278,7 @@
             <button
               class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border border-navy-400 bg-navy-500 text-xs font-bold text-white transition-colors duration-200 hover:border-white hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:pointer-events-none disabled:cursor-default disabled:opacity-25"
               on:click="{() => updateCount(caseData, 1)}"
-              disabled="{totalCaseCount >= 20}"
+              disabled="{totalCaseCount >= 50}"
             >
               +
             </button>

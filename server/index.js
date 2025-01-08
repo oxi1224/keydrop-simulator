@@ -59,7 +59,7 @@ try {
       })
       .catch(() => null);
     io.emit('caseBattleListUpdate', battles);
-  }, 25_000);
+  }, 5_000);
 
   io.on('connection', async (socket) => {
     // @ts-ignore
